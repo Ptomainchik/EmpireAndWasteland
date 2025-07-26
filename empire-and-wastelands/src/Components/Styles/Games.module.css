@@ -11,4 +11,5 @@
     text-align: center;
     border-top: solid 0.3vw grey;
     border-bottom: solid 0.3vw grey;
+    z-index: 21;
 }

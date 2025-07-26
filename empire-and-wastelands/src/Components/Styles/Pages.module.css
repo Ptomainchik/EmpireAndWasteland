@@ -11,11 +11,60 @@
     text-align: center;
     border-top: solid 0.3vw grey;
     border-bottom: solid 0.3vw grey;
+    z-index: 21;
 }
+
+.empirePage{
+    width: 100%;
+    height: 100%;
+    background: darkcyan;
+    position: absolute;
+}
+
+.wastelandPage{
+    width: 100%;
+    height: 100%;
+    background: olive;
+    position: absolute;
+}
+
+.imageMainCharacter{
+    width: 20vw;
+    height: 30vw;
+    border-bottom: solid 0.5vw grey;
+    border-right: solid 0.5vw grey;
+    border-bottom-right-radius: 100%;
+    position: absolute;
+    top: 10%;
+    left: 0;
+}
+
+.blockInfoPage{
+    width: 50vw;
+    height: 40vw;
+    background: yellow;
+    border-bottom: solid 0.5vw grey;
+    border-left: solid 0.5vw grey;
+    border-bottom-left-radius: 100%;
+    position: absolute;
+    top: 10%;
+    right: 0;
+}
+
+.blockInfoPage p{
+    width: 80%;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    font-family: "Pangolin";
+    font-size: 2vw;
+    text-align: right;
+}
+
 .blockButtonsPages{
     position: absolute;
     bottom: 0%;
-    left: 5%;
+    left: 17%;
 }
 
 .buttonPage{
@@ -24,11 +73,12 @@
     display: block;
     background: grey;
     border-radius: 50%;
+    border: solid 0.3vw black;
     font-size: 3vw;
     font-family: "El messiri";
     cursor: pointer;
 }
 
 .buttonPage:hover{
-    opacity: 0.8;
+    background: darkgrey;
 }

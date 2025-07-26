@@ -11,4 +11,84 @@
     text-align: center;
     border-top: solid 0.3vw grey;
     border-bottom: solid 0.3vw grey;
+    z-index: 21;
+}
+
+.historyPage{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgb(44, 43, 43);
+}
+
+.blockButtonHistory{
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttonHead{
+    width: 10vw;
+    height: 20vw;
+    display: block;
+    clip-path: polygon(100% 0, 100% 100%, 50% 70%, 0 100%, 0 0);
+    cursor: pointer;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-size: 2vw;
+    font-family: "El Messiri";
+}
+
+.head{
+    width: 100%;
+    height: 90%;
+    position: absolute;
+    top: 10%;
+    background: rgb(99, 53, 53);
+    animation: shiftHead 1s forwards;
+}
+
+.head h3{
+    font-size: 3vw;
+    font-family: "El Messiri";
+    margin: 0;
+    position: absolute;
+    top: 5%;
+    right: 30%;
+}
+
+.head p{
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    top: 15%;
+    right: 5%;
+    font-size: 2vw;
+    font-family: "Pangolin";
+}
+
+.imageHead{
+    width: 30vw;
+    height: 30vw;
+    margin: 2%;
+}
+
+.closeButton{
+    width: 20vw;
+    height: 3vw;
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    font-size: 2vw;
+    font-family: "El Messiri";
+    cursor: pointer;
+    background: red;
+}
+
+.closeButton:hover{
+    background: rgb(180, 0, 0);
+}
+
+@keyframes shiftHead{
+    from{top: -130%;}
+    to{top: 10%;}
 }
