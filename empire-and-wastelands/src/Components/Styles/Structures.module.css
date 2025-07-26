@@ -13,3 +13,261 @@
     border-bottom: solid 0.3vw grey;
     z-index: 21;
 }
+
+/* -----WastelandStructure----- */
+
+.structurePageWasteland{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: olive;
+}
+
+.blockButtonStructure{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.region1Button{
+    width: 20vw;
+    height: 3vw;
+    background: darkblue;
+    font-family: "El Messiri";
+    font-size: 2vw;
+    cursor: pointer;
+}
+
+.region1Button:hover{
+    background: rgb(0, 0, 172);
+}
+
+.region2Button{
+    width: 20vw;
+    height: 3vw;
+    background: darkred;
+    font-family: "El Messiri";
+    font-size: 2vw;
+    cursor: pointer;
+}
+
+.region2Button:hover{
+    background: rgb(170, 0, 0);
+}
+
+.region3Button{
+    width: 20vw;
+    height: 3vw;
+    background: darkorange;
+    font-family: "El Messiri";
+    font-size: 2vw;
+    cursor: pointer;
+}
+
+.region3Button:hover{
+    background: rgb(196, 108, 0);
+}
+
+.regionMotherButton{
+    width: 30vw;
+    height: 5vw;
+    background: yellow;
+    font-family: "El Messiri";
+    font-size: 2vw;
+    cursor: pointer;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.regionMotherButton:hover{
+    background: rgb(170, 170, 0);
+}
+
+.regionModal{
+    width: 100%;
+    height: 90%;
+    position: absolute;
+    top: 10%;
+    background: rgb(70, 70, 70);
+    animation: shiftBottom 1s forwards;
+}
+
+.regionModal h3{
+   position: absolute;
+   top: 5%;
+   right: 30%;
+   font-size: 3vw;
+   font-family: "El Messiri";
+   margin: 0;
+}
+
+.regionModal p{
+    width: 50%;
+    height: 60%;
+    position: absolute;
+    top: 15%;
+    right: 5%;
+    font-size: 2vw;
+    font-family: "Pangolin";
+    text-align: center;
+}
+
+.regionMotherModal{
+    width: 100%;
+    height: 90%;
+    position: absolute;
+    top: 10%;
+    background: rgb(70, 70, 70);
+    animation: shiftTop 1s forwards;
+}
+
+.regionMotherModal h3{
+   position: absolute;
+   top: 5%;
+   right: 30%;
+   font-size: 3vw;
+   font-family: "El Messiri";
+   margin: 0;
+}
+
+.regionMotherModal p{
+    width: 50%;
+    height: 60%;
+    position: absolute;
+    top: 15%;
+    right: 5%;
+    font-size: 2vw;
+    font-family: "Pangolin";
+    text-align: center;
+}
+
+.imageRegion{
+    width: 40vw;
+    height: 20vw;
+    margin: 2%;
+    border-radius: 50%;
+}
+
+@keyframes shiftTop{
+    from{top: -120%;}
+    to{top: 10%;}
+}
+
+@keyframes shiftBottom{
+    from{top: 120%;}
+    to{top: 10%;}
+}
+
+/* -----EmpireStructure----- */
+
+.structurePageEmpire{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: darkcyan;
+}
+
+.buttonWestKingdom{
+    width: 15vw;
+    height: 40vw;
+    position: absolute;
+    top: 15%;
+    left: 5%;
+    background: darkred;
+    cursor: pointer;
+}
+
+.buttonWestKingdom:hover{
+    background: rgb(170, 0, 0);
+}
+
+.buttonEastKingdom{
+    width: 15vw;
+    height: 40vw;
+    position: absolute;
+    top: 15%;
+    right: 5%;
+    background: darkblue;
+    cursor: pointer;
+}
+
+.buttonEastKingdom:hover{
+    background: rgb(0, 0, 170);
+}
+
+.modalWestKingdom{
+    width: 100%;
+    height: 90%;
+    position: absolute;
+    top: 10%;
+    background: rgb(70, 70, 70);
+    animation: shiftRight 1s forwards;
+}
+
+.modalEastKingdom{
+    width: 100%;
+    height: 90%;
+    position: absolute;
+    top: 10%;
+    background: rgb(70, 70, 70);
+    animation: shiftLeft 1s forwards;
+}
+
+.imageKingdom{
+    width: 40vw;
+    height: 20vw;
+    margin: 2%;
+    border-radius: 50%;
+}
+
+.structurePageEmpire h3{
+   position: absolute;
+   top: 5%;
+   right: 20%;
+   font-size: 3vw;
+   font-family: "El Messiri";
+   margin: 0;
+}
+
+.structurePageEmpire p{
+    width: 50%;
+    height: 60%;
+    position: absolute;
+    top: 15%;
+    right: 5%;
+    font-size: 2vw;
+    font-family: "Pangolin";
+    text-align: center;
+}
+
+@keyframes shiftLeft{
+    from{left: 120%;}
+    to{left: 0%;}
+}
+
+@keyframes shiftRight{
+    from{right: 120%;}
+    to{right: 0%;}
+}
+
+.closeButton{
+    width: 20vw;
+    height: 3vw;
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    font-size: 2vw;
+    font-family: "El Messiri";
+    cursor: pointer;
+    background: red;
+}
+
+.closeButton:hover{
+    background: rgb(180, 0, 0);
+}
