@@ -5,8 +5,8 @@ import { HomeButton } from "../../Buttons/HomeButton";
 export const StructureEmpireMarah = () => {
     return (
         <div className={classes.historyPage}>
-            <div className={classes.topbar}><HomeButton/>Структура<BackButton/></div>
-            StructureEmpireMarah
+            <div className={classes.topbar} style={{background: "cadetblue"}}><HomeButton/>Структура<BackButton/></div>
+            
         </div>
     )
 }

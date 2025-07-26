@@ -5,8 +5,8 @@ import { HomeButton } from "../../Buttons/HomeButton";
 export const HistoryEmpireMarah = () => {
     return (
         <div className={classes.historyPage}>
-            <div className={classes.topbar}><HomeButton/>История<BackButton/></div>
-            HistoryEmpireMarah
+            <div className={classes.topbar} style={{background: "cadetblue"}}><HomeButton/>История<BackButton/></div>
+        
         </div>
     )
 }

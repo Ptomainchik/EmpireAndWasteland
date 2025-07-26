@@ -5,8 +5,8 @@ import { HomeButton } from "../../Buttons/HomeButton";
 export const GameEmpire = () => {
     return (
         <div>
-            <div className={classes.topbar}><HomeButton/>Игра<BackButton/></div>
-            
-             GameEmpire </div>
+            <div className={classes.topbar} style={{background: "cadetblue"}}><HomeButton/>Игра<BackButton/></div>
+        
+        </div>
     )
 }

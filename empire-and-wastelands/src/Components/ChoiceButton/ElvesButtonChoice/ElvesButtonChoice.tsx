@@ -7,6 +7,8 @@ export const ElvesButtonChoice = () => {
         navigate("empire");
         }
     return (
-        <button className={classes.elvesChoice} onClick={transition}> Empire </button>
+        <div className={classes.elvesChoiceBackground}>
+            <button className={classes.elvesChoice} onClick={transition}></button>
+        </div>
     )
 }

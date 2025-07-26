@@ -1,0 +1,31 @@
+.homeButton{
+    width: 20%;
+    font-family: "El Messiri";
+    font-size: 3vw;
+    font-weight: 700;
+    background: brown;
+    display: block;
+    border: none;
+    border-right: solid 0.3vw grey ;
+    cursor: pointer;
+}
+
+.homeButton:hover{
+    background: rgb(219, 59, 59);
+}
+
+.backButton{
+    width: 20%;
+    font-family: "El Messiri";
+    font-size: 3vw;
+    font-weight: 700;
+    background: darkslateblue;
+    display: block;
+    border: none;
+    border-left: solid 0.3vw grey;
+    cursor: pointer;
+}
+
+.backButton:hover{
+    background: rgb(97, 83, 189);
+}

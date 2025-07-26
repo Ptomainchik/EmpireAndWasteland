@@ -16,7 +16,7 @@
     background: yellowgreen;
     position: absolute;
     top: 0;
-    clip-path: polygon(0 0, 100% 0, 65% 35%, 100% 100%, 0 100%, 35% 35%);
+    clip-path: polygon(0 0, 100% 0, 70% 35%, 100% 100%, 0 100%, 30% 35%);
 }
 
 .infoBlockStartPage{
@@ -25,14 +25,14 @@
     background: darkgreen;
     position: absolute;
     top: 0;
-    clip-path: polygon(5% 0, 95% 0, 62% 35%, 95% 100%, 5% 100%, 37% 35%);
+    clip-path: polygon(5% 0, 95% 0, 65% 35%, 95% 100%, 5% 100%, 35% 35%);
 }
 
 .infoBlockStartPage h3{
     font-family: "El Messiri";
     font-size: 4vw;
     font-weight: 700;
-    color: sienna;
+    color:darkorange;
     text-align: center;
 }
 
@@ -41,7 +41,7 @@
     font-family: "Pangolin";
     font-size: 2.5vw;
     font-weight: 700;
-    color: salmon;
+    color: tan;
     text-align: center;
     position: absolute;
     left: 50%;
@@ -49,43 +49,93 @@
     transform: translateX(-50%);
 }
 
-.elvesChoice{
-    width: 20%;
-    height: 70%;
-    background: cornflowerblue;
+.elvesChoiceBackground{
+    width: 50%;
+    height: 100%;
     position: absolute;
-    left: 5%;
-    bottom: 15%;
+    top: 0;
+    left: 0;
+    background: url(../../Images/ImpireMarahImage/EmpireBackgroundChoice.jpg) no-repeat left; 
+    background-size: contain;
+}
+
+.elvesChoice{
+    width: 30%;
+    height: 70%;
+    background: url(../../Images/ImpireMarahImage/ChoiceElvesImage.webp) no-repeat;
+    background-size: contain;
+    border: none;
+    position: absolute;
+    left: 15%;
+    bottom: 10%;
     cursor: pointer;
+    margin: 0;
    
 }
 
 .elvesChoice:hover{
-    animation: opacityStyle 1s infinite;
+    animation: shineElves 1.5s infinite;
+}
+
+.angalsChoiceBackground{
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: url(../../Images/AngalsWastelandsImage/WastelandBackgruondChoice.jpg) no-repeat right;
+    background-size: contain;
 }
 
 .angalsChoice{
-    width: 20%;
+    width: 30%;
     height: 70%;
-    background: brown;
+    background: url(../../Images/AngalsWastelandsImage/ChoiceAngalImage.webp) no-repeat;
+    background-size: contain;
+    border: none;
     position: absolute;
-    right: 5%;
-    bottom: 15%;
+    right: 8%;
+    bottom: 10%;
     cursor: pointer;
+    margin: 0;
 }
 
 .angalsChoice:hover{
-    animation: opacityStyle 1s infinite;
+    animation: shineAngals 1.5s infinite;
 }
 
-@keyframes opacityStyle {
-    0%, 50%, 100%{
-        opacity: 1;
+@keyframes shineElves {
+     0%, 25%, 50%, 75%, 100%{
+        filter: drop-shadow( 0 0 0.3vw darkslategray);
+    }
+    25%{
+        filter: drop-shadow( 0 0 1vw darkslategray);
     }
     50%{
-        opacity: 0.5;
+        filter: drop-shadow( 0 0 0.3vw darkslategray);
+    }
+    75%{
+        filter: drop-shadow( 0 0 1vw darkslategray);
     }
     100%{
-        opacity: 1;
+        filter: drop-shadow( 0 0 0.3vw darkslategray);
+    }
+}
+
+@keyframes shineAngals {
+    0%, 25%, 50%, 75%, 100%{
+        filter: drop-shadow( 0 0 0.3vw darkolivegreen);
+    }
+    25%{
+        filter: drop-shadow( 0 0 1vw darkolivegreen);
+    }
+    50%{
+        filter: drop-shadow( 0 0 0.3vw darkolivegreen);
+    }
+    75%{
+        filter: drop-shadow( 0 0 1vw darkolivegreen);
+    }
+    100%{
+        filter: drop-shadow( 0 0 0.3vw darkolivegreen);
     }
 }

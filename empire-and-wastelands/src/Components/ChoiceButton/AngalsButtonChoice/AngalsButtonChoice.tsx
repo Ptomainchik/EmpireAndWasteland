@@ -7,6 +7,9 @@ export const AngalsButtonChoice = () => {
         navigate("wasteland");
         }
     return (
-        <button className={classes.angalsChoice} onClick={transition}> Angals </button>
+        <div className={classes.angalsChoiceBackground}>
+            <button className={classes.angalsChoice} onClick={transition}></button>
+        </div>
+        
     )
 }

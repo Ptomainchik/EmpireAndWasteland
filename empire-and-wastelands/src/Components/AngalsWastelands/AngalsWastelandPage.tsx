@@ -8,11 +8,12 @@ import { GameButtonWasteland } from "./ButtonsPage/GameWastelandButton";
 export const AngalsWastelandPage = () => {
     return (
         <div className={classes.wastelandPage}>
-            <div className={classes.topbar}><HomeButton/>Пустоши Ангалов<BackButton/></div>
-            <HistoryButtonWasteland/>
-            <StructureButtonWasteland/>
-            <GameButtonWasteland/>
-            Wasteland
+            <div className={classes.topbar} style={{background: "darkolivegreen"}}><HomeButton/>Пустоши Ангалов<BackButton/></div>
+            <div className={classes.blockButtonsPages}>
+                <HistoryButtonWasteland/>
+                <StructureButtonWasteland/>
+                <GameButtonWasteland/>
+            </div>
         </div>
     )
 }
