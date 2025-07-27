@@ -4,7 +4,7 @@ import { HomeButton } from "../Buttons/HomeButton";
 import { HistoryButtonWasteland } from "./ButtonsPage/HistoryWastelandButton";
 import { StructureButtonWasteland } from "./ButtonsPage/StructureWastelandButton";
 import { GameButtonWasteland } from "./ButtonsPage/GameWastelandButton";
-import imageCharacter from "../../Images/AngalsWastelandsImage/WastelandBackgruondChoice.jpg";
+import imageCharacter from "../../Images/AngalsWastelandsImage/AngalMainCharacter.jpg";
 
 export const AngalsWastelandPage = () => {
     return (

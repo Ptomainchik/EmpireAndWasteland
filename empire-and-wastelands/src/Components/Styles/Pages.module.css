@@ -30,10 +30,10 @@
 
 .imageMainCharacter{
     width: 20vw;
-    height: 30vw;
+    height: 35vw;
     border-bottom: solid 0.5vw grey;
     border-right: solid 0.5vw grey;
-    border-bottom-right-radius: 100%;
+    border-bottom-right-radius: 90%;
     position: absolute;
     top: 10%;
     left: 0;
