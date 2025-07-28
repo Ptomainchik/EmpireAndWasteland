@@ -2,7 +2,11 @@ import classes from "../../Styles/Histories.module.css";
 import { BackButton } from "../../Buttons/BackButton";
 import { HomeButton } from "../../Buttons/HomeButton";
 import { useState } from "react";
-import imageHead from "../../../Images/AngalsWastelandsImage/WastelandBackgruondChoice.jpg";
+import AngalsMother from "../../../Images/AngalsWastelandsImage/AngalsMother.jpg";
+import AngalShapeshifter from "../../../Images/AngalsWastelandsImage/AngalShapeshifter.jpg";
+import FirstHunt from "../../../Images/AngalsWastelandsImage/FirstHunt.jpg";
+import AngalSoldier from "../../../Images/AngalsWastelandsImage/AngalSoldier.jpg";
+import WomanAngal from "../../../Images/AngalsWastelandsImage/WomanAngal.jpg";
 
 export const HistoryAngalsWasteland = () => {
     const [showHeadsModalId, setShowHeadsModalId] = useState(null);
@@ -28,7 +32,7 @@ export const HistoryAngalsWasteland = () => {
             </div>
 
             {showHeadsModalId === "1" && <div id={"1"} className={classes.head}>
-                <img className={classes.imageHead} src={imageHead} alt="images" style={{border: "solid 0.3vw darkolivegreen"}} draggable={false}/>
+                <img className={classes.imageHead} src={AngalsMother} alt="AngalsMother" style={{border: "solid 0.3vw darkolivegreen"}} draggable={false}/>
                 <h3>Head1</h3>
                 <p>
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
@@ -39,7 +43,7 @@ export const HistoryAngalsWasteland = () => {
             </div> }
 
             {showHeadsModalId === "2" && <div id={"2"} className={classes.head}>
-                <img className={classes.imageHead} src={imageHead} alt="images" style={{border: "solid 0.3vw darkolivegreen"}} draggable={false}/>
+                <img className={classes.imageHead} src={WomanAngal} alt="WomanAngal" style={{border: "solid 0.3vw darkolivegreen"}} draggable={false}/>
                 <h3>Head2</h3>
                 <p>
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
@@ -50,7 +54,7 @@ export const HistoryAngalsWasteland = () => {
             </div> }
 
             {showHeadsModalId === "3" && <div id={"3"} className={classes.head}>
-                <img className={classes.imageHead} src={imageHead} alt="images" style={{border: "solid 0.3vw darkolivegreen"}} draggable={false}/>
+                <img className={classes.imageHead} src={AngalShapeshifter} alt="AngalShapeshifter" style={{border: "solid 0.3vw darkolivegreen"}} draggable={false}/>
                 <h3>Head3</h3>
                 <p>
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
@@ -61,7 +65,7 @@ export const HistoryAngalsWasteland = () => {
             </div> }
 
             {showHeadsModalId === "4" && <div id={"4"} className={classes.head}>
-                <img className={classes.imageHead} src={imageHead} alt="images" style={{border: "solid 0.3vw darkolivegreen"}} draggable={false}/>
+                <img className={classes.imageHead} src={AngalSoldier} alt="AngalSoldier" style={{border: "solid 0.3vw darkolivegreen"}} draggable={false}/>
                 <h3>Head4</h3>
                 <p>
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
@@ -72,7 +76,7 @@ export const HistoryAngalsWasteland = () => {
             </div> }
 
             {showHeadsModalId === "5" && <div id={"5"} className={classes.head}>
-                <img className={classes.imageHead} src={imageHead} alt="images" style={{border: "solid 0.3vw darkolivegreen"}} draggable={false}/>
+                <img className={classes.imageHead} src={FirstHunt} alt="FirstHunt" style={{border: "solid 0.3vw darkolivegreen"}} draggable={false}/>
                 <h3>Head5</h3>
                 <p>
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. 

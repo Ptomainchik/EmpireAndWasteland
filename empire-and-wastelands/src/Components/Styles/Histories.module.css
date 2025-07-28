@@ -57,7 +57,7 @@
 }
 
 .head p{
-    width: 50%;
+    width: 45%;
     height: 50%;
     position: absolute;
     top: 15%;
@@ -67,9 +67,10 @@
 }
 
 .imageHead{
-    width: 30vw;
-    height: 30vw;
+    width: 45vw;
+    height: 27.5vw;
     margin: 2%;
+    border-radius: 50%;
 }
 
 .closeButton{
