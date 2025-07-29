@@ -2,7 +2,11 @@ import classes from "../../Styles/Histories.module.css";
 import { BackButton } from "../../Buttons/BackButton";
 import { HomeButton } from "../../Buttons/HomeButton";
 import { useState } from "react";
-import imageHead from "../../../Images/ImpireMarahImage/EmpireBackgroundChoice.jpg";
+import TracesOfHunting from "../../../Images/ImpireMarahImage/TracesOfHunting.jpg";
+import Elder from "../../../Images/ImpireMarahImage/Elder.jpg";
+import ElfFury from "../../../Images/ImpireMarahImage/ElfFury.jpg";
+import Emperor from "../../../Images/ImpireMarahImage/Emperor.jpg";
+import ElfSoldier from "../../../Images/ImpireMarahImage/ElfSoldier.jpg";
 
 export const HistoryEmpireMarah = () => {
     const [showHeadsModalId, setShowHeadsModalId] = useState(null);
@@ -27,7 +31,7 @@ export const HistoryEmpireMarah = () => {
             </div>
 
             {showHeadsModalId === "1" && <div id={"1"} className={classes.head}>
-                <img className={classes.imageHead} src={imageHead} alt="images" style={{border: "solid 0.3vw cadetblue"}} draggable={false}/>
+                <img className={classes.imageHead} src={Emperor} alt="Emperor" style={{border: "solid 0.3vw cadetblue"}} draggable={false}/>
                 <h3>Head1</h3>
                 <p>
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
@@ -38,7 +42,7 @@ export const HistoryEmpireMarah = () => {
             </div> }
 
             {showHeadsModalId === "2" && <div id={"2"} className={classes.head}>
-                <img className={classes.imageHead} src={imageHead} alt="images" style={{border: "solid 0.3vw cadetblue"}} draggable={false}/>
+                <img className={classes.imageHead} src={Elder} alt="Elder" style={{border: "solid 0.3vw cadetblue"}} draggable={false}/>
                 <h3>Head2</h3>
                 <p>
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
@@ -49,7 +53,7 @@ export const HistoryEmpireMarah = () => {
             </div> }
 
             {showHeadsModalId === "3" && <div id={"3"} className={classes.head}>
-                <img className={classes.imageHead} src={imageHead} alt="images" style={{border: "solid 0.3vw cadetblue"}} draggable={false}/>
+                <img className={classes.imageHead} src={ElfFury} alt="ElfFury" style={{border: "solid 0.3vw cadetblue"}} draggable={false}/>
                 <h3>Head3</h3>
                 <p>
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
@@ -60,7 +64,7 @@ export const HistoryEmpireMarah = () => {
             </div> }
 
             {showHeadsModalId === "4" && <div id={"4"} className={classes.head}>
-                <img className={classes.imageHead} src={imageHead} alt="images" style={{border: "solid 0.3vw cadetblue"}} draggable={false}/>
+                <img className={classes.imageHead} src={ElfSoldier} alt="ElfSoldier" style={{border: "solid 0.3vw cadetblue"}} draggable={false}/>
                 <h3>Head4</h3>
                 <p>
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
@@ -71,7 +75,7 @@ export const HistoryEmpireMarah = () => {
             </div> }
 
             {showHeadsModalId === "5" && <div id={"5"} className={classes.head}>
-                <img className={classes.imageHead} src={imageHead} alt="images" style={{border: "solid 0.3vw cadetblue"}} draggable={false}/>
+                <img className={classes.imageHead} src={TracesOfHunting} alt="TracesOfHunting" style={{border: "solid 0.3vw cadetblue"}} draggable={false}/>
                 <h3>Head5</h3>
                 <p>
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
