@@ -7,6 +7,6 @@ export const StructureButtonWasteland = () => {
         navigate("/structurewas")
     }
     return (
-        <button className={classes.buttonPage} onClick={handleButtonStructure}>Структура Пустоши</button>
+        <button className={classes.buttonPage} onClick={handleButtonStructure} style={{border:"solid 0.3vw darkolivegreen"}}>Структура Пустоши</button>
     )
 }

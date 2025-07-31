@@ -17,15 +17,17 @@
 .empirePage{
     width: 100%;
     height: 100%;
-    background: darkcyan;
-    position: absolute;
+    background: url(../../Images/ImpireMarahImage/Bridge.jpg) no-repeat;
+    background-size: cover;
+    position: fixed;
 }
 
 .wastelandPage{
     width: 100%;
     height: 100%;
-    background: olive;
-    position: absolute;
+    background: url(../../Images/AngalsWastelandsImage/BackgroundWasteland.jpg) no-repeat;
+    background-size: cover;
+    position: fixed;
 }
 
 .imageMainCharacter{
@@ -71,14 +73,14 @@
     width: 40vw;
     margin-bottom: 5% ;
     display: block;
-    background: grey;
+    background: silver;
     border-radius: 50%;
-    border: solid 0.3vw black;
     font-size: 3vw;
     font-family: "El messiri";
     cursor: pointer;
 }
 
 .buttonPage:hover{
-    background: darkgrey;
+    background: grey;
+    filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
 }

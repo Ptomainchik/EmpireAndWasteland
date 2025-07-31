@@ -21,7 +21,7 @@ export const HistoryAngalsWasteland = () => {
     
 
     return (
-        <div className={classes.historyPage}>
+        <div className={classes.historyPageWasteland}>
             <div className={classes.topbar} style={{background: "darkolivegreen"}}><HomeButton/>История<BackButton/></div>
             <div className={classes.blockButtonHistory}>
                 <button className={classes.buttonHead} id={"1"} onClick={() => {handleOpenHeadModal("1")}} style={{background: "darkolivegreen"}}>Head1</button>

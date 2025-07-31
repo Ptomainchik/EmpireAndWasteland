@@ -20,73 +20,89 @@
     width: 100%;
     height: 100%;
     position: fixed;
-    background: olive;
+    background: url(../../Images/AngalsWastelandsImage/BackgroundWasteland.jpg) no-repeat;
+    background-size: cover;
 }
 
 .blockButtonStructure{
-    width: 90%;
-    display: flex;
-    justify-content: space-between;
     position: absolute;
-    bottom: 5%;
-    margin-left: 5%;
-    margin-right: 5%;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .region1Button{
-    width: 20vw;
-    height: 3vw;
-    background: darkblue;
+    border-radius: 50%;
+    border: solid 0.3vw darkolivegreen;
+    display: block;
+    width: 25vw;
+    height: 4vw;
+    background: silver;
     font-family: "El Messiri";
     font-size: 2vw;
     cursor: pointer;
+    margin-bottom: 17.5%;
 }
 
 .region1Button:hover{
-    background: rgb(0, 0, 172);
+    background: grey;
+    filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
 }
 
 .region2Button{
-    width: 20vw;
-    height: 3vw;
-    background: darkred;
+    border-radius: 50%;
+    border: solid 0.3vw darkolivegreen;
+    display: block;
+    width: 25vw;
+    height: 4vw;
+    background: silver;
     font-family: "El Messiri";
     font-size: 2vw;
     cursor: pointer;
+    margin-bottom: 17.5%;
 }
 
 .region2Button:hover{
-    background: rgb(170, 0, 0);
+    background: grey;
+    filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
 }
 
 .region3Button{
-    width: 20vw;
-    height: 3vw;
-    background: darkorange;
+    border-radius: 50%;
+    border: solid 0.3vw darkolivegreen;
+    display: block;
+    width: 25vw;
+    height: 4vw;
+    background: silver;
     font-family: "El Messiri";
     font-size: 2vw;
     cursor: pointer;
+    margin-bottom: 17.5%;
 }
 
 .region3Button:hover{
-    background: rgb(196, 108, 0);
+    background: grey;
+    filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
 }
 
 .regionMotherButton{
+    border-radius: 50%;
+    border: solid 0.3vw darkolivegreen;
     width: 30vw;
     height: 5vw;
-    background: yellow;
+    background: silver;
     font-family: "El Messiri";
     font-size: 2vw;
     cursor: pointer;
     position: absolute;
-    top: 15%;
+    bottom: 15%;
     left: 50%;
     transform: translateX(-50%);
 }
 
 .regionMotherButton:hover{
-    background: rgb(170, 170, 0);
+    background: grey;
+    filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
 }
 
 .regionModal{
@@ -95,7 +111,7 @@
     position: absolute;
     top: 10%;
     background: rgb(70, 70, 70);
-    animation: shiftBottom 1s forwards;
+    animation: styleOpacity 1s forwards;
 }
 
 .regionModal h3{
@@ -155,13 +171,13 @@
 }
 
 @keyframes shiftTop{
-    from{top: -120%;}
+    from{top: 120%;}
     to{top: 10%;}
 }
 
-@keyframes shiftBottom{
-    from{top: 120%;}
-    to{top: 10%;}
+@keyframes styleOpacity{
+    from{opacity: 0;}
+    to{opacity: 1;}
 }
 
 /* -----EmpireStructure----- */
@@ -170,35 +186,79 @@
     width: 100%;
     height: 100%;
     position: fixed;
-    background: darkcyan;
+    background: url(../../Images/ImpireMarahImage/Bridge.jpg) no-repeat;
+    background-size: cover;
 }
 
 .buttonWestKingdom{
     width: 15vw;
     height: 40vw;
     position: absolute;
-    top: 15%;
-    left: 5%;
-    background: darkred;
+    top: 35%;
+    left: 2%;
+    background: url(../../Images/ImpireMarahImage/WestKingdomImage.webp) no-repeat;
+    background-size: contain;
+    border: none;
     cursor: pointer;
+    filter: drop-shadow(0 0 0.3vw burlywood);
 }
 
 .buttonWestKingdom:hover{
-    background: rgb(170, 0, 0);
+    animation: shineElvesWest 1.5s infinite;
 }
 
 .buttonEastKingdom{
     width: 15vw;
     height: 40vw;
     position: absolute;
-    top: 15%;
-    right: 5%;
-    background: darkblue;
+    top: 35%;
+    right: 2%;
+    background: url(../../Images/ImpireMarahImage/EastKingdomImage.webp) no-repeat;
+    background-size: contain;
+    border: none;
     cursor: pointer;
+    filter: drop-shadow(0 0 0.3vw mediumseagreen);
+    color:mediumseagreen;
 }
 
 .buttonEastKingdom:hover{
-    background: rgb(0, 0, 170);
+    animation: shineElvesEast 1.5s infinite;
+}
+
+@keyframes shineElvesWest {
+     0%, 25%, 50%, 75%, 100%{
+        filter: drop-shadow( 0 0 0.3vw burlywood);
+    }
+    25%{
+        filter: drop-shadow( 0 0 0.7vw burlywood);
+    }
+    50%{
+        filter: drop-shadow( 0 0 0.3vw burlywood);
+    }
+    75%{
+        filter: drop-shadow( 0 0 0.7vw burlywood);
+    }
+    100%{
+        filter: drop-shadow( 0 0 0.3vw burlywood);
+    }
+}
+
+@keyframes shineElvesEast {
+     0%, 25%, 50%, 75%, 100%{
+        filter: drop-shadow( 0 0 0.3vw mediumseagreen);
+    }
+    25%{
+        filter: drop-shadow( 0 0 0.7vw mediumseagreen);
+    }
+    50%{
+        filter: drop-shadow( 0 0 0.3vw mediumseagreen);
+    }
+    75%{
+        filter: drop-shadow( 0 0 0.7vw mediumseagreen);
+    }
+    100%{
+        filter: drop-shadow( 0 0 0.3vw mediumseagreen);
+    }
 }
 
 .modalWestKingdom{

@@ -19,9 +19,9 @@ export const StructureEmpireMarah = () => {
         <div className={classes.structurePageEmpire}>
             <div className={classes.topbar} style={{background: "cadetblue"}}><HomeButton/>Структура<BackButton/></div>
            
-            <button className={classes.buttonWestKingdom} id={"1"} onClick={() => {handleOpenModalKingdom("1")}}>West</button>
+            <button className={classes.buttonWestKingdom} id={"1"} onClick={() => {handleOpenModalKingdom("1")}}></button>
 
-            <button className={classes.buttonEastKingdom} id={"2"} onClick={() => {handleOpenModalKingdom("2")}}>East</button>
+            <button className={classes.buttonEastKingdom} id={"2"} onClick={() => {handleOpenModalKingdom("2")}}></button>
 
             {showModalKingdom === "1" && 
                 <div className={classes.modalWestKingdom} id={"1"}>

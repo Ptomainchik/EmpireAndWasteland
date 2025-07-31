@@ -7,6 +7,6 @@ export const HistoryButtonEmpire = () => {
         navigate("/historyemp")
     }
     return (
-        <button className={classes.buttonPage} onClick={handleButtonHistory}>История Империи</button>
+        <button className={classes.buttonPage} onClick={handleButtonHistory} style={{border:"solid 0.3vw cadetblue"}}>История Империи</button>
     )
 }

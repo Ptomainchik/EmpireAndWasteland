@@ -20,7 +20,7 @@ export const HistoryEmpireMarah = () => {
     }
 
     return (
-        <div className={classes.historyPage}>
+        <div className={classes.historyPageEmpire}>
             <div className={classes.topbar} style={{background: "cadetblue"}}><HomeButton/>История<BackButton/></div>
             <div className={classes.blockButtonHistory}>
                 <button className={classes.buttonHead} id={"1"} onClick={() => {handleOpenHeadModal("1")}} style={{background: "cadetblue"}}>Head1</button>
