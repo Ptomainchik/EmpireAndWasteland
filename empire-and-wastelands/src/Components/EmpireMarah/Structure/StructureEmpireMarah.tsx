@@ -2,7 +2,8 @@ import classes from "../../Styles/Structures.module.css";
 import { BackButton } from "../../Buttons/BackButton";
 import { HomeButton } from "../../Buttons/HomeButton";
 import { useState } from "react";
-import imageKingdom from "../../../Images/ImpireMarahImage/EmpireBackgroundChoice.jpg";
+import EastEmpireModalImage from "../../../Images/ImpireMarahImage/EastEmpireModalImage.jpg";
+import WestEmpireModalImage from "../../../Images/ImpireMarahImage/WestEmpireModalImage.jpg";
 
 export const StructureEmpireMarah = () => {
     const [showModalKingdom, setShowModalKingdom] = useState(null);
@@ -25,7 +26,7 @@ export const StructureEmpireMarah = () => {
 
             {showModalKingdom === "1" && 
                 <div className={classes.modalWestKingdom} id={"1"}>
-                    <img className={classes.imageKingdom} src={imageKingdom} alt="images" style={{border: "solid 0.3vw darkolivegreen"}} draggable={false}/>
+                    <img className={classes.imageKingdom} src={WestEmpireModalImage} alt="WestEmpireModalImage" style={{border: "solid 0.3vw darkolivegreen"}} draggable={false}/>
                     <h3>West Kingdom</h3>
                     <p>
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
@@ -37,7 +38,7 @@ export const StructureEmpireMarah = () => {
 
             {showModalKingdom === "2" && 
                 <div className={classes.modalEastKingdom} id={"2"}>
-                    <img className={classes.imageKingdom} src={imageKingdom} alt="images" style={{border: "solid 0.3vw darkolivegreen"}} draggable={false}/>
+                    <img className={classes.imageKingdom} src={EastEmpireModalImage} alt="EastEmpireModalImage" style={{border: "solid 0.3vw darkolivegreen"}} draggable={false}/>
                     <h3>East Kingdom</h3>
                     <p>
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. 

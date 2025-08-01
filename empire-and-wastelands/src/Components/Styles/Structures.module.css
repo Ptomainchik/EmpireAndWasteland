@@ -280,8 +280,8 @@
 }
 
 .imageKingdom{
-    width: 40vw;
-    height: 20vw;
+    width: 50vw;
+    height: 30vw;
     margin: 2%;
     border-radius: 50%;
 }
@@ -289,14 +289,14 @@
 .structurePageEmpire h3{
    position: absolute;
    top: 5%;
-   right: 20%;
+   right: 15%;
    font-size: 3vw;
    font-family: "El Messiri";
    margin: 0;
 }
 
 .structurePageEmpire p{
-    width: 50%;
+    width: 40%;
     height: 60%;
     position: absolute;
     top: 15%;
@@ -321,7 +321,8 @@
     height: 3vw;
     position: absolute;
     bottom: 5%;
-    right: 5%;
+    left: 50%;
+    transform: translateX(-50%);
     font-size: 2vw;
     font-family: "El Messiri";
     cursor: pointer;
