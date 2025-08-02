@@ -73,7 +73,8 @@
     width: 40vw;
     margin-bottom: 5% ;
     display: block;
-    background: silver;
+    background-color: rgba(226, 226, 226, 1);
+    background-image: linear-gradient(176deg, rgba(226, 226, 226, 1) 3%, rgba(39, 39, 39, 1) 100%);
     border-radius: 50%;
     font-size: 3vw;
     font-family: "El messiri";
@@ -81,6 +82,7 @@
 }
 
 .buttonPage:hover{
-    background: grey;
+    background-color: rgba(226, 226, 226, 1);
+    background-image: linear-gradient(176deg, rgba(226, 226, 226, 1) 3%, rgba(0, 0, 0, 1) 100%);
     filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
 }
