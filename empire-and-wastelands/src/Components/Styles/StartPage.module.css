@@ -22,7 +22,7 @@
 .infoBlockStartPage{
     width: 100%;
     height: 100%;
-    background: darkgreen;
+    background: linear-gradient(90deg, darkgreen 0%, darkolivegreen 100% );
     position: absolute;
     top: 0;
     clip-path: polygon(5% 0, 95% 0, 65% 35%, 95% 100%, 5% 100%, 35% 35%);

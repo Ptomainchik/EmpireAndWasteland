@@ -44,7 +44,7 @@
 .blockInfoPage{
     width: 50vw;
     height: 40vw;
-    background: yellow;
+    background: wheat;
     border-bottom: solid 0.5vw grey;
     border-left: solid 0.5vw grey;
     border-bottom-left-radius: 100%;
@@ -69,20 +69,40 @@
     left: 17%;
 }
 
-.buttonPage{
+.buttonPageWasteland{
     width: 40vw;
     margin-bottom: 5% ;
     display: block;
-    background-color: rgba(226, 226, 226, 1);
-    background-image: linear-gradient(176deg, rgba(226, 226, 226, 1) 3%, rgba(39, 39, 39, 1) 100%);
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 110%);
     border-radius: 50%;
     font-size: 3vw;
     font-family: "El messiri";
     cursor: pointer;
+    color: rgb(220, 220, 220);
 }
 
-.buttonPage:hover{
-    background-color: rgba(226, 226, 226, 1);
-    background-image: linear-gradient(176deg, rgba(226, 226, 226, 1) 3%, rgba(0, 0, 0, 1) 100%);
+.buttonPageWasteland:hover{
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 95%);
+    filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
+}
+
+.buttonPageEmpire{
+    width: 40vw;
+    margin-bottom: 5% ;
+    display: block;
+    background-color: cadetblue;
+    background-image: linear-gradient(176deg, cadetblue 3%, black 110%);
+    border-radius: 50%;
+    font-size: 3vw;
+    font-family: "El messiri";
+    cursor: pointer;
+    color: rgb(220, 220, 220);
+}
+
+.buttonPageEmpire:hover{
+    background-color: cadetblue;
+    background-image: linear-gradient(176deg, cadetblue 3%, black 95%);
     filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
 }

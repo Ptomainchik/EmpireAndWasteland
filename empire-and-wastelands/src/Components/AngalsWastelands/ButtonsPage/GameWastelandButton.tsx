@@ -7,6 +7,6 @@ export const GameButtonWasteland = () => {
         navigate("/gamewas")
     }
     return (
-        <button className={classes.buttonPage} onClick={handleButtonGame} style={{border:"solid 0.3vw darkolivegreen"}}>Игра Пустоши</button>
+        <button className={classes.buttonPageWasteland} onClick={handleButtonGame} style={{border:"solid 0.1vw black"}}>Игра Пустоши</button>
     )
 }

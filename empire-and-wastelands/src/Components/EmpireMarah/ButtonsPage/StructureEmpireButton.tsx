@@ -7,6 +7,6 @@ export const StructureButtonEmpire = () => {
         navigate("/structureemp")
     }
     return (
-        <button className={classes.buttonPage} onClick={handleButtonStructure} style={{border:"solid 0.3vw cadetblue"}}>Структура Империи</button>
+        <button className={classes.buttonPageEmpire} onClick={handleButtonStructure} style={{border:"solid 0.1vw black"}}>Структура Империи</button>
     )
 }

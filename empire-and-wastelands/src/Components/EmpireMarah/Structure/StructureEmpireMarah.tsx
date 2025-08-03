@@ -18,11 +18,14 @@ export const StructureEmpireMarah = () => {
 
     return (
         <div className={classes.structurePageEmpire}>
-            <div className={classes.topbar} style={{background: "cadetblue"}}><HomeButton/>Структура<BackButton/></div>
-           
-            <button className={classes.buttonWestKingdom} id={"1"} onClick={() => {handleOpenModalKingdom("1")}}></button>
 
-            <button className={classes.buttonEastKingdom} id={"2"} onClick={() => {handleOpenModalKingdom("2")}}></button>
+            <div className={classes.topbar} style={{backgroundColor: "cadetblue", backgroundImage: "linear-gradient(180deg, black -20%, cadetblue 47%, cadetblue 53%, black 120%)"}}>
+                <HomeButton/>Структура<BackButton/>
+            </div>
+           
+            <button className={classes.buttonWestKingdom} id={"1"} onClick={() => {handleOpenModalKingdom("1")}}> <h1>Западное царство</h1> </button>
+
+            <button className={classes.buttonEastKingdom} id={"2"} onClick={() => {handleOpenModalKingdom("2")}}> <h1>Восточное царство</h1> </button>
 
             {showModalKingdom === "1" && 
                 <div className={classes.modalWestKingdom} id={"1"}>

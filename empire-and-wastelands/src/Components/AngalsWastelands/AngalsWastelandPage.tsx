@@ -9,8 +9,13 @@ import imageCharacter from "../../Images/AngalsWastelandsImage/AngalMainCharacte
 export const AngalsWastelandPage = () => {
     return (
         <div className={classes.wastelandPage}>
-            <div className={classes.topbar} style={{background: "darkolivegreen"}}><HomeButton/>Пустоши Ангалов<BackButton/></div>
+
+            <div className={classes.topbar} style={{backgroundColor: "darkolivegreen", backgroundImage: "linear-gradient(180deg, black -20%, darkolivegreen 47%, darkolivegreen 53%, black 120%)"}}>
+                <HomeButton/>Пустоши Ангалов<BackButton/>
+            </div>
+
             <img className={classes.imageMainCharacter} src={imageCharacter} alt="imageCharacter" draggable={false}/>
+            
             <div className={classes.blockInfoPage}>
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. 

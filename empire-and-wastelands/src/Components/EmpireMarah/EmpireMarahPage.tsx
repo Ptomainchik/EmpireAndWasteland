@@ -9,8 +9,13 @@ import imageCharacter from "../../Images/ImpireMarahImage/BiyaMainCharacter.jpg"
 export const EmpireMarahPage = () => {
     return (
         <div className={classes.empirePage}>
-            <div className={classes.topbar} style={{background: "cadetblue"}}><HomeButton/>Империя Марах<BackButton/></div>
+
+            <div className={classes.topbar} style={{backgroundColor: "cadetblue", backgroundImage: "linear-gradient(180deg, black -20%, cadetblue 47%, cadetblue 53%, black 120%)"}}>
+                <HomeButton/>Империя Марах<BackButton/>
+            </div>
+
             <img className={classes.imageMainCharacter} src={imageCharacter} alt="imageCharacter" draggable={false}/>
+
             <div className={classes.blockInfoPage}>
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. 
@@ -18,6 +23,7 @@ export const EmpireMarahPage = () => {
                     Quis reiciendis, repellendus nulla et eos consequuntur facere.
                 </p>
             </div>
+            
             <div className={classes.blockButtonsPages}>
                 <HistoryButtonEmpire/>
                 <StructureButtonEmpire/>

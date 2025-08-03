@@ -7,6 +7,6 @@ export const GameButtonEmpire = () => {
         navigate("/gameemp")
     }
     return (
-        <button className={classes.buttonPage} onClick={handleButtonGame} style={{border:"solid 0.3vw cadetblue"}}>Игра Империи</button>
+        <button className={classes.buttonPageEmpire} onClick={handleButtonGame} style={{border:"solid 0.1vw black"}}>Игра Империи</button>
     )
 }

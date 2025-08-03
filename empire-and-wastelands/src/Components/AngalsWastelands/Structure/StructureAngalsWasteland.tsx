@@ -2,7 +2,6 @@ import classes from "../../Styles/Structures.module.css";
 import { BackButton } from "../../Buttons/BackButton";
 import { HomeButton } from "../../Buttons/HomeButton";
 import { useState } from "react";
-import imageRegion from "../../../Images/AngalsWastelandsImage/WastelandBackgruondChoice.jpg";
 import RegionMother from "../../../Images/AngalsWastelandsImage/RegionMother.jpg";
 import CentralWastelands from "../../../Images/AngalsWastelandsImage/CentralWastelands.jpg";
 import InlandWastelands from "../../../Images/AngalsWastelandsImage/InlandWastelands.jpg";
@@ -21,7 +20,10 @@ export const StructureAngalsWasteland = () => {
 
     return (
         <div className={classes.structurePageWasteland}>
-            <div className={classes.topbar} style={{background: "darkolivegreen"}}><HomeButton/>Структура<BackButton/></div>
+
+            <div className={classes.topbar} style={{backgroundColor: "darkolivegreen", backgroundImage: "linear-gradient(180deg, black -20%, darkolivegreen 47%, darkolivegreen 53%, black 120%)"}}>
+                <HomeButton/>Структура<BackButton/>
+            </div>
             
             <div className={classes.blockButtonStructure}>
                 <button className={classes.region1Button} id={"1"} onClick={() => {handleOpenModalRegion("1")}}>Внешние пустоши</button>

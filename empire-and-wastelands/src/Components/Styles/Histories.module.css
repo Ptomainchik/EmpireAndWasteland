@@ -35,7 +35,7 @@
     justify-content: space-between;
 }
 
-.buttonHead{
+.buttonHeadEmpire{
     width: 10vw;
     height: 20vw;
     display: block;
@@ -45,6 +45,32 @@
     margin-right: 5%;
     font-size: 2vw;
     font-family: "El Messiri";
+    background-image: linear-gradient(90deg, black -20%, rgb(95, 148, 160) 35%, cadetblue 50%, rgb(95, 148, 160) 65%, black 120%);
+    color: rgb(220, 220, 220);
+    padding-top: 2%;
+}
+
+.buttonHeadEmpire:hover{
+    background-image: linear-gradient(90deg, black -13%, rgb(95, 148, 160) 35%, cadetblue 50%, rgb(95, 148, 160) 65%, black 113%);
+}
+
+.buttonHeadWasteland{
+    width: 10vw;
+    height: 20vw;
+    display: block;
+    clip-path: polygon(100% 0, 100% 100%, 50% 70%, 0 100%, 0 0);
+    cursor: pointer;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-size: 2vw;
+    font-family: "El Messiri";
+    background-image: linear-gradient(90deg, black -20%, rgb(85, 97, 47) 35%, darkolivegreen 50%, rgb(85, 97, 47) 65%, black 120%);
+    color: rgb(220, 220, 220);
+    padding-top: 2%;
+}
+
+.buttonHeadWasteland:hover{
+    background-image: linear-gradient(90deg, black -13%, rgb(85, 97, 47) 35%, darkolivegreen 50%, rgb(85, 97, 47) 65%, black 113%);
 }
 
 .head{
@@ -87,15 +113,21 @@
     height: 3vw;
     position: absolute;
     bottom: 5%;
-    right: 5%;
+    left: 50%;
+    transform: translateX(-50%);
     font-size: 2vw;
     font-family: "El Messiri";
     cursor: pointer;
-    background: red;
+    border-radius: 50%;
+    border: solid 0.1vw black;
+    background-color: rgba(226, 226, 226, 1);
+    background-image: linear-gradient(176deg, red 3%, rgb(17, 17, 17) 110%);
 }
 
 .closeButton:hover{
-    background: rgb(180, 0, 0);
+    background-color: rgba(226, 226, 226, 1);
+    background-image: linear-gradient(176deg, red 3%, rgb(17, 17, 17) 90%);
+    filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
 }
 
 @keyframes shiftHead{
