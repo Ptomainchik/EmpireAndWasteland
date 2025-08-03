@@ -7,6 +7,7 @@ import AngalShapeshifter from "../../../Images/AngalsWastelandsImage/AngalShapes
 import FirstHunt from "../../../Images/AngalsWastelandsImage/FirstHunt.jpg";
 import AngalSoldier from "../../../Images/AngalsWastelandsImage/AngalSoldier.jpg";
 import WomanAngal from "../../../Images/AngalsWastelandsImage/WomanAngal.jpg";
+import CoatOfArmsOfWasteland from "../../../Images/AngalsWastelandsImage/CoatOfArmsOfWasteland.webp";
 
 export const HistoryAngalsWasteland = () => {
     const [showHeadsModalId, setShowHeadsModalId] = useState(null);
@@ -33,6 +34,10 @@ export const HistoryAngalsWasteland = () => {
                 <button className={classes.buttonHeadWasteland} id={"3"} onClick={() => {handleOpenHeadModal("3")}}>Глава 3</button>
                 <button className={classes.buttonHeadWasteland} id={"4"} onClick={() => {handleOpenHeadModal("4")}}>Глава 4</button>
                 <button className={classes.buttonHeadWasteland} id={"5"} onClick={() => {handleOpenHeadModal("5")}}>Глава 5</button>
+            </div>
+
+            <div className={classes.backgroundCoatWasteland}>
+                <img className={classes.coatOfArms} title="Герб Пустоши" src={CoatOfArmsOfWasteland} alt="CoatOf Arms Of Wasteland Of Arms Empire" draggable={false}/>
             </div>
 
             {showHeadsModalId === "1" && <div id={"1"} className={classes.head}>

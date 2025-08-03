@@ -7,6 +7,7 @@ import Elder from "../../../Images/ImpireMarahImage/Elder.jpg";
 import ElfFury from "../../../Images/ImpireMarahImage/ElfFury.jpg";
 import Emperor from "../../../Images/ImpireMarahImage/Emperor.jpg";
 import ElfSoldier from "../../../Images/ImpireMarahImage/ElfSoldier.jpg";
+import CoatOfArmsEmpire from "../../../Images/ImpireMarahImage/CoatOfArmsEmpire.webp";
 
 export const HistoryEmpireMarah = () => {
     const [showHeadsModalId, setShowHeadsModalId] = useState(null);
@@ -32,6 +33,10 @@ export const HistoryEmpireMarah = () => {
                 <button className={classes.buttonHeadEmpire} id={"3"} onClick={() => {handleOpenHeadModal("3")}}>Глава 3</button>
                 <button className={classes.buttonHeadEmpire} id={"4"} onClick={() => {handleOpenHeadModal("4")}}>Глава 4</button>
                 <button className={classes.buttonHeadEmpire} id={"5"} onClick={() => {handleOpenHeadModal("5")}}>Глава 5</button>
+            </div>
+
+            <div className={classes.backgroundCoatEmpire}>
+                <img className={classes.coatOfArms} title="Герб Империи Марах" src={CoatOfArmsEmpire} alt="Coat Of Arms Empire" draggable={false}/>
             </div>
 
             {showHeadsModalId === "1" && <div id={"1"} className={classes.head}>
