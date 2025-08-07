@@ -54,13 +54,14 @@
 }
 
 .blockInfoPage p{
-    width: 80%;
+    width: 70%;
     position: absolute;
     top: 5%;
     right: 5%;
     font-family: "Pangolin";
-    font-size: 2vw;
+    font-size: 1.5vw;
     text-align: right;
+    font-weight: 700;
 }
 
 .blockButtonsPages{

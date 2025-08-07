@@ -18,16 +18,20 @@ export const AngalsWastelandPage = () => {
             
             <div className={classes.blockInfoPage}>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Totam quod error tempore cumque eligendi nemo, molestiae, saepe ipsa obcaecati sint at dolorum? 
-                    Quis reiciendis, repellendus nulla et eos consequuntur facere.
+                    Архаичное общество ангалов построено на матриархате, где мужчины не имеют никаких прав.
+                    Одной из важнейших основ жизненного уклада Пустошей является ангалим - симбиотический договор между ангалом и животным.
+                    В расе ангалов женщины физически превосходят мужчин: они крупнее и выше.
+                    Сами представители мужского пола обычно низкорослые и худощавые, поскольку с детства довольствуются малым, исполняя капризы и прихоти женщин.
+                    Лишь солдаты армии выглядят более развитыми, но всё равно уступают в силе ангалкам.
                 </p>
             </div>
+
             <div className={classes.blockButtonsPages}>
                 <HistoryButtonWasteland/>
                 <StructureButtonWasteland/>
                 <GameButtonWasteland/>
             </div>
+
         </div>
     )
 }

@@ -127,22 +127,25 @@
 }
 
 .regionModal h3{
+    width: 50%;
     position: absolute;
-    top: 5%;
-    right: 10%;
+    top: 3%;
+    right: 0%;
     font-size: 3vw;
     font-family: "El Messiri";
     margin: 0;
+    text-align: center;
 }
 
 .regionModal p{
-    width: 40%;
-    height: 60%;
+    width: 50%;
+    height: 50%;
     position: absolute;
-    top: 15%;
-    right: 5%;
-    font-size: 2vw;
+    top: 10%;
+    right: 1%;
+    font-size: 1.3vw;
     font-family: "Pangolin";
+    font-weight: 700;
     text-align: center;
 }
 
@@ -156,28 +159,31 @@
 }
 
 .regionMotherModal h3{
+    width: 50%;
     position: absolute;
-    top: 5%;
-    right: 10%;
+    top: 3%;
+    right: 0%;
     font-size: 3vw;
     font-family: "El Messiri";
     margin: 0;
+    text-align: center;
 }
 
 .regionMotherModal p{
-    width: 40%;
-    height: 60%;
+    width: 50%;
+    height: 50%;
     position: absolute;
-    top: 15%;
-    right: 5%;
-    font-size: 2vw;
+    top: 10%;
+    right: 1%;
+    font-size: 1.3vw;
     font-family: "Pangolin";
+    font-weight: 700;
     text-align: center;
 }
 
 .imageRegion{
-    width: 50vw;
-    height: 30vw;
+    width: 45vw;
+    height: 27.5vw;
     margin: 2%;
     border-radius: 50%;
 }
@@ -313,29 +319,32 @@
 }
 
 .imageKingdom{
-    width: 50vw;
-    height: 30vw;
+    width: 45vw;
+    height: 27.5vw;
     margin: 2%;
     border-radius: 50%;
 }
 
 .structurePageEmpire h3{
-   position: absolute;
-   top: 5%;
-   right: 15%;
-   font-size: 3vw;
-   font-family: "El Messiri";
-   margin: 0;
+    width: 53%;
+    position: absolute;
+    top: 3%;
+    right: 0%;
+    font-size: 3vw;
+    font-family: "El Messiri";
+    margin: 0;
+    text-align: center;
 }
 
 .structurePageEmpire p{
-    width: 40%;
-    height: 60%;
+    width: 50%;
+    height: 50%;
     position: absolute;
-    top: 15%;
-    right: 5%;
-    font-size: 2vw;
+    top: 10%;
+    right: 1%;
+    font-size: 1.3vw;
     font-family: "Pangolin";
+    font-weight: 700;
     text-align: center;
 }
 
@@ -353,7 +362,7 @@
     width: 20vw;
     height: 3vw;
     position: absolute;
-    bottom: 5%;
+    bottom: 2%;
     left: 50%;
     transform: translateX(-50%);
     font-size: 2vw;
