@@ -16,11 +16,13 @@ export const EmpireMarahPage = () => {
 
             <img className={classes.imageMainCharacter} src={imageCharacter} alt="imageCharacter" draggable={false}/>
 
-            <div className={classes.blockInfoPage}>
+            <div className={classes.blockInfoPage} style={{background: "rgb(70, 80, 100)"}}>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Totam quod error tempore cumque eligendi nemo, molestiae, saepe ipsa obcaecati sint at dolorum? 
-                    Quis reiciendis, repellendus nulla et eos consequuntur facere.
+                    Империя Марах состоит из двух царств - Западного и Восточного.
+                    В столице Сур правит император Кайсар, который также является царём западных земель.
+                    А на востоке главенствует Восточная Фурия - царица Бия, по совместительству родная сестра императора.
+                    Сами же эльфы незначительно различаются друг от друга: отличие заключается в мировоззрении и цвете волос - жители запада беловолосые, а восточные с естественным окрасом.
+                    Но все они представители одного народа - высокие, с атлетичным телосложением, живущие в одной империи, но в разных царствах.
                 </p>
             </div>
             

@@ -40,7 +40,7 @@ export const HistoryAngalsWasteland = () => {
                 <img className={classes.coatOfArms} title="Герб Пустоши" src={CoatOfArmsOfWasteland} alt="CoatOf Arms Of Wasteland Of Arms Empire" draggable={false}/>
             </div>
 
-            {showHeadsModalId === "1" && <div id={"1"} className={classes.head}>
+            {showHeadsModalId === "1" && <div id={"1"} className={classes.head} style={{background: "rgb(99, 53, 53)"}}>
                 <img className={classes.imageHead} src={AngalsMother} alt="AngalsMother" style={{border: "solid 0.3vw darkolivegreen"}} draggable={false}/>
                 <h3>Глава 1</h3>
                 <p>
@@ -60,7 +60,7 @@ export const HistoryAngalsWasteland = () => {
                 <button className={classes.closeButton} onClick={handleCloseHeadModal}>Закрыть</button>
             </div> }
 
-            {showHeadsModalId === "2" && <div id={"2"} className={classes.head}>
+            {showHeadsModalId === "2" && <div id={"2"} className={classes.head} style={{background: "rgb(99, 53, 53)"}}>
                 <img className={classes.imageHead} src={AngalShapeshifter} alt="AngalShapeshifter" style={{border: "solid 0.3vw darkolivegreen"}} draggable={false}/>
                 <h3>Глава 2</h3>
                 <p>
@@ -82,7 +82,7 @@ export const HistoryAngalsWasteland = () => {
                 <button className={classes.closeButton} onClick={handleCloseHeadModal}>Закрыть</button>
             </div> }
 
-            {showHeadsModalId === "3" && <div id={"3"} className={classes.head}>
+            {showHeadsModalId === "3" && <div id={"3"} className={classes.head} style={{background: "rgb(99, 53, 53)"}}>
                 <img className={classes.imageHead} src={WomanAngal} alt="WomanAngal" style={{border: "solid 0.3vw darkolivegreen"}} draggable={false}/>
                 <h3>Глава 3</h3>
                 <p>
@@ -102,7 +102,7 @@ export const HistoryAngalsWasteland = () => {
                 <button className={classes.closeButton} onClick={handleCloseHeadModal}>Закрыть</button>
             </div> }
 
-            {showHeadsModalId === "4" && <div id={"4"} className={classes.head}>
+            {showHeadsModalId === "4" && <div id={"4"} className={classes.head} style={{background: "rgb(99, 53, 53)"}}>
                 <img className={classes.imageHead} src={AngalSoldier} alt="AngalSoldier" style={{border: "solid 0.3vw darkolivegreen"}} draggable={false}/>
                 <h3>Глава 4</h3>
                 <p>
@@ -123,7 +123,7 @@ export const HistoryAngalsWasteland = () => {
                 <button className={classes.closeButton} onClick={handleCloseHeadModal}>Закрыть</button>
             </div> }
 
-            {showHeadsModalId === "5" && <div id={"5"} className={classes.head}>
+            {showHeadsModalId === "5" && <div id={"5"} className={classes.head} style={{background: "rgb(99, 53, 53)"}}>
                 <img className={classes.imageHead} src={FirstHunt} alt="FirstHunt" style={{border: "solid 0.3vw darkolivegreen"}} draggable={false}/>
                 <h3>Глава 5</h3>
                 <p>

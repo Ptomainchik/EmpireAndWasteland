@@ -112,7 +112,6 @@
     height: 90%;
     position: absolute;
     top: 10%;
-    background: rgb(99, 53, 53);
     animation: shiftHead 1s forwards;
 }
 
@@ -133,7 +132,7 @@
     position: absolute;
     top: 10%;
     right: 1%;
-    font-size: 1.3vw;
+    font-size: 1.15vw;
     font-family: "Pangolin";
     font-weight: 700;
     text-align: center;

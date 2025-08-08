@@ -122,7 +122,7 @@
     height: 90%;
     position: absolute;
     top: 10%;
-    background: rgb(70, 70, 70);
+    background: rgb(99, 53, 53);;
     animation: styleOpacity 1s forwards;
 }
 
@@ -154,7 +154,7 @@
     height: 90%;
     position: absolute;
     top: 10%;
-    background: rgb(70, 70, 70);
+    background: rgb(99, 53, 53);
     animation: shiftTop 1s forwards;
 }
 
@@ -305,7 +305,7 @@
     height: 90%;
     position: absolute;
     top: 10%;
-    background: rgb(70, 70, 70);
+    background: rgb(70, 80, 100);
     animation: shiftRight 1s forwards;
 }
 
@@ -314,7 +314,7 @@
     height: 90%;
     position: absolute;
     top: 10%;
-    background: rgb(70, 70, 70);
+    background: rgb(70, 80, 100);
     animation: shiftLeft 1s forwards;
 }
 
