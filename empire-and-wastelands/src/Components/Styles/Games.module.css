@@ -13,3 +13,193 @@
     border-bottom: solid 0.3vw grey;
     z-index: 21;
 }
+
+.gamePageWasteland{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: url(../../Images/AngalsWastelandsImage/Backgr.jpg) no-repeat;
+    background-size: cover;
+}
+
+.skillsBlockEmpire{
+    width: 10%;
+    height: 89%;
+    position: absolute;
+    left: 0;
+    top: 11%;
+    background: wheat;
+
+}
+
+.skillsBlockWasteland{
+    width: 10%;
+    height: 89%;
+    position: absolute;
+    right: 0;
+    top: 11%;
+    background: wheat;
+
+}
+
+.blockUnits{
+    width: 80%;
+    height: 89%;
+    position: absolute;
+    top: 11%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.blockFlex1{
+    width: 80%;
+    height: 100%;
+    position: absolute;
+    top: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+}
+
+.blockFlex2{
+    width: 80%;
+    height: 100%;
+    position: absolute;
+    top: 21%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+}
+
+.blockFlex3{
+    width: 80%;
+    height: 100%;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+}
+
+.blockFlex4{
+    width: 80%;
+    height: 100%;
+    position: absolute;
+    top: 59%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+}
+
+.blockFlex5{
+    width: 80%;
+    height: 100%;
+    position: absolute;
+    top: 78%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+}
+
+.shopButton{
+    width: 7%;
+    height: 5%;
+    position: absolute;
+    right: 1%;
+    top: 12%;
+    z-index: 20;
+    cursor: pointer;
+}
+
+.shop{
+    width: 80%; 
+    height: 70%;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: wheat;
+    border: solid 0.3vw darkolivegreen;
+    z-index: 21;
+}
+
+.angalsButtonSkillsHunters{
+    width: 80%;
+    height: 5%;
+    position: absolute;
+    right: 5%;
+    bottom: 2%;
+    cursor: pointer;
+}
+
+.angalsButtonSkillsJavelin{
+    width: 80%;
+    height: 5%;
+    position: absolute;
+    right: 5%;
+    bottom: 10%;
+    cursor: pointer;
+}
+
+.cell{
+    width: 10.5vw; 
+    height: 8vw;
+    margin: 0;
+    border: solid 0.3vw black;
+    background: rgb(100, 158, 66);
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.unitWastelandHunter{
+    width: 10.5vw; 
+    height: 8vw;
+    margin: 0;
+    border: solid 0.3vw black;
+    background: brown;
+    cursor: pointer;
+}
+
+.unitWastelandHunter:active{
+    filter: drop-shadow( 0 0 1vw red);
+}
+
+.unitEmpireEastArcher{
+    width: 10.5vw; 
+    height: 8vw;
+    margin: 0;
+    border: solid 0.3vw black;
+    background: cadetblue;
+    cursor: pointer;
+}
+
+.unitEmpireEastArcher:active{
+    filter: drop-shadow( 0 0 1vw red);
+}
+
+.closeButton{
+    width: 20vw;
+    height: 3vw;
+    position: absolute;
+    bottom: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2vw;
+    font-family: "El Messiri";
+    cursor: pointer;
+    border-radius: 50%;
+    border: solid 0.1vw black;
+    background-color: rgba(226, 226, 226, 1);
+    background-image: linear-gradient(176deg, red 3%, rgb(17, 17, 17) 110%);
+}
+
+.closeButton:hover{
+    background-color: rgba(226, 226, 226, 1);
+    background-image: linear-gradient(176deg, red 3%, rgb(17, 17, 17) 90%);
+    filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
+}
