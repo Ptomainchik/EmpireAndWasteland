@@ -29,7 +29,6 @@
     left: 0;
     top: 11%;
     background: wheat;
-
 }
 
 .skillsBlockWasteland{
@@ -39,7 +38,20 @@
     right: 0;
     top: 11%;
     background: wheat;
+}
 
+.skillsBlockEmpire img{
+    width: 100%;
+    height: 50%;
+    margin-top: 5%;
+}
+
+.skillsBlockEmpire p{
+    font-size: 0.8vw;
+    font-weight: 700;
+    font-family: "El Messiri";
+    margin: 0;
+    margin-left: 10%;
 }
 
 .blockUnits{
@@ -175,24 +187,57 @@
 
 }
 
+.cardEastEmpireArcher{
+    width: 90%;
+    height: 40%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 2%;
+    background: cadetblue;
+}
+
 .cardWastelandHunter{
     width: 90%;
-    height: 30%;
+    height: 40%;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     bottom: 2%;
     background: brown;
 }
+
 .cardWastelandJavelin{
     width: 90%;
-    height: 30%;
+    height: 40%;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     bottom: 2%;
     background: green;
 }
+
+.healthScaleWasteland{
+    appearance: none;
+    -webkit-appearance: none;
+    width: 90%;
+    height: 1vw;
+    margin: 5% 5%;
+}
+
+.healthScaleWasteland::-webkit-progress-inner-element {
+    border: 0.1vw solid rgb(0, 0, 0);
+}
+  
+.healthScaleWasteland::-webkit-progress-bar {
+    background-color: rgb(189, 189, 189);
+    
+}
+  
+.healthScaleWasteland::-webkit-progress-value {
+    background-color: orange;
+}
+
 
 .unitWastelandHunter{
     width: 10.5vw; 
@@ -207,6 +252,19 @@
     filter: drop-shadow( 0 0 1vw red);
 }
 
+.unitWastelandJavelin{
+    width: 10.5vw; 
+    height: 8vw;
+    margin: 0;
+    border: solid 0.3vw black;
+    background: green;
+    cursor: pointer;
+}
+
+.unitWastelandJavelin:active{
+    filter: drop-shadow( 0 0 1vw red);
+}
+
 .unitEmpireEastArcher{
     width: 10.5vw; 
     height: 8vw;
@@ -216,7 +274,7 @@
     cursor: pointer;
 }
 
-.unitEmpireEastArcher:active{
+.unitEmpireEastArcher:hover{
     filter: drop-shadow( 0 0 1vw red);
 }
 
