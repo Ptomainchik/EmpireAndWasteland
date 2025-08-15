@@ -20,10 +20,20 @@ export const GameWasteland = () => {
     const [showGameField, setShowGameField] = useState(false);
     const [buttonStartGame, setButtonStartGame] = useState(true);
     const [occupiedCellOpponent, setOccupiedCellOpponent] = useState({
-            A2:{
+            A1:{
                 name: "Лучники востока",
                 occupied: false,
                 health: 70,
+                attack: 10,
+                defense: 3,
+                first: true,
+                classEmpireSoldier: 0,
+                showCard: false,
+            },
+            A2:{
+                name: "Лучники востока",
+                occupied: false,
+                health: 30,
                 attack: 10,
                 defense: 3,
                 first: true,
@@ -34,23 +44,13 @@ export const GameWasteland = () => {
                 name: "Лучники востока",
                 occupied: false,
                 health: 30,
-                attack: 10,
+                attack: 30,
                 defense: 3,
                 first: true,
                 classEmpireSoldier: 0,
                 showCard: false,
             },
             A4:{
-                name: "Лучники востока",
-                occupied: false,
-                health: 30,
-                attack: 10,
-                defense: 3,
-                first: true,
-                classEmpireSoldier: 0,
-                showCard: false,
-            },
-            A5:{
                 name: "Лучники востока",
                 occupied: false,
                 health: 30,
@@ -71,6 +71,7 @@ export const GameWasteland = () => {
                 choice: false,
                 classWastlelandSoldier: 0,
                 showCard: false,
+                priority: 0,
             },
             C2:{
                 name: "",
@@ -81,6 +82,7 @@ export const GameWasteland = () => {
                 choice: false,
                 classWastlelandSoldier: 0,
                 showCard: false,
+                priority: 0,
             },
             C3:{
                 name: "",
@@ -91,6 +93,7 @@ export const GameWasteland = () => {
                 choice: false,
                 classWastlelandSoldier: 0,
                 showCard: false,
+                priority: 0,
             },
             C4:{
                 name: "",
@@ -101,26 +104,7 @@ export const GameWasteland = () => {
                 choice: false,
                 classWastlelandSoldier: 0,
                 showCard: false,
-            },
-            C5:{
-                name: "",
-                occupied: false,
-                health: 0,
-                attack: 0,
-                defense: 0,
-                choice: false,
-                classWastlelandSoldier: 0,
-                showCard: false,
-            },
-            C6:{
-                name: "",
-                occupied: false,
-                health: 0,
-                attack: 0,
-                defense: 0,
-                choice: false,
-                classWastlelandSoldier: 0,
-                showCard: false,
+                priority: 0,
             },
             D1:{
                 name: "",
@@ -131,6 +115,7 @@ export const GameWasteland = () => {
                 choice: false,
                 classWastlelandSoldier: 0,
                 showCard: false,
+                priority: 0,
             },
             D2:{
                 name: "",
@@ -141,6 +126,7 @@ export const GameWasteland = () => {
                 choice: false,
                 classWastlelandSoldier: 0,
                 showCard: false,
+                priority: 0,
             },
             D3:{
                 name: "",
@@ -151,6 +137,7 @@ export const GameWasteland = () => {
                 choice: false,
                 classWastlelandSoldier: 0,
                 showCard: false,
+                priority: 0,
             },
             D4:{
                 name: "",
@@ -161,31 +148,12 @@ export const GameWasteland = () => {
                 choice: false,
                 classWastlelandSoldier: 0,
                 showCard: false,
+                priority: 0,
             },
-            D5:{
-                name: "",
-                occupied: false,
-                health: 0,
-                attack: 0,
-                defense: 0,
-                choice: false,
-                classWastlelandSoldier: 0,
-                showCard: false,
-            },
-            D6:{
-                name: "",
-                occupied: false,
-                health: 0,
-                attack: 0,
-                defense: 0,
-                choice: false,
-                classWastlelandSoldier: 0,
-                showCard: false,
-            },
-           
         }
     );// Не тупи это состояние решение всех наших проблем, просто добавляй всё в обьекты с ключ: значение и дёргай за него. Тут решается всё, ходовка, атаки и хранение данных, attack, defense, health. Пердоль пока пальцы не сотрёшь!!!
-    const [roundMoveState, setRoundMoveState] = useState(0);
+    const [stateOfButtonsDuringAttack, setStateOfButtonsDuringAttack] = useState(true);
+    const [attackQueue, setAttackQueue] = useState(1);
     const [stateButtonsSkills, setStateButtonsSkills] = useState(false);
     const [stateStyleSoldier, setStateStyleSoldier] = useState(0);
     const [activeButtonId, setActiveButtonId] = useState<string | null>(null);
@@ -254,7 +222,7 @@ export const GameWasteland = () => {
     function handleTroopDeployment(id: string) {
     setStateButtonsSkills(false);
     setStateStyleSoldier(0);
-    if(["C1", "C2", "C3", "C4", "C5", "C6", "D1", "D2", "D3", "D4", "D5", "D6"].includes(id) && stateButtonSoldiers.wastelandButtonHunter === true ) {
+    if(["C1", "C2", "C3", "C4", "D1", "D2", "D3", "D4"].includes(id) && stateButtonSoldiers.wastelandButtonHunter === true ) {
         
         setStateButtonSoldiers({
             wastelandButtonHunter: false,
@@ -278,6 +246,7 @@ export const GameWasteland = () => {
                     choice: false,
                     classWastlelandSoldier: 1,
                     showCard: false,
+                    priority: 1,
                 },
         }));
         }
@@ -293,6 +262,7 @@ export const GameWasteland = () => {
                     choice: false,
                     classWastlelandSoldier: 1,
                     showCard: false,
+                    priority: 1,
                 },
         }));
         }
@@ -308,6 +278,7 @@ export const GameWasteland = () => {
                     choice: false,
                     classWastlelandSoldier: 1,
                     showCard: false,
+                    priority: 1,
                 },
         }));
         }
@@ -323,36 +294,7 @@ export const GameWasteland = () => {
                     choice: false,
                     classWastlelandSoldier: 1,
                     showCard: false,
-                },
-        }));
-        }
-        else if(id === "C5"){
-            setOccupiedCell(prevOccupiedCell => ({
-                ...prevOccupiedCell,
-            C5:{
-                    name: "Охотники",
-                    occupied: true,
-                    health: 20,
-                    attack: 5,
-                    defense: 5,
-                    choice: false,
-                    classWastlelandSoldier: 1,
-                    showCard: false,
-                },
-        }));
-        }
-        else if(id === "C6"){
-            setOccupiedCell(prevOccupiedCell => ({
-                ...prevOccupiedCell,
-            C6:{
-                    name: "Охотники",
-                    occupied: true,
-                    health: 20,
-                    attack: 5,
-                    defense: 5,
-                    choice: false,
-                    classWastlelandSoldier: 1,
-                    showCard: false,
+                    priority: 1,
                 },
         }));
         }
@@ -368,6 +310,7 @@ export const GameWasteland = () => {
                     choice: false,
                     classWastlelandSoldier: 1,
                     showCard: false,
+                    priority: 1,
                 },
         }));
         }
@@ -383,6 +326,7 @@ export const GameWasteland = () => {
                     choice: false,
                     classWastlelandSoldier: 1,
                     showCard: false,
+                    priority: 1,
                 },
         }));
         }
@@ -398,6 +342,7 @@ export const GameWasteland = () => {
                     choice: false,
                     classWastlelandSoldier: 1,
                     showCard: false,
+                    priority: 1,
                 },
         }));
         }
@@ -413,41 +358,12 @@ export const GameWasteland = () => {
                     choice: false,
                     classWastlelandSoldier: 1,
                     showCard: false,
-                },
-        }));
-        }
-        else if(id === "D5"){
-            setOccupiedCell(prevOccupiedCell => ({
-                ...prevOccupiedCell,
-            D5:{
-                    name: "Охотники",
-                    occupied: true,
-                    health: 20,
-                    attack: 5,
-                    defense: 5,
-                    choice: false,
-                    classWastlelandSoldier: 1,
-                    showCard: false,
-                },
-        }));
-        }
-        else if(id === "D6"){
-            setOccupiedCell(prevOccupiedCell => ({
-                ...prevOccupiedCell,
-            D6:{
-                    name: "Охотники",
-                    occupied: true,
-                    health: 20,
-                    attack: 5,
-                    defense: 5,
-                    choice: false,
-                    classWastlelandSoldier: 1,
-                    showCard: false,
+                    priority: 1,
                 },
         }));
         }
     }
-    else if(["C1", "C2", "C3", "C4", "C5", "C6", "D1", "D2", "D3", "D4", "D5", "D6"].includes(id) && stateButtonSoldiers.wastelandButtonJavelin === true ) {
+    else if(["C1", "C2", "C3", "C4", "D1", "D2", "D3", "D4"].includes(id) && stateButtonSoldiers.wastelandButtonJavelin === true ) {
         
         setStateButtonSoldiers({
             wastelandButtonHunter: false,
@@ -471,6 +387,7 @@ export const GameWasteland = () => {
                 choice: false,
                 classWastlelandSoldier: 2,
                 showCard: false,
+                priority: 3,
             },
         }));
         }
@@ -486,6 +403,7 @@ export const GameWasteland = () => {
                     choice: false,
                     classWastlelandSoldier: 2,
                     showCard: false,
+                    priority: 3,
                 },
         }));
         }
@@ -501,6 +419,7 @@ export const GameWasteland = () => {
                     choice: false,
                     classWastlelandSoldier: 2,
                     showCard: false,
+                    priority: 3,
                 },
         }));
         }
@@ -516,36 +435,7 @@ export const GameWasteland = () => {
                     choice: false,
                     classWastlelandSoldier: 2,
                     showCard: false,
-                },
-        }));
-        }
-        else if(id === "C5"){
-            setOccupiedCell(prevOccupiedCell => ({
-                ...prevOccupiedCell,
-            C5:{
-                    name: "Метатели",
-                    occupied: true,
-                    health: 30,
-                    attack: 10,
-                    defense: 5,
-                    choice: false,
-                    classWastlelandSoldier: 2,
-                    showCard: false,
-                },
-        }));
-        }
-        else if(id === "C6"){
-            setOccupiedCell(prevOccupiedCell => ({
-                ...prevOccupiedCell,
-            C6:{
-                    name: "Метатели",
-                    occupied: true,
-                    health: 30,
-                    attack: 10,
-                    defense: 5,
-                    choice: false,
-                    classWastlelandSoldier: 2,
-                    showCard: false,
+                    priority: 3,
                 },
         }));
         }
@@ -561,6 +451,7 @@ export const GameWasteland = () => {
                     choice: false,
                     classWastlelandSoldier: 2,
                     showCard: false,
+                    priority: 3,
                 },
         }));
         }
@@ -576,6 +467,7 @@ export const GameWasteland = () => {
                     choice: false,
                     classWastlelandSoldier: 2,
                     showCard: false,
+                    priority: 3,
                 },
         }));
         }
@@ -591,6 +483,7 @@ export const GameWasteland = () => {
                     choice: false,
                     classWastlelandSoldier: 2,
                     showCard: false,
+                    priority: 3,
                 },
         }));
         }
@@ -606,36 +499,7 @@ export const GameWasteland = () => {
                     choice: false,
                     classWastlelandSoldier: 2,
                     showCard: false,
-                },
-        }));
-        }
-        else if(id === "D5"){
-            setOccupiedCell(prevOccupiedCell => ({
-                ...prevOccupiedCell,
-            D5:{
-                    name: "Метатели",
-                    occupied: true,
-                    health: 20,
-                    attack: 5,
-                    defense: 5,
-                    choice: false,
-                    classWastlelandSoldier: 2,
-                    showCard: false,
-                },
-        }));
-        }
-        else if(id === "D6"){
-            setOccupiedCell(prevOccupiedCell => ({
-                ...prevOccupiedCell,
-            D6:{
-                    name: "Метатели",
-                    occupied: true,
-                    health: 20,
-                    attack: 5,
-                    defense: 5,
-                    choice: false,
-                    classWastlelandSoldier: 2,
-                    showCard: false,
+                    priority: 3,
                 },
         }));
         }
@@ -653,20 +517,98 @@ export const GameWasteland = () => {
         C2: { ...prev.C2, choice: id === "C2", showCard: id === "C2" },
         C3: { ...prev.C3, choice: id === "C3", showCard: id === "C3" },
         C4: { ...prev.C4, choice: id === "C4", showCard: id === "C4" },
-        C5: { ...prev.C5, choice: id === "C5", showCard: id === "C5" },
-        C6: { ...prev.C6, choice: id === "C6", showCard: id === "C6" },
         D1: { ...prev.D1, choice: id === "D1", showCard: id === "D1" },
         D2: { ...prev.D2, choice: id === "D2", showCard: id === "D2" },
         D3: { ...prev.D3, choice: id === "D3", showCard: id === "D3" },
         D4: { ...prev.D4, choice: id === "D4", showCard: id === "D4" },
-        D5: { ...prev.D5, choice: id === "D5", showCard: id === "D5" },
-        D6: { ...prev.D6, choice: id === "D6", showCard: id === "D6" }
     }));
 }
 
     function handleAttack(id:any) {
     setStateChoiceButton(true);
-    if (id === "A2" && occupiedCell.C1.choice === true) {
+    if (id === "A1" && occupiedCell.C1.choice === true) {
+        if(occupiedCellOpponent.A1.first === true){
+            setOccupiedCell(prev => ({
+            ...prev,
+            C1: {
+                ...prev.C1,
+                health: prev.C1.health - 4
+            }
+        }));
+        }
+        setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A1: {
+                ...prev.A1,
+                health: prev.A1.health - (occupiedCell.C1.attack - prev.A1.defense - 1),
+                first: false
+            }
+        }));
+        handleCounterattack()
+    }
+    else if (id === "A1" && occupiedCell.C2.choice === true) {
+        if(occupiedCellOpponent.A1.first === true){
+            setOccupiedCell(prev => ({
+            ...prev,
+            C2: {
+                ...prev.C2,
+                health: prev.C2.health - 4
+            }
+        }));
+        }
+        setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A1: {
+                ...prev.A1,
+                health: prev.A1.health - (occupiedCell.C2.attack - prev.A1.defense -1),
+                first: false
+            }
+        }));
+        handleCounterattack()
+    }
+    else if (id === "A1" && occupiedCell.C3.choice === true) {
+        if(occupiedCellOpponent.A1.first === true){
+            setOccupiedCell(prev => ({
+            ...prev,
+            C3: {
+                ...prev.C3,
+                health: prev.C3.health - 4
+            }
+        }));
+        }
+        setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A1: {
+                ...prev.A1,
+                health: prev.A1.health - (occupiedCell.C3.attack - prev.A1.defense - 1),
+                first: false
+            }
+        }));
+        handleCounterattack()
+    }
+    else if (id === "A1" && occupiedCell.C4.choice === true) {
+        if(occupiedCellOpponent.A1.first === true){
+            setOccupiedCell(prev => ({
+            ...prev,
+            C4: {
+                ...prev.C4,
+                health: prev.C4.health - 4
+            }
+        }));
+        }
+        setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A1: {
+                ...prev.A1,
+                health: prev.A1.health - (occupiedCell.C4.attack - prev.A1.defense - 1),
+                first: false
+            }
+        }));
+        handleCounterattack()
+    }
+
+
+    else if (id === "A2" && occupiedCell.C1.choice === true) {
         if(occupiedCellOpponent.A2.first === true){
             setOccupiedCell(prev => ({
             ...prev,
@@ -700,7 +642,7 @@ export const GameWasteland = () => {
             ...prev,
             A2: {
                 ...prev.A2,
-                health: prev.A2.health - (occupiedCell.C2.attack - prev.A2.defense),
+                health: prev.A2.health - (occupiedCell.C2.attack - prev.A2.defense - 1),
                 first: false
             }
         }));
@@ -740,53 +682,12 @@ export const GameWasteland = () => {
             ...prev,
             A2: {
                 ...prev.A2,
-                health: prev.A2.health - (occupiedCell.C4.attack - prev.A2.defense - 2),
+                health: prev.A2.health - (occupiedCell.C4.attack - prev.A2.defense - 1),
                 first: false
             }
         }));
         handleCounterattack()
     }
-    else if (id === "A2" && occupiedCell.C5.choice === true) {
-        if(occupiedCellOpponent.A2.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            C5: {
-                ...prev.C5,
-                health: prev.C5.health - 4
-            }
-        }));
-        }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A2: {
-                ...prev.A2,
-                health: prev.A2.health - (occupiedCell.C5.attack - prev.A2.defense - 3),
-                first: false
-            }
-        }));
-        handleCounterattack()
-    }
-    else if (id === "A2" && occupiedCell.C6.choice === true) {
-        if(occupiedCellOpponent.A2.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            C6: {
-                ...prev.C6,
-                health: prev.C6.health - 4
-            }
-        }));
-        }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A2: {
-                ...prev.A2,
-                health: prev.A2.health - (occupiedCell.C6.attack - prev.A2.defense - 4),
-                first: false
-            }
-        }));
-        handleCounterattack()
-    }
-
 
     else if (id === "A3" && occupiedCell.C1.choice === true) {
         if(occupiedCellOpponent.A3.first === true){
@@ -802,7 +703,7 @@ export const GameWasteland = () => {
             ...prev,
             A3: {
                 ...prev.A3,
-                health: prev.A3.health - (occupiedCell.C1.attack - prev.A3.defense - 2),
+                health: prev.A3.health - (occupiedCell.C1.attack - prev.A3.defense - 1),
                 first: false
             }
         }));
@@ -842,7 +743,7 @@ export const GameWasteland = () => {
             ...prev,
             A3: {
                 ...prev.A3,
-                health: prev.A3.health - (occupiedCell.C3.attack - prev.A3.defense),
+                health: prev.A3.health - (occupiedCell.C3.attack - prev.A3.defense - 1),
                 first: false
             }
         }));
@@ -868,46 +769,6 @@ export const GameWasteland = () => {
         }));
         handleCounterattack()
     }
-    else if (id === "A3" && occupiedCell.C5.choice === true) {
-        if(occupiedCellOpponent.A3.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            C5: {
-                ...prev.C5,
-                health: prev.C5.health - 4
-            }
-        }));
-        }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A3: {
-                ...prev.A3,
-                health: prev.A3.health - (occupiedCell.C5.attack - prev.A3.defense - 2),
-                first: false
-            }
-        }));
-        handleCounterattack()
-    }
-    else if (id === "A3" && occupiedCell.C6.choice === true) {
-        if(occupiedCellOpponent.A3.first === true){
-             setOccupiedCell(prev => ({
-            ...prev,
-            C6: {
-                ...prev.C6,
-                health: prev.C6.health - 4
-            }
-        }));
-        }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A3: {
-                ...prev.A3,
-                health: prev.A3.health - (occupiedCell.C6.attack - prev.A3.defense - 3),
-                first: false
-            }
-        }));
-       handleCounterattack()
-    }
 
 
     else if (id === "A4" && occupiedCell.C1.choice === true) {
@@ -924,7 +785,7 @@ export const GameWasteland = () => {
             ...prev,
             A4: {
                 ...prev.A4,
-                health: prev.A4.health - (occupiedCell.C1.attack - prev.A4.defense - 3),
+                health: prev.A4.health - (occupiedCell.C1.attack - prev.A4.defense - 1),
                 first: false
             }
         }));
@@ -944,7 +805,7 @@ export const GameWasteland = () => {
             ...prev,
             A4: {
                 ...prev.A4,
-                health: prev.A4.health - (occupiedCell.C2.attack - prev.A4.defense - 2),
+                health: prev.A4.health - (occupiedCell.C2.attack - prev.A4.defense - 1),
                 first: false
             }
         }));
@@ -984,47 +845,7 @@ export const GameWasteland = () => {
             ...prev,
             A4: {
                 ...prev.A4,
-                health: prev.A4.health - (occupiedCell.C4.attack - prev.A4.defense),
-                first: false
-            }
-        }));
-        handleCounterattack()
-    }
-    else if (id === "A4" && occupiedCell.C5.choice === true) {
-        if(occupiedCellOpponent.A4.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            C5: {
-                ...prev.C5,
-                health: prev.C5.health - 4
-            }
-        }));
-        }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A4: {
-                ...prev.A4,
-                health: prev.A4.health - (occupiedCell.C5.attack - prev.A4.defense - 1),
-                first: false
-            }
-        }));
-        handleCounterattack()
-    }
-    else if (id === "A4" && occupiedCell.C6.choice === true) {
-        if(occupiedCellOpponent.A4.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            C6: {
-                ...prev.C6,
-                health: prev.C6.health - 4
-            }
-        }));
-        }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A4: {
-                ...prev.A4,
-                health: prev.A4.health - (occupiedCell.C6.attack - prev.A4.defense - 2),
+                health: prev.A4.health - (occupiedCell.C4.attack - prev.A4.defense - 1),
                 first: false
             }
         }));
@@ -1032,129 +853,88 @@ export const GameWasteland = () => {
     }
 
 
-    else if (id === "A5" && occupiedCell.C1.choice === true) {
-        if(occupiedCellOpponent.A5.first === true){
+    else if (id === "A1" && occupiedCell.D1.choice === true) {
+        if(occupiedCellOpponent.A1.first === true){
             setOccupiedCell(prev => ({
             ...prev,
-            C1: {
-                ...prev.C1,
-                health: prev.C1.health - 4
+            D1: {
+                ...prev.D1,
+                health: prev.D1.health - 4
             }
         }));
         }
         setOccupiedCellOpponent(prev => ({
             ...prev,
-            A5: {
-                ...prev.A5,
-                health: prev.A5.health - (occupiedCell.C1.attack - prev.A5.defense - 4),
+            A1: {
+                ...prev.A1,
+                health: prev.A1.health - (occupiedCell.D1.attack - prev.A1.defense - 1),
                 first: false
             }
         }));
         handleCounterattack()
     }
-    else if (id === "A5" && occupiedCell.C2.choice === true) {
-        if(occupiedCellOpponent.A5.first === true){
+    else if (id === "A1" && occupiedCell.D2.choice === true) {
+        if(occupiedCellOpponent.A1.first === true){
             setOccupiedCell(prev => ({
             ...prev,
-            C2: {
-                ...prev.C2,
-                health: prev.C2.health - 4
+            D2: {
+                ...prev.D2,
+                health: prev.D2.health - 4
             }
         }));
         }
         setOccupiedCellOpponent(prev => ({
             ...prev,
-            A5: {
-                ...prev.A5,
-                health: prev.A5.health - (occupiedCell.C2.attack - prev.A5.defense - 3),
+            A1: {
+                ...prev.A1,
+                health: prev.A1.health - (occupiedCell.D2.attack - prev.A1.defense - 1),
                 first: false
             }
         }));
         handleCounterattack()
     }
-    else if (id === "A5" && occupiedCell.C3.choice === true) {
-        if(occupiedCellOpponent.A5.first === true){
+    else if (id === "A1" && occupiedCell.D3.choice === true) {
+        if(occupiedCellOpponent.A1.first === true){
             setOccupiedCell(prev => ({
             ...prev,
-            C3: {
-                ...prev.C3,
-                health: prev.C3.health - 4
+            D3: {
+                ...prev.D3,
+                health: prev.D3.health - 4
             }
         }));
         }
         setOccupiedCellOpponent(prev => ({
             ...prev,
-            A5: {
-                ...prev.A5,
-                health: prev.A5.health - (occupiedCell.C3.attack - prev.A5.defense - 2),
+            A1: {
+                ...prev.A1,
+                health: prev.A1.health - (occupiedCell.D3.attack - prev.A1.defense - 1),
                 first: false
             }
         }));
         handleCounterattack()
     }
-    else if (id === "A5" && occupiedCell.C4.choice === true) {
-        if(occupiedCellOpponent.A5.first === true){
+    else if (id === "A1" && occupiedCell.D4.choice === true) {
+        if(occupiedCellOpponent.A1.first === true){
             setOccupiedCell(prev => ({
             ...prev,
-            C4: {
-                ...prev.C4,
-                health: prev.C4.health - 4
+            D4: {
+                ...prev.D4,
+                health: prev.D4.health - 4
             }
         }));
         }
         setOccupiedCellOpponent(prev => ({
             ...prev,
-            A5: {
-                ...prev.A5,
-                health: prev.A5.health - (occupiedCell.C4.attack - prev.A5.defense - 1),
-                first: false
-            }
-        }));
-        handleCounterattack()
-    }
-    else if (id === "A5" && occupiedCell.C5.choice === true) {
-        if(occupiedCellOpponent.A5.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            C5: {
-                ...prev.C5,
-                health: prev.C5.health - 4
-            }
-        }));
-        }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A5: {
-                ...prev.A5,
-                health: prev.A5.health - (occupiedCell.C5.attack - prev.A5.defense),
-                first: false
-            }
-        }));
-        handleCounterattack()
-    }
-    else if (id === "A5" && occupiedCell.C6.choice === true) {
-        if(occupiedCellOpponent.A5.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            C6: {
-                ...prev.C6,
-                health: prev.C6.health - 4
-            }
-        }));
-        }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A5: {
-                ...prev.A5,
-                health: prev.A5.health - (occupiedCell.C6.attack - prev.A5.defense - 1),
+            A1: {
+                ...prev.A1,
+                health: prev.A1.health - (occupiedCell.D4.attack - prev.A1.defense - 1),
                 first: false
             }
         }));
         handleCounterattack()
     }
 
-
-    if (id === "A2" && occupiedCell.D1.choice === true) {
+    else if (id === "A2" && occupiedCell.D1.choice === true) {
         if(occupiedCellOpponent.A2.first === true){
             setOccupiedCell(prev => ({
             ...prev,
@@ -1188,7 +968,7 @@ export const GameWasteland = () => {
             ...prev,
             A2: {
                 ...prev.A2,
-                health: prev.A2.health - (occupiedCell.D2.attack - prev.A2.defense),
+                health: prev.A2.health - (occupiedCell.D2.attack - prev.A2.defense - 1),
                 first: false
             }
         }));
@@ -1228,53 +1008,13 @@ export const GameWasteland = () => {
             ...prev,
             A2: {
                 ...prev.A2,
-                health: prev.A2.health - (occupiedCell.D4.attack - prev.A2.defense - 2),
+                health: prev.A2.health - (occupiedCell.D4.attack - prev.A2.defense - 1),
                 first: false
             }
         }));
         handleCounterattack()
     }
-    else if (id === "A2" && occupiedCell.D5.choice === true) {
-        if(occupiedCellOpponent.A2.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            D5: {
-                ...prev.D5,
-                health: prev.D5.health - 4
-            }
-        }));
-        }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A2: {
-                ...prev.A2,
-                health: prev.A2.health - (occupiedCell.D5.attack - prev.A2.defense - 3),
-                first: false
-            }
-        }));
-        handleCounterattack()
-    }
-    else if (id === "A2" && occupiedCell.D6.choice === true) {
-        if(occupiedCellOpponent.A2.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            D6: {
-                ...prev.D6,
-                health: prev.D6.health - 4
-            }
-        }));
-        }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A2: {
-                ...prev.A2,
-                health: prev.A2.health - (occupiedCell.D6.attack - prev.A2.defense - 4),
-                first: false
-            }
-        }));
-        handleCounterattack()
-    }
-
+    
 
     else if (id === "A3" && occupiedCell.D1.choice === true) {
         if(occupiedCellOpponent.A3.first === true){
@@ -1290,7 +1030,7 @@ export const GameWasteland = () => {
             ...prev,
             A3: {
                 ...prev.A3,
-                health: prev.A3.health - (occupiedCell.D1.attack - prev.A3.defense - 2),
+                health: prev.A3.health - (occupiedCell.D1.attack - prev.A3.defense - 1),
                 first: false
             }
         }));
@@ -1330,7 +1070,7 @@ export const GameWasteland = () => {
             ...prev,
             A3: {
                 ...prev.A3,
-                health: prev.A3.health - (occupiedCell.D3.attack - prev.A3.defense),
+                health: prev.A3.health - (occupiedCell.D3.attack - prev.A3.defense - 1),
                 first: false
             }
         }));
@@ -1356,47 +1096,6 @@ export const GameWasteland = () => {
         }));
         handleCounterattack()
     }
-    else if (id === "A3" && occupiedCell.D5.choice === true) {
-        if(occupiedCellOpponent.A3.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            D5: {
-                ...prev.D5,
-                health: prev.D5.health - 4
-            }
-        }));
-        }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A3: {
-                ...prev.A3,
-                health: prev.A3.health - (occupiedCell.D5.attack - prev.A3.defense - 2),
-                first: false
-            }
-        }));
-        handleCounterattack()
-    }
-    else if (id === "A3" && occupiedCell.D6.choice === true) {
-        if(occupiedCellOpponent.A3.first === true){
-             setOccupiedCell(prev => ({
-            ...prev,
-            D6: {
-                ...prev.D6,
-                health: prev.D6.health - 4
-            }
-        }));
-        }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A3: {
-                ...prev.A3,
-                health: prev.A3.health - (occupiedCell.D6.attack - prev.A3.defense - 3),
-                first: false
-            }
-        }));
-       handleCounterattack()
-    }
-
 
     else if (id === "A4" && occupiedCell.D1.choice === true) {
         if(occupiedCellOpponent.A4.first === true){
@@ -1412,7 +1111,7 @@ export const GameWasteland = () => {
             ...prev,
             A4: {
                 ...prev.A4,
-                health: prev.A4.health - (occupiedCell.D1.attack - prev.A4.defense - 3),
+                health: prev.A4.health - (occupiedCell.D1.attack - prev.A4.defense - 1),
                 first: false
             }
         }));
@@ -1432,7 +1131,7 @@ export const GameWasteland = () => {
             ...prev,
             A4: {
                 ...prev.A4,
-                health: prev.A4.health - (occupiedCell.D2.attack - prev.A4.defense - 2),
+                health: prev.A4.health - (occupiedCell.D2.attack - prev.A4.defense - 1),
                 first: false
             }
         }));
@@ -1472,169 +1171,7 @@ export const GameWasteland = () => {
             ...prev,
             A4: {
                 ...prev.A4,
-                health: prev.A4.health - (occupiedCell.D4.attack - prev.A4.defense),
-                first: false
-            }
-        }));
-        handleCounterattack()
-    }
-    else if (id === "A4" && occupiedCell.D5.choice === true) {
-        if(occupiedCellOpponent.A4.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            D5: {
-                ...prev.D5,
-                health: prev.D5.health - 4
-            }
-        }));
-        }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A4: {
-                ...prev.A4,
-                health: prev.A4.health - (occupiedCell.D5.attack - prev.A4.defense - 1),
-                first: false
-            }
-        }));
-        handleCounterattack()
-    }
-    else if (id === "A4" && occupiedCell.D6.choice === true) {
-        if(occupiedCellOpponent.A4.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            D6: {
-                ...prev.D6,
-                health: prev.D6.health - 4
-            }
-        }));
-        }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A4: {
-                ...prev.A4,
-                health: prev.A4.health - (occupiedCell.D6.attack - prev.A4.defense - 2),
-                first: false
-            }
-        }));
-        handleCounterattack()
-    }
-
-
-    else if (id === "A5" && occupiedCell.D1.choice === true) {
-        if(occupiedCellOpponent.A5.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            D1: {
-                ...prev.D1,
-                health: prev.D1.health - 4
-            }
-        }));
-        }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A5: {
-                ...prev.A5,
-                health: prev.A5.health - (occupiedCell.D1.attack - prev.A5.defense - 4),
-                first: false
-            }
-        }));
-        handleCounterattack()
-    }
-    else if (id === "A5" && occupiedCell.D2.choice === true) {
-        if(occupiedCellOpponent.A5.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            D2: {
-                ...prev.D2,
-                health: prev.D2.health - 4
-            }
-        }));
-        }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A5: {
-                ...prev.A5,
-                health: prev.A5.health - (occupiedCell.D2.attack - prev.A5.defense - 3),
-                first: false
-            }
-        }));
-        handleCounterattack()
-    }
-    else if (id === "A5" && occupiedCell.D3.choice === true) {
-        if(occupiedCellOpponent.A5.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            D3: {
-                ...prev.D3,
-                health: prev.D3.health - 4
-            }
-        }));
-        }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A5: {
-                ...prev.A5,
-                health: prev.A5.health - (occupiedCell.D3.attack - prev.A5.defense - 2),
-                first: false
-            }
-        }));
-        handleCounterattack()
-    }
-    else if (id === "A5" && occupiedCell.D4.choice === true) {
-        if(occupiedCellOpponent.A5.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            D4: {
-                ...prev.D4,
-                health: prev.D4.health - 4
-            }
-        }));
-        }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A5: {
-                ...prev.A5,
-                health: prev.A5.health - (occupiedCell.D4.attack - prev.A5.defense - 1),
-                first: false
-            }
-        }));
-        handleCounterattack()
-    }
-    else if (id === "A5" && occupiedCell.D5.choice === true) {
-        if(occupiedCellOpponent.A5.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            D5: {
-                ...prev.D5,
-                health: prev.D5.health - 4
-            }
-        }));
-        }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A5: {
-                ...prev.A5,
-                health: prev.A5.health - (occupiedCell.D5.attack - prev.A5.defense),
-                first: false
-            }
-        }));
-        handleCounterattack()
-    }
-    else if (id === "A5" && occupiedCell.D6.choice === true) {
-        if(occupiedCellOpponent.A5.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            D6: {
-                ...prev.D6,
-                health: prev.D6.health - 4
-            }
-        }));
-        }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A5: {
-                ...prev.A5,
-                health: prev.A5.health - (occupiedCell.D6.attack - prev.A5.defense - 1),
+                health: prev.A4.health - (occupiedCell.D4.attack - prev.A4.defense - 1),
                 first: false
             }
         }));
@@ -1642,9 +1179,57 @@ export const GameWasteland = () => {
     }
     
 };
-    function handleCounterattack(){
-
+    
+function handleCounterattack() {
+    console.log("Attack");
+    setStateOfButtonsDuringAttack(false);
+    
+    // Получаем текущего атакующего противника
+    const attackerKey = `A${attackQueue}` as keyof typeof occupiedCellOpponent;
+    const attacker = occupiedCellOpponent[attackerKey];
+    
+    if (attacker.health > 0) {
+        // Фильтруем только занятые клетки с юнитами
+        const potentialTargets = Object.entries(occupiedCell)
+            .filter(([_, unit]) => unit.occupied && unit.health > 0)
+            .map(([key, unit]) => ({ key, ...unit }));
+        
+        if (potentialTargets.length > 0) {
+            // Сортируем цели по приоритету (по убыванию), затем по здоровью (по возрастанию), затем по choice (true first)
+            potentialTargets.sort((a, b) => {
+                if (a.priority !== b.priority) return b.priority - a.priority;
+                if (a.health !== b.health) return a.health - b.health;
+                return (a.choice === b.choice) ? 0 : a.choice ? -1 : 1;
+            });
+            
+            // Берем самую приоритетную цель
+            const target = potentialTargets[0];
+            const damage = attacker.attack - target.defense - 1; // Формула урона
+            
+            setTimeout(() => {
+                setOccupiedCell(prev => ({
+                    ...prev,
+                    [target.key]: {
+                        ...prev[target.key as keyof typeof prev],
+                        health: Math.max(0, prev[target.key as keyof typeof prev].health - damage),
+                        first: false
+                    }
+                }));
+                
+                setStateOfButtonsDuringAttack(true);
+                setAttackQueue(prev => prev === 4 ? 1 : prev + 1);
+            }, 2000);
+        } else {
+            // Нет целей для атаки
+            setStateOfButtonsDuringAttack(true);
+            setAttackQueue(prev => prev === 4 ? 1 : prev + 1);
+        }
+    } else {
+        // Атакующий мертв, переходим к следующему
+        setStateOfButtonsDuringAttack(true);
+        setAttackQueue(prev => prev === 4 ? 1 : prev + 1);
     }
+}
 // Здесь происходит атака на юнита противника и проверяется приоритет атаки.
 
 
@@ -1723,29 +1308,6 @@ export const GameWasteland = () => {
                     <p>Defense: {occupiedCell.C4.defense}:</p>
                 </div>}
 
-                {occupiedCell.C5.showCard && <div className={occupiedCell.C5.classWastlelandSoldier === 1 
-                ? classes.cardWastelandHunter 
-                : occupiedCell.C5.classWastlelandSoldier === 2 
-                ? classes.cardWastelandJavelin 
-                : classes.card}>
-                    <img src={Images} alt="Images" draggable="false"/>
-                    <progress className={classes.healthScaleWasteland} max="100" value={occupiedCell.C5.health}></progress>
-                    <p>{occupiedCell.C5.name}</p>
-                    <p>Attack:  {occupiedCell.C5.attack}</p>
-                    <p>Defense: {occupiedCell.C5.defense}:</p>
-                </div>}
-
-                {occupiedCell.C6.showCard && <div className={occupiedCell.C6.classWastlelandSoldier === 1 
-                ? classes.cardWastelandHunter 
-                : occupiedCell.C6.classWastlelandSoldier === 2 
-                ? classes.cardWastelandJavelin 
-                : classes.card}>
-                    <img src={Images} alt="Images" draggable="false"/>
-                    <p>{occupiedCell.C6.name}</p>
-                    <p>Attack:  {occupiedCell.C6.attack}</p>
-                    <p>Defense: {occupiedCell.C6.defense}:</p>
-                </div>}
-
                 {occupiedCell.D1.showCard && <div className={occupiedCell.D1.classWastlelandSoldier === 1 
                 ? classes.cardWastelandHunter 
                 : occupiedCell.D1.classWastlelandSoldier === 2 
@@ -1794,29 +1356,13 @@ export const GameWasteland = () => {
                     <p>Defense: {occupiedCell.D4.defense}:</p>
                 </div>}
 
-                {occupiedCell.D5.showCard && <div className={occupiedCell.D5.classWastlelandSoldier === 1 
-                ? classes.cardWastelandHunter 
-                : occupiedCell.D5.classWastlelandSoldier === 2 
-                ? classes.cardWastelandJavelin 
-                : classes.card}>
-                    <img src={Images} alt="Images" draggable="false"/>
-                    <progress className={classes.healthScaleWasteland} max="100" value={occupiedCell.D5.health}></progress>
-                    <p>{occupiedCell.D5.name}</p>
-                    <p>Attack:  {occupiedCell.D5.attack}</p>
-                    <p>Defense: {occupiedCell.D5.defense}:</p>
+                {occupiedCellOpponent.A1.showCard && <div className={classes.cardEastEmpireArcher}>
+                    <img src={Images1} alt="Images" draggable="false"/>
+                    <progress className={classes.healthScaleWasteland} max="100" value={occupiedCellOpponent.A1.health}></progress>
+                    <p>{occupiedCellOpponent.A1.name}</p>
+                    <p>Attack:  {occupiedCellOpponent.A1.attack}</p>
+                    <p>Defense: {occupiedCellOpponent.A1.defense}:</p>
                 </div>}
-
-                {occupiedCell.D6.showCard && <div className={occupiedCell.D6.classWastlelandSoldier === 1 
-                ? classes.cardWastelandHunter 
-                : occupiedCell.D6.classWastlelandSoldier === 2 
-                ? classes.cardWastelandJavelin 
-                : classes.card}>
-                    <img src={Images} alt="Images" draggable="false"/>
-                    <p>{occupiedCell.D6.name}</p>
-                    <p>Attack:  {occupiedCell.D6.attack}</p>
-                    <p>Defense: {occupiedCell.D6.defense}:</p>
-                </div>}
-
 
                 {occupiedCellOpponent.A2.showCard && <div className={classes.cardEastEmpireArcher}>
                     <img src={Images1} alt="Images" draggable="false"/>
@@ -1842,14 +1388,6 @@ export const GameWasteland = () => {
                     <p>Defense: {occupiedCellOpponent.A4.defense}:</p>
                 </div>}
 
-                {occupiedCellOpponent.A5.showCard && <div className={classes.cardEastEmpireArcher}>
-                    <img src={Images1} alt="Images" draggable="false"/>
-                    <progress className={classes.healthScaleWasteland} max="100" value={occupiedCellOpponent.A5.health}></progress>
-                    <p>{occupiedCellOpponent.A5.name}</p>
-                    <p>Attack:  {occupiedCellOpponent.A5.attack}</p>
-                    <p>Defense: {occupiedCellOpponent.A5.defense}:</p>
-                </div>}
-
             </div>
 
                 <button className={classes.shopButton} onClick={handleOpenShop} disabled={buttonStartGame === false}>Магазин</button>
@@ -1871,8 +1409,12 @@ export const GameWasteland = () => {
             <div className={classes.blockUnits}>
 
                 <div className={classes.blockFlex1}>
-                    
-                    <button className={classes.cell} id={"A1"}>+</button>
+
+                    <button className={classes.unitEmpireEastArcher} id={"A1"} onClick={() => {handleAttack("A1")}} 
+                        onMouseEnter={() => setOccupiedCellOpponent(prev => ({...prev, A1: {...prev.A1, showCard: true}}))}
+                        onMouseLeave={() => setOccupiedCellOpponent(prev => ({...prev, A1: {...prev.A1,showCard: false}}))} 
+                        disabled={stateButtonsSkills === true}>+{occupiedCellOpponent.A1.health}
+                    </button>
 
                     <button className={classes.unitEmpireEastArcher} id={"A2"} onClick={() => {handleAttack("A2")}} 
                         onMouseEnter={() => setOccupiedCellOpponent(prev => ({...prev, A2: {...prev.A2, showCard: true}}))}
@@ -1892,14 +1434,6 @@ export const GameWasteland = () => {
                         disabled={stateButtonsSkills === true}>+{occupiedCellOpponent.A4.health}
                     </button>
 
-                    <button className={classes.unitEmpireEastArcher} id={"A5"} onClick={() => {handleAttack("A5")}} 
-                        onMouseEnter={() => setOccupiedCellOpponent(prev => ({...prev, A5: {...prev.A5, showCard: true}}))}
-                        onMouseLeave={() => setOccupiedCellOpponent(prev => ({...prev, A5: {...prev.A5,showCard: false}}))} 
-                        disabled={stateButtonsSkills === true}>+{occupiedCellOpponent.A5.health}
-                    </button>
-                    
-                    <button className={classes.cell} id={"A6"}>+</button>
-
                 </div>
 
                 <div className={classes.blockFlex2}>
@@ -1907,8 +1441,6 @@ export const GameWasteland = () => {
                     <button className={classes.cell} id={"B2"} disabled={stateButtonsSkills === true}>+</button>
                     <button className={classes.cell} id={"B3"} disabled={stateButtonsSkills === true}>+</button>
                     <button className={classes.cell} id={"B4"} disabled={stateButtonsSkills === true}>+</button>
-                    <button className={classes.cell} id={"B5"} disabled={stateButtonsSkills === true}>+</button>
-                    <button className={classes.cell} id={"B6"} disabled={stateButtonsSkills === true}>+</button>
                 </div>
 
                 {buttonStartGame && <div className={classes.blockFlex4}>
@@ -1936,18 +1468,6 @@ export const GameWasteland = () => {
                         onClick={() => handleTroopDeployment("C4")} 
                         disabled={occupiedCell.C4.occupied === true}
                     >+</button>
-                    <button 
-                        className={getButtonClass("C5")} 
-                        id={"C5"} 
-                        onClick={() => handleTroopDeployment("C5")} 
-                        disabled={occupiedCell.C5.occupied === true}
-                    >+</button>
-                    <button 
-                        className={getButtonClass("C6")} 
-                        id={"C6"} 
-                        onClick={() => handleTroopDeployment("C6")} 
-                        disabled={occupiedCell.C6.occupied === true}
-                    >+</button>
                 </div>}
 
                 {showGameField && <div className={classes.blockFlex4}>
@@ -1955,38 +1475,26 @@ export const GameWasteland = () => {
                         className={getButtonClass("C1")} 
                         id={"C1"} 
                         onClick={() => {handleChoiceCellAttack("C1")}} 
-                        disabled={occupiedCell.C1.occupied === false}
+                        disabled={occupiedCell.C1.occupied === false || stateOfButtonsDuringAttack === false}
                     >+ {occupiedCell.C1.health}</button>
                     <button 
                         className={getButtonClass("C2")}
                         id={"C2"} 
                         onClick={() => {handleChoiceCellAttack("C2")}} 
-                        disabled={occupiedCell.C2.occupied === false}
+                        disabled={occupiedCell.C2.occupied === false || stateOfButtonsDuringAttack === false}
                     >+ {occupiedCell.C2.health}</button>
                     <button 
                         className={getButtonClass("C3")}
                         id={"C3"} 
                         onClick={() => {handleChoiceCellAttack("C3")}} 
-                        disabled={occupiedCell.C3.occupied === false}
+                        disabled={occupiedCell.C3.occupied === false || stateOfButtonsDuringAttack === false}
                     >+{occupiedCell.C3.health}</button>
                     <button 
                         className={getButtonClass("C4")}
                         id={"C4"} 
                         onClick={() => {handleChoiceCellAttack("C4")}} 
-                        disabled={occupiedCell.C4.occupied === false}
+                        disabled={occupiedCell.C4.occupied === false || stateOfButtonsDuringAttack === false}
                     >+ {occupiedCell.C4.health}</button>
-                    <button 
-                        className={getButtonClass("C5")} 
-                        id={"C5"} 
-                        onClick={() => {handleChoiceCellAttack("C5")}} 
-                        disabled={occupiedCell.C5.occupied === false}
-                    >+ {occupiedCell.C5.health}</button>
-                    <button 
-                        className={getButtonClass("C6")} 
-                        id={"C6"} 
-                        onClick={() => {handleChoiceCellAttack("C6")}} 
-                        disabled={occupiedCell.C6.occupied === false}
-                    >+ {occupiedCell.C6.health}</button>
                 </div>}
 
                 {buttonStartGame && <div className={classes.blockFlex5}>
@@ -2014,18 +1522,6 @@ export const GameWasteland = () => {
                         onClick={() => handleTroopDeployment("D4")} 
                         disabled={occupiedCell.D4.occupied === true}
                     >+</button>
-                    <button 
-                        className={getButtonClass("D5")} 
-                        id={"D5"} 
-                        onClick={() => handleTroopDeployment("D5")} 
-                        disabled={occupiedCell.D5.occupied === true}
-                    >+</button>
-                    <button 
-                        className={getButtonClass("D6")} 
-                        id={"D6"} 
-                        onClick={() => handleTroopDeployment("D6")} 
-                        disabled={occupiedCell.D6.occupied === true}
-                    >+</button>
                 </div>}
 
                 {showGameField && <div className={classes.blockFlex5}>
@@ -2033,38 +1529,26 @@ export const GameWasteland = () => {
                         className={getButtonClass("D1")} 
                         id={"D1"} 
                         onClick={() => {handleChoiceCellAttack("D1")}} 
-                        disabled={occupiedCell.D1.occupied === false}
+                        disabled={occupiedCell.D1.occupied === false || stateOfButtonsDuringAttack === false}
                     >+ {occupiedCell.D1.health}</button>
                     <button 
                         className={getButtonClass("D2")}
                         id={"D2"} 
                         onClick={() => {handleChoiceCellAttack("D2")}} 
-                        disabled={occupiedCell.D2.occupied === false}
+                        disabled={occupiedCell.D2.occupied === false || stateOfButtonsDuringAttack === false}
                     >+ {occupiedCell.D2.health}</button>
                     <button 
                         className={getButtonClass("D3")}
                         id={"D3"} 
                         onClick={() => {handleChoiceCellAttack("D3")}} 
-                        disabled={occupiedCell.D3.occupied === false}
+                        disabled={occupiedCell.D3.occupied === false || stateOfButtonsDuringAttack === false}
                     >+{occupiedCell.D3.health}</button>
                     <button 
                         className={getButtonClass("D4")}
                         id={"D4"} 
                         onClick={() => {handleChoiceCellAttack("D4")}} 
-                        disabled={occupiedCell.D4.occupied === false}
+                        disabled={occupiedCell.D4.occupied === false || stateOfButtonsDuringAttack === false}
                     >+ {occupiedCell.D4.health}</button>
-                    <button 
-                        className={getButtonClass("D5")} 
-                        id={"D5"} 
-                        onClick={() => {handleChoiceCellAttack("D5")}} 
-                        disabled={occupiedCell.D5.occupied === false}
-                    >+ {occupiedCell.D5.health}</button>
-                    <button 
-                        className={getButtonClass("D6")} 
-                        id={"D6"} 
-                        onClick={() => {handleChoiceCellAttack("D6")}} 
-                        disabled={occupiedCell.D6.occupied === false}
-                    >+ {occupiedCell.D6.health}</button>
                 </div>}
                     
             </div>
