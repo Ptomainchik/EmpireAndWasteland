@@ -119,54 +119,114 @@
 }
 
 .shopButton{
-    width: 7%;
-    height: 5%;
     position: absolute;
-    right: 1%;
-    top: 12%;
-    z-index: 20;
+    top: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    border: solid 0.1vw black;
+    width: 9vw;
+    height: 3vw;
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 110%);
+    font-family: "El Messiri";
+    font-size: 1.5vw;
     cursor: pointer;
+    margin: 0;
+    color: rgb(220, 220, 220);
+    z-index: 20;
+}
+
+.shopButton:hover{
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 95%);
+    filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
 }
 
 .shop{
-    width: 80%; 
-    height: 70%;
+    width: 100%; 
+    height: 100%;
     position: absolute;
-    top: 15%;
+    top: 0%;
     left: 50%;
     transform: translateX(-50%);
     background: wheat;
-    border: solid 0.3vw darkolivegreen;
     z-index: 21;
 }
 
 .buttonStartGame{
-    width: 80%; 
-    height: 5%;
     position: absolute;
-    top: 15%;
+    top: 10%;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 21;
+    border-radius: 50%;
+    border: solid 0.1vw black;
+    width: 9vw;
+    height: 3vw;
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 110%);
+    font-family: "El Messiri";
+    font-size: 1.5vw;
     cursor: pointer;
+    margin: 0;
+    color: rgb(220, 220, 220);
+    z-index: 20;
+}
+
+.buttonStartGame:hover{
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 95%);
+    filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
 }
 
 .angalsButtonSkillsHunters{
-    width: 80%;
-    height: 5%;
     position: absolute;
-    right: 5%;
-    bottom: 2%;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    border: solid 0.1vw black;
+    width: 9vw;
+    height: 3vw;
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 110%);
+    font-family: "El Messiri";
+    font-size: 1.2vw;
     cursor: pointer;
+    margin: 0;
+    color: rgb(220, 220, 220);
+    z-index: 20;
+}
+
+.angalsButtonSkillsHunters:hover{
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 95%);
+    filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
 }
 
 .angalsButtonSkillsJavelin{
-    width: 80%;
-    height: 5%;
     position: absolute;
-    right: 5%;
-    bottom: 10%;
+    bottom: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    border: solid 0.1vw black;
+    width: 9vw;
+    height: 3vw;
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 110%);
+    font-family: "El Messiri";
+    font-size: 1.2vw;
     cursor: pointer;
+    margin: 0;
+    color: rgb(220, 220, 220);
+    z-index: 20;    
+}
+
+.angalsButtonSkillsJavelin:hover{
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 95%);
+    filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
 }
 
 .cell{
@@ -252,6 +312,15 @@
     filter: drop-shadow( 0 0 1vw red);
 }
 
+.unitWastelandHunterChoice{
+    width: 10.5vw; 
+    height: 8vw;
+    margin: 0;
+    border: solid 0.3vw red;
+    background: brown;
+    cursor: pointer;
+}
+
 .unitWastelandJavelin{
     width: 10.5vw; 
     height: 8vw;
@@ -265,6 +334,24 @@
     filter: drop-shadow( 0 0 1vw red);
 }
 
+.unitWastelandJavelinChoice{
+    width: 10.5vw; 
+    height: 8vw;
+    margin: 0;
+    border: solid 0.3vw red;
+    background: green;
+    cursor: pointer;
+}
+
+.unitWastelandDeath{
+    width: 10.5vw; 
+    height: 8vw;
+    margin: 0;
+    border: solid 0.3vw black;
+    background: white;
+    cursor: pointer;
+}
+
 .unitEmpireEastArcher{
     width: 10.5vw; 
     height: 8vw;
@@ -274,8 +361,26 @@
     cursor: pointer;
 }
 
+.unitEmpireEastArcherChoice{
+    width: 10.5vw; 
+    height: 8vw;
+    margin: 0;
+    border: solid 0.3vw red;
+    background: cadetblue;
+    cursor: pointer;
+}
+
 .unitEmpireEastArcher:hover{
     filter: drop-shadow( 0 0 1vw red);
+}
+
+.unitEmpireEastArcherDeath{
+    width: 10.5vw; 
+    height: 8vw;
+    margin: 0;
+    border: solid 0.3vw black;
+    background: white;
+    cursor: pointer;
 }
 
 .closeButton{
