@@ -455,8 +455,8 @@ export const GameWasteland = () => {
             D1:{
                     name: "Метатели",
                     occupied: true,
-                    health: 20,
-                    attack: 5,
+                    health: 30,
+                    attack: 10,
                     defense: 5,
                     choice: false,
                     classWastlelandSoldier: 2,
@@ -471,8 +471,8 @@ export const GameWasteland = () => {
             D2:{
                     name: "Метатели",
                     occupied: true,
-                    health: 20,
-                    attack: 5,
+                    health: 30,
+                    attack: 10,
                     defense: 5,
                     choice: false,
                     classWastlelandSoldier: 2,
@@ -487,8 +487,8 @@ export const GameWasteland = () => {
             D3:{
                     name: "Метатели",
                     occupied: true,
-                    health: 20,
-                    attack: 5,
+                    health: 30,
+                    attack: 10,
                     defense: 5,
                     choice: false,
                     classWastlelandSoldier: 2,
@@ -503,8 +503,8 @@ export const GameWasteland = () => {
             D4:{
                     name: "Метатели",
                     occupied: true,
-                    health: 20,
-                    attack: 5,
+                    health: 30,
+                    attack: 10,
                     defense: 5,
                     choice: false,
                     classWastlelandSoldier: 2,
@@ -708,6 +708,7 @@ export const GameWasteland = () => {
         }));
         handleCounterattack()
     }
+
 
     else if (id === "A3" && occupiedCell.C1.choice === true && occupiedCell.C1.health > 0) {
         if(occupiedCellOpponent.A3.first === true){
@@ -1117,6 +1118,7 @@ export const GameWasteland = () => {
         handleCounterattack()
     }
 
+    
     else if (id === "A4" && occupiedCell.D1.choice === true && occupiedCell.D1.health > 0) {
         if(occupiedCellOpponent.A4.first === true){
             setOccupiedCell(prev => ({
@@ -1239,26 +1241,90 @@ function handleCounterattack() {
                 }));
                 
                 setStateOfButtonsDuringAttack(true);
-                setAttackQueue(prev => prev === 4 ? 1 : prev + 1);
+                
+                // Функция для поиска следующего живого юнита в очереди
+                setTimeout(() => {
+                    setOccupiedCellOpponent(currentOpponents => {
+                        const findNextAliveAttacker = (currentQueue: number) => {
+                            let nextQueue = currentQueue === 4 ? 1 : currentQueue + 1;
+                            let attempts = 0;
+                            
+                            while (attempts < 4) {
+                                const nextAttackerKey = `A${nextQueue}` as keyof typeof currentOpponents;
+                                if (currentOpponents[nextAttackerKey].health > 0) {
+                                    return nextQueue;
+                                }
+                                nextQueue = nextQueue === 4 ? 1 : nextQueue + 1;
+                                attempts++;
+                            }
+                            return 1;
+                        };
+                        
+                        setAttackQueue(findNextAliveAttacker(attackQueue));
+                        return currentOpponents;
+                    });
+                }, 0);
+
                 setButtonStateGame(prev => ({
                     ...prev,
                     stateAttackButton: true,
                 }));
-            }, 3000);
+            }, 1000);
         } else {
             // Нет целей для атаки
             setStateOfButtonsDuringAttack(true);
-            setAttackQueue(prev => prev === 4 ? 1 : prev + 1);
+
+
+            setTimeout(() => {
+                setOccupiedCellOpponent(currentOpponents => {
+                    const findNextAliveAttacker = (currentQueue: number) => {
+                        let nextQueue = currentQueue === 4 ? 1 : currentQueue + 1;
+                        let attempts = 0;
+                        
+                        while (attempts < 4) {
+                            const nextAttackerKey = `A${nextQueue}` as keyof typeof currentOpponents;
+                            if (currentOpponents[nextAttackerKey].health > 0) {
+                                return nextQueue;
+                            }
+                            nextQueue = nextQueue === 4 ? 1 : nextQueue + 1;
+                            attempts++;
+                        }
+                        return 1;
+                    };
+                    
+                    setAttackQueue(findNextAliveAttacker(attackQueue));
+                    return currentOpponents;
+                });
+            }, 0);
         }
     } else {
         // Атакующий мертв, переходим к следующему
         setStateOfButtonsDuringAttack(true);
-        setAttackQueue(prev => prev === 4 ? 1 : prev + 1);
+        
+        setTimeout(() => {
+            setOccupiedCellOpponent(currentOpponents => {
+                const findNextAliveAttacker = (currentQueue: number) => {
+                    let nextQueue = currentQueue === 4 ? 1 : currentQueue + 1;
+                    let attempts = 0;
+                    
+                    while (attempts < 4) {
+                        const nextAttackerKey = `A${nextQueue}` as keyof typeof currentOpponents;
+                        if (currentOpponents[nextAttackerKey].health > 0) {
+                            return nextQueue;
+                        }
+                        nextQueue = nextQueue === 4 ? 1 : nextQueue + 1;
+                        attempts++;
+                    }
+                    return 1;
+                };
+                
+                setAttackQueue(findNextAliveAttacker(attackQueue));
+                return currentOpponents;
+            });
+        }, 0);
     }
 }
 // Здесь происходит атака на юнита противника и проверяется приоритет атаки.
-// Разберись с очередью атак!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
 
     function handleStartGame() {
         setButtonStateGame({
