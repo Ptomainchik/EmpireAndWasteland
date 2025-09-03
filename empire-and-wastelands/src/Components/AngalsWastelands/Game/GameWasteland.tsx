@@ -3,7 +3,8 @@ import { BackButton } from "../../Buttons/BackButton";
 import { HomeButton } from "../../Buttons/HomeButton";
 import { useState } from "react";
 import Images from "../../../Images/AngalsWastelandsImage/CoatOfArmsOfWasteland.webp";
-import Images1 from "../../../Images/ImpireMarahImage/CoatOfArmsEmpire.webp";
+import AngalJavelin from "../../../Images/AngalsWastelandsImage/ImageWastelandCardAngalJavelin.jpg";
+import WestArcher from "../../../Images/ImpireMarahImage/ImageImpireCardWestArcher.jpg";
 
 export const GameWasteland = () => {
     const [resources, setResources] = useState(2250);
@@ -25,7 +26,7 @@ export const GameWasteland = () => {
     });
     const [occupiedCellOpponent, setOccupiedCellOpponent] = useState({
             A1:{
-                name: "Лучники востока",
+                name: "Лучники запада",
                 occupied: false,
                 health: 10,
                 attack: 10,
@@ -35,7 +36,7 @@ export const GameWasteland = () => {
                 showCard: false,
             },
             A2:{
-                name: "Лучники востока",
+                name: "Лучники запада",
                 occupied: false,
                 health: 10,
                 attack: 10,
@@ -45,7 +46,7 @@ export const GameWasteland = () => {
                 showCard: false,
             },
             A3:{
-                name: "Лучники востока",
+                name: "Лучники запада",
                 occupied: false,
                 health: 10,
                 attack: 30,
@@ -55,7 +56,7 @@ export const GameWasteland = () => {
                 showCard: false,
             },
             A4:{
-                name: "Лучники востока",
+                name: "Лучники запада",
                 occupied: false,
                 health: 10,
                 attack: 10,
@@ -1351,7 +1352,11 @@ function handleCounterattack() {
                 ? classes.cardWastelandJavelin
                 : classes.card
                 }>
-                    <img src={Images} alt="Images" draggable="false"/>
+                    <img className={classes.imageCard} src={occupiedCell.C1.classWastlelandSoldier === 1 
+                    ? Images
+                    : occupiedCell.C1.classWastlelandSoldier === 2 
+                    ? AngalJavelin
+                    : Images} alt="Images" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCell.C1.health}></progress>
                     <p>{occupiedCell.C1.name}</p>
                     <p>Attack:  {occupiedCell.C1.attack}</p>
@@ -1363,7 +1368,11 @@ function handleCounterattack() {
                 : occupiedCell.C2.classWastlelandSoldier === 2 
                 ? classes.cardWastelandJavelin 
                 : classes.card}>
-                    <img src={Images} alt="Images" draggable="false"/>
+                    <img className={classes.imageCard} src={occupiedCell.C2.classWastlelandSoldier === 1 
+                    ? Images
+                    : occupiedCell.C2.classWastlelandSoldier === 2 
+                    ? AngalJavelin
+                    : Images} alt="Images" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCell.C2.health}></progress>
                     <p>{occupiedCell.C2.name}</p>
                     <p>Attack:  {occupiedCell.C2.attack}</p>
@@ -1375,7 +1384,11 @@ function handleCounterattack() {
                 : occupiedCell.C3.classWastlelandSoldier === 2 
                 ? classes.cardWastelandJavelin 
                 : classes.card}>
-                    <img src={Images} alt="Images" draggable="false"/>
+                    <img className={classes.imageCard} src={occupiedCell.C3.classWastlelandSoldier === 1 
+                    ? Images
+                    : occupiedCell.C3.classWastlelandSoldier === 2 
+                    ? AngalJavelin
+                    : Images} alt="Images" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCell.C3.health}></progress>
                     <p>{occupiedCell.C3.name}</p>
                     <p>Attack:  {occupiedCell.C3.attack}</p>
@@ -1387,7 +1400,11 @@ function handleCounterattack() {
                 : occupiedCell.C4.classWastlelandSoldier === 2 
                 ? classes.cardWastelandJavelin 
                 : classes.card}>
-                    <img src={Images} alt="Images" draggable="false"/>
+                    <img className={classes.imageCard} src={occupiedCell.C4.classWastlelandSoldier === 1 
+                    ? Images
+                    : occupiedCell.C4.classWastlelandSoldier === 2 
+                    ? AngalJavelin
+                    : Images} alt="Images" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCell.C4.health}></progress>
                     <p>{occupiedCell.C4.name}</p>
                     <p>Attack:  {occupiedCell.C4.attack}</p>
@@ -1399,7 +1416,11 @@ function handleCounterattack() {
                 : occupiedCell.D1.classWastlelandSoldier === 2 
                 ? classes.cardWastelandJavelin 
                 : classes.card}>
-                    <img src={Images} alt="Images" draggable="false"/>
+                    <img className={classes.imageCard} src={occupiedCell.D1.classWastlelandSoldier === 1 
+                    ? Images
+                    : occupiedCell.D1.classWastlelandSoldier === 2 
+                    ? AngalJavelin
+                    : Images} alt="Images" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCell.D1.health}></progress>
                     <p>{occupiedCell.D1.name}</p>
                     <p>Attack:  {occupiedCell.D1.attack}</p>
@@ -1411,7 +1432,11 @@ function handleCounterattack() {
                 : occupiedCell.D2.classWastlelandSoldier === 2 
                 ? classes.cardWastelandJavelin 
                 : classes.card}>
-                    <img src={Images} alt="Images" draggable="false"/>
+                    <img className={classes.imageCard} src={occupiedCell.D2.classWastlelandSoldier === 1 
+                    ? Images
+                    : occupiedCell.D2.classWastlelandSoldier === 2 
+                    ? AngalJavelin
+                    : Images} alt="Images" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCell.D2.health}></progress>
                     <p>{occupiedCell.D2.name}</p>
                     <p>Attack:  {occupiedCell.D2.attack}</p>
@@ -1423,7 +1448,11 @@ function handleCounterattack() {
                 : occupiedCell.D3.classWastlelandSoldier === 2 
                 ? classes.cardWastelandJavelin 
                 : classes.card}>
-                    <img src={Images} alt="Images" draggable="false"/>
+                    <img className={classes.imageCard} src={occupiedCell.D3.classWastlelandSoldier === 1 
+                    ? Images
+                    : occupiedCell.D3.classWastlelandSoldier === 2 
+                    ? AngalJavelin
+                    : Images} alt="Images" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCell.D3.health}></progress>
                     <p>{occupiedCell.D3.name}</p>
                     <p>Attack:  {occupiedCell.D3.attack}</p>
@@ -1435,39 +1464,43 @@ function handleCounterattack() {
                 : occupiedCell.D4.classWastlelandSoldier === 2 
                 ? classes.cardWastelandJavelin 
                 : classes.card}>
-                    <img src={Images} alt="Images" draggable="false"/>
+                    <img className={classes.imageCard} src={occupiedCell.D4.classWastlelandSoldier === 1 
+                    ? Images
+                    : occupiedCell.D4.classWastlelandSoldier === 2 
+                    ? AngalJavelin
+                    : Images} alt="Images" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCell.D4.health}></progress>
                     <p>{occupiedCell.D4.name}</p>
                     <p>Attack:  {occupiedCell.D4.attack}</p>
                     <p>Defense: {occupiedCell.D4.defense}:</p>
                 </div>}
 
-                {occupiedCellOpponent.A1.showCard && <div className={classes.cardEastEmpireArcher}>
-                    <img src={Images1} alt="Images" draggable="false"/>
+                {occupiedCellOpponent.A1.showCard && <div className={classes.cardWestEmpireArcher}>
+                    <img className={classes.imageCard} src={WestArcher} alt="WestArcher" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCellOpponent.A1.health}></progress>
                     <p>{occupiedCellOpponent.A1.name}</p>
                     <p>Attack:  {occupiedCellOpponent.A1.attack}</p>
                     <p>Defense: {occupiedCellOpponent.A1.defense}:</p>
                 </div>}
 
-                {occupiedCellOpponent.A2.showCard && <div className={classes.cardEastEmpireArcher}>
-                    <img src={Images1} alt="Images" draggable="false"/>
+                {occupiedCellOpponent.A2.showCard && <div className={classes.cardWestEmpireArcher}>
+                    <img className={classes.imageCard} src={WestArcher} alt="WestArcher" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCellOpponent.A2.health}></progress>
                     <p>{occupiedCellOpponent.A2.name}</p>
                     <p>Attack:  {occupiedCellOpponent.A2.attack}</p>
                     <p>Defense: {occupiedCellOpponent.A2.defense}:</p>
                 </div>}
 
-                {occupiedCellOpponent.A3.showCard && <div className={classes.cardEastEmpireArcher}>
-                    <img src={Images1} alt="Images" draggable="false"/>
+                {occupiedCellOpponent.A3.showCard && <div className={classes.cardWestEmpireArcher}>
+                    <img className={classes.imageCard} src={WestArcher} alt="WestArcher" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCellOpponent.A3.health}></progress>
                     <p>{occupiedCellOpponent.A3.name}</p>
                     <p>Attack:  {occupiedCellOpponent.A3.attack}</p>
                     <p>Defense: {occupiedCellOpponent.A3.defense}:</p>
                 </div>}
 
-                {occupiedCellOpponent.A4.showCard && <div className={classes.cardEastEmpireArcher}>
-                    <img src={Images1} alt="Images" draggable="false"/>
+                {occupiedCellOpponent.A4.showCard && <div className={classes.cardWestEmpireArcher}>
+                    <img className={classes.imageCard} src={WestArcher} alt="WestArcher" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCellOpponent.A4.health}></progress>
                     <p>{occupiedCellOpponent.A4.name}</p>
                     <p>Attack:  {occupiedCellOpponent.A4.attack}</p>
@@ -1479,7 +1512,7 @@ function handleCounterattack() {
                 {showShop && <div className={classes.shop}>
                     <button className={classes.unitWastelandHunter} onClick={handleBuyHunter} disabled={resources <= 0 || stateButtonsSkills === true}>Ангальские охотники</button>
                     {resources} resurs {reserve.wastelandHunter} soldiki
-                    <button className={classes.unitWastelandHunter} onClick={handleBuyJavelin} disabled={resources <= 0 || stateButtonsSkills === true}>Ангальские метатели</button>
+                    <button className={classes.javelinBuy} onClick={handleBuyJavelin} disabled={resources <= 0 || stateButtonsSkills === true}><p className={classes.titleBuyUnit}>Ангальские метатели</p></button>
                     {resources} resurs {reserve.wastelandJavelin} soldiki
                     <button className={classes.closeButton} onClick={handleCloseShop} disabled={reserve.wastelandHunter + reserve.wastelandJavelin + reserve.wastelandMaces + reserve.wastelandAngalit === 0}>Готово</button>
                 </div>}
@@ -1495,25 +1528,25 @@ function handleCounterattack() {
 
                 <div className={classes.blockFlex1}>
 
-                    <button className={attackQueue === 1 ? classes.unitEmpireEastArcherChoice : occupiedCellOpponent.A1.health <= 0 ? classes.unitEmpireEastArcherDeath : classes.unitEmpireEastArcher} id={"A1"} onClick={() => {handleAttack("A1")}} 
+                    <button className={attackQueue === 1 ? classes.unitEmpireWestArcherChoice : occupiedCellOpponent.A1.health <= 0 ? classes.unitEmpireDeath : classes.unitEmpireWestArcher} id={"A1"} onClick={() => {handleAttack("A1")}} 
                         onMouseEnter={() => setOccupiedCellOpponent(prev => ({...prev, A1: {...prev.A1, showCard: true}}))}
                         onMouseLeave={() => setOccupiedCellOpponent(prev => ({...prev, A1: {...prev.A1,showCard: false}}))} 
                         disabled={stateButtonsSkills === true || occupiedCellOpponent.A1.health <= 0 || buttonStateGame.stateAttackButton === false}>+{occupiedCellOpponent.A1.health}
                     </button>
 
-                    <button className={attackQueue === 2 ? classes.unitEmpireEastArcherChoice : occupiedCellOpponent.A2.health <= 0 ? classes.unitEmpireEastArcherDeath : classes.unitEmpireEastArcher} id={"A2"} onClick={() => {handleAttack("A2")}} 
+                    <button className={attackQueue === 2 ? classes.unitEmpireWestArcherChoice : occupiedCellOpponent.A2.health <= 0 ? classes.unitEmpireDeath : classes.unitEmpireWestArcher} id={"A2"} onClick={() => {handleAttack("A2")}} 
                         onMouseEnter={() => setOccupiedCellOpponent(prev => ({...prev, A2: {...prev.A2, showCard: true}}))}
                         onMouseLeave={() => setOccupiedCellOpponent(prev => ({...prev, A2: {...prev.A2,showCard: false}}))} 
                         disabled={stateButtonsSkills === true || occupiedCellOpponent.A2.health <= 0 || buttonStateGame.stateAttackButton === false}>+{occupiedCellOpponent.A2.health}
                     </button>
 
-                    <button className={attackQueue === 3 ? classes.unitEmpireEastArcherChoice : occupiedCellOpponent.A3.health <= 0 ? classes.unitEmpireEastArcherDeath : classes.unitEmpireEastArcher} id={"A3"} onClick={() => {handleAttack("A3")}} 
+                    <button className={attackQueue === 3 ? classes.unitEmpireWestArcherChoice : occupiedCellOpponent.A3.health <= 0 ? classes.unitEmpireDeath : classes.unitEmpireWestArcher} id={"A3"} onClick={() => {handleAttack("A3")}} 
                         onMouseEnter={() => setOccupiedCellOpponent(prev => ({...prev, A3: {...prev.A3, showCard: true}}))}
                         onMouseLeave={() => setOccupiedCellOpponent(prev => ({...prev, A3: {...prev.A3,showCard: false}}))} 
                         disabled={stateButtonsSkills === true || occupiedCellOpponent.A3.health <= 0 || buttonStateGame.stateAttackButton === false}>+{occupiedCellOpponent.A3.health}
                     </button>
 
-                    <button className={attackQueue === 4 ? classes.unitEmpireEastArcherChoice : occupiedCellOpponent.A4.health <= 0 ? classes.unitEmpireEastArcherDeath : classes.unitEmpireEastArcher} id={"A4"} onClick={() => {handleAttack("A4")}} 
+                    <button className={attackQueue === 4 ? classes.unitEmpireWestArcherChoice : occupiedCellOpponent.A4.health <= 0 ? classes.unitEmpireDeath : classes.unitEmpireWestArcher} id={"A4"} onClick={() => {handleAttack("A4")}} 
                         onMouseEnter={() => setOccupiedCellOpponent(prev => ({...prev, A4: {...prev.A4, showCard: true}}))}
                         onMouseLeave={() => setOccupiedCellOpponent(prev => ({...prev, A4: {...prev.A4,showCard: false}}))} 
                         disabled={stateButtonsSkills === true || occupiedCellOpponent.A4.health <= 0 || buttonStateGame.stateAttackButton === false}>+{occupiedCellOpponent.A4.health}

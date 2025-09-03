@@ -154,6 +154,29 @@
     z-index: 21;
 }
 
+.titleBuyUnit{
+    font-size: 2vw;
+    font-family: "El Messiri";
+    font-weight: 700;
+    color: brown;
+    position: relative;
+    bottom: -10vw;
+}
+
+.javelinBuy{
+    width: 14vw;
+    height: 14vw;
+    margin: 1%;
+    background: url(../../Images/AngalsWastelandsImage/ImageWastelandCardAngalJavelin.jpg) no-repeat center;
+    background-size: cover;
+    border: solid 0.2vw brown;
+    cursor: pointer;
+}
+
+.javelinBuy:hover{
+    border: solid 0.4vw brown;
+}
+
 .buttonStartGame{
     position: absolute;
     top: 10%;
@@ -244,10 +267,16 @@
     height: 30%;
     position: absolute;
     bottom: 2%;
-
 }
 
-.cardEastEmpireArcher{
+.skillsBlockEmpire .imageCard{
+    width: 8vw;
+    height: 8vw;
+    margin: 3.5%;
+    border: solid 0.2vw whitesmoke;
+}
+
+.cardWestEmpireArcher{
     width: 90%;
     height: 40%;
     position: absolute;
@@ -322,11 +351,12 @@
 }
 
 .unitWastelandJavelin{
-    width: 10.5vw; 
-    height: 8vw;
+    width: 5vw; 
+    height: 12vw;
     margin: 0;
-    border: solid 0.3vw black;
-    background: green;
+    border: none;
+    background: url(../../Images/AngalsWastelandsImage/AngalJavelinBack.webp) no-repeat center;
+    background-size: contain;
     cursor: pointer;
 }
 
@@ -335,11 +365,13 @@
 }
 
 .unitWastelandJavelinChoice{
-    width: 10.5vw; 
-    height: 8vw;
+    width: 5vw; 
+    height: 12vw;
     margin: 0;
-    border: solid 0.3vw red;
-    background: green;
+    filter: drop-shadow( 0 0 1vw red);
+    border: none;
+    background: url(../../Images/AngalsWastelandsImage/AngalJavelinBack.webp) no-repeat center;
+    background-size: contain;
     cursor: pointer;
 }
 
@@ -352,29 +384,32 @@
     cursor: pointer;
 }
 
-.unitEmpireEastArcher{
-    width: 10.5vw; 
-    height: 8vw;
+.unitEmpireWestArcher{
+    width: 5vw; 
+    height: 12vw;
     margin: 0;
-    border: solid 0.3vw black;
-    background: cadetblue;
+    border: none;
+    background: url(../../Images/ImpireMarahImage/ElfWestArcher.webp) no-repeat center;
+    background-size: contain;
     cursor: pointer;
 }
 
-.unitEmpireEastArcherChoice{
-    width: 10.5vw; 
-    height: 8vw;
+.unitEmpireWestArcherChoice{
+    width: 5vw; 
+    height: 12vw;
     margin: 0;
-    border: solid 0.3vw red;
-    background: cadetblue;
+    filter: drop-shadow( 0 0 1vw red);
+    border: none;
+    background: url(../../Images/ImpireMarahImage/ElfWestArcher.webp) no-repeat center;
+    background-size: contain;
     cursor: pointer;
 }
 
-.unitEmpireEastArcher:hover{
+.unitEmpireWestArcher:hover{
     filter: drop-shadow( 0 0 1vw red);
 }
 
-.unitEmpireEastArcherDeath{
+.unitEmpireDeath{
     width: 10.5vw; 
     height: 8vw;
     margin: 0;
