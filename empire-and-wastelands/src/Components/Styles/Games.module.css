@@ -177,6 +177,20 @@
     border: solid 0.4vw brown;
 }
 
+.hunterBuy{
+    width: 14vw;
+    height: 14vw;
+    margin: 1%;
+    background: url(../../Images/AngalsWastelandsImage/ImageWastelandCardAngalHunter.jpg) no-repeat center;
+    background-size: cover;
+    border: solid 0.2vw brown;
+    cursor: pointer;
+}
+
+.hunterBuy:hover{
+    border: solid 0.4vw brown;
+}
+
 .buttonStartGame{
     position: absolute;
     top: 10%;
@@ -329,11 +343,12 @@
 
 
 .unitWastelandHunter{
-    width: 10.5vw; 
-    height: 8vw;
+    width: 5vw; 
+    height: 11.5vw;
     margin: 0;
-    border: solid 0.3vw black;
-    background: brown;
+    border: none;
+    background: url(../../Images/AngalsWastelandsImage/AngalHunterBack.webp) no-repeat center;
+    background-size: contain;
     cursor: pointer;
 }
 
@@ -342,11 +357,13 @@
 }
 
 .unitWastelandHunterChoice{
-    width: 10.5vw; 
-    height: 8vw;
+    width: 5vw; 
+    height: 11.5vw;
     margin: 0;
-    border: solid 0.3vw red;
-    background: brown;
+    filter: drop-shadow( 0 0 1vw red);
+    border: none;
+    background: url(../../Images/AngalsWastelandsImage/AngalHunterBack.webp) no-repeat center;
+    background-size: contain;
     cursor: pointer;
 }
 

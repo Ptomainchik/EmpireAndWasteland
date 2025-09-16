@@ -2,8 +2,9 @@ import classes from "../../Styles/Games.module.css";
 import { BackButton } from "../../Buttons/BackButton";
 import { HomeButton } from "../../Buttons/HomeButton";
 import { useState } from "react";
-import Images from "../../../Images/AngalsWastelandsImage/CoatOfArmsOfWasteland.webp";
-import AngalJavelin from "../../../Images/AngalsWastelandsImage/ImageWastelandCardAngalJavelin.jpg";
+import Card from "../../../Images/AngalsWastelandsImage/CoatOfArmsOfWasteland.webp";
+import CardAngalHunter from "../../../Images/AngalsWastelandsImage/ImageWastelandCardAngalHunter.jpg";
+import CardAngalJavelin from "../../../Images/AngalsWastelandsImage/ImageWastelandCardAngalJavelin.jpg";
 import WestArcher from "../../../Images/ImpireMarahImage/ImageImpireCardWestArcher.jpg";
 
 export const GameWasteland = () => {
@@ -1353,10 +1354,10 @@ function handleCounterattack() {
                 : classes.card
                 }>
                     <img className={classes.imageCard} src={occupiedCell.C1.classWastlelandSoldier === 1 
-                    ? Images
+                    ? CardAngalHunter
                     : occupiedCell.C1.classWastlelandSoldier === 2 
-                    ? AngalJavelin
-                    : Images} alt="Images" draggable="false"/>
+                    ? CardAngalJavelin
+                    : Card} alt="Card" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCell.C1.health}></progress>
                     <p>{occupiedCell.C1.name}</p>
                     <p>Attack:  {occupiedCell.C1.attack}</p>
@@ -1369,10 +1370,10 @@ function handleCounterattack() {
                 ? classes.cardWastelandJavelin 
                 : classes.card}>
                     <img className={classes.imageCard} src={occupiedCell.C2.classWastlelandSoldier === 1 
-                    ? Images
+                    ? CardAngalHunter
                     : occupiedCell.C2.classWastlelandSoldier === 2 
-                    ? AngalJavelin
-                    : Images} alt="Images" draggable="false"/>
+                    ? CardAngalJavelin
+                    : Card} alt="Card" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCell.C2.health}></progress>
                     <p>{occupiedCell.C2.name}</p>
                     <p>Attack:  {occupiedCell.C2.attack}</p>
@@ -1385,10 +1386,10 @@ function handleCounterattack() {
                 ? classes.cardWastelandJavelin 
                 : classes.card}>
                     <img className={classes.imageCard} src={occupiedCell.C3.classWastlelandSoldier === 1 
-                    ? Images
+                    ? CardAngalHunter
                     : occupiedCell.C3.classWastlelandSoldier === 2 
-                    ? AngalJavelin
-                    : Images} alt="Images" draggable="false"/>
+                    ? CardAngalJavelin
+                    : Card} alt="Card" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCell.C3.health}></progress>
                     <p>{occupiedCell.C3.name}</p>
                     <p>Attack:  {occupiedCell.C3.attack}</p>
@@ -1401,10 +1402,10 @@ function handleCounterattack() {
                 ? classes.cardWastelandJavelin 
                 : classes.card}>
                     <img className={classes.imageCard} src={occupiedCell.C4.classWastlelandSoldier === 1 
-                    ? Images
+                    ? CardAngalHunter
                     : occupiedCell.C4.classWastlelandSoldier === 2 
-                    ? AngalJavelin
-                    : Images} alt="Images" draggable="false"/>
+                    ? CardAngalJavelin
+                    : Card} alt="Card" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCell.C4.health}></progress>
                     <p>{occupiedCell.C4.name}</p>
                     <p>Attack:  {occupiedCell.C4.attack}</p>
@@ -1417,10 +1418,10 @@ function handleCounterattack() {
                 ? classes.cardWastelandJavelin 
                 : classes.card}>
                     <img className={classes.imageCard} src={occupiedCell.D1.classWastlelandSoldier === 1 
-                    ? Images
+                    ? CardAngalHunter
                     : occupiedCell.D1.classWastlelandSoldier === 2 
-                    ? AngalJavelin
-                    : Images} alt="Images" draggable="false"/>
+                    ? CardAngalJavelin
+                    : Card} alt="Card" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCell.D1.health}></progress>
                     <p>{occupiedCell.D1.name}</p>
                     <p>Attack:  {occupiedCell.D1.attack}</p>
@@ -1433,10 +1434,10 @@ function handleCounterattack() {
                 ? classes.cardWastelandJavelin 
                 : classes.card}>
                     <img className={classes.imageCard} src={occupiedCell.D2.classWastlelandSoldier === 1 
-                    ? Images
+                    ? CardAngalHunter
                     : occupiedCell.D2.classWastlelandSoldier === 2 
-                    ? AngalJavelin
-                    : Images} alt="Images" draggable="false"/>
+                    ? CardAngalJavelin
+                    : Card} alt="Card" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCell.D2.health}></progress>
                     <p>{occupiedCell.D2.name}</p>
                     <p>Attack:  {occupiedCell.D2.attack}</p>
@@ -1449,10 +1450,10 @@ function handleCounterattack() {
                 ? classes.cardWastelandJavelin 
                 : classes.card}>
                     <img className={classes.imageCard} src={occupiedCell.D3.classWastlelandSoldier === 1 
-                    ? Images
+                    ? CardAngalHunter
                     : occupiedCell.D3.classWastlelandSoldier === 2 
-                    ? AngalJavelin
-                    : Images} alt="Images" draggable="false"/>
+                    ? CardAngalJavelin
+                    : Card} alt="Card" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCell.D3.health}></progress>
                     <p>{occupiedCell.D3.name}</p>
                     <p>Attack:  {occupiedCell.D3.attack}</p>
@@ -1465,10 +1466,10 @@ function handleCounterattack() {
                 ? classes.cardWastelandJavelin 
                 : classes.card}>
                     <img className={classes.imageCard} src={occupiedCell.D4.classWastlelandSoldier === 1 
-                    ? Images
+                    ? CardAngalHunter
                     : occupiedCell.D4.classWastlelandSoldier === 2 
-                    ? AngalJavelin
-                    : Images} alt="Images" draggable="false"/>
+                    ? CardAngalJavelin
+                    : Card} alt="Card" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCell.D4.health}></progress>
                     <p>{occupiedCell.D4.name}</p>
                     <p>Attack:  {occupiedCell.D4.attack}</p>
@@ -1510,7 +1511,7 @@ function handleCounterattack() {
             </div>
 
                 {showShop && <div className={classes.shop}>
-                    <button className={classes.unitWastelandHunter} onClick={handleBuyHunter} disabled={resources <= 0 || stateButtonsSkills === true}>Ангальские охотники</button>
+                    <button className={classes.hunterBuy} onClick={handleBuyHunter} disabled={resources <= 0 || stateButtonsSkills === true}><p className={classes.titleBuyUnit}>Ангальские охотники</p></button>
                     {resources} resurs {reserve.wastelandHunter} soldiki
                     <button className={classes.javelinBuy} onClick={handleBuyJavelin} disabled={resources <= 0 || stateButtonsSkills === true}><p className={classes.titleBuyUnit}>Ангальские метатели</p></button>
                     {resources} resurs {reserve.wastelandJavelin} soldiki
