@@ -24,6 +24,7 @@ export const GameWasteland = () => {
         stateShopButton: true,
         stateStartButton: false,
         stateAttackButton: true,
+        stateFixStartButton: false,
     });
     const [occupiedCellOpponent, setOccupiedCellOpponent] = useState({
             A1:{
@@ -182,6 +183,7 @@ export const GameWasteland = () => {
             stateShopButton: false,
             stateStartButton: false,
             stateAttackButton: true,
+            stateFixStartButton: false,
         })
     }
 
@@ -524,6 +526,7 @@ export const GameWasteland = () => {
         stateShopButton: false,
         stateStartButton: true,
         stateAttackButton: true,
+        stateFixStartButton: false,
     });
 }
 
@@ -540,6 +543,13 @@ export const GameWasteland = () => {
         D3: { ...prev.D3, choice: id === "D3", showCard: id === "D3" },
         D4: { ...prev.D4, choice: id === "D4", showCard: id === "D4" },
     }));
+    setButtonStateGame({
+            stateOverallButton: false,
+            stateShopButton: false,
+            stateStartButton: false,
+            stateAttackButton: true,
+            stateFixStartButton: true,
+        });
 }
 
     function handleAttack(id:any) {
@@ -1334,6 +1344,7 @@ function handleCounterattack() {
             stateShopButton: false,
             stateStartButton: false,
             stateAttackButton: true,
+            stateFixStartButton: false,
         });
         setShowGameField(true);
     };
@@ -1529,145 +1540,198 @@ function handleCounterattack() {
 
                 <div className={classes.blockFlex1}>
 
-                    <button className={attackQueue === 1 ? classes.unitEmpireWestArcherChoice : occupiedCellOpponent.A1.health <= 0 ? classes.unitEmpireDeath : classes.unitEmpireWestArcher} id={"A1"} onClick={() => {handleAttack("A1")}} 
-                        onMouseEnter={() => setOccupiedCellOpponent(prev => ({...prev, A1: {...prev.A1, showCard: true}}))}
-                        onMouseLeave={() => setOccupiedCellOpponent(prev => ({...prev, A1: {...prev.A1,showCard: false}}))} 
-                        disabled={stateButtonsSkills === true || occupiedCellOpponent.A1.health <= 0 || buttonStateGame.stateAttackButton === false}>+{occupiedCellOpponent.A1.health}
-                    </button>
+                    <div className={classes.cellA1}>
+                        <button className={attackQueue === 1 ? classes.unitEmpireWestArcherChoice : occupiedCellOpponent.A1.health <= 0 ? classes.unitEmpireDeath : classes.unitEmpireWestArcher} id={"A1"} onClick={() => {handleAttack("A1")}} 
+                            onMouseEnter={() => setOccupiedCellOpponent(prev => ({...prev, A1: {...prev.A1, showCard: true}}))}
+                            onMouseLeave={() => setOccupiedCellOpponent(prev => ({...prev, A1: {...prev.A1,showCard: false}}))} 
+                            disabled={stateButtonsSkills === true || occupiedCellOpponent.A1.health <= 0 || buttonStateGame.stateAttackButton === false || buttonStateGame.stateFixStartButton === false}>{occupiedCellOpponent.A1.health}
+                        </button>
+                    </div>
 
-                    <button className={attackQueue === 2 ? classes.unitEmpireWestArcherChoice : occupiedCellOpponent.A2.health <= 0 ? classes.unitEmpireDeath : classes.unitEmpireWestArcher} id={"A2"} onClick={() => {handleAttack("A2")}} 
-                        onMouseEnter={() => setOccupiedCellOpponent(prev => ({...prev, A2: {...prev.A2, showCard: true}}))}
-                        onMouseLeave={() => setOccupiedCellOpponent(prev => ({...prev, A2: {...prev.A2,showCard: false}}))} 
-                        disabled={stateButtonsSkills === true || occupiedCellOpponent.A2.health <= 0 || buttonStateGame.stateAttackButton === false}>+{occupiedCellOpponent.A2.health}
-                    </button>
+                    <div className={classes.cellA2}>
+                        <button className={attackQueue === 2 ? classes.unitEmpireWestArcherChoice : occupiedCellOpponent.A2.health <= 0 ? classes.unitEmpireDeath : classes.unitEmpireWestArcher} id={"A2"} onClick={() => {handleAttack("A2")}} 
+                            onMouseEnter={() => setOccupiedCellOpponent(prev => ({...prev, A2: {...prev.A2, showCard: true}}))}
+                            onMouseLeave={() => setOccupiedCellOpponent(prev => ({...prev, A2: {...prev.A2,showCard: false}}))} 
+                            disabled={stateButtonsSkills === true || occupiedCellOpponent.A2.health <= 0 || buttonStateGame.stateAttackButton === false || buttonStateGame.stateFixStartButton === false}>{occupiedCellOpponent.A2.health}
+                        </button>
+                    </div>
+                       
+                    <div className={classes.cellA3}>
+                        <button className={attackQueue === 3 ? classes.unitEmpireWestArcherChoice : occupiedCellOpponent.A3.health <= 0 ? classes.unitEmpireDeath : classes.unitEmpireWestArcher} id={"A3"} onClick={() => {handleAttack("A3")}} 
+                            onMouseEnter={() => setOccupiedCellOpponent(prev => ({...prev, A3: {...prev.A3, showCard: true}}))}
+                            onMouseLeave={() => setOccupiedCellOpponent(prev => ({...prev, A3: {...prev.A3,showCard: false}}))} 
+                            disabled={stateButtonsSkills === true || occupiedCellOpponent.A3.health <= 0 || buttonStateGame.stateAttackButton === false || buttonStateGame.stateFixStartButton === false}>{occupiedCellOpponent.A3.health}
+                        </button>
+                    </div>
 
-                    <button className={attackQueue === 3 ? classes.unitEmpireWestArcherChoice : occupiedCellOpponent.A3.health <= 0 ? classes.unitEmpireDeath : classes.unitEmpireWestArcher} id={"A3"} onClick={() => {handleAttack("A3")}} 
-                        onMouseEnter={() => setOccupiedCellOpponent(prev => ({...prev, A3: {...prev.A3, showCard: true}}))}
-                        onMouseLeave={() => setOccupiedCellOpponent(prev => ({...prev, A3: {...prev.A3,showCard: false}}))} 
-                        disabled={stateButtonsSkills === true || occupiedCellOpponent.A3.health <= 0 || buttonStateGame.stateAttackButton === false}>+{occupiedCellOpponent.A3.health}
-                    </button>
-
-                    <button className={attackQueue === 4 ? classes.unitEmpireWestArcherChoice : occupiedCellOpponent.A4.health <= 0 ? classes.unitEmpireDeath : classes.unitEmpireWestArcher} id={"A4"} onClick={() => {handleAttack("A4")}} 
-                        onMouseEnter={() => setOccupiedCellOpponent(prev => ({...prev, A4: {...prev.A4, showCard: true}}))}
-                        onMouseLeave={() => setOccupiedCellOpponent(prev => ({...prev, A4: {...prev.A4,showCard: false}}))} 
-                        disabled={stateButtonsSkills === true || occupiedCellOpponent.A4.health <= 0 || buttonStateGame.stateAttackButton === false}>+{occupiedCellOpponent.A4.health}
-                    </button>
+                    <div className={classes.cellA4}>
+                        <button className={attackQueue === 4 ? classes.unitEmpireWestArcherChoice : occupiedCellOpponent.A4.health <= 0 ? classes.unitEmpireDeath : classes.unitEmpireWestArcher} id={"A4"} onClick={() => {handleAttack("A4")}} 
+                            onMouseEnter={() => setOccupiedCellOpponent(prev => ({...prev, A4: {...prev.A4, showCard: true}}))}
+                            onMouseLeave={() => setOccupiedCellOpponent(prev => ({...prev, A4: {...prev.A4,showCard: false}}))} 
+                            disabled={stateButtonsSkills === true || occupiedCellOpponent.A4.health <= 0 || buttonStateGame.stateAttackButton === false || buttonStateGame.stateFixStartButton === false}>{occupiedCellOpponent.A4.health}
+                        </button>
+                    </div>
 
                 </div>
 
-                <div className={classes.blockFlex2}>
-                    <button className={classes.cell} id={"B1"} disabled={stateButtonsSkills === true}>+</button>
-                    <button className={classes.cell} id={"B2"} disabled={stateButtonsSkills === true}>+</button>
-                    <button className={classes.cell} id={"B3"} disabled={stateButtonsSkills === true}>+</button>
-                    <button className={classes.cell} id={"B4"} disabled={stateButtonsSkills === true}>+</button>
-                </div>
+                {buttonStateGame.stateOverallButton && <div>
 
-                {buttonStateGame.stateOverallButton && <div className={classes.blockFlex4}>
-                    <button 
-                        className={occupiedCell.C1.name === "Охотники" && occupiedCell.C1.health !== 0 ? classes.unitWastelandHunter : occupiedCell.C1.name === "Метатели" && occupiedCell.C1.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.C1.occupied === true && occupiedCell.C1.health === 0 ? classes.unitWastelandDeath : classes.cell} 
-                        id={"C1"} 
-                        onClick={() => handleTroopDeployment("C1")} 
-                        disabled={occupiedCell.C1.occupied === true}
-                    >+ {occupiedCell.C1.health}</button>
-                    <button 
-                        className={occupiedCell.C2.name === "Охотники" && occupiedCell.C2.health !== 0 ? classes.unitWastelandHunter : occupiedCell.C2.name === "Метатели" && occupiedCell.C2.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.C2.occupied === true && occupiedCell.C2.health === 0 ? classes.unitWastelandDeath : classes.cell}
-                        id={"C2"} 
-                        onClick={() => handleTroopDeployment("C2")} 
-                        disabled={occupiedCell.C2.occupied === true}
-                    >+</button>
-                    <button 
-                        className={occupiedCell.C3.name === "Охотники" && occupiedCell.C3.health !== 0 ? classes.unitWastelandHunter : occupiedCell.C3.name === "Метатели" && occupiedCell.C3.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.C3.occupied === true && occupiedCell.C3.health === 0 ? classes.unitWastelandDeath : classes.cell}
-                        id={"C3"} 
-                        onClick={() => handleTroopDeployment("C3")} 
-                        disabled={occupiedCell.C3.occupied === true}
-                    >+{occupiedCell.C3.health}</button>
-                    <button 
-                        className={occupiedCell.C4.name === "Охотники" && occupiedCell.C4.health !== 0 ? classes.unitWastelandHunter : occupiedCell.C4.name === "Метатели" && occupiedCell.C4.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.C4.occupied === true && occupiedCell.C4.health === 0 ? classes.unitWastelandDeath : classes.cell}
-                        id={"C4"} 
-                        onClick={() => handleTroopDeployment("C4")} 
-                        disabled={occupiedCell.C4.occupied === true}
-                    >+</button>
+                    <div className={classes.cellC1}>
+                        <button 
+                            className={occupiedCell.C1.name === "Охотники" && occupiedCell.C1.health !== 0 ? classes.unitWastelandHunter : occupiedCell.C1.name === "Метатели" && occupiedCell.C1.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.C1.occupied === true && occupiedCell.C1.health === 0 ? classes.unitWastelandDeath : classes.cell} 
+                            id={"C1"} 
+                            onClick={() => handleTroopDeployment("C1")} 
+                            disabled={occupiedCell.C1.occupied === true}>+
+                        </button>
+                    </div>
+
+                    <div className={classes.cellC2}>
+                        <button 
+                            className={occupiedCell.C2.name === "Охотники" && occupiedCell.C2.health !== 0 ? classes.unitWastelandHunter : occupiedCell.C2.name === "Метатели" && occupiedCell.C2.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.C2.occupied === true && occupiedCell.C2.health === 0 ? classes.unitWastelandDeath : classes.cell}
+                            id={"C2"} 
+                            onClick={() => handleTroopDeployment("C2")} 
+                            disabled={occupiedCell.C2.occupied === true}>+
+                        </button>
+                    </div>
+
+                    <div className={classes.cellC3}>
+                        <button 
+                            className={occupiedCell.C3.name === "Охотники" && occupiedCell.C3.health !== 0 ? classes.unitWastelandHunter : occupiedCell.C3.name === "Метатели" && occupiedCell.C3.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.C3.occupied === true && occupiedCell.C3.health === 0 ? classes.unitWastelandDeath : classes.cell}
+                            id={"C3"} 
+                            onClick={() => handleTroopDeployment("C3")} 
+                            disabled={occupiedCell.C3.occupied === true}>+
+                        </button>
+                    </div>
+
+                    <div className={classes.cellC4}>
+                        <button 
+                            className={occupiedCell.C4.name === "Охотники" && occupiedCell.C4.health !== 0 ? classes.unitWastelandHunter : occupiedCell.C4.name === "Метатели" && occupiedCell.C4.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.C4.occupied === true && occupiedCell.C4.health === 0 ? classes.unitWastelandDeath : classes.cell}
+                            id={"C4"} 
+                            onClick={() => handleTroopDeployment("C4")} 
+                            disabled={occupiedCell.C4.occupied === true}>+
+                        </button>
+                    </div>
+
                 </div>}
 
-                {showGameField && <div className={classes.blockFlex4}>
-                    <button 
-                        className={occupiedCell.C1.name === "Охотники" && occupiedCell.C1.health !== 0 && occupiedCell.C1.choice === true ? classes.unitWastelandHunterChoice : occupiedCell.C1.name === "Метатели" && occupiedCell.C1.health !== 0 && occupiedCell.C1.choice === true ? classes.unitWastelandJavelinChoice : occupiedCell.C1.name === "Охотники" && occupiedCell.C1.health !== 0 ? classes.unitWastelandHunter : occupiedCell.C1.name === "Метатели" && occupiedCell.C1.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.C1.occupied === true && occupiedCell.C1.health === 0 ? classes.unitWastelandDeath : classes.cell}
-                        id={"C1"} 
-                        onClick={() => {handleChoiceCellAttack("C1")}} 
-                        disabled={occupiedCell.C1.occupied === false || stateOfButtonsDuringAttack === false || occupiedCell.C1.health <= 0}
-                    >+ {occupiedCell.C1.health}</button>
-                    <button 
-                        className={occupiedCell.C2.name === "Охотники" && occupiedCell.C2.health !== 0 && occupiedCell.C2.choice === true ? classes.unitWastelandHunterChoice : occupiedCell.C2.name === "Метатели" && occupiedCell.C2.health !== 0 && occupiedCell.C2.choice === true ? classes.unitWastelandJavelinChoice : occupiedCell.C2.name === "Охотники" && occupiedCell.C2.health !== 0 ? classes.unitWastelandHunter : occupiedCell.C2.name === "Метатели" && occupiedCell.C2.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.C2.occupied === true && occupiedCell.C2.health === 0 ? classes.unitWastelandDeath : classes.cell}
-                        id={"C2"} 
-                        onClick={() => {handleChoiceCellAttack("C2")}} 
-                        disabled={occupiedCell.C2.occupied === false || stateOfButtonsDuringAttack === false || occupiedCell.C2.health <= 0}
-                    >+ {occupiedCell.C2.health}</button>
-                    <button 
-                        className={occupiedCell.C3.name === "Охотники" && occupiedCell.C3.health !== 0 && occupiedCell.C3.choice === true ? classes.unitWastelandHunterChoice : occupiedCell.C3.name === "Метатели" && occupiedCell.C3.health !== 0 && occupiedCell.C3.choice === true ? classes.unitWastelandJavelinChoice : occupiedCell.C3.name === "Охотники" && occupiedCell.C3.health !== 0 ? classes.unitWastelandHunter : occupiedCell.C3.name === "Метатели" && occupiedCell.C3.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.C3.occupied === true && occupiedCell.C3.health === 0 ? classes.unitWastelandDeath : classes.cell}
-                        id={"C3"} 
-                        onClick={() => {handleChoiceCellAttack("C3")}} 
-                        disabled={occupiedCell.C3.occupied === false || stateOfButtonsDuringAttack === false || occupiedCell.C3.health <= 0}
-                    >+{occupiedCell.C3.health}</button>
-                    <button 
-                        className={occupiedCell.C4.name === "Охотники" && occupiedCell.C4.health !== 0 && occupiedCell.C4.choice === true ? classes.unitWastelandHunterChoice : occupiedCell.C4.name === "Метатели" && occupiedCell.C4.health !== 0 && occupiedCell.C4.choice === true ? classes.unitWastelandJavelinChoice : occupiedCell.C4.name === "Охотники" && occupiedCell.C4.health !== 0 ? classes.unitWastelandHunter : occupiedCell.C4.name === "Метатели" && occupiedCell.C4.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.C4.occupied === true && occupiedCell.C4.health === 0 ? classes.unitWastelandDeath : classes.cell}
-                        id={"C4"} 
-                        onClick={() => {handleChoiceCellAttack("C4")}} 
-                        disabled={occupiedCell.C4.occupied === false || stateOfButtonsDuringAttack === false || occupiedCell.C4.health <= 0} 
-                    >+ {occupiedCell.C4.health}</button>
+                {showGameField && <div>
+
+                    <div className={classes.cellC1}>
+                        <button 
+                            className={occupiedCell.C1.name === "Охотники" && occupiedCell.C1.health !== 0 && occupiedCell.C1.choice === true ? classes.unitWastelandHunterChoice : occupiedCell.C1.name === "Метатели" && occupiedCell.C1.health !== 0 && occupiedCell.C1.choice === true ? classes.unitWastelandJavelinChoice : occupiedCell.C1.name === "Охотники" && occupiedCell.C1.health !== 0 ? classes.unitWastelandHunter : occupiedCell.C1.name === "Метатели" && occupiedCell.C1.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.C1.occupied === true && occupiedCell.C1.health === 0 ? classes.unitWastelandDeath : classes.emptyСell}
+                            id={"C1"} 
+                            onClick={() => {handleChoiceCellAttack("C1")}} 
+                            disabled={occupiedCell.C1.occupied === false || stateOfButtonsDuringAttack === false || occupiedCell.C1.health <= 0}>
+                        </button>
+                    </div>
+
+                    <div className={classes.cellC2}>
+                        <button 
+                            className={occupiedCell.C2.name === "Охотники" && occupiedCell.C2.health !== 0 && occupiedCell.C2.choice === true ? classes.unitWastelandHunterChoice : occupiedCell.C2.name === "Метатели" && occupiedCell.C2.health !== 0 && occupiedCell.C2.choice === true ? classes.unitWastelandJavelinChoice : occupiedCell.C2.name === "Охотники" && occupiedCell.C2.health !== 0 ? classes.unitWastelandHunter : occupiedCell.C2.name === "Метатели" && occupiedCell.C2.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.C2.occupied === true && occupiedCell.C2.health === 0 ? classes.unitWastelandDeath : classes.emptyСell}
+                            id={"C2"} 
+                            onClick={() => {handleChoiceCellAttack("C2")}} 
+                            disabled={occupiedCell.C2.occupied === false || stateOfButtonsDuringAttack === false || occupiedCell.C2.health <= 0}>+ {occupiedCell.C2.health}
+                        </button>
+                    </div>
+
+                    <div className={classes.cellC3}>
+                        <button 
+                            className={occupiedCell.C3.name === "Охотники" && occupiedCell.C3.health !== 0 && occupiedCell.C3.choice === true ? classes.unitWastelandHunterChoice : occupiedCell.C3.name === "Метатели" && occupiedCell.C3.health !== 0 && occupiedCell.C3.choice === true ? classes.unitWastelandJavelinChoice : occupiedCell.C3.name === "Охотники" && occupiedCell.C3.health !== 0 ? classes.unitWastelandHunter : occupiedCell.C3.name === "Метатели" && occupiedCell.C3.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.C3.occupied === true && occupiedCell.C3.health === 0 ? classes.unitWastelandDeath : classes.emptyСell}
+                            id={"C3"} 
+                            onClick={() => {handleChoiceCellAttack("C3")}} 
+                            disabled={occupiedCell.C3.occupied === false || stateOfButtonsDuringAttack === false || occupiedCell.C3.health <= 0}>+{occupiedCell.C3.health}
+                        </button>
+                    </div>
+
+                    <div className={classes.cellC4}>
+                        <button 
+                            className={occupiedCell.C4.name === "Охотники" && occupiedCell.C4.health !== 0 && occupiedCell.C4.choice === true ? classes.unitWastelandHunterChoice : occupiedCell.C4.name === "Метатели" && occupiedCell.C4.health !== 0 && occupiedCell.C4.choice === true ? classes.unitWastelandJavelinChoice : occupiedCell.C4.name === "Охотники" && occupiedCell.C4.health !== 0 ? classes.unitWastelandHunter : occupiedCell.C4.name === "Метатели" && occupiedCell.C4.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.C4.occupied === true && occupiedCell.C4.health === 0 ? classes.unitWastelandDeath : classes.emptyСell}
+                            id={"C4"} 
+                            onClick={() => {handleChoiceCellAttack("C4")}} 
+                            disabled={occupiedCell.C4.occupied === false || stateOfButtonsDuringAttack === false || occupiedCell.C4.health <= 0}>+ {occupiedCell.C4.health}
+                        </button>
+                    </div>
+                    
                 </div>}
 
-                {buttonStateGame.stateOverallButton && <div className={classes.blockFlex5}>
-                    <button 
-                        className={occupiedCell.D1.name === "Охотники" && occupiedCell.D1.health !== 0 ? classes.unitWastelandHunter : occupiedCell.D1.name === "Метатели" && occupiedCell.D1.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.D1.occupied === true && occupiedCell.D1.health === 0 ? classes.unitWastelandDeath : classes.cell}
-                        id={"D1"} 
-                        onClick={() => handleTroopDeployment("D1")} 
-                        disabled={occupiedCell.D1.occupied === true}
-                    >+ {occupiedCell.D1.health}</button>
-                    <button 
-                        className={occupiedCell.D2.name === "Охотники" && occupiedCell.D2.health !== 0 ? classes.unitWastelandHunter : occupiedCell.D2.name === "Метатели" && occupiedCell.D2.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.D2.occupied === true && occupiedCell.D2.health === 0 ? classes.unitWastelandDeath : classes.cell}
-                        id={"D2"} 
-                        onClick={() => handleTroopDeployment("D2")} 
-                        disabled={occupiedCell.D2.occupied === true}
-                    >+</button>
-                    <button 
-                        className={occupiedCell.D3.name === "Охотники" && occupiedCell.D3.health !== 0 ? classes.unitWastelandHunter : occupiedCell.D3.name === "Метатели" && occupiedCell.D3.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.D3.occupied === true && occupiedCell.D3.health === 0 ? classes.unitWastelandDeath : classes.cell}
-                        id={"D3"} 
-                        onClick={() => handleTroopDeployment("D3")} 
-                        disabled={occupiedCell.D3.occupied === true}
-                    >+{occupiedCell.D3.health}</button>
-                    <button 
-                        className={occupiedCell.D4.name === "Охотники" && occupiedCell.D4.health !== 0 ? classes.unitWastelandHunter : occupiedCell.D4.name === "Метатели" && occupiedCell.D4.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.D4.occupied === true && occupiedCell.D4.health === 0 ? classes.unitWastelandDeath : classes.cell}
-                        id={"D4"} 
-                        onClick={() => handleTroopDeployment("D4")} 
-                        disabled={occupiedCell.D4.occupied === true}
-                    >+</button>
+                {buttonStateGame.stateOverallButton && <div>
+
+                    <div className={classes.cellD1}>
+                        <button 
+                            className={occupiedCell.D1.name === "Охотники" && occupiedCell.D1.health !== 0 ? classes.unitWastelandHunter : occupiedCell.D1.name === "Метатели" && occupiedCell.D1.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.D1.occupied === true && occupiedCell.D1.health === 0 ? classes.unitWastelandDeath : classes.cell}
+                            id={"D1"} 
+                            onClick={() => handleTroopDeployment("D1")} 
+                            disabled={occupiedCell.D1.occupied === true}>+
+                        </button>
+                    </div>
+
+                    <div className={classes.cellD2}>
+                        <button 
+                            className={occupiedCell.D2.name === "Охотники" && occupiedCell.D2.health !== 0 ? classes.unitWastelandHunter : occupiedCell.D2.name === "Метатели" && occupiedCell.D2.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.D2.occupied === true && occupiedCell.D2.health === 0 ? classes.unitWastelandDeath : classes.cell}
+                            id={"D2"} 
+                            onClick={() => handleTroopDeployment("D2")} 
+                            disabled={occupiedCell.D2.occupied === true}>+
+                        </button>
+                    </div>
+
+                    <div className={classes.cellD3}>
+                        <button 
+                            className={occupiedCell.D3.name === "Охотники" && occupiedCell.D3.health !== 0 ? classes.unitWastelandHunter : occupiedCell.D3.name === "Метатели" && occupiedCell.D3.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.D3.occupied === true && occupiedCell.D3.health === 0 ? classes.unitWastelandDeath : classes.cell}
+                            id={"D3"} 
+                            onClick={() => handleTroopDeployment("D3")} 
+                            disabled={occupiedCell.D3.occupied === true}>+
+                        </button>
+                    </div>
+
+                    <div className={classes.cellD4}>
+                        <button 
+                            className={occupiedCell.D4.name === "Охотники" && occupiedCell.D4.health !== 0 ? classes.unitWastelandHunter : occupiedCell.D4.name === "Метатели" && occupiedCell.D4.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.D4.occupied === true && occupiedCell.D4.health === 0 ? classes.unitWastelandDeath : classes.cell}
+                            id={"D4"} 
+                            onClick={() => handleTroopDeployment("D4")} 
+                            disabled={occupiedCell.D4.occupied === true}>+
+                        </button>
+                    </div>
+
                 </div>}
 
-                {showGameField && <div className={classes.blockFlex5}>
-                    <button 
-                        className={occupiedCell.D1.name === "Охотники" && occupiedCell.D1.health !== 0 && occupiedCell.D1.choice === true ? classes.unitWastelandHunterChoice : occupiedCell.D1.name === "Метатели" && occupiedCell.D1.health !== 0 && occupiedCell.D1.choice === true ? classes.unitWastelandJavelinChoice : occupiedCell.D1.name === "Охотники" && occupiedCell.D1.health !== 0 ? classes.unitWastelandHunter : occupiedCell.D1.name === "Метатели" && occupiedCell.D1.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.D1.occupied === true && occupiedCell.D1.health === 0 ? classes.unitWastelandDeath : classes.cell}
-                        id={"D1"} 
-                        onClick={() => {handleChoiceCellAttack("D1")}} 
-                        disabled={occupiedCell.D1.occupied === false || stateOfButtonsDuringAttack === false || occupiedCell.D1.health <= 0}
-                    >+ {occupiedCell.D1.health}</button>
-                    <button 
-                        className={occupiedCell.D2.name === "Охотники" && occupiedCell.D2.health !== 0 && occupiedCell.D2.choice === true ? classes.unitWastelandHunterChoice : occupiedCell.D2.name === "Метатели" && occupiedCell.D2.health !== 0 && occupiedCell.D2.choice === true ? classes.unitWastelandJavelinChoice : occupiedCell.D2.name === "Охотники" && occupiedCell.D2.health !== 0 ? classes.unitWastelandHunter : occupiedCell.D2.name === "Метатели" && occupiedCell.D2.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.D2.occupied === true && occupiedCell.D2.health === 0 ? classes.unitWastelandDeath : classes.cell}
-                        id={"D2"} 
-                        onClick={() => {handleChoiceCellAttack("D2")}} 
-                        disabled={occupiedCell.D2.occupied === false || stateOfButtonsDuringAttack === false || occupiedCell.D2.health <= 0}
-                    >+ {occupiedCell.D2.health}</button>
-                    <button 
-                        className={occupiedCell.D3.name === "Охотники" && occupiedCell.D3.health !== 0 && occupiedCell.D3.choice === true ? classes.unitWastelandHunterChoice : occupiedCell.D3.name === "Метатели" && occupiedCell.D3.health !== 0 && occupiedCell.D3.choice === true ? classes.unitWastelandJavelinChoice : occupiedCell.D3.name === "Охотники" && occupiedCell.D3.health !== 0 ? classes.unitWastelandHunter : occupiedCell.D3.name === "Метатели" && occupiedCell.D3.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.D3.occupied === true && occupiedCell.D3.health === 0 ? classes.unitWastelandDeath : classes.cell}
-                        id={"D3"} 
-                        onClick={() => {handleChoiceCellAttack("D3")}} 
-                        disabled={occupiedCell.D3.occupied === false || stateOfButtonsDuringAttack === false || occupiedCell.D3.health <= 0}
-                    >+{occupiedCell.D3.health}</button>
-                    <button 
-                        className={occupiedCell.D4.name === "Охотники" && occupiedCell.D4.health !== 0 && occupiedCell.D4.choice === true ? classes.unitWastelandHunterChoice : occupiedCell.D4.name === "Метатели" && occupiedCell.D4.health !== 0 && occupiedCell.D4.choice === true ? classes.unitWastelandJavelinChoice : occupiedCell.D4.name === "Охотники" && occupiedCell.D4.health !== 0 ? classes.unitWastelandHunter : occupiedCell.D4.name === "Метатели" && occupiedCell.D4.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.D4.occupied === true && occupiedCell.D4.health === 0 ? classes.unitWastelandDeath : classes.cell}
-                        id={"D4"} 
-                        onClick={() => {handleChoiceCellAttack("D4")}} 
-                        disabled={occupiedCell.D4.occupied === false || stateOfButtonsDuringAttack === false || occupiedCell.D4.health <= 0}
-                    >+ {occupiedCell.D4.health}</button>
+                {showGameField && <div>
+
+                    <div className={classes.cellD1}>
+                        <button 
+                            className={occupiedCell.D1.name === "Охотники" && occupiedCell.D1.health !== 0 && occupiedCell.D1.choice === true ? classes.unitWastelandHunterChoice : occupiedCell.D1.name === "Метатели" && occupiedCell.D1.health !== 0 && occupiedCell.D1.choice === true ? classes.unitWastelandJavelinChoice : occupiedCell.D1.name === "Охотники" && occupiedCell.D1.health !== 0 ? classes.unitWastelandHunter : occupiedCell.D1.name === "Метатели" && occupiedCell.D1.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.D1.occupied === true && occupiedCell.D1.health === 0 ? classes.unitWastelandDeath : classes.emptyСell}
+                            id={"D1"} 
+                            onClick={() => {handleChoiceCellAttack("D1")}} 
+                            disabled={occupiedCell.D1.occupied === false || stateOfButtonsDuringAttack === false || occupiedCell.D1.health <= 0}>+ {occupiedCell.D1.health}
+                        </button>
+                    </div>
+
+                    <div className={classes.cellD2}>
+                        <button 
+                            className={occupiedCell.D2.name === "Охотники" && occupiedCell.D2.health !== 0 && occupiedCell.D2.choice === true ? classes.unitWastelandHunterChoice : occupiedCell.D2.name === "Метатели" && occupiedCell.D2.health !== 0 && occupiedCell.D2.choice === true ? classes.unitWastelandJavelinChoice : occupiedCell.D2.name === "Охотники" && occupiedCell.D2.health !== 0 ? classes.unitWastelandHunter : occupiedCell.D2.name === "Метатели" && occupiedCell.D2.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.D2.occupied === true && occupiedCell.D2.health === 0 ? classes.unitWastelandDeath : classes.emptyСell}
+                            id={"D2"} 
+                            onClick={() => {handleChoiceCellAttack("D2")}} 
+                            disabled={occupiedCell.D2.occupied === false || stateOfButtonsDuringAttack === false || occupiedCell.D2.health <= 0}>+ {occupiedCell.D2.health}
+                        </button>
+                    </div>
+
+                    <div className={classes.cellD3}>
+                        <button 
+                            className={occupiedCell.D3.name === "Охотники" && occupiedCell.D3.health !== 0 && occupiedCell.D3.choice === true ? classes.unitWastelandHunterChoice : occupiedCell.D3.name === "Метатели" && occupiedCell.D3.health !== 0 && occupiedCell.D3.choice === true ? classes.unitWastelandJavelinChoice : occupiedCell.D3.name === "Охотники" && occupiedCell.D3.health !== 0 ? classes.unitWastelandHunter : occupiedCell.D3.name === "Метатели" && occupiedCell.D3.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.D3.occupied === true && occupiedCell.D3.health === 0 ? classes.unitWastelandDeath : classes.emptyСell}
+                            id={"D3"} 
+                            onClick={() => {handleChoiceCellAttack("D3")}} 
+                            disabled={occupiedCell.D3.occupied === false || stateOfButtonsDuringAttack === false || occupiedCell.D3.health <= 0}>+{occupiedCell.D3.health}
+                        </button>
+                    </div>
+
+                    <div className={classes.cellD4}>
+                        <button 
+                            className={occupiedCell.D4.name === "Охотники" && occupiedCell.D4.health !== 0 && occupiedCell.D4.choice === true ? classes.unitWastelandHunterChoice : occupiedCell.D4.name === "Метатели" && occupiedCell.D4.health !== 0 && occupiedCell.D4.choice === true ? classes.unitWastelandJavelinChoice : occupiedCell.D4.name === "Охотники" && occupiedCell.D4.health !== 0 ? classes.unitWastelandHunter : occupiedCell.D4.name === "Метатели" && occupiedCell.D4.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.D4.occupied === true && occupiedCell.D4.health === 0 ? classes.unitWastelandDeath : classes.emptyСell}
+                            id={"D4"} 
+                            onClick={() => {handleChoiceCellAttack("D4")}} 
+                            disabled={occupiedCell.D4.occupied === false || stateOfButtonsDuringAttack === false || occupiedCell.D4.health <= 0}>+ {occupiedCell.D4.health}
+                        </button>  
+                    </div>
+                
                 </div>}
                     
             </div>

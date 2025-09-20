@@ -63,59 +63,92 @@
     transform: translateX(-50%);
 }
 
-.blockFlex1{
-    width: 80%;
-    height: 100%;
+.cell{
+    width: 8.5vw; 
+    height: 8vw;
+    margin: 0;
+    border: solid 0.3vw black;
+    background: rgb(100, 158, 66);
+    cursor: pointer;
+    opacity: 0.5;
+    font-size: 2vw;
+}
+
+.cellA1{
     position: absolute;
     top: 2%;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    justify-content: space-between;
+    left: 5%;
 }
 
-.blockFlex2{
-    width: 80%;
-    height: 100%;
+.cellA2{
     position: absolute;
-    top: 21%;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    justify-content: space-between;
+    top: 2%;
+    left: 30%;
 }
 
-.blockFlex3{
-    width: 80%;
-    height: 100%;
+.cellA3{
     position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    justify-content: space-between;
+    top: 2%;
+    left: 55%;
 }
 
-.blockFlex4{
-    width: 80%;
-    height: 100%;
+.cellA4{
     position: absolute;
-    top: 59%;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    justify-content: space-between;
+    top: 2%;
+    left: 80%;
 }
 
-.blockFlex5{
-    width: 80%;
-    height: 100%;
+.cellC1{
     position: absolute;
-    top: 78%;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    justify-content: space-between;
+    bottom: 25%;
+    left: 5%;
+}
+
+.cellC2{
+    position: absolute;
+    bottom: 25%;
+    left: 30%;
+}
+
+.cellC3{
+    position: absolute;
+    bottom: 25%;
+    left: 55%;
+}
+
+.cellC4{
+    position: absolute;
+    bottom: 25%;
+    left: 80%;
+}
+
+.cellD1{
+    position: absolute;
+    bottom: 2%;
+    left: 13%;
+}
+
+.cellD2{
+    position: absolute;
+    bottom: 2%;
+    left: 38%;
+}
+
+.cellD3{
+    position: absolute;
+    bottom: 2%;
+    left: 63%;
+}
+
+.cellD4{
+    position: absolute;
+    bottom: 2%;
+    left: 88%;
+}
+
+.emptyСell{
+    border: none;
+    opacity: 0;
 }
 
 .shopButton{
@@ -266,16 +299,6 @@
     filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
 }
 
-.cell{
-    width: 10.5vw; 
-    height: 8vw;
-    margin: 0;
-    border: solid 0.3vw black;
-    background: rgb(100, 158, 66);
-    cursor: pointer;
-    opacity: 0.5;
-}
-
 .card{
     width: 10%;
     height: 30%;
@@ -393,12 +416,14 @@
 }
 
 .unitWastelandDeath{
-    width: 10.5vw; 
-    height: 8vw;
+    width: 7vw; 
+    height: 4vw;
     margin: 0;
-    border: solid 0.3vw black;
-    background: white;
-    cursor: pointer;
+    position: relative;
+    border: none;
+    background: url(../../Images/AngalsWastelandsImage/DeadAngal.webp) no-repeat bottom;
+    background-size: contain;
+    filter: drop-shadow(0.3vw 0vw 0.5vw black);
 }
 
 .unitEmpireWestArcher{
@@ -427,12 +452,15 @@
 }
 
 .unitEmpireDeath{
-    width: 10.5vw; 
-    height: 8vw;
+    width: 4.5vw; 
+    height: 4vw;
     margin: 0;
-    border: solid 0.3vw black;
-    background: white;
-    cursor: pointer;
+    position: fixed;
+    top: 20%;
+    border: none;
+    background: url(../../Images/ImpireMarahImage/DeadElf.webp) no-repeat bottom;
+    background-size: contain;
+    filter: drop-shadow(0.3vw 0vw 0.5vw black);
 }
 
 .closeButton{
