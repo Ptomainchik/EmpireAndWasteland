@@ -1,11 +1,15 @@
 import classes from "../../Styles/Games.module.css";
 import { BackButton } from "../../Buttons/BackButton";
 import { HomeButton } from "../../Buttons/HomeButton";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Avatar from "../../../Images/AngalsWastelandsImage/AngalAvatar.jpg";
 import Card from "../../../Images/AngalsWastelandsImage/CoatOfArmsOfWasteland.webp";
 import CardAngalHunter from "../../../Images/AngalsWastelandsImage/ImageWastelandCardAngalHunter.jpg";
 import CardAngalJavelin from "../../../Images/AngalsWastelandsImage/ImageWastelandCardAngalJavelin.jpg";
 import WestArcher from "../../../Images/ImpireMarahImage/ImageImpireCardWestArcher.jpg";
+import { IntroWastelandGame1Lvl } from "./StoryMessages/IntroWastelandGame1Lvl";
+import { MessageHalfHealth } from "./StoryMessages/MessageHalfHealthLvl1";
+import { OutroWastelandGame1Lvl } from "./StoryMessages/OutroWastelandGame1Lvl";
 
 export const GameWasteland = () => {
     const [resources, setResources] = useState(2250);
@@ -16,7 +20,15 @@ export const GameWasteland = () => {
         wastelandMaces: 0,
         wastelandAngalit: 0,
     });
-
+    const [stateButtonStoryMessages, setStateButtonStoryMessages] = useState({
+        closeButtonIntro: false,
+    });
+    const [showStoryMessages, setShowStoryMessages]:any = useState({
+        intro: true,
+        halfHealth: false,
+        outro: false,
+        countForMessage: 0,
+    });
     const [stateChoiceButton, setStateChoiceButton] = useState(true);
     const [showGameField, setShowGameField] = useState(false);
     const [showSkillsSoldierWasteland, setShowSkillsSoldierWasteland] = useState(false);
@@ -1484,8 +1496,19 @@ function handleCounterattack() {
         if (stateSkillsSoldiersWasteland.stateSkillsJavelin === true) {
             setStateSkillsSoldiersWasteland(prev => ({...prev, showStateSkillsJavelin: true}));
         }
-        let healthC1 = occupiedCell.C1
     };
+
+    useEffect(() => {
+        if(occupiedCellOpponent.A1.health + occupiedCellOpponent.A2.health + occupiedCellOpponent.A3.health + occupiedCellOpponent.A4.health <= 60 && showStoryMessages.countForMessage === 0) {
+            setShowStoryMessages((prev: any) => ({...prev, halfHealth: true}))
+        }
+        }, [occupiedCellOpponent, showStoryMessages.countForMessage]);
+
+    useEffect(() => {
+        if(occupiedCellOpponent.A1.health + occupiedCellOpponent.A2.health + occupiedCellOpponent.A3.health + occupiedCellOpponent.A4.health <= 0 && showStoryMessages.countForMessage === 1) {
+            setShowStoryMessages((prev: any) => ({...prev, outro: true}))
+        }
+        }, [occupiedCellOpponent, showStoryMessages.countForMessage]);
 
     return (
         <div className={classes.gamePageWasteland}>
@@ -1493,7 +1516,12 @@ function handleCounterattack() {
             <div className={classes.topbar} style={{backgroundColor: "darkolivegreen", backgroundImage: "linear-gradient(180deg, black -20%, darkolivegreen 47%, darkolivegreen 53%, black 120%)"}}>
                 <HomeButton/>Игра<BackButton/>
             </div>
-        
+            {showStoryMessages.intro && <IntroWastelandGame1Lvl setShowStoryMessages={setShowStoryMessages}/>}
+
+            {showStoryMessages.halfHealth && <MessageHalfHealth setShowStoryMessages={setShowStoryMessages}/>}
+
+            {showStoryMessages.outro&& <OutroWastelandGame1Lvl setShowStoryMessages={setShowStoryMessages}/>}
+
             <div className={classes.skillsBlockEmpire}>
 
                 {occupiedCell.C1.showCard && <div className={occupiedCell.C1.classWastlelandSoldier === 1 
@@ -1675,7 +1703,7 @@ function handleCounterattack() {
                
                 {showSkillsSoldierWasteland && <div className={classes.skillSoldiersWasteland}>
 
-                    <img className={classes.avatarHero} src={Card} alt="Card" draggable="false" />
+                    <img className={classes.avatarHero} src={Avatar} alt="Avatar" draggable="false" />
 
                     {stateSkillsSoldiersWasteland.showStateSkillsHunter && <button className={classes.buttonSkillHunter} onClick={handleSkillHunter} title="Яростная атака Охотника">Разделка</button>}
 
