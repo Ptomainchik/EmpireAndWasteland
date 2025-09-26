@@ -196,10 +196,28 @@
     bottom: -10vw;
 }
 
-.javelinBuy{
+.hunterBuy{
+    position: absolute;
+    top: 2%;
+    left: 5%;
     width: 14vw;
     height: 14vw;
-    margin: 1%;
+    background: url(../../Images/AngalsWastelandsImage/ImageWastelandCardAngalHunter.jpg) no-repeat center;
+    background-size: cover;
+    border: solid 0.2vw brown;
+    cursor: pointer;
+}
+
+.hunterBuy:hover{
+    border: solid 0.4vw brown;
+}
+
+.javelinBuy{
+    position: absolute;
+    top: 2%;
+    left: 25%;
+    width: 14vw;
+    height: 14vw;
     background: url(../../Images/AngalsWastelandsImage/ImageWastelandCardAngalJavelin.jpg) no-repeat center;
     background-size: cover;
     border: solid 0.2vw brown;
@@ -210,17 +228,19 @@
     border: solid 0.4vw brown;
 }
 
-.hunterBuy{
+.poulticeBuy{
+    position: absolute;
+    top: 2%;
+    left: 45%;
     width: 14vw;
     height: 14vw;
-    margin: 1%;
-    background: url(../../Images/AngalsWastelandsImage/ImageWastelandCardAngalHunter.jpg) no-repeat center;
+    background: red no-repeat center;
     background-size: cover;
     border: solid 0.2vw brown;
     cursor: pointer;
 }
 
-.hunterBuy:hover{
+.poulticeBuy:hover{
     border: solid 0.4vw brown;
 }
 
@@ -526,7 +546,7 @@
 
 .buttonSkillHunter{
     position: absolute;
-    top: 30%;
+    bottom: 35%;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 50%;
@@ -550,7 +570,7 @@
 
 .buttonSkillJavelin{
     position: absolute;
-    top: 40%;
+    bottom: 25%;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 50%;
@@ -567,6 +587,30 @@
 }
 
 .buttonSkillJavelin:hover{
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 95%);
+    filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
+}
+
+.buttonSkillPoultice{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    border: solid 0.1vw black;
+    width: 9vw;
+    height: 3vw;
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 110%);
+    font-family: "El Messiri";
+    font-size: 1.5vw;
+    cursor: pointer;
+    margin: 0;
+    color: rgb(220, 220, 220);
+}
+
+.buttonSkillPoultice:hover{
     background-color: darkolivegreen;
     background-image: linear-gradient(176deg, darkolivegreen 3%, black 95%);
     filter: drop-shadow(0.3vw 0.3vw 0.3vw black);

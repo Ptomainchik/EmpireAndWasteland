@@ -1,12 +1,18 @@
 import classes from "../../../Styles/StoryMessages.module.css";
 import images from "../../../../Images/AngalsWastelandsImage/AngalHunter.webp";
 import imagess from "../../../../Images/AngalsWastelandsImage/AngalJavelin.webp";
+import { useNavigate } from "react-router-dom";
 
-export const OutroWastelandGame1Lvl = ({setShowStoryMessages}:any) => {
+export const OutroWastelandGame1Lvl = (props:any) => {
+
+    const navigate = useNavigate();
 
     function handleCloseMessage() {
-        setShowStoryMessages((prev: any) => ({...prev, outro: false, countForMessage: 2 }))
+        props.setShowStoryMessages((prev: any) => ({...prev, outro: false, countForMessage: 2 }));
+        navigate("/gamewaslvl2");
     };
+
+    localStorage.setItem('wastelandResources', props.resources.toString());
     
     return (
         <div className={classes.outroWasteland}>

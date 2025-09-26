@@ -8,21 +8,24 @@ import { HistoryAngalsWasteland } from './Components/AngalsWastelands/History/Hi
 import { StructureEmpireMarah } from './Components/EmpireMarah/Structure/StructureEmpireMarah';
 import { StructureAngalsWasteland } from './Components/AngalsWastelands/Structure/StructureAngalsWasteland';
 import { GameEmpire } from './Components/EmpireMarah/Game/GameEmpire';
-import { GameWasteland } from './Components/AngalsWastelands/Game/GameWasteland';
+import { GameWastelandLvl1 } from './Components/AngalsWastelands/Game/GameWastelandLvl1';
+import { GameWastelandLvl2 } from './Components/AngalsWastelands/Game/GameWastelandLvl2';
+
 
 function App() {
   return (
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<StartPage/>}/>
-      <Route path="/empire" element={<EmpireMarahPage/>}/>
+      <Route path="empire" element={<EmpireMarahPage/>}/>
       <Route path="wasteland" element={<AngalsWastelandPage/>}/>
       <Route path="historyemp" element={<HistoryEmpireMarah/>}/>
       <Route path="historywas" element={<HistoryAngalsWasteland/>}/>
       <Route path="structureemp" element={<StructureEmpireMarah/>}/>
       <Route path="structurewas" element={<StructureAngalsWasteland/>}/>
       <Route path="gameemp" element={<GameEmpire/>}/>
-      <Route path="gamewas" element={<GameWasteland/>}/>
+      <Route path="gamewaslvl1" element={<GameWastelandLvl1/>}/>
+      <Route path="gamewaslvl2" element={<GameWastelandLvl2/>}/>
       <Route path="*" element={<NoPage/>}/>
     </Routes>
   </BrowserRouter>

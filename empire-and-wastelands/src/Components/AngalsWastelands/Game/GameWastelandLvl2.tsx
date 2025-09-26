@@ -2,7 +2,7 @@ import classes from "../../Styles/Games.module.css";
 import { BackButton } from "../../Buttons/BackButton";
 import { HomeButton } from "../../Buttons/HomeButton";
 import { useEffect, useState } from "react";
-import Avatar from "../../../Images/AngalsWastelandsImage/AngalAvatar.jpg";
+import Avatar from "../../../Images/AngalsWastelandsImage/CoatOfArmsOfWasteland.webp";
 import Card from "../../../Images/AngalsWastelandsImage/CoatOfArmsOfWasteland.webp";
 import CardAngalHunter from "../../../Images/AngalsWastelandsImage/ImageWastelandCardAngalHunter.jpg";
 import CardAngalJavelin from "../../../Images/AngalsWastelandsImage/ImageWastelandCardAngalJavelin.jpg";
@@ -11,8 +11,16 @@ import { IntroWastelandGame1Lvl } from "./StoryMessages/IntroWastelandGame1Lvl";
 import { MessageHalfHealth } from "./StoryMessages/MessageHalfHealthLvl1";
 import { OutroWastelandGame1Lvl } from "./StoryMessages/OutroWastelandGame1Lvl";
 
-export const GameWasteland = () => {
-    const [resources, setResources] = useState(2250);
+export const GameWastelandLvl2 = () => {
+    const [resources, setResources] = useState(0);
+
+    // Загружаем из localStorage при монтировании компонента
+    useEffect(() => {
+        const savedResources = localStorage.getItem('wastelandResources');
+        if (savedResources) {
+            setResources(parseInt(savedResources));
+        }
+    }, []);
     const [showShop, setShowShop] = useState(false);
     const [reserve, setReserve] = useState({
         wastelandHunter: 0,
@@ -1516,11 +1524,11 @@ function handleCounterattack() {
             <div className={classes.topbar} style={{backgroundColor: "darkolivegreen", backgroundImage: "linear-gradient(180deg, black -20%, darkolivegreen 47%, darkolivegreen 53%, black 120%)"}}>
                 <HomeButton/>Игра<BackButton/>
             </div>
-            {showStoryMessages.intro && <IntroWastelandGame1Lvl setShowStoryMessages={setShowStoryMessages}/>}
+            {/* {showStoryMessages.intro && <IntroWastelandGame1Lvl setShowStoryMessages={setShowStoryMessages}/>}
 
             {showStoryMessages.halfHealth && <MessageHalfHealth setShowStoryMessages={setShowStoryMessages}/>}
 
-            {showStoryMessages.outro&& <OutroWastelandGame1Lvl setShowStoryMessages={setShowStoryMessages}/>}
+            {showStoryMessages.outro&& <OutroWastelandGame1Lvl setShowStoryMessages={setShowStoryMessages}/>} */}
 
             <div className={classes.skillsBlockEmpire}>
 
@@ -1839,7 +1847,7 @@ function handleCounterattack() {
                 </div>}
 
                 {buttonStateGame.stateOverallButton && <div>
-
+                    <h1>{resources}</h1>
                     <div className={classes.cellD1}>
                         <button 
                             className={occupiedCell.D1.name === "Охотники" && occupiedCell.D1.health !== 0 ? classes.unitWastelandHunter : occupiedCell.D1.name === "Метатели" && occupiedCell.D1.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.D1.occupied === true && occupiedCell.D1.health === 0 ? classes.unitWastelandDeath : classes.cell}
@@ -1879,7 +1887,7 @@ function handleCounterattack() {
                 </div>}
 
                 {showGameField && <div>
-
+                    
                     <div className={classes.cellD1}>
                         <button 
                             className={occupiedCell.D1.name === "Охотники" && occupiedCell.D1.health !== 0 && occupiedCell.D1.choice === true ? classes.unitWastelandHunterChoice : occupiedCell.D1.name === "Метатели" && occupiedCell.D1.health !== 0 && occupiedCell.D1.choice === true ? classes.unitWastelandJavelinChoice : occupiedCell.D1.name === "Охотники" && occupiedCell.D1.health !== 0 ? classes.unitWastelandHunter : occupiedCell.D1.name === "Метатели" && occupiedCell.D1.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.D1.occupied === true && occupiedCell.D1.health === 0 ? classes.unitWastelandDeath : classes.emptyСell}
