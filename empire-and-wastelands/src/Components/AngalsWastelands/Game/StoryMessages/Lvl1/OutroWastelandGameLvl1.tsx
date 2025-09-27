@@ -1,9 +1,9 @@
-import classes from "../../../Styles/StoryMessages.module.css";
-import images from "../../../../Images/AngalsWastelandsImage/AngalHunter.webp";
-import imagess from "../../../../Images/AngalsWastelandsImage/AngalJavelin.webp";
+import classes from "../../../../Styles/StoryMessages.module.css";
+import images from "../../../../../Images/AngalsWastelandsImage/AngalHunter.webp";
+import imagess from "../../../../../Images/AngalsWastelandsImage/AngalJavelin.webp";
 import { useNavigate } from "react-router-dom";
 
-export const OutroWastelandGame1Lvl = (props:any) => {
+export const OutroWastelandGameLvl1 = (props:any) => {
 
     const navigate = useNavigate();
 
@@ -12,8 +12,6 @@ export const OutroWastelandGame1Lvl = (props:any) => {
         navigate("/gamewaslvl2");
     };
 
-    localStorage.setItem('wastelandResources', props.resources.toString());
-    
     return (
         <div className={classes.outroWasteland}>
             <img className={classes.rightImage} src={images} alt="images" draggable="false"/>

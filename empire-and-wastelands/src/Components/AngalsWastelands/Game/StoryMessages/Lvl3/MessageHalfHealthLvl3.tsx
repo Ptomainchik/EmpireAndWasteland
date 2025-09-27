@@ -1,15 +1,15 @@
-import classes from "../../../Styles/StoryMessages.module.css";
-import images from "../../../../Images/AngalsWastelandsImage/AngalsMother.jpg";
+import classes from "../../../../Styles/StoryMessages.module.css";
+import images from "../../../../../Images/AngalsWastelandsImage/AngalHunter.webp";
 
-export const IntroWastelandGame1Lvl = ({setShowStoryMessages}:any) => {
+export const MessageHalfHealthLvl3 = ({setShowStoryMessages}: any) => {
 
     function handleCloseMessage() {
-        setShowStoryMessages((prev: any) => ({...prev, intro: false }))
+        setShowStoryMessages((prev: any) => ({...prev, halfHealth: false, countForMessage: 1}))
     };
-    
+
     return (
-        <div className={classes.introWasteland}>
-            <img className={classes.centerImage} src={images} alt="images" draggable="false"/>
+        <div className={classes.messageAtHalfHealth}>
+            <img className={classes.rightImage} src={images} alt="images" draggable="false"/>
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                 Consequatur magnam pariatur et ad ea labore dolor molestiae, cum quod iste molestias ab nulla minima. Libero iure nesciunt id.

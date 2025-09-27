@@ -1,3 +1,11 @@
+//НЕ ЗАБЫВАЙ ПРО БАФЫ ИХ ДОБАВЛЯТЬ В АТАКЕР, И У КАЖДОГО ОНИ СВОИ!!!!!!! ВАЖНО, ОЧЕНЬОМА!!!!
+//НЕ ЗАБЫВАЙ ПРО БАФЫ ИХ ДОБАВЛЯТЬ В АТАКЕР, И У КАЖДОГО ОНИ СВОИ!!!!!!! ВАЖНО, ОЧЕНЬОМА!!!!
+//НЕ ЗАБЫВАЙ ПРО БАФЫ ИХ ДОБАВЛЯТЬ В АТАКЕР, И У КАЖДОГО ОНИ СВОИ!!!!!!! ВАЖНО, ОЧЕНЬОМА!!!!
+//НЕ ЗАБЫВАЙ ПРО БАФЫ ИХ ДОБАВЛЯТЬ В АТАКЕР, И У КАЖДОГО ОНИ СВОИ!!!!!!! ВАЖНО, ОЧЕНЬОМА!!!!
+//НЕ ЗАБЫВАЙ ПРО БАФЫ ИХ ДОБАВЛЯТЬ В АТАКЕР, И У КАЖДОГО ОНИ СВОИ!!!!!!! ВАЖНО, ОЧЕНЬОМА!!!!
+//НЕ ЗАБЫВАЙ ПРО БАФЫ ИХ ДОБАВЛЯТЬ В АТАКЕР, И У КАЖДОГО ОНИ СВОИ!!!!!!! ВАЖНО, ОЧЕНЬОМА!!!!
+//НЕ ЗАБЫВАЙ ПРО БАФЫ ИХ ДОБАВЛЯТЬ В АТАКЕР, И У КАЖДОГО ОНИ СВОИ!!!!!!! ВАЖНО, ОЧЕНЬОМА!!!!
+
 import classes from "../../Styles/Games.module.css";
 import { BackButton } from "../../Buttons/BackButton";
 import { HomeButton } from "../../Buttons/HomeButton";
@@ -6,16 +14,18 @@ import Avatar from "../../../Images/AngalsWastelandsImage/AngalAvatar.jpg";
 import Card from "../../../Images/AngalsWastelandsImage/CoatOfArmsOfWasteland.webp";
 import CardAngalHunter from "../../../Images/AngalsWastelandsImage/ImageWastelandCardAngalHunter.jpg";
 import CardAngalJavelin from "../../../Images/AngalsWastelandsImage/ImageWastelandCardAngalJavelin.jpg";
+import CardAngalMaces from "../../../Images/AngalsWastelandsImage/ImageWastelandCardAngalMaces.jpg";
 import WestArcher from "../../../Images/ImpireMarahImage/ImageImpireCardWestArcher.jpg";
+import WestSwordsman from "../../../Images/ImpireMarahImage/ImageImpireCardWestSwordsman.jpg";
 import { LoseMessage } from "./StoryMessages/LoseMessage";
-import { IntroWastelandGameLvl1 } from "./StoryMessages/Lvl1/IntroWastelandGameLvl1";
-import { MessageHalfHealthLvl1 } from "./StoryMessages/Lvl1/MessageHalfHealthLvl1";
-import { OutroWastelandGameLvl1 } from "./StoryMessages/Lvl1/OutroWastelandGameLvl1";
+import { IntroWastelandGameLvl3 } from "./StoryMessages/Lvl3/IntroWastelandGameLvl3";
+import { MessageHalfHealthLvl3 } from "./StoryMessages/Lvl3/MessageHalfHealthLvl3";
+import { OutroWastelandGameLvl3 } from "./StoryMessages/Lvl3/OutroWastelandGameLvl3";
 import { useGameResources } from "./HookForResources/HookResources";
 
-export const GameWastelandLvl1 = () => {
+export const GameWastelandLvl3 = () => {
     const [resources, setResources] = useGameResources();
-
+        
     const [showShop, setShowShop] = useState(false);
     const [reserve, setReserve] = useState({
         wastelandHunter: 0,
@@ -47,10 +57,13 @@ export const GameWastelandLvl1 = () => {
     const [stateSkillsSoldiersWasteland, setStateSkillsSoldiersWasteland] = useState({
         stateSkillsHunter: false,
         stateSkillsJavelin: false,
+        stateSkillsMaces: false,
         showStateSkillsHunter: false,
         showStateSkillsJavelin: false,
+        showStateSkillsMaces: false,
         stateHunterQuantitySkills: true,
         stateJavelinQuantitySkills: true,
+        stateMacesQuantitySkills: true,
     });
     const [buttonStateGame, setButtonStateGame] = useState({
         stateOverallButton: true,
@@ -108,6 +121,26 @@ export const GameWastelandLvl1 = () => {
                 attack: 10,
                 defense: 3,
                 first: true,
+                classEmpireSoldier: 0,
+                showCard: false,
+            },
+            A5:{
+                name: "Мечники запада",
+                occupied: false,
+                health: 40,
+                attack: 15,
+                defense: 5,
+                first: false,
+                classEmpireSoldier: 0,
+                showCard: false,
+            },
+            A6:{
+                name: "Мечники запада",
+                occupied: false,
+                health: 40,
+                attack: 15,
+                defense: 5,
+                first: false,
                 classEmpireSoldier: 0,
                 showCard: false,
             },
@@ -248,6 +281,14 @@ export const GameWastelandLvl1 = () => {
     }));
     }
 
+    function handleBuyMaces() {
+        setResources(prev => prev - 50);
+        setReserve(prevReserve => ({
+        ...prevReserve,
+        wastelandMaces: prevReserve.wastelandMaces + 1,
+    }));
+    }
+
     function handleBuyPoultice() {
         setResources(prev => prev - 50);
         setStateSkillsHero(prevReserve => ({
@@ -282,6 +323,21 @@ export const GameWastelandLvl1 = () => {
             wastelandButtonHunter: false,
             wastelandButtonJavelin: true,
             wastelandButtonMaces: false,
+            wastelandButtonAngalit: false,
+        });
+    }
+
+    function handleRequestForMacesReserves() {
+        setReserve(prevReserve => ({
+        ...prevReserve,
+        wastelandMaces: prevReserve.wastelandMaces - 1,
+    }));
+        setStateButtonsSkills(true);
+        setStateStyleSoldier(3);
+        setStateButtonSoldiers({
+            wastelandButtonHunter: false,
+            wastelandButtonJavelin: false,
+            wastelandButtonMaces: true,
             wastelandButtonAngalit: false,
         });
     }
@@ -587,6 +643,157 @@ export const GameWastelandLvl1 = () => {
         setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsJavelin: true}));
         }
     }
+
+    else if(["C1", "C2", "C3", "C4", "D1", "D2", "D3", "D4"].includes(id) && stateButtonSoldiers.wastelandButtonMaces === true ) {
+        
+        setStateButtonSoldiers({
+            wastelandButtonHunter: false,
+            wastelandButtonJavelin: false,
+            wastelandButtonMaces: false,
+            wastelandButtonAngalit: false,
+        });
+        setStyledButtons(prev => ({
+            ...prev,
+            [id]: 3 // 3 - булавоносец
+        }));
+        if(id === "C1"){
+        setOccupiedCell(prevOccupiedCell => ({
+            ...prevOccupiedCell,
+            C1:{
+                name: "Булавоносцы",
+                occupied: true,
+                health: 40,
+                attack: 10,
+                defense: 7,
+                choice: false,
+                classWastlelandSoldier: 3,
+                showCard: false,
+                priority: 2,
+            },
+        }));
+        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsMaces: true}));
+        }
+        else if(id === "C2"){
+            setOccupiedCell(prevOccupiedCell => ({
+                ...prevOccupiedCell,
+            C2:{    
+                    name: "Булавоносцы",
+                    occupied: true,
+                    health: 40,
+                    attack: 10,
+                    defense: 7,
+                    choice: false,
+                    classWastlelandSoldier: 3,
+                    showCard: false,
+                    priority: 2,
+                },
+        }));
+        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsMaces: true}));
+        }
+        else if(id === "C3"){
+            setOccupiedCell(prevOccupiedCell => ({
+                ...prevOccupiedCell,
+            C3:{    
+                    name: "Булавоносцы",
+                    occupied: true,
+                    health: 40,
+                    attack: 10,
+                    defense: 7,
+                    choice: false,
+                    classWastlelandSoldier: 3,
+                    showCard: false,
+                    priority: 2,
+                },
+        }));
+        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsMaces: true}));
+        }
+        else if(id === "C4"){
+            setOccupiedCell(prevOccupiedCell => ({
+                ...prevOccupiedCell,
+            C4:{
+                    name: "Булавоносцы",
+                    occupied: true,
+                    health: 40,
+                    attack: 10,
+                    defense: 7,
+                    choice: false,
+                    classWastlelandSoldier: 3,
+                    showCard: false,
+                    priority: 2,
+                },
+        }));
+        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsMaces: true}));
+        }
+        else if(id === "D1"){
+            setOccupiedCell(prevOccupiedCell => ({
+                ...prevOccupiedCell,
+            D1:{
+                    name: "Булавоносцы",
+                    occupied: true,
+                    health: 40,
+                    attack: 10,
+                    defense: 7,
+                    choice: false,
+                    classWastlelandSoldier: 3,
+                    showCard: false,
+                    priority: 2,
+                },
+        }));
+        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsMaces: true}));
+        }
+        else if(id === "D2"){
+            setOccupiedCell(prevOccupiedCell => ({
+                ...prevOccupiedCell,
+            D2:{
+                    name: "Булавоносцы",
+                    occupied: true,
+                    health: 40,
+                    attack: 10,
+                    defense: 7,
+                    choice: false,
+                    classWastlelandSoldier: 3,
+                    showCard: false,
+                    priority: 2,
+                },
+        }));
+        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsMaces: true}));
+        }
+        else if(id === "D3"){
+            setOccupiedCell(prevOccupiedCell => ({
+                ...prevOccupiedCell,
+            D3:{
+                    name: "Булавоносцы",
+                    occupied: true,
+                    health: 40,
+                    attack: 10,
+                    defense: 7,
+                    choice: false,
+                    classWastlelandSoldier: 3,
+                    showCard: false,
+                    priority: 2,
+                },
+        }));
+        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsMaces: true}));
+        }
+        else if(id === "D4"){
+            setOccupiedCell(prevOccupiedCell => ({
+                ...prevOccupiedCell,
+            D4:{
+                    name: "Булавоносцы",
+                    occupied: true,
+                    health: 40,
+                    attack: 10,
+                    defense: 7,
+                    choice: false,
+                    classWastlelandSoldier: 3,
+                    showCard: false,
+                    priority: 2,
+                },
+        }));
+        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsMaces: true}));
+        }
+    }
+
     else{
         return
     } 
@@ -710,7 +917,6 @@ export const GameWastelandLvl1 = () => {
         handleCounterattack()
     }
 
-
     else if (id === "A2" && occupiedCell.C1.choice === true && occupiedCell.C1.health > 0) {
         if(occupiedCellOpponent.A2.first === true){
             setOccupiedCell(prev => ({
@@ -791,7 +997,6 @@ export const GameWastelandLvl1 = () => {
         }));
         handleCounterattack()
     }
-
 
     else if (id === "A3" && occupiedCell.C1.choice === true && occupiedCell.C1.health > 0) {
         if(occupiedCellOpponent.A3.first === true){
@@ -874,7 +1079,6 @@ export const GameWastelandLvl1 = () => {
         handleCounterattack()
     }
 
-
     else if (id === "A4" && occupiedCell.C1.choice === true && occupiedCell.C1.health > 0) {
         if(occupiedCellOpponent.A4.first === true){
             setOccupiedCell(prev => ({
@@ -950,6 +1154,256 @@ export const GameWastelandLvl1 = () => {
             A4: {
                 ...prev.A4,
                 health: prev.A4.health - (occupiedCell.C4.attack - prev.A4.defense - 1),
+                first: false
+            }
+        }));
+        handleCounterattack()
+    }
+
+    else if (id === "A5" && occupiedCell.C1.choice === true && occupiedCell.C1.health > 0) {
+        if(occupiedCellOpponent.A5.first === true){
+            setOccupiedCell(prev => ({
+            ...prev,
+            C1: {
+                ...prev.C1,
+                health: prev.C1.health - 4
+            }
+        }));
+        }
+
+        if (occupiedCell.C1.name === "Метатели") {
+            setOccupiedCellOpponent(prev => ({...prev, 
+            A5: {
+                ...prev.A5,
+                health: prev.A5.health + 1 
+            }
+            }));
+        }
+        // Это баф Мечников запада, меньший урон от Метателей.
+
+        setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A5: {
+                ...prev.A5,
+                health: prev.A5.health - (occupiedCell.C1.attack - prev.A5.defense - 1),
+                first: false
+            }
+        }));
+        handleCounterattack()
+    }
+    else if (id === "A5" && occupiedCell.C2.choice === true && occupiedCell.C2.health > 0) {
+        if(occupiedCellOpponent.A5.first === true){
+            setOccupiedCell(prev => ({
+            ...prev,
+            C2: {
+                ...prev.C2,
+                health: prev.C2.health - 4
+            }
+        }));
+        }
+
+        if (occupiedCell.C2.name === "Метатели") {
+            setOccupiedCellOpponent(prev => ({...prev, 
+            A5: {
+                ...prev.A5,
+                health: prev.A5.health + 1 
+            }
+            }));
+        }
+        // Это баф Мечников запада, меньший урон от Метателей.
+
+        setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A5: {
+                ...prev.A5,
+                health: prev.A5.health - (occupiedCell.C2.attack - prev.A5.defense - 1),
+                first: false
+            }
+        }));
+        handleCounterattack()
+    }
+    else if (id === "A5" && occupiedCell.C3.choice === true && occupiedCell.C3.health > 0) {
+        if(occupiedCellOpponent.A5.first === true){
+            setOccupiedCell(prev => ({
+            ...prev,
+            C3: {
+                ...prev.C3,
+                health: prev.C3.health - 4
+            }
+        }));
+        }
+
+        if (occupiedCell.C3.name === "Метатели") {
+            setOccupiedCellOpponent(prev => ({...prev, 
+            A5: {
+                ...prev.A5,
+                health: prev.A5.health + 1 
+            }
+            }));
+        }
+        // Это баф Мечников запада, меньший урон от Метателей.
+
+        setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A5: {
+                ...prev.A5,
+                health: prev.A5.health - (occupiedCell.C3.attack - prev.A5.defense - 1),
+                first: false
+            }
+        }));
+        handleCounterattack()
+    }
+    else if (id === "A5" && occupiedCell.C4.choice === true && occupiedCell.C4.health > 0) {
+        if(occupiedCellOpponent.A5.first === true){
+            setOccupiedCell(prev => ({
+            ...prev,
+            C4: {
+                ...prev.C4,
+                health: prev.C4.health - 4
+            }
+        }));
+        }
+
+        if (occupiedCell.C4.name === "Метатели") {
+            setOccupiedCellOpponent(prev => ({...prev, 
+            A5: {
+                ...prev.A5,
+                health: prev.A5.health + 1 
+            }
+            }));
+        }
+        // Это баф Мечников запада, меньший урон от Метателей.
+
+        setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A5: {
+                ...prev.A5,
+                health: prev.A5.health - (occupiedCell.C4.attack - prev.A5.defense - 1),
+                first: false
+            }
+        }));
+        handleCounterattack()
+    }
+
+    else if (id === "A6" && occupiedCell.C1.choice === true && occupiedCell.C1.health > 0) {
+        if(occupiedCellOpponent.A6.first === true){
+            setOccupiedCell(prev => ({
+            ...prev,
+            C1: {
+                ...prev.C1,
+                health: prev.C1.health - 4
+            }
+        }));
+        }
+
+        if (occupiedCell.C1.name === "Метатели") {
+            setOccupiedCellOpponent(prev => ({...prev, 
+            A5: {
+                ...prev.A5,
+                health: prev.A5.health + 1 
+            }
+            }));
+        }
+        // Это баф Мечников запада, меньший урон от Метателей.
+
+        setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A6: {
+                ...prev.A6,
+                health: prev.A6.health - (occupiedCell.C1.attack - prev.A6.defense - 1),
+                first: false
+            }
+        }));
+        handleCounterattack()
+    }
+    else if (id === "A6" && occupiedCell.C2.choice === true && occupiedCell.C2.health > 0) {
+        if(occupiedCellOpponent.A6.first === true){
+            setOccupiedCell(prev => ({
+            ...prev,
+            C2: {
+                ...prev.C2,
+                health: prev.C2.health - 4
+            }
+        }));
+        }
+
+        if (occupiedCell.C2.name === "Метатели") {
+            setOccupiedCellOpponent(prev => ({...prev, 
+            A5: {
+                ...prev.A5,
+                health: prev.A5.health + 1 
+            }
+            }));
+        }
+        // Это баф Мечников запада, меньший урон от Метателей.
+
+        setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A6: {
+                ...prev.A6,
+                health: prev.A6.health - (occupiedCell.C2.attack - prev.A6.defense - 1),
+                first: false
+            }
+        }));
+        handleCounterattack()
+    }
+    else if (id === "A6" && occupiedCell.C3.choice === true && occupiedCell.C3.health > 0) {
+        if(occupiedCellOpponent.A6.first === true){
+            setOccupiedCell(prev => ({
+            ...prev,
+            C3: {
+                ...prev.C3,
+                health: prev.C3.health - 4
+            }
+        }));
+        }
+
+        if (occupiedCell.C3.name === "Метатели") {
+            setOccupiedCellOpponent(prev => ({...prev, 
+            A5: {
+                ...prev.A5,
+                health: prev.A5.health + 1 
+            }
+            }));
+        }
+        // Это баф Мечников запада, меньший урон от Метателей.
+
+        setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A6: {
+                ...prev.A6,
+                health: prev.A6.health - (occupiedCell.C3.attack - prev.A6.defense - 1),
+                first: false
+            }
+        }));
+        handleCounterattack()
+    }
+    else if (id === "A6" && occupiedCell.C4.choice === true && occupiedCell.C4.health > 0) {
+        if(occupiedCellOpponent.A6.first === true){
+            setOccupiedCell(prev => ({
+            ...prev,
+            C4: {
+                ...prev.C4,
+                health: prev.C4.health - 4
+            }
+        }));
+        }
+
+        if (occupiedCell.C4.name === "Метатели") {
+            setOccupiedCellOpponent(prev => ({...prev, 
+            A5: {
+                ...prev.A5,
+                health: prev.A5.health + 1 
+            }
+            }));
+        }
+        // Это баф Мечников запада, меньший урон от Метателей.
+
+        setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A6: {
+                ...prev.A6,
+                health: prev.A6.health - (occupiedCell.C4.attack - prev.A6.defense - 1),
                 first: false
             }
         }));
@@ -1119,7 +1573,6 @@ export const GameWastelandLvl1 = () => {
         handleCounterattack()
     }
     
-
     else if (id === "A3" && occupiedCell.D1.choice === true && occupiedCell.D1.health > 0) {
         if(occupiedCellOpponent.A3.first === true){
             setOccupiedCell(prev => ({
@@ -1201,7 +1654,6 @@ export const GameWastelandLvl1 = () => {
         handleCounterattack()
     }
 
-    
     else if (id === "A4" && occupiedCell.D1.choice === true && occupiedCell.D1.health > 0) {
         if(occupiedCellOpponent.A4.first === true){
             setOccupiedCell(prev => ({
@@ -1282,11 +1734,260 @@ export const GameWastelandLvl1 = () => {
         }));
         handleCounterattack()
     }
+
+    else if (id === "A5" && occupiedCell.D1.choice === true && occupiedCell.D1.health > 0) {
+        if(occupiedCellOpponent.A5.first === true){
+            setOccupiedCell(prev => ({
+            ...prev,
+            D1: {
+                ...prev.D1,
+                health: prev.D1.health - 4
+            }
+        }));
+        }
+
+        if (occupiedCell.D1.name === "Метатели") {
+            setOccupiedCellOpponent(prev => ({...prev, 
+            A5: {
+                ...prev.A5,
+                health: prev.A5.health + 1 
+            }
+            }));
+        }
+        // Это баф Мечников запада, меньший урон от Метателей.
+
+        setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A5: {
+                ...prev.A5,
+                health: prev.A5.health - (occupiedCell.D1.attack - prev.A5.defense - 1),
+                first: false
+            }
+        }));
+        handleCounterattack()
+    }
+    else if (id === "A5" && occupiedCell.D2.choice === true && occupiedCell.D2.health > 0) {
+        if(occupiedCellOpponent.A5.first === true){
+            setOccupiedCell(prev => ({
+            ...prev,
+            D2: {
+                ...prev.D2,
+                health: prev.D2.health - 4
+            }
+        }));
+        }
+
+        if (occupiedCell.D2.name === "Метатели") {
+            setOccupiedCellOpponent(prev => ({...prev, 
+            A5: {
+                ...prev.A5,
+                health: prev.A5.health + 1 
+            }
+            }));
+        }
+        // Это баф Мечников запада, меньший урон от Метателей.
+
+        setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A5: {
+                ...prev.A5,
+                health: prev.A5.health - (occupiedCell.D2.attack - prev.A5.defense - 1),
+                first: false
+            }
+        }));
+        handleCounterattack()
+    }
+    else if (id === "A5" && occupiedCell.D3.choice === true && occupiedCell.D3.health > 0) {
+        if(occupiedCellOpponent.A5.first === true){
+            setOccupiedCell(prev => ({
+            ...prev,
+            D3: {
+                ...prev.D3,
+                health: prev.D3.health - 4
+            }
+        }));
+        }
+
+        if (occupiedCell.D3.name === "Метатели") {
+            setOccupiedCellOpponent(prev => ({...prev, 
+            A5: {
+                ...prev.A5,
+                health: prev.A5.health + 1 
+            }
+            }));
+        }
+        // Это баф Мечников запада, меньший урон от Метателей.
+
+        setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A5: {
+                ...prev.A5,
+                health: prev.A5.health - (occupiedCell.D3.attack - prev.A5.defense - 1),
+                first: false
+            }
+        }));
+        handleCounterattack()
+    }
+    else if (id === "A5" && occupiedCell.D4.choice === true && occupiedCell.D4.health > 0) {
+        if(occupiedCellOpponent.A5.first === true){
+            setOccupiedCell(prev => ({
+            ...prev,
+            D4: {
+                ...prev.D4,
+                health: prev.D4.health - 4
+            }
+        }));
+        }
+
+        if (occupiedCell.D4.name === "Метатели") {
+            setOccupiedCellOpponent(prev => ({...prev, 
+            A5: {
+                ...prev.A5,
+                health: prev.A5.health + 1 
+            }
+            }));
+        }
+        // Это баф Мечников запада, меньший урон от Метателей.
+
+        setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A5: {
+                ...prev.A5,
+                health: prev.A5.health - (occupiedCell.D4.attack - prev.A5.defense - 1),
+                first: false
+            }
+        }));
+        handleCounterattack()
+    }
+
+    else if (id === "A6" && occupiedCell.D1.choice === true && occupiedCell.D1.health > 0) {
+        if(occupiedCellOpponent.A6.first === true){
+            setOccupiedCell(prev => ({
+            ...prev,
+            D1: {
+                ...prev.D1,
+                health: prev.D1.health - 4
+            }
+        }));
+        }
+
+        if (occupiedCell.D1.name === "Метатели") {
+            setOccupiedCellOpponent(prev => ({...prev, 
+            A5: {
+                ...prev.A5,
+                health: prev.A5.health + 1 
+            }
+            }));
+        }
+        // Это баф Мечников запада, меньший урон от Метателей.
+
+        setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A6: {
+                ...prev.A6,
+                health: prev.A6.health - (occupiedCell.D1.attack - prev.A6.defense - 1),
+                first: false
+            }
+        }));
+        handleCounterattack()
+    }
+    else if (id === "A6" && occupiedCell.D2.choice === true && occupiedCell.D2.health > 0) {
+        if(occupiedCellOpponent.A6.first === true){
+            setOccupiedCell(prev => ({
+            ...prev,
+            D2: {
+                ...prev.D2,
+                health: prev.D2.health - 4
+            }
+        }));
+        }
+
+        if (occupiedCell.D2.name === "Метатели") {
+            setOccupiedCellOpponent(prev => ({...prev, 
+            A5: {
+                ...prev.A5,
+                health: prev.A5.health + 1 
+            }
+            }));
+        }
+        // Это баф Мечников запада, меньший урон от Метателей.
+
+        setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A6: {
+                ...prev.A6,
+                health: prev.A6.health - (occupiedCell.D2.attack - prev.A6.defense - 1),
+                first: false
+            }
+        }));
+        handleCounterattack()
+    }
+    else if (id === "A6" && occupiedCell.D3.choice === true && occupiedCell.D3.health > 0) {
+        if(occupiedCellOpponent.A6.first === true){
+            setOccupiedCell(prev => ({
+            ...prev,
+            D3: {
+                ...prev.D3,
+                health: prev.D3.health - 4
+            }
+        }));
+        }
+
+        if (occupiedCell.D3.name === "Метатели") {
+            setOccupiedCellOpponent(prev => ({...prev, 
+            A5: {
+                ...prev.A5,
+                health: prev.A5.health + 1 
+            }
+            }));
+        }
+        // Это баф Мечников запада, меньший урон от Метателей.
+
+        setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A6: {
+                ...prev.A6,
+                health: prev.A6.health - (occupiedCell.D3.attack - prev.A6.defense - 1),
+                first: false
+            }
+        }));
+        handleCounterattack()
+    }
+    else if (id === "A6" && occupiedCell.D4.choice === true && occupiedCell.D4.health > 0) {
+        if(occupiedCellOpponent.A6.first === true){
+            setOccupiedCell(prev => ({
+            ...prev,
+            D4: {
+                ...prev.D4,
+                health: prev.D4.health - 4
+            }
+        }));
+        }
+
+        if (occupiedCell.D4.name === "Метатели") {
+            setOccupiedCellOpponent(prev => ({...prev, 
+            A5: {
+                ...prev.A5,
+                health: prev.A5.health + 1 
+            }
+            }));
+        }
+        // Это баф Мечников запада, меньший урон от Метателей.
+
+        setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A6: {
+                ...prev.A6,
+                health: prev.A6.health - (occupiedCell.D4.attack - prev.A6.defense - 1),
+                first: false
+            }
+        }));
+        handleCounterattack()
+    }
+
     else {
         return
     }
-
-    
    
 };
     
@@ -1331,15 +2032,15 @@ function handleCounterattack() {
                 setTimeout(() => {
                     setOccupiedCellOpponent(currentOpponents => {
                         const findNextAliveAttacker = (currentQueue: number) => {
-                            let nextQueue = currentQueue === 4 ? 1 : currentQueue + 1;
+                            let nextQueue = currentQueue === 6 ? 1 : currentQueue + 1;
                             let attempts = 0;
                             
-                            while (attempts < 4) {
+                            while (attempts < 6) {
                                 const nextAttackerKey = `A${nextQueue}` as keyof typeof currentOpponents;
                                 if (currentOpponents[nextAttackerKey].health > 0) {
                                     return nextQueue;
                                 }
-                                nextQueue = nextQueue === 4 ? 1 : nextQueue + 1;
+                                nextQueue = nextQueue === 6 ? 1 : nextQueue + 1;
                                 attempts++;
                             }
                             return 1;
@@ -1363,15 +2064,15 @@ function handleCounterattack() {
             setTimeout(() => {
                 setOccupiedCellOpponent(currentOpponents => {
                     const findNextAliveAttacker = (currentQueue: number) => {
-                        let nextQueue = currentQueue === 4 ? 1 : currentQueue + 1;
+                        let nextQueue = currentQueue === 6 ? 1 : currentQueue + 1;
                         let attempts = 0;
                         
-                        while (attempts < 4) {
+                        while (attempts < 6) {
                             const nextAttackerKey = `A${nextQueue}` as keyof typeof currentOpponents;
                             if (currentOpponents[nextAttackerKey].health > 0) {
                                 return nextQueue;
                             }
-                            nextQueue = nextQueue === 4 ? 1 : nextQueue + 1;
+                            nextQueue = nextQueue === 6 ? 1 : nextQueue + 1;
                             attempts++;
                         }
                         return 1;
@@ -1389,15 +2090,15 @@ function handleCounterattack() {
         setTimeout(() => {
             setOccupiedCellOpponent(currentOpponents => {
                 const findNextAliveAttacker = (currentQueue: number) => {
-                    let nextQueue = currentQueue === 4 ? 1 : currentQueue + 1;
+                    let nextQueue = currentQueue === 6 ? 1 : currentQueue + 1;
                     let attempts = 0;
                     
-                    while (attempts < 4) {
+                    while (attempts < 6) {
                         const nextAttackerKey = `A${nextQueue}` as keyof typeof currentOpponents;
                         if (currentOpponents[nextAttackerKey].health > 0) {
                             return nextQueue;
                         }
-                        nextQueue = nextQueue === 4 ? 1 : nextQueue + 1;
+                        nextQueue = nextQueue === 6 ? 1 : nextQueue + 1;
                         attempts++;
                     }
                     return 1;
@@ -1445,6 +2146,24 @@ function handleCounterattack() {
             A4: {
                 ...prev.A4,
                 health: prev.A4.health - 20
+            }
+        }));
+        }
+        else if (attackQueue === 5) {
+            setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A5: {
+                ...prev.A5,
+                health: prev.A5.health - 20
+            }
+        }));
+        }
+        else if (attackQueue === 6) {
+            setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A6: {
+                ...prev.A6,
+                health: prev.A6.health - 20
             }
         }));
         }
@@ -1498,10 +2217,100 @@ function handleCounterattack() {
             }
         }));
         }
+        else if (attackQueue === 5) {
+            setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A5: {
+                ...prev.A5,
+                health: prev.A5.health - 10,
+                defense: prev.A5.defense - 1
+            }
+        }));
+        }
+        else if (attackQueue === 6) {
+            setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A6: {
+                ...prev.A6,
+                health: prev.A6.health - 10,
+                defense: prev.A6.defense - 1
+            }
+        }));
+        }
 
         if (stateSkillsSoldiersWasteland.stateSkillsJavelin === true) {
             setStateSkillsSoldiersWasteland(prev => ({...prev, stateJavelinQuantitySkills : false}));
             setStateSkillsSoldiersWasteland(prev => ({...prev, showStateSkillsJavelin: false}));
+        }
+        
+    }
+
+     function handleSkillMaces() {
+
+        if (attackQueue === 1) {
+            setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A1: {
+                ...prev.A1,
+                health: prev.A1.health - 15,
+                defense: prev.A1.defense - 1
+            }
+        }));
+        }
+        else if (attackQueue === 2) {
+            setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A2: {
+                ...prev.A2,
+                health: prev.A2.health - 15,
+                defense: prev.A2.defense - 1
+            }
+        }));
+        }
+        else if (attackQueue === 3) {
+            setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A3: {
+                ...prev.A3,
+                health: prev.A3.health - 15,
+                defense: prev.A3.defense - 1
+            }
+        }));
+        }
+        else if (attackQueue === 4) {
+            setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A4: {
+                ...prev.A4,
+                health: prev.A4.health - 15,
+                defense: prev.A4.defense - 1
+            }
+        }));
+        }
+        else if (attackQueue === 5) {
+            setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A5: {
+                ...prev.A5,
+                health: prev.A5.health - 15,
+                defense: prev.A5.defense - 1
+            }
+        }));
+        }
+        else if (attackQueue === 6) {
+            setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A6: {
+                ...prev.A6,
+                health: prev.A6.health - 15,
+                defense: prev.A6.defense - 1
+            }
+        }));
+        }
+
+        if (stateSkillsSoldiersWasteland.stateSkillsMaces === true) {
+            setStateSkillsSoldiersWasteland(prev => ({...prev, stateMacesQuantitySkills : false}));
+            setStateSkillsSoldiersWasteland(prev => ({...prev, showStateSkillsMaces: false}));
         }
         
     }
@@ -1865,19 +2674,22 @@ function handleCounterattack() {
         if (stateSkillsSoldiersWasteland.stateSkillsJavelin === true) {
             setStateSkillsSoldiersWasteland(prev => ({...prev, showStateSkillsJavelin: true}));
         }
+        if (stateSkillsSoldiersWasteland.stateSkillsMaces === true) {
+            setStateSkillsSoldiersWasteland(prev => ({...prev, showStateSkillsMaces: true}));
+        }
         if (stateSkillsHero.poultice !== 0){
             setStateSkillsHero(prev => ({...prev, showPoultice: true}))
         }
     };
 
     useEffect(() => {
-        if(occupiedCellOpponent.A1.health + occupiedCellOpponent.A2.health + occupiedCellOpponent.A3.health + occupiedCellOpponent.A4.health <= 60 && showStoryMessages.countForMessage === 0) {
+        if(occupiedCellOpponent.A1.health + occupiedCellOpponent.A2.health + occupiedCellOpponent.A3.health + occupiedCellOpponent.A4.health + occupiedCellOpponent.A5.health + occupiedCellOpponent.A6.health <= 140 && showStoryMessages.countForMessage === 0) {
             setShowStoryMessages((prev: any) => ({...prev, halfHealth: true}));
         }
         }, [occupiedCellOpponent, showStoryMessages.countForMessage]);
 
     useEffect(() => {
-        if(occupiedCellOpponent.A1.health + occupiedCellOpponent.A2.health + occupiedCellOpponent.A3.health + occupiedCellOpponent.A4.health <= 0 && showStoryMessages.countForMessage === 1) {
+        if(occupiedCellOpponent.A1.health + occupiedCellOpponent.A2.health + occupiedCellOpponent.A3.health + occupiedCellOpponent.A4.health + occupiedCellOpponent.A5.health + occupiedCellOpponent.A6.health <= 0 && showStoryMessages.countForMessage === 1) {
             setShowStoryMessages((prev: any) => ({...prev, outro: true}));
         }
         }, [occupiedCellOpponent, showStoryMessages.countForMessage]);
@@ -1900,11 +2712,11 @@ function handleCounterattack() {
             <div className={classes.topbar} style={{backgroundColor: "darkolivegreen", backgroundImage: "linear-gradient(180deg, black -20%, darkolivegreen 47%, darkolivegreen 53%, black 120%)"}}>
                 <HomeButton/>Игра<BackButton/>
             </div>
-            {showStoryMessages.intro && <IntroWastelandGameLvl1 setShowStoryMessages={setShowStoryMessages}/>}
+            {showStoryMessages.intro && <IntroWastelandGameLvl3 setShowStoryMessages={setShowStoryMessages}/>}
 
-            {showStoryMessages.halfHealth && <MessageHalfHealthLvl1 setShowStoryMessages={setShowStoryMessages}/>}
+            {showStoryMessages.halfHealth && <MessageHalfHealthLvl3 setShowStoryMessages={setShowStoryMessages}/>}
 
-            {showStoryMessages.outro && <OutroWastelandGameLvl1 setShowStoryMessages={setShowStoryMessages} resources={resources}/>}
+            {showStoryMessages.outro && <OutroWastelandGameLvl3 setShowStoryMessages={setShowStoryMessages} resources={resources}/>}
 
             {showStoryMessages.lose && <LoseMessage/>}
 
@@ -1914,12 +2726,16 @@ function handleCounterattack() {
                 ? classes.cardWastelandHunter 
                 : occupiedCell.C1.classWastlelandSoldier === 2 
                 ? classes.cardWastelandJavelin
+                : occupiedCell.C1.classWastlelandSoldier === 3 
+                ? classes.cardWastelandMaces 
                 : classes.card
                 }>
                     <img className={classes.imageCard} src={occupiedCell.C1.classWastlelandSoldier === 1 
                     ? CardAngalHunter
                     : occupiedCell.C1.classWastlelandSoldier === 2 
-                    ? CardAngalJavelin
+                    ? CardAngalJavelin 
+                    : occupiedCell.C1.classWastlelandSoldier === 3 
+                    ? CardAngalMaces
                     : Card} alt="Card" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCell.C1.health}></progress>
                     <p>{occupiedCell.C1.name}</p>
@@ -1931,11 +2747,15 @@ function handleCounterattack() {
                 ? classes.cardWastelandHunter 
                 : occupiedCell.C2.classWastlelandSoldier === 2 
                 ? classes.cardWastelandJavelin 
+                : occupiedCell.C2.classWastlelandSoldier === 3 
+                ? classes.cardWastelandMaces 
                 : classes.card}>
                     <img className={classes.imageCard} src={occupiedCell.C2.classWastlelandSoldier === 1 
                     ? CardAngalHunter
                     : occupiedCell.C2.classWastlelandSoldier === 2 
                     ? CardAngalJavelin
+                    : occupiedCell.C2.classWastlelandSoldier === 3 
+                    ? CardAngalMaces
                     : Card} alt="Card" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCell.C2.health}></progress>
                     <p>{occupiedCell.C2.name}</p>
@@ -1947,11 +2767,15 @@ function handleCounterattack() {
                 ? classes.cardWastelandHunter 
                 : occupiedCell.C3.classWastlelandSoldier === 2 
                 ? classes.cardWastelandJavelin 
+                : occupiedCell.C3.classWastlelandSoldier === 3 
+                ? classes.cardWastelandMaces 
                 : classes.card}>
                     <img className={classes.imageCard} src={occupiedCell.C3.classWastlelandSoldier === 1 
                     ? CardAngalHunter
                     : occupiedCell.C3.classWastlelandSoldier === 2 
                     ? CardAngalJavelin
+                    : occupiedCell.C3.classWastlelandSoldier === 3 
+                    ? CardAngalMaces
                     : Card} alt="Card" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCell.C3.health}></progress>
                     <p>{occupiedCell.C3.name}</p>
@@ -1963,11 +2787,15 @@ function handleCounterattack() {
                 ? classes.cardWastelandHunter 
                 : occupiedCell.C4.classWastlelandSoldier === 2 
                 ? classes.cardWastelandJavelin 
+                : occupiedCell.C4.classWastlelandSoldier === 3 
+                ? classes.cardWastelandMaces 
                 : classes.card}>
                     <img className={classes.imageCard} src={occupiedCell.C4.classWastlelandSoldier === 1 
                     ? CardAngalHunter
                     : occupiedCell.C4.classWastlelandSoldier === 2 
                     ? CardAngalJavelin
+                    : occupiedCell.C4.classWastlelandSoldier === 3 
+                    ? CardAngalMaces
                     : Card} alt="Card" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCell.C4.health}></progress>
                     <p>{occupiedCell.C4.name}</p>
@@ -1979,11 +2807,15 @@ function handleCounterattack() {
                 ? classes.cardWastelandHunter 
                 : occupiedCell.D1.classWastlelandSoldier === 2 
                 ? classes.cardWastelandJavelin 
+                : occupiedCell.D1.classWastlelandSoldier === 3 
+                ? classes.cardWastelandMaces 
                 : classes.card}>
                     <img className={classes.imageCard} src={occupiedCell.D1.classWastlelandSoldier === 1 
                     ? CardAngalHunter
                     : occupiedCell.D1.classWastlelandSoldier === 2 
                     ? CardAngalJavelin
+                    : occupiedCell.D1.classWastlelandSoldier === 3 
+                    ? CardAngalMaces
                     : Card} alt="Card" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCell.D1.health}></progress>
                     <p>{occupiedCell.D1.name}</p>
@@ -1995,11 +2827,15 @@ function handleCounterattack() {
                 ? classes.cardWastelandHunter 
                 : occupiedCell.D2.classWastlelandSoldier === 2 
                 ? classes.cardWastelandJavelin 
+                : occupiedCell.D2.classWastlelandSoldier === 3 
+                ? classes.cardWastelandMaces 
                 : classes.card}>
                     <img className={classes.imageCard} src={occupiedCell.D2.classWastlelandSoldier === 1 
                     ? CardAngalHunter
                     : occupiedCell.D2.classWastlelandSoldier === 2 
                     ? CardAngalJavelin
+                    : occupiedCell.D2.classWastlelandSoldier === 3 
+                    ? CardAngalMaces
                     : Card} alt="Card" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCell.D2.health}></progress>
                     <p>{occupiedCell.D2.name}</p>
@@ -2011,11 +2847,15 @@ function handleCounterattack() {
                 ? classes.cardWastelandHunter 
                 : occupiedCell.D3.classWastlelandSoldier === 2 
                 ? classes.cardWastelandJavelin 
+                : occupiedCell.D3.classWastlelandSoldier === 3 
+                ? classes.cardWastelandMaces 
                 : classes.card}>
                     <img className={classes.imageCard} src={occupiedCell.D3.classWastlelandSoldier === 1 
                     ? CardAngalHunter
                     : occupiedCell.D3.classWastlelandSoldier === 2 
                     ? CardAngalJavelin
+                    : occupiedCell.D3.classWastlelandSoldier === 3 
+                    ? CardAngalMaces
                     : Card} alt="Card" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCell.D3.health}></progress>
                     <p>{occupiedCell.D3.name}</p>
@@ -2027,11 +2867,15 @@ function handleCounterattack() {
                 ? classes.cardWastelandHunter 
                 : occupiedCell.D4.classWastlelandSoldier === 2 
                 ? classes.cardWastelandJavelin 
+                : occupiedCell.D4.classWastlelandSoldier === 3 
+                ? classes.cardWastelandMaces 
                 : classes.card}>
                     <img className={classes.imageCard} src={occupiedCell.D4.classWastlelandSoldier === 1 
                     ? CardAngalHunter
                     : occupiedCell.D4.classWastlelandSoldier === 2 
                     ? CardAngalJavelin
+                    : occupiedCell.D4.classWastlelandSoldier === 3 
+                    ? CardAngalMaces
                     : Card} alt="Card" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCell.D4.health}></progress>
                     <p>{occupiedCell.D4.name}</p>
@@ -2071,6 +2915,22 @@ function handleCounterattack() {
                     <p>Defense: {occupiedCellOpponent.A4.defense}:</p>
                 </div>}
 
+                {occupiedCellOpponent.A5.showCard && <div className={classes.cardWestEmpireSwordsman}>
+                    <img className={classes.imageCard} src={WestSwordsman} alt="WestSwordsman" draggable="false"/>
+                    <progress className={classes.healthScaleWasteland} max="100" value={occupiedCellOpponent.A5.health}></progress>
+                    <p>{occupiedCellOpponent.A5.name}</p>
+                    <p>Attack:  {occupiedCellOpponent.A5.attack}</p>
+                    <p>Defense: {occupiedCellOpponent.A5.defense}:</p>
+                </div>}
+                
+                {occupiedCellOpponent.A6.showCard && <div className={classes.cardWestEmpireSwordsman}>
+                    <img className={classes.imageCard} src={WestSwordsman} alt="WestSwordsman" draggable="false"/>
+                    <progress className={classes.healthScaleWasteland} max="100" value={occupiedCellOpponent.A6.health}></progress>
+                    <p>{occupiedCellOpponent.A6.name}</p>
+                    <p>Attack:  {occupiedCellOpponent.A6.attack}</p>
+                    <p>Defense: {occupiedCellOpponent.A6.defense}:</p>
+                </div>}
+
             </div>
 
                 {showShop && <div className={classes.shop}>
@@ -2080,6 +2940,9 @@ function handleCounterattack() {
                     
                     <button className={classes.javelinBuy} onClick={handleBuyJavelin} disabled={resources <= 0 || stateButtonsSkills === true}><p className={classes.titleBuyUnit}>Ангальские метатели: {reserve.wastelandJavelin}</p></button>
                     {resources} resurs 
+
+                    <button className={classes.macesBuy} onClick={handleBuyMaces} disabled={resources <= 0 || stateButtonsSkills === true}><p className={classes.titleBuyUnit}>Ангальские булавоносцы: {reserve.wastelandMaces}</p></button>
+                    {resources} resurs
                     
                     <button className={classes.poulticeBuy} onClick={handleBuyPoultice} disabled={resources <= 0 || stateButtonsSkills === true}><p className={classes.titleBuyUnit}>Припарки: {stateSkillsHero.poultice}</p></button>
                     {resources} resurs 
@@ -2093,6 +2956,7 @@ function handleCounterattack() {
                 {buttonStateGame.stateStartButton && <button className={classes.buttonStartGame} onClick={handleStartGame}>Старт</button>}
                 {buttonStateGame.stateOverallButton && <button className={classes.angalsButtonSkillsHunters} onClick={handleRequestForHunterReserves} disabled={stateStyleSoldier === 2 || stateStyleSoldier === 3 || stateStyleSoldier === 4 ||  stateButtonSoldiers.wastelandButtonHunter === true || reserve.wastelandHunter === 0}>Охотники: {reserve.wastelandHunter}</button>} 
                 {buttonStateGame.stateOverallButton && <button className={classes.angalsButtonSkillsJavelin} onClick={handleRequestForJavelinReserves} disabled={stateStyleSoldier === 1 || stateStyleSoldier === 3 || stateStyleSoldier === 4 || stateButtonSoldiers.wastelandButtonJavelin === true || reserve.wastelandJavelin === 0}>Метатели: {reserve.wastelandJavelin}</button>}
+                {buttonStateGame.stateOverallButton && <button className={classes.angalsButtonSkillsMaces} onClick={handleRequestForMacesReserves} disabled={stateStyleSoldier === 1 || stateStyleSoldier === 3 || stateStyleSoldier === 4 || stateButtonSoldiers.wastelandButtonMaces === true || reserve.wastelandMaces === 0}>Булавоносцы: {reserve.wastelandMaces}</button>}
                
                 {showSkillsSoldierWasteland && <div className={classes.skillSoldiersWasteland}>
 
@@ -2103,6 +2967,8 @@ function handleCounterattack() {
                     {stateSkillsSoldiersWasteland.showStateSkillsHunter && <button className={classes.buttonSkillHunter} onClick={handleSkillHunter} title="Яростная атака Охотника">Разделка</button>}
 
                     {stateSkillsSoldiersWasteland.showStateSkillsJavelin && <button className={classes.buttonSkillJavelin} onClick={handleSkillJavelin} title="Смертельный бросок Метателя">Бросок</button>}
+
+                    {stateSkillsSoldiersWasteland.showStateSkillsMaces && <button className={classes.buttonSkillMaces} onClick={handleSkillMaces} title="Дробящий удар Булавоносца">Удар</button>}
                     
                 </div>}
             </div>
@@ -2147,13 +3013,34 @@ function handleCounterattack() {
                         </button>
                     </div>
 
+                    <div className={classes.cellA6}>
+                        <button className={attackQueue === 5 ? classes.unitEmpireWestSwordsmanChoice : occupiedCellOpponent.A5.health <= 0 ? classes.unitEmpireDeath : classes.unitEmpireWestSwordsman} id={"A5"} onClick={() => {handleAttack("A5")}} 
+                            onMouseEnter={() => setOccupiedCellOpponent(prev => ({...prev, A5: {...prev.A5, showCard: true}}))}
+                            onMouseLeave={() => setOccupiedCellOpponent(prev => ({...prev, A5: {...prev.A5,showCard: false}}))} 
+                            disabled={stateButtonsSkills === true || occupiedCellOpponent.A5.health <= 0 || buttonStateGame.stateAttackButton === false || buttonStateGame.stateFixStartButton === false}>
+                        <progress className={classes.healthScaleImpireUnit} value={occupiedCellOpponent.A5.health} max="100"></progress>
+                        </button>{occupiedCellOpponent.A5.health}
+                    </div>
+                    
+                    <div className={classes.cellA7}>
+                        <button className={attackQueue === 6 ? classes.unitEmpireWestSwordsmanChoice : occupiedCellOpponent.A6.health <= 0 ? classes.unitEmpireDeath : classes.unitEmpireWestSwordsman} id={"A6"} onClick={() => {handleAttack("A6")}} 
+                            onMouseEnter={() => setOccupiedCellOpponent(prev => ({...prev, A6: {...prev.A6, showCard: true}}))}
+                            onMouseLeave={() => setOccupiedCellOpponent(prev => ({...prev, A6: {...prev.A6,showCard: false}}))} 
+                            disabled={stateButtonsSkills === true || occupiedCellOpponent.A6.health <= 0 || buttonStateGame.stateAttackButton === false || buttonStateGame.stateFixStartButton === false}>
+                        <progress className={classes.healthScaleImpireUnit} value={occupiedCellOpponent.A6.health} max="100"></progress>
+                        </button>
+                    </div>
+
                 </div>
 
                 {buttonStateGame.stateOverallButton && <div>
 
                     <div className={classes.cellC1}>
                         <button 
-                            className={occupiedCell.C1.name === "Охотники" && occupiedCell.C1.health !== 0 ? classes.unitWastelandHunter : occupiedCell.C1.name === "Метатели" && occupiedCell.C1.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.C1.occupied === true && occupiedCell.C1.health === 0 ? classes.unitWastelandDeath : classes.cell} 
+                            className={occupiedCell.C1.name === "Охотники" && occupiedCell.C1.health !== 0 ? classes.unitWastelandHunter 
+                                : occupiedCell.C1.name === "Метатели" && occupiedCell.C1.health !== 0 ? classes.unitWastelandJavelin 
+                                : occupiedCell.C1.name === "Булавоносцы" && occupiedCell.C1.health !== 0 ? classes.unitWastelandMaces 
+                                : occupiedCell.C1.occupied === true && occupiedCell.C1.health === 0 ? classes.unitWastelandDeath : classes.cell} 
                             id={"C1"} 
                             onClick={() => handleTroopDeployment("C1")} 
                             disabled={occupiedCell.C1.occupied === true}>+
@@ -2162,7 +3049,10 @@ function handleCounterattack() {
 
                     <div className={classes.cellC2}>
                         <button 
-                            className={occupiedCell.C2.name === "Охотники" && occupiedCell.C2.health !== 0 ? classes.unitWastelandHunter : occupiedCell.C2.name === "Метатели" && occupiedCell.C2.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.C2.occupied === true && occupiedCell.C2.health === 0 ? classes.unitWastelandDeath : classes.cell}
+                            className={occupiedCell.C2.name === "Охотники" && occupiedCell.C2.health !== 0 ? classes.unitWastelandHunter 
+                                : occupiedCell.C2.name === "Метатели" && occupiedCell.C2.health !== 0 ? classes.unitWastelandJavelin 
+                                : occupiedCell.C2.name === "Булавоносцы" && occupiedCell.C2.health !== 0 ? classes.unitWastelandMaces 
+                                : occupiedCell.C2.occupied === true && occupiedCell.C2.health === 0 ? classes.unitWastelandDeath : classes.cell}
                             id={"C2"} 
                             onClick={() => handleTroopDeployment("C2")} 
                             disabled={occupiedCell.C2.occupied === true}>+
@@ -2171,7 +3061,10 @@ function handleCounterattack() {
 
                     <div className={classes.cellC3}>
                         <button 
-                            className={occupiedCell.C3.name === "Охотники" && occupiedCell.C3.health !== 0 ? classes.unitWastelandHunter : occupiedCell.C3.name === "Метатели" && occupiedCell.C3.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.C3.occupied === true && occupiedCell.C3.health === 0 ? classes.unitWastelandDeath : classes.cell}
+                            className={occupiedCell.C3.name === "Охотники" && occupiedCell.C3.health !== 0 ? classes.unitWastelandHunter 
+                                : occupiedCell.C3.name === "Метатели" && occupiedCell.C3.health !== 0 ? classes.unitWastelandJavelin 
+                                : occupiedCell.C3.name === "Булавоносцы" && occupiedCell.C3.health !== 0 ? classes.unitWastelandMaces 
+                                : occupiedCell.C3.occupied === true && occupiedCell.C3.health === 0 ? classes.unitWastelandDeath : classes.cell}
                             id={"C3"} 
                             onClick={() => handleTroopDeployment("C3")} 
                             disabled={occupiedCell.C3.occupied === true}>+
@@ -2180,7 +3073,10 @@ function handleCounterattack() {
 
                     <div className={classes.cellC4}>
                         <button 
-                            className={occupiedCell.C4.name === "Охотники" && occupiedCell.C4.health !== 0 ? classes.unitWastelandHunter : occupiedCell.C4.name === "Метатели" && occupiedCell.C4.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.C4.occupied === true && occupiedCell.C4.health === 0 ? classes.unitWastelandDeath : classes.cell}
+                            className={occupiedCell.C4.name === "Охотники" && occupiedCell.C4.health !== 0 ? classes.unitWastelandHunter 
+                                : occupiedCell.C4.name === "Метатели" && occupiedCell.C4.health !== 0 ? classes.unitWastelandJavelin 
+                                : occupiedCell.C4.name === "Булавоносцы" && occupiedCell.C4.health !== 0 ? classes.unitWastelandMaces 
+                                : occupiedCell.C4.occupied === true && occupiedCell.C4.health === 0 ? classes.unitWastelandDeath : classes.cell}
                             id={"C4"} 
                             onClick={() => handleTroopDeployment("C4")} 
                             disabled={occupiedCell.C4.occupied === true}>+
@@ -2193,7 +3089,13 @@ function handleCounterattack() {
 
                     <div className={classes.cellC1}>
                         <button 
-                            className={occupiedCell.C1.name === "Охотники" && occupiedCell.C1.health !== 0 && occupiedCell.C1.choice === true ? classes.unitWastelandHunterChoice : occupiedCell.C1.name === "Метатели" && occupiedCell.C1.health !== 0 && occupiedCell.C1.choice === true ? classes.unitWastelandJavelinChoice : occupiedCell.C1.name === "Охотники" && occupiedCell.C1.health !== 0 ? classes.unitWastelandHunter : occupiedCell.C1.name === "Метатели" && occupiedCell.C1.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.C1.occupied === true && occupiedCell.C1.health === 0 ? classes.unitWastelandDeath : classes.emptyСell}
+                            className={occupiedCell.C1.name === "Охотники" && occupiedCell.C1.health !== 0 && occupiedCell.C1.choice === true ? classes.unitWastelandHunterChoice 
+                                : occupiedCell.C1.name === "Охотники" && occupiedCell.C1.health !== 0 ? classes.unitWastelandHunter 
+                                : occupiedCell.C1.name === "Метатели" && occupiedCell.C1.health !== 0 && occupiedCell.C1.choice === true ? classes.unitWastelandJavelinChoice 
+                                : occupiedCell.C1.name === "Метатели" && occupiedCell.C1.health !== 0 ? classes.unitWastelandJavelin 
+                                : occupiedCell.C1.name === "Булавоносцы" && occupiedCell.C1.health !== 0 && occupiedCell.C1.choice === true ? classes.unitWastelandMacesChoice 
+                                : occupiedCell.C1.name === "Булавоносцы" && occupiedCell.C1.health !== 0 ? classes.unitWastelandMaces 
+                                : occupiedCell.C1.occupied === true && occupiedCell.C1.health === 0 ? classes.unitWastelandDeath : classes.emptyСell}
                             id={"C1"} 
                             onClick={() => {handleChoiceCellAttack("C1")}} 
                             disabled={occupiedCell.C1.occupied === false || stateOfButtonsDuringAttack === false || occupiedCell.C1.health <= 0}>
@@ -2203,7 +3105,13 @@ function handleCounterattack() {
 
                     <div className={classes.cellC2}>
                         <button 
-                            className={occupiedCell.C2.name === "Охотники" && occupiedCell.C2.health !== 0 && occupiedCell.C2.choice === true ? classes.unitWastelandHunterChoice : occupiedCell.C2.name === "Метатели" && occupiedCell.C2.health !== 0 && occupiedCell.C2.choice === true ? classes.unitWastelandJavelinChoice : occupiedCell.C2.name === "Охотники" && occupiedCell.C2.health !== 0 ? classes.unitWastelandHunter : occupiedCell.C2.name === "Метатели" && occupiedCell.C2.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.C2.occupied === true && occupiedCell.C2.health === 0 ? classes.unitWastelandDeath : classes.emptyСell}
+                            className={occupiedCell.C2.name === "Охотники" && occupiedCell.C2.health !== 0 && occupiedCell.C2.choice === true ? classes.unitWastelandHunterChoice 
+                                : occupiedCell.C2.name === "Охотники" && occupiedCell.C2.health !== 0 ? classes.unitWastelandHunter 
+                                : occupiedCell.C2.name === "Метатели" && occupiedCell.C2.health !== 0 && occupiedCell.C2.choice === true ? classes.unitWastelandJavelinChoice 
+                                : occupiedCell.C2.name === "Метатели" && occupiedCell.C2.health !== 0 ? classes.unitWastelandJavelin 
+                                : occupiedCell.C2.name === "Булавоносцы" && occupiedCell.C2.health !== 0 && occupiedCell.C2.choice === true ? classes.unitWastelandMacesChoice 
+                                : occupiedCell.C2.name === "Булавоносцы" && occupiedCell.C2.health !== 0 ? classes.unitWastelandMaces 
+                                : occupiedCell.C2.occupied === true && occupiedCell.C2.health === 0 ? classes.unitWastelandDeath : classes.emptyСell}
                             id={"C2"} 
                             onClick={() => {handleChoiceCellAttack("C2")}} 
                             disabled={occupiedCell.C2.occupied === false || stateOfButtonsDuringAttack === false || occupiedCell.C2.health <= 0}>
@@ -2213,7 +3121,13 @@ function handleCounterattack() {
 
                     <div className={classes.cellC3}>
                         <button 
-                            className={occupiedCell.C3.name === "Охотники" && occupiedCell.C3.health !== 0 && occupiedCell.C3.choice === true ? classes.unitWastelandHunterChoice : occupiedCell.C3.name === "Метатели" && occupiedCell.C3.health !== 0 && occupiedCell.C3.choice === true ? classes.unitWastelandJavelinChoice : occupiedCell.C3.name === "Охотники" && occupiedCell.C3.health !== 0 ? classes.unitWastelandHunter : occupiedCell.C3.name === "Метатели" && occupiedCell.C3.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.C3.occupied === true && occupiedCell.C3.health === 0 ? classes.unitWastelandDeath : classes.emptyСell}
+                            className={occupiedCell.C3.name === "Охотники" && occupiedCell.C3.health !== 0 && occupiedCell.C3.choice === true ? classes.unitWastelandHunterChoice 
+                                : occupiedCell.C3.name === "Охотники" && occupiedCell.C3.health !== 0 ? classes.unitWastelandHunter 
+                                : occupiedCell.C3.name === "Метатели" && occupiedCell.C3.health !== 0 && occupiedCell.C3.choice === true ? classes.unitWastelandJavelinChoice 
+                                : occupiedCell.C3.name === "Метатели" && occupiedCell.C3.health !== 0 ? classes.unitWastelandJavelin 
+                                : occupiedCell.C3.name === "Булавоносцы" && occupiedCell.C3.health !== 0 && occupiedCell.C3.choice === true ? classes.unitWastelandMacesChoice 
+                                : occupiedCell.C3.name === "Булавоносцы" && occupiedCell.C3.health !== 0 ? classes.unitWastelandMaces 
+                                : occupiedCell.C3.occupied === true && occupiedCell.C3.health === 0 ? classes.unitWastelandDeath : classes.emptyСell}
                             id={"C3"} 
                             onClick={() => {handleChoiceCellAttack("C3")}} 
                             disabled={occupiedCell.C3.occupied === false || stateOfButtonsDuringAttack === false || occupiedCell.C3.health <= 0}>
@@ -2223,7 +3137,13 @@ function handleCounterattack() {
 
                     <div className={classes.cellC4}>
                         <button 
-                            className={occupiedCell.C4.name === "Охотники" && occupiedCell.C4.health !== 0 && occupiedCell.C4.choice === true ? classes.unitWastelandHunterChoice : occupiedCell.C4.name === "Метатели" && occupiedCell.C4.health !== 0 && occupiedCell.C4.choice === true ? classes.unitWastelandJavelinChoice : occupiedCell.C4.name === "Охотники" && occupiedCell.C4.health !== 0 ? classes.unitWastelandHunter : occupiedCell.C4.name === "Метатели" && occupiedCell.C4.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.C4.occupied === true && occupiedCell.C4.health === 0 ? classes.unitWastelandDeath : classes.emptyСell}
+                            className={occupiedCell.C4.name === "Охотники" && occupiedCell.C4.health !== 0 && occupiedCell.C4.choice === true ? classes.unitWastelandHunterChoice 
+                                : occupiedCell.C4.name === "Охотники" && occupiedCell.C4.health !== 0 ? classes.unitWastelandHunter 
+                                : occupiedCell.C4.name === "Метатели" && occupiedCell.C4.health !== 0 && occupiedCell.C4.choice === true ? classes.unitWastelandJavelinChoice 
+                                : occupiedCell.C4.name === "Метатели" && occupiedCell.C4.health !== 0 ? classes.unitWastelandJavelin 
+                                : occupiedCell.C4.name === "Булавоносцы" && occupiedCell.C4.health !== 0 && occupiedCell.C4.choice === true ? classes.unitWastelandMacesChoice 
+                                : occupiedCell.C4.name === "Булавоносцы" && occupiedCell.C4.health !== 0 ? classes.unitWastelandMaces 
+                                : occupiedCell.C4.occupied === true && occupiedCell.C4.health === 0 ? classes.unitWastelandDeath : classes.emptyСell}
                             id={"C4"} 
                             onClick={() => {handleChoiceCellAttack("C4")}} 
                             disabled={occupiedCell.C4.occupied === false || stateOfButtonsDuringAttack === false || occupiedCell.C4.health <= 0}>
@@ -2237,7 +3157,10 @@ function handleCounterattack() {
 
                     <div className={classes.cellD1}>
                         <button 
-                            className={occupiedCell.D1.name === "Охотники" && occupiedCell.D1.health !== 0 ? classes.unitWastelandHunter : occupiedCell.D1.name === "Метатели" && occupiedCell.D1.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.D1.occupied === true && occupiedCell.D1.health === 0 ? classes.unitWastelandDeath : classes.cell}
+                            className={occupiedCell.D1.name === "Охотники" && occupiedCell.D1.health !== 0 ? classes.unitWastelandHunter 
+                                : occupiedCell.D1.name === "Метатели" && occupiedCell.D1.health !== 0 ? classes.unitWastelandJavelin 
+                                : occupiedCell.D1.name === "Булавоносцы" && occupiedCell.D1.health !== 0 ? classes.unitWastelandMaces 
+                                : occupiedCell.D1.occupied === true && occupiedCell.D1.health === 0 ? classes.unitWastelandDeath : classes.cell}
                             id={"D1"} 
                             onClick={() => handleTroopDeployment("D1")} 
                             disabled={occupiedCell.D1.occupied === true}>+
@@ -2246,7 +3169,10 @@ function handleCounterattack() {
 
                     <div className={classes.cellD2}>
                         <button 
-                            className={occupiedCell.D2.name === "Охотники" && occupiedCell.D2.health !== 0 ? classes.unitWastelandHunter : occupiedCell.D2.name === "Метатели" && occupiedCell.D2.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.D2.occupied === true && occupiedCell.D2.health === 0 ? classes.unitWastelandDeath : classes.cell}
+                            className={occupiedCell.D2.name === "Охотники" && occupiedCell.D2.health !== 0 ? classes.unitWastelandHunter 
+                                : occupiedCell.D2.name === "Метатели" && occupiedCell.D2.health !== 0 ? classes.unitWastelandJavelin 
+                                : occupiedCell.D2.name === "Булавоносцы" && occupiedCell.D2.health !== 0 ? classes.unitWastelandMaces 
+                                : occupiedCell.D2.occupied === true && occupiedCell.D2.health === 0 ? classes.unitWastelandDeath : classes.cell}
                             id={"D2"} 
                             onClick={() => handleTroopDeployment("D2")} 
                             disabled={occupiedCell.D2.occupied === true}>+
@@ -2255,7 +3181,10 @@ function handleCounterattack() {
 
                     <div className={classes.cellD3}>
                         <button 
-                            className={occupiedCell.D3.name === "Охотники" && occupiedCell.D3.health !== 0 ? classes.unitWastelandHunter : occupiedCell.D3.name === "Метатели" && occupiedCell.D3.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.D3.occupied === true && occupiedCell.D3.health === 0 ? classes.unitWastelandDeath : classes.cell}
+                            className={occupiedCell.D3.name === "Охотники" && occupiedCell.D3.health !== 0 ? classes.unitWastelandHunter 
+                                : occupiedCell.D3.name === "Метатели" && occupiedCell.D3.health !== 0 ? classes.unitWastelandJavelin 
+                                : occupiedCell.D3.name === "Булавоносцы" && occupiedCell.D3.health !== 0 ? classes.unitWastelandMaces 
+                                : occupiedCell.D3.occupied === true && occupiedCell.D3.health === 0 ? classes.unitWastelandDeath : classes.cell}
                             id={"D3"} 
                             onClick={() => handleTroopDeployment("D3")} 
                             disabled={occupiedCell.D3.occupied === true}>+
@@ -2264,7 +3193,10 @@ function handleCounterattack() {
 
                     <div className={classes.cellD4}>
                         <button 
-                            className={occupiedCell.D4.name === "Охотники" && occupiedCell.D4.health !== 0 ? classes.unitWastelandHunter : occupiedCell.D4.name === "Метатели" && occupiedCell.D4.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.D4.occupied === true && occupiedCell.D4.health === 0 ? classes.unitWastelandDeath : classes.cell}
+                            className={occupiedCell.D4.name === "Охотники" && occupiedCell.D4.health !== 0 ? classes.unitWastelandHunter 
+                                : occupiedCell.D4.name === "Метатели" && occupiedCell.D4.health !== 0 ? classes.unitWastelandJavelin 
+                                : occupiedCell.D4.name === "Булавоносцы" && occupiedCell.D4.health !== 0 ? classes.unitWastelandMaces 
+                                : occupiedCell.D4.occupied === true && occupiedCell.D4.health === 0 ? classes.unitWastelandDeath : classes.cell}
                             id={"D4"} 
                             onClick={() => handleTroopDeployment("D4")} 
                             disabled={occupiedCell.D4.occupied === true}>+
@@ -2277,7 +3209,13 @@ function handleCounterattack() {
 
                     <div className={classes.cellD1}>
                         <button 
-                            className={occupiedCell.D1.name === "Охотники" && occupiedCell.D1.health !== 0 && occupiedCell.D1.choice === true ? classes.unitWastelandHunterChoice : occupiedCell.D1.name === "Метатели" && occupiedCell.D1.health !== 0 && occupiedCell.D1.choice === true ? classes.unitWastelandJavelinChoice : occupiedCell.D1.name === "Охотники" && occupiedCell.D1.health !== 0 ? classes.unitWastelandHunter : occupiedCell.D1.name === "Метатели" && occupiedCell.D1.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.D1.occupied === true && occupiedCell.D1.health === 0 ? classes.unitWastelandDeath : classes.emptyСell}
+                            className={occupiedCell.D1.name === "Охотники" && occupiedCell.D1.health !== 0 && occupiedCell.D1.choice === true ? classes.unitWastelandHunterChoice 
+                                : occupiedCell.D1.name === "Охотники" && occupiedCell.D1.health !== 0 ? classes.unitWastelandHunter 
+                                : occupiedCell.D1.name === "Метатели" && occupiedCell.D1.health !== 0 && occupiedCell.D1.choice === true ? classes.unitWastelandJavelinChoice 
+                                : occupiedCell.D1.name === "Метатели" && occupiedCell.D1.health !== 0 ? classes.unitWastelandJavelin 
+                                : occupiedCell.D1.name === "Булавоносцы" && occupiedCell.D1.health !== 0 && occupiedCell.D1.choice === true ? classes.unitWastelandMacesChoice 
+                                : occupiedCell.D1.name === "Булавоносцы" && occupiedCell.D1.health !== 0 ? classes.unitWastelandMaces 
+                                : occupiedCell.D1.occupied === true && occupiedCell.D1.health === 0 ? classes.unitWastelandDeath : classes.emptyСell}
                             id={"D1"} 
                             onClick={() => {handleChoiceCellAttack("D1")}} 
                             disabled={occupiedCell.D1.occupied === false || stateOfButtonsDuringAttack === false || occupiedCell.D1.health <= 0}>
@@ -2287,7 +3225,13 @@ function handleCounterattack() {
 
                     <div className={classes.cellD2}>
                         <button 
-                            className={occupiedCell.D2.name === "Охотники" && occupiedCell.D2.health !== 0 && occupiedCell.D2.choice === true ? classes.unitWastelandHunterChoice : occupiedCell.D2.name === "Метатели" && occupiedCell.D2.health !== 0 && occupiedCell.D2.choice === true ? classes.unitWastelandJavelinChoice : occupiedCell.D2.name === "Охотники" && occupiedCell.D2.health !== 0 ? classes.unitWastelandHunter : occupiedCell.D2.name === "Метатели" && occupiedCell.D2.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.D2.occupied === true && occupiedCell.D2.health === 0 ? classes.unitWastelandDeath : classes.emptyСell}
+                            className={occupiedCell.D2.name === "Охотники" && occupiedCell.D2.health !== 0 && occupiedCell.D2.choice === true ? classes.unitWastelandHunterChoice 
+                                : occupiedCell.D2.name === "Охотники" && occupiedCell.D2.health !== 0 ? classes.unitWastelandHunter 
+                                : occupiedCell.D2.name === "Метатели" && occupiedCell.D2.health !== 0 && occupiedCell.D2.choice === true ? classes.unitWastelandJavelinChoice 
+                                : occupiedCell.D2.name === "Метатели" && occupiedCell.D2.health !== 0 ? classes.unitWastelandJavelin 
+                                : occupiedCell.D2.name === "Булавоносцы" && occupiedCell.D2.health !== 0 && occupiedCell.D2.choice === true ? classes.unitWastelandMacesChoice 
+                                : occupiedCell.D2.name === "Булавоносцы" && occupiedCell.D2.health !== 0 ? classes.unitWastelandMaces 
+                                : occupiedCell.D2.occupied === true && occupiedCell.D2.health === 0 ? classes.unitWastelandDeath : classes.emptyСell}
                             id={"D2"} 
                             onClick={() => {handleChoiceCellAttack("D2")}} 
                             disabled={occupiedCell.D2.occupied === false || stateOfButtonsDuringAttack === false || occupiedCell.D2.health <= 0}>
@@ -2297,7 +3241,13 @@ function handleCounterattack() {
 
                     <div className={classes.cellD3}>
                         <button 
-                            className={occupiedCell.D3.name === "Охотники" && occupiedCell.D3.health !== 0 && occupiedCell.D3.choice === true ? classes.unitWastelandHunterChoice : occupiedCell.D3.name === "Метатели" && occupiedCell.D3.health !== 0 && occupiedCell.D3.choice === true ? classes.unitWastelandJavelinChoice : occupiedCell.D3.name === "Охотники" && occupiedCell.D3.health !== 0 ? classes.unitWastelandHunter : occupiedCell.D3.name === "Метатели" && occupiedCell.D3.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.D3.occupied === true && occupiedCell.D3.health === 0 ? classes.unitWastelandDeath : classes.emptyСell}
+                            className={occupiedCell.D3.name === "Охотники" && occupiedCell.D3.health !== 0 && occupiedCell.D3.choice === true ? classes.unitWastelandHunterChoice 
+                                : occupiedCell.D3.name === "Охотники" && occupiedCell.D3.health !== 0 ? classes.unitWastelandHunter 
+                                : occupiedCell.D3.name === "Метатели" && occupiedCell.D3.health !== 0 && occupiedCell.D3.choice === true ? classes.unitWastelandJavelinChoice 
+                                : occupiedCell.D3.name === "Метатели" && occupiedCell.D3.health !== 0 ? classes.unitWastelandJavelin 
+                                : occupiedCell.D3.name === "Булавоносцы" && occupiedCell.D3.health !== 0 && occupiedCell.D3.choice === true ? classes.unitWastelandMacesChoice 
+                                : occupiedCell.D3.name === "Булавоносцы" && occupiedCell.D3.health !== 0 ? classes.unitWastelandMaces 
+                                : occupiedCell.D3.occupied === true && occupiedCell.D3.health === 0 ? classes.unitWastelandDeath : classes.emptyСell}
                             id={"D3"} 
                             onClick={() => {handleChoiceCellAttack("D3")}} 
                             disabled={occupiedCell.D3.occupied === false || stateOfButtonsDuringAttack === false || occupiedCell.D3.health <= 0}>
@@ -2307,7 +3257,13 @@ function handleCounterattack() {
 
                     <div className={classes.cellD4}>
                         <button 
-                            className={occupiedCell.D4.name === "Охотники" && occupiedCell.D4.health !== 0 && occupiedCell.D4.choice === true ? classes.unitWastelandHunterChoice : occupiedCell.D4.name === "Метатели" && occupiedCell.D4.health !== 0 && occupiedCell.D4.choice === true ? classes.unitWastelandJavelinChoice : occupiedCell.D4.name === "Охотники" && occupiedCell.D4.health !== 0 ? classes.unitWastelandHunter : occupiedCell.D4.name === "Метатели" && occupiedCell.D4.health !== 0 ? classes.unitWastelandJavelin : occupiedCell.D4.occupied === true && occupiedCell.D4.health === 0 ? classes.unitWastelandDeath : classes.emptyСell}
+                            className={occupiedCell.D4.name === "Охотники" && occupiedCell.D4.health !== 0 && occupiedCell.D4.choice === true ? classes.unitWastelandHunterChoice 
+                                : occupiedCell.D4.name === "Охотники" && occupiedCell.D4.health !== 0 ? classes.unitWastelandHunter 
+                                : occupiedCell.D4.name === "Метатели" && occupiedCell.D4.health !== 0 && occupiedCell.D4.choice === true ? classes.unitWastelandJavelinChoice 
+                                : occupiedCell.D4.name === "Метатели" && occupiedCell.D4.health !== 0 ? classes.unitWastelandJavelin 
+                                : occupiedCell.D4.name === "Булавоносцы" && occupiedCell.D4.health !== 0 && occupiedCell.D4.choice === true ? classes.unitWastelandMacesChoice 
+                                : occupiedCell.D4.name === "Булавоносцы" && occupiedCell.D4.health !== 0 ? classes.unitWastelandMaces 
+                                : occupiedCell.D4.occupied === true && occupiedCell.D4.health === 0 ? classes.unitWastelandDeath : classes.emptyСell}
                             id={"D4"} 
                             onClick={() => {handleChoiceCellAttack("D4")}} 
                             disabled={occupiedCell.D4.occupied === false || stateOfButtonsDuringAttack === false || occupiedCell.D4.health <= 0}>
@@ -2322,3 +3278,4 @@ function handleCounterattack() {
         </div>
     )
 }
+

@@ -18,7 +18,7 @@
     width: 100%;
     height: 100%;
     position: fixed;
-    background: url(../../Images/AngalsWastelandsImage/Backgr.jpg) no-repeat;
+    background: rgb(41, 41, 41) no-repeat;
     background-size: cover;
 }
 
@@ -76,49 +76,73 @@
 
 .cellA1{
     position: absolute;
-    top: 2%;
+    bottom: 70%;
     left: 5%;
 }
 
 .cellA2{
     position: absolute;
-    top: 2%;
+    bottom: 70%;
     left: 30%;
 }
 
 .cellA3{
     position: absolute;
-    top: 2%;
+    bottom: 70%;
     left: 55%;
 }
 
 .cellA4{
     position: absolute;
-    top: 2%;
+    bottom: 70%;
     left: 80%;
+}
+
+.cellA5{
+    position: absolute;
+    bottom: 50%;
+    left: 13%;
+}
+
+.cellA6{
+    position: absolute;
+    bottom: 50%;
+    left: 38%;
+}
+
+.cellA7{
+    position: absolute;
+    bottom: 50%;
+    left: 63%;
+}
+
+.cellA8{
+    position: absolute;
+    bottom: 50%;
+    left: 88%;
 }
 
 .cellC1{
     position: absolute;
-    bottom: 25%;
+    bottom: 20%;
     left: 5%;
 }
 
 .cellC2{
     position: absolute;
-    bottom: 25%;
+    bottom: 20%;
     left: 30%;
 }
 
 .cellC3{
     position: absolute;
-    bottom: 25%;
+    bottom: 20%;
     left: 55%;
 }
 
 .cellC4{
     position: absolute;
-    bottom: 25%;
+    bottom: 20%;
     left: 80%;
 }
 
@@ -188,7 +212,7 @@
 }
 
 .titleBuyUnit{
-    font-size: 2vw;
+    font-size: 1.5vw;
     font-family: "El Messiri";
     font-weight: 700;
     color: brown;
@@ -228,10 +252,26 @@
     border: solid 0.4vw brown;
 }
 
-.poulticeBuy{
+.macesBuy{
     position: absolute;
     top: 2%;
     left: 45%;
+    width: 14vw;
+    height: 14vw;
+    background: url(../../Images/AngalsWastelandsImage/ImageWastelandCardAngalMaces.jpg) no-repeat center;
+    background-size: cover;
+    border: solid 0.2vw brown;
+    cursor: pointer;
+}
+
+.macesBuy:hover{
+    border: solid 0.4vw brown;
+}
+
+.poulticeBuy{
+    position: absolute;
+    top: 50%;
+    left: 5%;
     width: 14vw;
     height: 14vw;
     background: red no-repeat center;
@@ -271,7 +311,7 @@
 
 .angalsButtonSkillsHunters{
     position: absolute;
-    bottom: 10%;
+    bottom: 40%;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 50%;
@@ -281,7 +321,7 @@
     background-color: darkolivegreen;
     background-image: linear-gradient(176deg, darkolivegreen 3%, black 110%);
     font-family: "El Messiri";
-    font-size: 1.2vw;
+    font-size: 1vw;
     cursor: pointer;
     margin: 0;
     color: rgb(220, 220, 220);
@@ -296,7 +336,7 @@
 
 .angalsButtonSkillsJavelin{
     position: absolute;
-    bottom: 2%;
+    bottom: 30%;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 50%;
@@ -306,7 +346,7 @@
     background-color: darkolivegreen;
     background-image: linear-gradient(176deg, darkolivegreen 3%, black 110%);
     font-family: "El Messiri";
-    font-size: 1.2vw;
+    font-size: 1vw;
     cursor: pointer;
     margin: 0;
     color: rgb(220, 220, 220);
@@ -314,6 +354,31 @@
 }
 
 .angalsButtonSkillsJavelin:hover{
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 95%);
+    filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
+}
+
+.angalsButtonSkillsMaces{
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    border: solid 0.1vw black;
+    width: 9vw;
+    height: 3vw;
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 110%);
+    font-family: "El Messiri";
+    font-size: 1vw;
+    cursor: pointer;
+    margin: 0;
+    color: rgb(220, 220, 220);
+    z-index: 20;    
+}
+
+.angalsButtonSkillsMaces:hover{
     background-color: darkolivegreen;
     background-image: linear-gradient(176deg, darkolivegreen 3%, black 95%);
     filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
@@ -343,6 +408,16 @@
     background: cadetblue;
 }
 
+.cardWestEmpireSwordsman{
+    width: 90%;
+    height: 40%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 2%;
+    background: cadetblue;
+}
+
 .cardWastelandHunter{
     width: 90%;
     height: 40%;
@@ -361,6 +436,16 @@
     transform: translateX(-50%);
     bottom: 2%;
     background: green;
+}
+
+.cardWastelandMaces{
+    width: 90%;
+    height: 40%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 2%;
+    background: rebeccapurple;
 }
 
 .healthScaleWasteland{
@@ -434,6 +519,31 @@
     cursor: pointer;
 }
 
+.unitWastelandMaces{
+    width: 5.2vw; 
+    height: 12vw;
+    margin: 0;
+    border: none;
+    background: url(../../Images/AngalsWastelandsImage/AngalMacesBack.webp) no-repeat center;
+    background-size: contain;
+    cursor: pointer;
+}
+
+.unitWastelandMaces:active{
+    filter: drop-shadow( 0 0 1vw red);
+}
+
+.unitWastelandMacesChoice{
+    width: 5.2vw; 
+    height: 12vw;
+    margin: 0;
+    filter: drop-shadow( 0 0 1vw red);
+    border: none;
+    background: url(../../Images/AngalsWastelandsImage/AngalMacesBack.webp) no-repeat center;
+    background-size: contain;
+    cursor: pointer;
+}
+
 .unitWastelandDeath{
     width: 6vw; 
     height: 4vw;
@@ -496,12 +606,36 @@
     filter: drop-shadow( 0 0 1vw red);
 }
 
+.unitEmpireWestSwordsman{
+    width: 5.8vw; 
+    height: 13vw;
+    margin: 0;
+    border: none;
+    background: url(../../Images/ImpireMarahImage/ElfWestSwordsman.webp) no-repeat center;
+    background-size: contain;
+    cursor: pointer;
+}
+
+.unitEmpireWestSwordsmanChoice{
+    width: 5.8vw; 
+    height: 13vw;
+    margin: 0;
+    filter: drop-shadow( 0 0 1vw red);
+    border: none;
+    background: url(../../Images/ImpireMarahImage/ElfWestSwordsman.webp) no-repeat center;
+    background-size: contain;
+    cursor: pointer;
+}
+
+.unitEmpireWestSwordsman:hover{
+    filter: drop-shadow( 0 0 1vw red);
+}
+
 .unitEmpireDeath{
     width: 4.5vw; 
     height: 4vw;
     margin: 0;
-    position: fixed;
-    top: 20%;
+    position: relative;
     border: none;
     background: url(../../Images/ImpireMarahImage/DeadElf.webp) no-repeat bottom;
     background-size: contain;
@@ -587,6 +721,30 @@
 }
 
 .buttonSkillJavelin:hover{
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 95%);
+    filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
+}
+
+.buttonSkillMaces{
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    border: solid 0.1vw black;
+    width: 9vw;
+    height: 3vw;
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 110%);
+    font-family: "El Messiri";
+    font-size: 1.5vw;
+    cursor: pointer;
+    margin: 0;
+    color: rgb(220, 220, 220);
+}
+
+.buttonSkillMaces:hover{
     background-color: darkolivegreen;
     background-image: linear-gradient(176deg, darkolivegreen 3%, black 95%);
     filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
