@@ -643,7 +643,7 @@ export const GameWastelandLvl1 = () => {
             ...prev,
             A1: {
                 ...prev.A1,
-                health: prev.A1.health - (occupiedCell.C1.attack - prev.A1.defense - 1),
+                health: prev.A1.health - (occupiedCell.C1.attack - prev.A1.defense),
                 first: false
             }
         }));
@@ -663,7 +663,7 @@ export const GameWastelandLvl1 = () => {
             ...prev,
             A1: {
                 ...prev.A1,
-                health: prev.A1.health - (occupiedCell.C2.attack - prev.A1.defense -1),
+                health: prev.A1.health - (occupiedCell.C2.attack - prev.A1.defense),
                 first: false
             }
         }));
@@ -683,7 +683,7 @@ export const GameWastelandLvl1 = () => {
             ...prev,
             A1: {
                 ...prev.A1,
-                health: prev.A1.health - (occupiedCell.C3.attack - prev.A1.defense - 1),
+                health: prev.A1.health - (occupiedCell.C3.attack - prev.A1.defense),
                 first: false
             }
         }));
@@ -703,7 +703,7 @@ export const GameWastelandLvl1 = () => {
             ...prev,
             A1: {
                 ...prev.A1,
-                health: prev.A1.health - (occupiedCell.C4.attack - prev.A1.defense - 1),
+                health: prev.A1.health - (occupiedCell.C4.attack - prev.A1.defense),
                 first: false
             }
         }));
@@ -725,7 +725,7 @@ export const GameWastelandLvl1 = () => {
             ...prev,
             A2: {
                 ...prev.A2,
-                health: prev.A2.health - (occupiedCell.C1.attack - prev.A2.defense - 1),
+                health: prev.A2.health - (occupiedCell.C1.attack - prev.A2.defense),
                 first: false
             }
         }));
@@ -745,7 +745,7 @@ export const GameWastelandLvl1 = () => {
             ...prev,
             A2: {
                 ...prev.A2,
-                health: prev.A2.health - (occupiedCell.C2.attack - prev.A2.defense - 1),
+                health: prev.A2.health - (occupiedCell.C2.attack - prev.A2.defense),
                 first: false
             }
         }));
@@ -765,7 +765,7 @@ export const GameWastelandLvl1 = () => {
             ...prev,
             A2: {
                 ...prev.A2,
-                health: prev.A2.health - (occupiedCell.C3.attack - prev.A2.defense - 1),
+                health: prev.A2.health - (occupiedCell.C3.attack - prev.A2.defense),
                 first: false
             }
         }));
@@ -785,7 +785,7 @@ export const GameWastelandLvl1 = () => {
             ...prev,
             A2: {
                 ...prev.A2,
-                health: prev.A2.health - (occupiedCell.C4.attack - prev.A2.defense - 1),
+                health: prev.A2.health - (occupiedCell.C4.attack - prev.A2.defense),
                 first: false
             }
         }));
@@ -807,7 +807,7 @@ export const GameWastelandLvl1 = () => {
             ...prev,
             A3: {
                 ...prev.A3,
-                health: prev.A3.health - (occupiedCell.C1.attack - prev.A3.defense - 1),
+                health: prev.A3.health - (occupiedCell.C1.attack - prev.A3.defense),
                 first: false
             }
         }));
@@ -827,7 +827,7 @@ export const GameWastelandLvl1 = () => {
             ...prev,
             A3: {
                 ...prev.A3,
-                health: prev.A3.health - (occupiedCell.C2.attack - prev.A3.defense - 1),
+                health: prev.A3.health - (occupiedCell.C2.attack - prev.A3.defense),
                 first: false
             }
         }));
@@ -847,7 +847,7 @@ export const GameWastelandLvl1 = () => {
             ...prev,
             A3: {
                 ...prev.A3,
-                health: prev.A3.health - (occupiedCell.C3.attack - prev.A3.defense - 1),
+                health: prev.A3.health - (occupiedCell.C3.attack - prev.A3.defense),
                 first: false
             }
         }));
@@ -867,7 +867,7 @@ export const GameWastelandLvl1 = () => {
             ...prev,
             A3: {
                 ...prev.A3,
-                health: prev.A3.health - (occupiedCell.C4.attack - prev.A3.defense - 1),
+                health: prev.A3.health - (occupiedCell.C4.attack - prev.A3.defense),
                 first: false
             }
         }));
@@ -889,7 +889,7 @@ export const GameWastelandLvl1 = () => {
             ...prev,
             A4: {
                 ...prev.A4,
-                health: prev.A4.health - (occupiedCell.C1.attack - prev.A4.defense - 1),
+                health: prev.A4.health - (occupiedCell.C1.attack - prev.A4.defense),
                 first: false
             }
         }));
@@ -909,7 +909,7 @@ export const GameWastelandLvl1 = () => {
             ...prev,
             A4: {
                 ...prev.A4,
-                health: prev.A4.health - (occupiedCell.C2.attack - prev.A4.defense - 1),
+                health: prev.A4.health - (occupiedCell.C2.attack - prev.A4.defense),
                 first: false
             }
         }));
@@ -929,7 +929,7 @@ export const GameWastelandLvl1 = () => {
             ...prev,
             A4: {
                 ...prev.A4,
-                health: prev.A4.health - (occupiedCell.C3.attack - prev.A4.defense - 1),
+                health: prev.A4.health - (occupiedCell.C3.attack - prev.A4.defense),
                 first: false
             }
         }));
@@ -949,7 +949,7 @@ export const GameWastelandLvl1 = () => {
             ...prev,
             A4: {
                 ...prev.A4,
-                health: prev.A4.health - (occupiedCell.C4.attack - prev.A4.defense - 1),
+                health: prev.A4.health - (occupiedCell.C4.attack - prev.A4.defense),
                 first: false
             }
         }));
@@ -971,7 +971,7 @@ export const GameWastelandLvl1 = () => {
             ...prev,
             A1: {
                 ...prev.A1,
-                health: prev.A1.health - (occupiedCell.D1.attack - prev.A1.defense - 1),
+                health: prev.A1.health - (occupiedCell.D1.attack - prev.A1.defense),
                 first: false
             }
         }));
@@ -991,7 +991,7 @@ export const GameWastelandLvl1 = () => {
             ...prev,
             A1: {
                 ...prev.A1,
-                health: prev.A1.health - (occupiedCell.D2.attack - prev.A1.defense - 1),
+                health: prev.A1.health - (occupiedCell.D2.attack - prev.A1.defense),
                 first: false
             }
         }));
@@ -1011,7 +1011,7 @@ export const GameWastelandLvl1 = () => {
             ...prev,
             A1: {
                 ...prev.A1,
-                health: prev.A1.health - (occupiedCell.D3.attack - prev.A1.defense - 1),
+                health: prev.A1.health - (occupiedCell.D3.attack - prev.A1.defense),
                 first: false
             }
         }));
@@ -1031,7 +1031,7 @@ export const GameWastelandLvl1 = () => {
             ...prev,
             A1: {
                 ...prev.A1,
-                health: prev.A1.health - (occupiedCell.D4.attack - prev.A1.defense - 1),
+                health: prev.A1.health - (occupiedCell.D4.attack - prev.A1.defense),
                 first: false
             }
         }));
@@ -1052,7 +1052,7 @@ export const GameWastelandLvl1 = () => {
             ...prev,
             A2: {
                 ...prev.A2,
-                health: prev.A2.health - (occupiedCell.D1.attack - prev.A2.defense - 1),
+                health: prev.A2.health - (occupiedCell.D1.attack - prev.A2.defense),
                 first: false
             }
         }));
@@ -1072,7 +1072,7 @@ export const GameWastelandLvl1 = () => {
             ...prev,
             A2: {
                 ...prev.A2,
-                health: prev.A2.health - (occupiedCell.D2.attack - prev.A2.defense - 1),
+                health: prev.A2.health - (occupiedCell.D2.attack - prev.A2.defense),
                 first: false
             }
         }));
@@ -1092,7 +1092,7 @@ export const GameWastelandLvl1 = () => {
             ...prev,
             A2: {
                 ...prev.A2,
-                health: prev.A2.health - (occupiedCell.D3.attack - prev.A2.defense - 1),
+                health: prev.A2.health - (occupiedCell.D3.attack - prev.A2.defense),
                 first: false
             }
         }));
@@ -1112,7 +1112,7 @@ export const GameWastelandLvl1 = () => {
             ...prev,
             A2: {
                 ...prev.A2,
-                health: prev.A2.health - (occupiedCell.D4.attack - prev.A2.defense - 1),
+                health: prev.A2.health - (occupiedCell.D4.attack - prev.A2.defense),
                 first: false
             }
         }));
@@ -1134,7 +1134,7 @@ export const GameWastelandLvl1 = () => {
             ...prev,
             A3: {
                 ...prev.A3,
-                health: prev.A3.health - (occupiedCell.D1.attack - prev.A3.defense - 1),
+                health: prev.A3.health - (occupiedCell.D1.attack - prev.A3.defense),
                 first: false
             }
         }));
@@ -1154,7 +1154,7 @@ export const GameWastelandLvl1 = () => {
             ...prev,
             A3: {
                 ...prev.A3,
-                health: prev.A3.health - (occupiedCell.D2.attack - prev.A3.defense - 1),
+                health: prev.A3.health - (occupiedCell.D2.attack - prev.A3.defense),
                 first: false
             }
         }));
@@ -1174,7 +1174,7 @@ export const GameWastelandLvl1 = () => {
             ...prev,
             A3: {
                 ...prev.A3,
-                health: prev.A3.health - (occupiedCell.D3.attack - prev.A3.defense - 1),
+                health: prev.A3.health - (occupiedCell.D3.attack - prev.A3.defense),
                 first: false
             }
         }));
@@ -1194,7 +1194,7 @@ export const GameWastelandLvl1 = () => {
             ...prev,
             A3: {
                 ...prev.A3,
-                health: prev.A3.health - (occupiedCell.D4.attack - prev.A3.defense - 1),
+                health: prev.A3.health - (occupiedCell.D4.attack - prev.A3.defense),
                 first: false
             }
         }));
@@ -1216,7 +1216,7 @@ export const GameWastelandLvl1 = () => {
             ...prev,
             A4: {
                 ...prev.A4,
-                health: prev.A4.health - (occupiedCell.D1.attack - prev.A4.defense - 1),
+                health: prev.A4.health - (occupiedCell.D1.attack - prev.A4.defense),
                 first: false
             }
         }));
@@ -1236,7 +1236,7 @@ export const GameWastelandLvl1 = () => {
             ...prev,
             A4: {
                 ...prev.A4,
-                health: prev.A4.health - (occupiedCell.D2.attack - prev.A4.defense - 1),
+                health: prev.A4.health - (occupiedCell.D2.attack - prev.A4.defense),
                 first: false
             }
         }));
@@ -1256,7 +1256,7 @@ export const GameWastelandLvl1 = () => {
             ...prev,
             A4: {
                 ...prev.A4,
-                health: prev.A4.health - (occupiedCell.D3.attack - prev.A4.defense - 1),
+                health: prev.A4.health - (occupiedCell.D3.attack - prev.A4.defense),
                 first: false
             }
         }));
@@ -1276,7 +1276,7 @@ export const GameWastelandLvl1 = () => {
             ...prev,
             A4: {
                 ...prev.A4,
-                health: prev.A4.health - (occupiedCell.D4.attack - prev.A4.defense - 1),
+                health: prev.A4.health - (occupiedCell.D4.attack - prev.A4.defense),
                 first: false
             }
         }));
@@ -1904,7 +1904,7 @@ function handleCounterattack() {
 
             {showStoryMessages.halfHealth && <MessageHalfHealthLvl1 setShowStoryMessages={setShowStoryMessages}/>}
 
-            {showStoryMessages.outro && <OutroWastelandGameLvl1 setShowStoryMessages={setShowStoryMessages} resources={resources}/>}
+            {showStoryMessages.outro && <OutroWastelandGameLvl1 setShowStoryMessages={setShowStoryMessages} resources={resources} setResources={setResources}/>}
 
             {showStoryMessages.lose && <LoseMessage/>}
 

@@ -239,7 +239,7 @@
 .javelinBuy{
     position: absolute;
     top: 2%;
-    left: 25%;
+    left: 30%;
     width: 14vw;
     height: 14vw;
     background: url(../../Images/AngalsWastelandsImage/ImageWastelandCardAngalJavelin.jpg) no-repeat center;
@@ -255,7 +255,7 @@
 .macesBuy{
     position: absolute;
     top: 2%;
-    left: 45%;
+    left: 55%;
     width: 14vw;
     height: 14vw;
     background: url(../../Images/AngalsWastelandsImage/ImageWastelandCardAngalMaces.jpg) no-repeat center;
@@ -265,6 +265,22 @@
 }
 
 .macesBuy:hover{
+    border: solid 0.4vw brown;
+}
+
+.angalitBuy{
+    position: absolute;
+    top: 2%;
+    left: 80%;
+    width: 14vw;
+    height: 14vw;
+    background: url(../../Images/AngalsWastelandsImage/ImageWastelandCardAngalAngalit.jpg) no-repeat center;
+    background-size: cover;
+    border: solid 0.2vw brown;
+    cursor: pointer;
+}
+
+.angalitBuy:hover{
     border: solid 0.4vw brown;
 }
 
@@ -384,6 +400,31 @@
     filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
 }
 
+.angalsButtonSkillsAngalit{
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    border: solid 0.1vw black;
+    width: 9vw;
+    height: 3vw;
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 110%);
+    font-family: "El Messiri";
+    font-size: 1vw;
+    cursor: pointer;
+    margin: 0;
+    color: rgb(220, 220, 220);
+    z-index: 20;    
+}
+
+.angalsButtonSkillsAngalit:hover{
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 95%);
+    filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
+}
+
 .card{
     width: 10%;
     height: 30%;
@@ -409,6 +450,16 @@
 }
 
 .cardWestEmpireSwordsman{
+    width: 90%;
+    height: 40%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 2%;
+    background: cadetblue;
+}
+
+.cardEastEmpireArcher{
     width: 90%;
     height: 40%;
     position: absolute;
@@ -446,6 +497,16 @@
     transform: translateX(-50%);
     bottom: 2%;
     background: rebeccapurple;
+}
+
+.cardWastelandAngalit{
+    width: 90%;
+    height: 40%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 2%;
+    background: darkslategrey;
 }
 
 .healthScaleWasteland{
@@ -544,6 +605,32 @@
     cursor: pointer;
 }
 
+.unitWastelandAngalit{
+    width: 5.7vw; 
+    height: 12vw;
+    margin: 0;
+    border: none;
+    background: url(../../Images/AngalsWastelandsImage/AngalAngalitBack.webp) no-repeat center;
+    background-size: contain;
+    cursor: pointer;
+}
+
+.unitWastelandAngalit:active{
+    filter: drop-shadow( 0 0 1vw red);
+}
+
+.unitWastelandAngalitChoice{
+    width: 5.7vw; 
+    height: 12vw;
+    margin: 0;
+    filter: drop-shadow( 0 0 1vw red);
+    border: none;
+    background: url(../../Images/AngalsWastelandsImage/AngalAngalitBack.webp) no-repeat center;
+    background-size: contain;
+    cursor: pointer;
+}
+
+
 .unitWastelandDeath{
     width: 6vw; 
     height: 4vw;
@@ -628,6 +715,31 @@
 }
 
 .unitEmpireWestSwordsman:hover{
+    filter: drop-shadow( 0 0 1vw red);
+}
+
+.unitEmpireEastArcher{
+    width: 5vw; 
+    height: 11vw;
+    margin: 0;
+    border: none;
+    background: url(../../Images/ImpireMarahImage/ElfEastArcher.webp) no-repeat center;
+    background-size: contain;
+    cursor: pointer;
+}
+
+.unitEmpireEastArcherChoice{
+    width: 5vw; 
+    height: 11vw;
+    margin: 0;
+    filter: drop-shadow( 0 0 1vw red);
+    border: none;
+    background: url(../../Images/ImpireMarahImage/ElfEastArcher.webp) no-repeat center;
+    background-size: contain;
+    cursor: pointer;
+}
+
+.unitEmpireEastArcher:hover{
     filter: drop-shadow( 0 0 1vw red);
 }
 
@@ -745,6 +857,30 @@
 }
 
 .buttonSkillMaces:hover{
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 95%);
+    filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
+}
+
+.buttonSkillAngalit{
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    border: solid 0.1vw black;
+    width: 9vw;
+    height: 3vw;
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 110%);
+    font-family: "El Messiri";
+    font-size: 1.5vw;
+    cursor: pointer;
+    margin: 0;
+    color: rgb(220, 220, 220);
+}
+
+.buttonSkillAngalit:hover{
     background-color: darkolivegreen;
     background-image: linear-gradient(176deg, darkolivegreen 3%, black 95%);
     filter: drop-shadow(0.3vw 0.3vw 0.3vw black);

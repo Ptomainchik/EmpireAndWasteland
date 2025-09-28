@@ -15,8 +15,10 @@ import Card from "../../../Images/AngalsWastelandsImage/CoatOfArmsOfWasteland.we
 import CardAngalHunter from "../../../Images/AngalsWastelandsImage/ImageWastelandCardAngalHunter.jpg";
 import CardAngalJavelin from "../../../Images/AngalsWastelandsImage/ImageWastelandCardAngalJavelin.jpg";
 import CardAngalMaces from "../../../Images/AngalsWastelandsImage/ImageWastelandCardAngalMaces.jpg";
+import CardAngalAngalit from "../../../Images/AngalsWastelandsImage/ImageWastelandCardAngalAngalit.jpg";
 import WestArcher from "../../../Images/ImpireMarahImage/ImageImpireCardWestArcher.jpg";
 import WestSwordsman from "../../../Images/ImpireMarahImage/ImageImpireCardWestSwordsman.jpg";
+import EastArcher from "../../../Images/ImpireMarahImage/ImageImpireCardEastArcher.jpg";
 import { LoseMessage } from "./StoryMessages/LoseMessage";
 import { IntroWastelandGameLvl3 } from "./StoryMessages/Lvl3/IntroWastelandGameLvl3";
 import { MessageHalfHealthLvl3 } from "./StoryMessages/Lvl3/MessageHalfHealthLvl3";
@@ -58,12 +60,15 @@ export const GameWastelandLvl3 = () => {
         stateSkillsHunter: false,
         stateSkillsJavelin: false,
         stateSkillsMaces: false,
+        stateSkillsAngalit: false,
         showStateSkillsHunter: false,
         showStateSkillsJavelin: false,
         showStateSkillsMaces: false,
+        showStateSkillsAngalit: false,
         stateHunterQuantitySkills: true,
         stateJavelinQuantitySkills: true,
         stateMacesQuantitySkills: true,
+        stateAngalitQuantitySkills: true,
     });
     const [buttonStateGame, setButtonStateGame] = useState({
         stateOverallButton: true,
@@ -85,11 +90,11 @@ export const GameWastelandLvl3 = () => {
     })
     const [occupiedCellOpponent, setOccupiedCellOpponent] = useState({
             A1:{
-                name: "Лучники запада",
+                name: "Лучники востока",
                 occupied: false,
                 health: 30,
-                attack: 10,
-                defense: 3,
+                attack: 15,
+                defense: 2,
                 first: true,
                 classEmpireSoldier: 0,
                 showCard: false,
@@ -115,11 +120,11 @@ export const GameWastelandLvl3 = () => {
                 showCard: false,
             },
             A4:{
-                name: "Лучники запада",
+                name: "Лучники востока",
                 occupied: false,
                 health: 30,
-                attack: 10,
-                defense: 3,
+                attack: 15,
+                defense: 2,
                 first: true,
                 classEmpireSoldier: 0,
                 showCard: false,
@@ -135,6 +140,26 @@ export const GameWastelandLvl3 = () => {
                 showCard: false,
             },
             A6:{
+                name: "Мечники запада",
+                occupied: false,
+                health: 40,
+                attack: 15,
+                defense: 5,
+                first: false,
+                classEmpireSoldier: 0,
+                showCard: false,
+            },
+            A7:{
+                name: "Мечники запада",
+                occupied: false,
+                health: 40,
+                attack: 15,
+                defense: 5,
+                first: false,
+                classEmpireSoldier: 0,
+                showCard: false,
+            },
+            A8:{
                 name: "Мечники запада",
                 occupied: false,
                 health: 40,
@@ -289,6 +314,14 @@ export const GameWastelandLvl3 = () => {
     }));
     }
 
+    function handleBuyAngalit() {
+        setResources(prev => prev - 100);
+        setReserve(prevReserve => ({
+        ...prevReserve,
+        wastelandAngalit: prevReserve.wastelandAngalit + 1,
+    }));
+    }
+
     function handleBuyPoultice() {
         setResources(prev => prev - 50);
         setStateSkillsHero(prevReserve => ({
@@ -339,6 +372,21 @@ export const GameWastelandLvl3 = () => {
             wastelandButtonJavelin: false,
             wastelandButtonMaces: true,
             wastelandButtonAngalit: false,
+        });
+    }
+
+    function handleRequestForAngalitReserves() {
+        setReserve(prevReserve => ({
+        ...prevReserve,
+        wastelandAngalit: prevReserve.wastelandAngalit - 1,
+    }));
+        setStateButtonsSkills(true);
+        setStateStyleSoldier(4);
+        setStateButtonSoldiers({
+            wastelandButtonHunter: false,
+            wastelandButtonJavelin: false,
+            wastelandButtonMaces: false,
+            wastelandButtonAngalit: true,
         });
     }
 
@@ -794,6 +842,157 @@ export const GameWastelandLvl3 = () => {
         }
     }
 
+
+    else if(["C1", "C2", "C3", "C4", "D1", "D2", "D3", "D4"].includes(id) && stateButtonSoldiers.wastelandButtonAngalit === true ) {
+        
+        setStateButtonSoldiers({
+            wastelandButtonHunter: false,
+            wastelandButtonJavelin: false,
+            wastelandButtonMaces: false,
+            wastelandButtonAngalit: false,
+        });
+        setStyledButtons(prev => ({
+            ...prev,
+            [id]: 4 // 4 - ангалит
+        }));
+        if(id === "C1"){
+        setOccupiedCell(prevOccupiedCell => ({
+            ...prevOccupiedCell,
+            C1:{
+                name: "Ангалиты",
+                occupied: true,
+                health: 50,
+                attack: 15,
+                defense: 7,
+                choice: false,
+                classWastlelandSoldier: 4,
+                showCard: false,
+                priority: 4,
+            },
+        }));
+        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsAngalit: true}));
+        }
+        else if(id === "C2"){
+            setOccupiedCell(prevOccupiedCell => ({
+                ...prevOccupiedCell,
+            C2:{    
+                    name: "Ангалиты",
+                    occupied: true,
+                    health: 50,
+                    attack: 15,
+                    defense: 7,
+                    choice: false,
+                    classWastlelandSoldier: 4,
+                    showCard: false,
+                    priority: 4,
+                },
+        }));
+        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsAngalit: true}));
+        }
+        else if(id === "C3"){
+            setOccupiedCell(prevOccupiedCell => ({
+                ...prevOccupiedCell,
+            C3:{    
+                    name: "Ангалиты",
+                    occupied: true,
+                    health: 50,
+                    attack: 15,
+                    defense: 7,
+                    choice: false,
+                    classWastlelandSoldier: 4,
+                    showCard: false,
+                    priority: 4,
+                },
+        }));
+        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsAngalit: true}));
+        }
+        else if(id === "C4"){
+            setOccupiedCell(prevOccupiedCell => ({
+                ...prevOccupiedCell,
+            C4:{
+                    name: "Ангалиты",
+                    occupied: true,
+                    health: 50,
+                    attack: 15,
+                    defense: 7,
+                    choice: false,
+                    classWastlelandSoldier: 4,
+                    showCard: false,
+                    priority: 4,
+                },
+        }));
+        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsAngalit: true}));
+        }
+        else if(id === "D1"){
+            setOccupiedCell(prevOccupiedCell => ({
+                ...prevOccupiedCell,
+            D1:{
+                    name: "Ангалиты",
+                    occupied: true,
+                    health: 50,
+                    attack: 15,
+                    defense: 7,
+                    choice: false,
+                    classWastlelandSoldier: 4,
+                    showCard: false,
+                    priority: 4,
+                },
+        }));
+        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsAngalit: true}));
+        }
+        else if(id === "D2"){
+            setOccupiedCell(prevOccupiedCell => ({
+                ...prevOccupiedCell,
+            D2:{
+                    name: "Ангалиты",
+                    occupied: true,
+                    health: 50,
+                    attack: 15,
+                    defense: 7,
+                    choice: false,
+                    classWastlelandSoldier: 4,
+                    showCard: false,
+                    priority: 4,
+                },
+        }));
+        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsAngalit: true}));
+        }
+        else if(id === "D3"){
+            setOccupiedCell(prevOccupiedCell => ({
+                ...prevOccupiedCell,
+            D3:{
+                    name: "Ангалиты",
+                    occupied: true,
+                    health: 50,
+                    attack: 15,
+                    defense: 7,
+                    choice: false,
+                    classWastlelandSoldier: 4,
+                    showCard: false,
+                    priority: 4,
+                },
+        }));
+        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsAngalit: true}));
+        }
+        else if(id === "D4"){
+            setOccupiedCell(prevOccupiedCell => ({
+                ...prevOccupiedCell,
+            D4:{
+                    name: "Ангалиты",
+                    occupied: true,
+                    health: 50,
+                    attack: 15,
+                    defense: 7,
+                    choice: false,
+                    classWastlelandSoldier: 4,
+                    showCard: false,
+                    priority: 4,
+                },
+        }));
+        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsAngalit: true}));
+        }
+    }
+
     else{
         return
     } 
@@ -846,14 +1045,28 @@ export const GameWastelandLvl3 = () => {
             }
         }));
         }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A1: {
-                ...prev.A1,
-                health: prev.A1.health - (occupiedCell.C1.attack - prev.A1.defense - 1),
-                first: false
+
+        if (occupiedCell.C1.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A1: {
+                    ...prev.A1,
+                    health: prev.A1.health - occupiedCell.C1.attack ,
+                    first: false
             }
-        }));
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A1: {
+                    ...prev.A1,
+                    health: prev.A1.health - (occupiedCell.C1.attack - prev.A1.defense),
+                    first: false
+            }
+            }));
+        }
+        
         handleCounterattack()
     }
     else if (id === "A1" && occupiedCell.C2.choice === true && occupiedCell.C2.health > 0) {
@@ -866,14 +1079,28 @@ export const GameWastelandLvl3 = () => {
             }
         }));
         }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A1: {
-                ...prev.A1,
-                health: prev.A1.health - (occupiedCell.C2.attack - prev.A1.defense -1),
-                first: false
+        
+        if (occupiedCell.C2.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A1: {
+                    ...prev.A1,
+                    health: prev.A1.health - occupiedCell.C2.attack ,
+                    first: false
             }
-        }));
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A1: {
+                    ...prev.A1,
+                    health: prev.A1.health - (occupiedCell.C2.attack - prev.A1.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
     else if (id === "A1" && occupiedCell.C3.choice === true && occupiedCell.C3.health > 0) {
@@ -886,14 +1113,28 @@ export const GameWastelandLvl3 = () => {
             }
         }));
         }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A1: {
-                ...prev.A1,
-                health: prev.A1.health - (occupiedCell.C3.attack - prev.A1.defense - 1),
-                first: false
+        
+        if (occupiedCell.C3.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A1: {
+                    ...prev.A1,
+                    health: prev.A1.health - occupiedCell.C3.attack ,
+                    first: false
             }
-        }));
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A1: {
+                    ...prev.A1,
+                    health: prev.A1.health - (occupiedCell.C3.attack - prev.A1.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
     else if (id === "A1" && occupiedCell.C4.choice === true && occupiedCell.C4.health > 0) {
@@ -906,14 +1147,28 @@ export const GameWastelandLvl3 = () => {
             }
         }));
         }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A1: {
-                ...prev.A1,
-                health: prev.A1.health - (occupiedCell.C4.attack - prev.A1.defense - 1),
-                first: false
+        
+        if (occupiedCell.C4.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A1: {
+                    ...prev.A1,
+                    health: prev.A1.health - occupiedCell.C4.attack ,
+                    first: false
             }
-        }));
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A1: {
+                    ...prev.A1,
+                    health: prev.A1.health - (occupiedCell.C4.attack - prev.A1.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
 
@@ -927,14 +1182,28 @@ export const GameWastelandLvl3 = () => {
             }
         }));
         }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A2: {
-                ...prev.A2,
-                health: prev.A2.health - (occupiedCell.C1.attack - prev.A2.defense - 1),
-                first: false
+        
+        if (occupiedCell.C1.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A2: {
+                    ...prev.A2,
+                    health: prev.A2.health - occupiedCell.C1.attack ,
+                    first: false
             }
-        }));
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A2: {
+                    ...prev.A2,
+                    health: prev.A2.health - (occupiedCell.C1.attack - prev.A2.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
     else if (id === "A2" && occupiedCell.C2.choice === true && occupiedCell.C2.health > 0) {
@@ -947,14 +1216,28 @@ export const GameWastelandLvl3 = () => {
             }
         }));
         }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A2: {
-                ...prev.A2,
-                health: prev.A2.health - (occupiedCell.C2.attack - prev.A2.defense - 1),
-                first: false
+        
+        if (occupiedCell.C2.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A2: {
+                    ...prev.A2,
+                    health: prev.A2.health - occupiedCell.C2.attack ,
+                    first: false
             }
-        }));
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A2: {
+                    ...prev.A2,
+                    health: prev.A2.health - (occupiedCell.C2.attack - prev.A2.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
     else if (id === "A2" && occupiedCell.C3.choice === true && occupiedCell.C3.health > 0) {
@@ -967,14 +1250,28 @@ export const GameWastelandLvl3 = () => {
             }
         }));
         }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A2: {
-                ...prev.A2,
-                health: prev.A2.health - (occupiedCell.C3.attack - prev.A2.defense - 1),
-                first: false
+        
+        if (occupiedCell.C3.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A2: {
+                    ...prev.A2,
+                    health: prev.A2.health - occupiedCell.C3.attack ,
+                    first: false
             }
-        }));
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A2: {
+                    ...prev.A2,
+                    health: prev.A2.health - (occupiedCell.C3.attack - prev.A2.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
     else if (id === "A2" && occupiedCell.C4.choice === true && occupiedCell.C4.health > 0) {
@@ -987,14 +1284,28 @@ export const GameWastelandLvl3 = () => {
             }
         }));
         }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A2: {
-                ...prev.A2,
-                health: prev.A2.health - (occupiedCell.C4.attack - prev.A2.defense - 1),
-                first: false
+        
+        if (occupiedCell.C4.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A2: {
+                    ...prev.A2,
+                    health: prev.A2.health - occupiedCell.C4.attack ,
+                    first: false
             }
-        }));
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A2: {
+                    ...prev.A2,
+                    health: prev.A2.health - (occupiedCell.C4.attack - prev.A2.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
 
@@ -1008,14 +1319,28 @@ export const GameWastelandLvl3 = () => {
             }
         }));
         }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A3: {
-                ...prev.A3,
-                health: prev.A3.health - (occupiedCell.C1.attack - prev.A3.defense - 1),
-                first: false
+        
+        if (occupiedCell.C1.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A3: {
+                    ...prev.A3,
+                    health: prev.A3.health - occupiedCell.C1.attack ,
+                    first: false
             }
-        }));
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A3: {
+                    ...prev.A3,
+                    health: prev.A3.health - (occupiedCell.C1.attack - prev.A3.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
     else if (id === "A3" && occupiedCell.C2.choice === true && occupiedCell.C2.health > 0) {
@@ -1028,14 +1353,28 @@ export const GameWastelandLvl3 = () => {
             }
         }));
         }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A3: {
-                ...prev.A3,
-                health: prev.A3.health - (occupiedCell.C2.attack - prev.A3.defense - 1),
-                first: false
+        
+        if (occupiedCell.C2.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A3: {
+                    ...prev.A3,
+                    health: prev.A3.health - occupiedCell.C2.attack ,
+                    first: false
             }
-        }));
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A3: {
+                    ...prev.A3,
+                    health: prev.A3.health - (occupiedCell.C2.attack - prev.A3.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
     else if (id === "A3" && occupiedCell.C3.choice === true && occupiedCell.C3.health > 0) {
@@ -1048,14 +1387,28 @@ export const GameWastelandLvl3 = () => {
             }
         }));
         }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A3: {
-                ...prev.A3,
-                health: prev.A3.health - (occupiedCell.C3.attack - prev.A3.defense - 1),
-                first: false
+        
+        if (occupiedCell.C3.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A3: {
+                    ...prev.A3,
+                    health: prev.A3.health - occupiedCell.C3.attack ,
+                    first: false
             }
-        }));
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A3: {
+                    ...prev.A3,
+                    health: prev.A3.health - (occupiedCell.C3.attack - prev.A3.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
     else if (id === "A3" && occupiedCell.C4.choice === true && occupiedCell.C4.health > 0) {
@@ -1068,14 +1421,28 @@ export const GameWastelandLvl3 = () => {
             }
         }));
         }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A3: {
-                ...prev.A3,
-                health: prev.A3.health - (occupiedCell.C4.attack - prev.A3.defense - 1),
-                first: false
+        
+        if (occupiedCell.C4.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A3: {
+                    ...prev.A3,
+                    health: prev.A3.health - occupiedCell.C4.attack ,
+                    first: false
             }
-        }));
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A3: {
+                    ...prev.A3,
+                    health: prev.A3.health - (occupiedCell.C4.attack - prev.A3.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
 
@@ -1089,14 +1456,28 @@ export const GameWastelandLvl3 = () => {
             }
         }));
         }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A4: {
-                ...prev.A4,
-                health: prev.A4.health - (occupiedCell.C1.attack - prev.A4.defense - 1),
-                first: false
+        
+        if (occupiedCell.C1.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A4: {
+                    ...prev.A4,
+                    health: prev.A4.health - occupiedCell.C1.attack ,
+                    first: false
             }
-        }));
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A4: {
+                    ...prev.A4,
+                    health: prev.A4.health - (occupiedCell.C1.attack - prev.A4.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
     else if (id === "A4" && occupiedCell.C2.choice === true && occupiedCell.C2.health > 0) {
@@ -1109,14 +1490,28 @@ export const GameWastelandLvl3 = () => {
             }
         }));
         }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A4: {
-                ...prev.A4,
-                health: prev.A4.health - (occupiedCell.C2.attack - prev.A4.defense - 1),
-                first: false
+        
+        if (occupiedCell.C2.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A4: {
+                    ...prev.A4,
+                    health: prev.A4.health - occupiedCell.C2.attack ,
+                    first: false
             }
-        }));
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A4: {
+                    ...prev.A4,
+                    health: prev.A4.health - (occupiedCell.C2.attack - prev.A4.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
     else if (id === "A4" && occupiedCell.C3.choice === true && occupiedCell.C3.health > 0) {
@@ -1129,14 +1524,28 @@ export const GameWastelandLvl3 = () => {
             }
         }));
         }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A4: {
-                ...prev.A4,
-                health: prev.A4.health - (occupiedCell.C3.attack - prev.A4.defense - 1),
-                first: false
+        
+        if (occupiedCell.C3.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A4: {
+                    ...prev.A4,
+                    health: prev.A4.health - occupiedCell.C3.attack ,
+                    first: false
             }
-        }));
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A4: {
+                    ...prev.A4,
+                    health: prev.A4.health - (occupiedCell.C3.attack - prev.A4.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
     else if (id === "A4" && occupiedCell.C4.choice === true && occupiedCell.C4.health > 0) {
@@ -1149,14 +1558,28 @@ export const GameWastelandLvl3 = () => {
             }
         }));
         }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A4: {
-                ...prev.A4,
-                health: prev.A4.health - (occupiedCell.C4.attack - prev.A4.defense - 1),
-                first: false
+        
+        if (occupiedCell.C4.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A4: {
+                    ...prev.A4,
+                    health: prev.A4.health - occupiedCell.C4.attack ,
+                    first: false
             }
-        }));
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A4: {
+                    ...prev.A4,
+                    health: prev.A4.health - (occupiedCell.C4.attack - prev.A4.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
 
@@ -1181,14 +1604,27 @@ export const GameWastelandLvl3 = () => {
         }
         // Это баф Мечников запада, меньший урон от Метателей.
 
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A5: {
-                ...prev.A5,
-                health: prev.A5.health - (occupiedCell.C1.attack - prev.A5.defense - 1),
-                first: false
+        if (occupiedCell.C1.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A5: {
+                    ...prev.A5,
+                    health: prev.A5.health - occupiedCell.C1.attack ,
+                    first: false
             }
-        }));
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A5: {
+                    ...prev.A5,
+                    health: prev.A5.health - (occupiedCell.C1.attack - prev.A5.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
     else if (id === "A5" && occupiedCell.C2.choice === true && occupiedCell.C2.health > 0) {
@@ -1212,14 +1648,27 @@ export const GameWastelandLvl3 = () => {
         }
         // Это баф Мечников запада, меньший урон от Метателей.
 
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A5: {
-                ...prev.A5,
-                health: prev.A5.health - (occupiedCell.C2.attack - prev.A5.defense - 1),
-                first: false
+        if (occupiedCell.C2.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A5: {
+                    ...prev.A5,
+                    health: prev.A5.health - occupiedCell.C2.attack ,
+                    first: false
             }
-        }));
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A5: {
+                    ...prev.A5,
+                    health: prev.A5.health - (occupiedCell.C2.attack - prev.A5.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
     else if (id === "A5" && occupiedCell.C3.choice === true && occupiedCell.C3.health > 0) {
@@ -1243,14 +1692,27 @@ export const GameWastelandLvl3 = () => {
         }
         // Это баф Мечников запада, меньший урон от Метателей.
 
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A5: {
-                ...prev.A5,
-                health: prev.A5.health - (occupiedCell.C3.attack - prev.A5.defense - 1),
-                first: false
+        if (occupiedCell.C3.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A5: {
+                    ...prev.A5,
+                    health: prev.A5.health - occupiedCell.C3.attack ,
+                    first: false
             }
-        }));
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A5: {
+                    ...prev.A5,
+                    health: prev.A5.health - (occupiedCell.C3.attack - prev.A5.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
     else if (id === "A5" && occupiedCell.C4.choice === true && occupiedCell.C4.health > 0) {
@@ -1274,14 +1736,27 @@ export const GameWastelandLvl3 = () => {
         }
         // Это баф Мечников запада, меньший урон от Метателей.
 
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A5: {
-                ...prev.A5,
-                health: prev.A5.health - (occupiedCell.C4.attack - prev.A5.defense - 1),
-                first: false
+        if (occupiedCell.C4.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A5: {
+                    ...prev.A5,
+                    health: prev.A5.health - occupiedCell.C4.attack ,
+                    first: false
             }
-        }));
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A5: {
+                    ...prev.A5,
+                    health: prev.A5.health - (occupiedCell.C4.attack - prev.A5.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
 
@@ -1298,22 +1773,35 @@ export const GameWastelandLvl3 = () => {
 
         if (occupiedCell.C1.name === "Метатели") {
             setOccupiedCellOpponent(prev => ({...prev, 
-            A5: {
-                ...prev.A5,
-                health: prev.A5.health + 1 
+            A6: {
+                ...prev.A6,
+                health: prev.A6.health + 1 
             }
             }));
         }
         // Это баф Мечников запада, меньший урон от Метателей.
 
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A6: {
-                ...prev.A6,
-                health: prev.A6.health - (occupiedCell.C1.attack - prev.A6.defense - 1),
-                first: false
+        if (occupiedCell.C1.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A6: {
+                    ...prev.A6,
+                    health: prev.A6.health - occupiedCell.C1.attack ,
+                    first: false
             }
-        }));
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A6: {
+                    ...prev.A6,
+                    health: prev.A6.health - (occupiedCell.C1.attack - prev.A6.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
     else if (id === "A6" && occupiedCell.C2.choice === true && occupiedCell.C2.health > 0) {
@@ -1329,22 +1817,35 @@ export const GameWastelandLvl3 = () => {
 
         if (occupiedCell.C2.name === "Метатели") {
             setOccupiedCellOpponent(prev => ({...prev, 
-            A5: {
-                ...prev.A5,
-                health: prev.A5.health + 1 
+            A6: {
+                ...prev.A6,
+                health: prev.A6.health + 1 
             }
             }));
         }
         // Это баф Мечников запада, меньший урон от Метателей.
 
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A6: {
-                ...prev.A6,
-                health: prev.A6.health - (occupiedCell.C2.attack - prev.A6.defense - 1),
-                first: false
+        if (occupiedCell.C2.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A6: {
+                    ...prev.A6,
+                    health: prev.A6.health - occupiedCell.C2.attack ,
+                    first: false
             }
-        }));
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A6: {
+                    ...prev.A6,
+                    health: prev.A6.health - (occupiedCell.C2.attack - prev.A6.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
     else if (id === "A6" && occupiedCell.C3.choice === true && occupiedCell.C3.health > 0) {
@@ -1360,22 +1861,35 @@ export const GameWastelandLvl3 = () => {
 
         if (occupiedCell.C3.name === "Метатели") {
             setOccupiedCellOpponent(prev => ({...prev, 
-            A5: {
-                ...prev.A5,
-                health: prev.A5.health + 1 
+            A6: {
+                ...prev.A6,
+                health: prev.A6.health + 1 
             }
             }));
         }
         // Это баф Мечников запада, меньший урон от Метателей.
 
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A6: {
-                ...prev.A6,
-                health: prev.A6.health - (occupiedCell.C3.attack - prev.A6.defense - 1),
-                first: false
+        if (occupiedCell.C3.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A6: {
+                    ...prev.A6,
+                    health: prev.A6.health - occupiedCell.C3.attack ,
+                    first: false
             }
-        }));
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A6: {
+                    ...prev.A6,
+                    health: prev.A6.health - (occupiedCell.C3.attack - prev.A6.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
     else if (id === "A6" && occupiedCell.C4.choice === true && occupiedCell.C4.health > 0) {
@@ -1391,22 +1905,391 @@ export const GameWastelandLvl3 = () => {
 
         if (occupiedCell.C4.name === "Метатели") {
             setOccupiedCellOpponent(prev => ({...prev, 
-            A5: {
-                ...prev.A5,
-                health: prev.A5.health + 1 
+            A6: {
+                ...prev.A6,
+                health: prev.A6.health + 1 
             }
             }));
         }
         // Это баф Мечников запада, меньший урон от Метателей.
 
-        setOccupiedCellOpponent(prev => ({
+        if (occupiedCell.C4.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A6: {
+                    ...prev.A6,
+                    health: prev.A6.health - occupiedCell.C4.attack ,
+                    first: false
+            }
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A6: {
+                    ...prev.A6,
+                    health: prev.A6.health - (occupiedCell.C4.attack - prev.A6.defense),
+                    first: false
+            }
+            }));
+        }
+
+        handleCounterattack()
+    }
+
+
+    else if (id === "A7" && occupiedCell.C1.choice === true && occupiedCell.C1.health > 0) {
+        if(occupiedCellOpponent.A7.first === true){
+            setOccupiedCell(prev => ({
             ...prev,
-            A6: {
-                ...prev.A6,
-                health: prev.A6.health - (occupiedCell.C4.attack - prev.A6.defense - 1),
-                first: false
+            C1: {
+                ...prev.C1,
+                health: prev.C1.health - 4
             }
         }));
+        }
+
+        if (occupiedCell.C1.name === "Метатели") {
+            setOccupiedCellOpponent(prev => ({...prev, 
+            A7: {
+                ...prev.A7,
+                health: prev.A7.health + 1 
+            }
+            }));
+        }
+        // Это баф Мечников запада, меньший урон от Метателей.
+
+        if (occupiedCell.C1.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A7: {
+                    ...prev.A7,
+                    health: prev.A7.health - occupiedCell.C1.attack ,
+                    first: false
+            }
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A7: {
+                    ...prev.A7,
+                    health: prev.A7.health - (occupiedCell.C1.attack - prev.A7.defense),
+                    first: false
+            }
+            }));
+        }
+
+        handleCounterattack()
+    }
+    else if (id === "A7" && occupiedCell.C2.choice === true && occupiedCell.C2.health > 0) {
+        if(occupiedCellOpponent.A7.first === true){
+            setOccupiedCell(prev => ({
+            ...prev,
+            C2: {
+                ...prev.C2,
+                health: prev.C2.health - 4
+            }
+        }));
+        }
+
+        if (occupiedCell.C2.name === "Метатели") {
+            setOccupiedCellOpponent(prev => ({...prev, 
+            A7: {
+                ...prev.A7,
+                health: prev.A7.health + 1 
+            }
+            }));
+        }
+        // Это баф Мечников запада, меньший урон от Метателей.
+
+        if (occupiedCell.C2.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A7: {
+                    ...prev.A7,
+                    health: prev.A7.health - occupiedCell.C2.attack ,
+                    first: false
+            }
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A7: {
+                    ...prev.A7,
+                    health: prev.A7.health - (occupiedCell.C2.attack - prev.A7.defense),
+                    first: false
+            }
+            }));
+        }
+
+        handleCounterattack()
+    }
+    else if (id === "A7" && occupiedCell.C3.choice === true && occupiedCell.C3.health > 0) {
+        if(occupiedCellOpponent.A7.first === true){
+            setOccupiedCell(prev => ({
+            ...prev,
+            C3: {
+                ...prev.C3,
+                health: prev.C3.health - 4
+            }
+        }));
+        }
+
+        if (occupiedCell.C3.name === "Метатели") {
+            setOccupiedCellOpponent(prev => ({...prev, 
+            A7: {
+                ...prev.A7,
+                health: prev.A7.health + 1 
+            }
+            }));
+        }
+        // Это баф Мечников запада, меньший урон от Метателей.
+
+        if (occupiedCell.C3.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A7: {
+                    ...prev.A7,
+                    health: prev.A7.health - occupiedCell.C3.attack ,
+                    first: false
+            }
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A7: {
+                    ...prev.A7,
+                    health: prev.A7.health - (occupiedCell.C3.attack - prev.A7.defense),
+                    first: false
+            }
+            }));
+        }
+
+        handleCounterattack()
+    }
+    else if (id === "A7" && occupiedCell.C4.choice === true && occupiedCell.C4.health > 0) {
+        if(occupiedCellOpponent.A7.first === true){
+            setOccupiedCell(prev => ({
+            ...prev,
+            C4: {
+                ...prev.C4,
+                health: prev.C4.health - 4
+            }
+        }));
+        }
+
+        if (occupiedCell.C4.name === "Метатели") {
+            setOccupiedCellOpponent(prev => ({...prev, 
+            A7: {
+                ...prev.A7,
+                health: prev.A7.health + 1 
+            }
+            }));
+        }
+        // Это баф Мечников запада, меньший урон от Метателей.
+
+        if (occupiedCell.C4.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A7: {
+                    ...prev.A7,
+                    health: prev.A7.health - occupiedCell.C4.attack ,
+                    first: false
+            }
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A7: {
+                    ...prev.A7,
+                    health: prev.A7.health - (occupiedCell.C4.attack - prev.A7.defense),
+                    first: false
+            }
+            }));
+        }
+
+        handleCounterattack()
+    }
+
+
+    else if (id === "A8" && occupiedCell.C1.choice === true && occupiedCell.C1.health > 0) {
+        if(occupiedCellOpponent.A8.first === true){
+            setOccupiedCell(prev => ({
+            ...prev,
+            C1: {
+                ...prev.C1,
+                health: prev.C1.health - 4
+            }
+        }));
+        }
+
+        if (occupiedCell.C1.name === "Метатели") {
+            setOccupiedCellOpponent(prev => ({...prev, 
+            A8: {
+                ...prev.A8,
+                health: prev.A8.health + 1 
+            }
+            }));
+        }
+        // Это баф Мечников запада, меньший урон от Метателей.
+
+        if (occupiedCell.C1.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A8: {
+                    ...prev.A8,
+                    health: prev.A8.health - occupiedCell.C1.attack ,
+                    first: false
+            }
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A8: {
+                    ...prev.A8,
+                    health: prev.A8.health - (occupiedCell.C1.attack - prev.A8.defense),
+                    first: false
+            }
+            }));
+        }
+
+        handleCounterattack()
+    }
+    else if (id === "A8" && occupiedCell.C2.choice === true && occupiedCell.C2.health > 0) {
+        if(occupiedCellOpponent.A8.first === true){
+            setOccupiedCell(prev => ({
+            ...prev,
+            C2: {
+                ...prev.C2,
+                health: prev.C2.health - 4
+            }
+        }));
+        }
+
+        if (occupiedCell.C2.name === "Метатели") {
+            setOccupiedCellOpponent(prev => ({...prev, 
+            A8: {
+                ...prev.A8,
+                health: prev.A8.health + 1 
+            }
+            }));
+        }
+        // Это баф Мечников запада, меньший урон от Метателей.
+
+        if (occupiedCell.C2.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A8: {
+                    ...prev.A8,
+                    health: prev.A8.health - occupiedCell.C2.attack ,
+                    first: false
+            }
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A8: {
+                    ...prev.A8,
+                    health: prev.A8.health - (occupiedCell.C2.attack - prev.A8.defense),
+                    first: false
+            }
+            }));
+        }
+        
+        handleCounterattack()
+    }
+    else if (id === "A8" && occupiedCell.C3.choice === true && occupiedCell.C3.health > 0) {
+        if(occupiedCellOpponent.A8.first === true){
+            setOccupiedCell(prev => ({
+            ...prev,
+            C3: {
+                ...prev.C3,
+                health: prev.C3.health - 4
+            }
+        }));
+        }
+
+        if (occupiedCell.C3.name === "Метатели") {
+            setOccupiedCellOpponent(prev => ({...prev, 
+            A8: {
+                ...prev.A8,
+                health: prev.A8.health + 1 
+            }
+            }));
+        }
+        // Это баф Мечников запада, меньший урон от Метателей.
+
+        if (occupiedCell.C3.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A8: {
+                    ...prev.A8,
+                    health: prev.A8.health - occupiedCell.C3.attack ,
+                    first: false
+            }
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A8: {
+                    ...prev.A8,
+                    health: prev.A8.health - (occupiedCell.C3.attack - prev.A8.defense),
+                    first: false
+            }
+            }));
+        }
+
+        handleCounterattack()
+    }
+    else if (id === "A8" && occupiedCell.C4.choice === true && occupiedCell.C4.health > 0) {
+        if(occupiedCellOpponent.A8.first === true){
+            setOccupiedCell(prev => ({
+            ...prev,
+            C4: {
+                ...prev.C4,
+                health: prev.C4.health - 4
+            }
+        }));
+        }
+
+        if (occupiedCell.C4.name === "Метатели") {
+            setOccupiedCellOpponent(prev => ({...prev, 
+            A8: {
+                ...prev.A8,
+                health: prev.A8.health + 1 
+            }
+            }));
+        }
+        // Это баф Мечников запада, меньший урон от Метателей.
+
+        if (occupiedCell.C4.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A8: {
+                    ...prev.A8,
+                    health: prev.A8.health - occupiedCell.C4.attack ,
+                    first: false
+            }
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A8: {
+                    ...prev.A8,
+                    health: prev.A8.health - (occupiedCell.C4.attack - prev.A8.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
 
@@ -1421,14 +2304,28 @@ export const GameWastelandLvl3 = () => {
             }
         }));
         }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A1: {
-                ...prev.A1,
-                health: prev.A1.health - (occupiedCell.D1.attack - prev.A1.defense - 1),
-                first: false
+        
+        if (occupiedCell.D1.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A1: {
+                    ...prev.A1,
+                    health: prev.A1.health - occupiedCell.D1.attack ,
+                    first: false
             }
-        }));
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A1: {
+                    ...prev.A1,
+                    health: prev.A1.health - (occupiedCell.D1.attack - prev.A1.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
     else if (id === "A1" && occupiedCell.D2.choice === true && occupiedCell.D2.health > 0) {
@@ -1441,14 +2338,28 @@ export const GameWastelandLvl3 = () => {
             }
         }));
         }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A1: {
-                ...prev.A1,
-                health: prev.A1.health - (occupiedCell.D2.attack - prev.A1.defense - 1),
-                first: false
+        
+        if (occupiedCell.D2.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A1: {
+                    ...prev.A1,
+                    health: prev.A1.health - occupiedCell.D2.attack ,
+                    first: false
             }
-        }));
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A1: {
+                    ...prev.A1,
+                    health: prev.A1.health - (occupiedCell.D2.attack - prev.A1.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
     else if (id === "A1" && occupiedCell.D3.choice === true && occupiedCell.D3.health > 0) {
@@ -1461,14 +2372,28 @@ export const GameWastelandLvl3 = () => {
             }
         }));
         }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A1: {
-                ...prev.A1,
-                health: prev.A1.health - (occupiedCell.D3.attack - prev.A1.defense - 1),
-                first: false
+        
+        if (occupiedCell.D3.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A1: {
+                    ...prev.A1,
+                    health: prev.A1.health - occupiedCell.D3.attack ,
+                    first: false
             }
-        }));
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A1: {
+                    ...prev.A1,
+                    health: prev.A1.health - (occupiedCell.D3.attack - prev.A1.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
     else if (id === "A1" && occupiedCell.D4.choice === true && occupiedCell.D4.health > 0) {
@@ -1481,14 +2406,28 @@ export const GameWastelandLvl3 = () => {
             }
         }));
         }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A1: {
-                ...prev.A1,
-                health: prev.A1.health - (occupiedCell.D4.attack - prev.A1.defense - 1),
-                first: false
+        
+        if (occupiedCell.D4.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A1: {
+                    ...prev.A1,
+                    health: prev.A1.health - occupiedCell.D4.attack ,
+                    first: false
             }
-        }));
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A1: {
+                    ...prev.A1,
+                    health: prev.A1.health - (occupiedCell.D4.attack - prev.A1.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
 
@@ -1502,14 +2441,28 @@ export const GameWastelandLvl3 = () => {
             }
         }));
         }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A2: {
-                ...prev.A2,
-                health: prev.A2.health - (occupiedCell.D1.attack - prev.A2.defense - 1),
-                first: false
+
+        if (occupiedCell.D1.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A2: {
+                    ...prev.A2,
+                    health: prev.A2.health - occupiedCell.D1.attack ,
+                    first: false
             }
-        }));
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A2: {
+                    ...prev.A2,
+                    health: prev.A2.health - (occupiedCell.D1.attack - prev.A2.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
     else if (id === "A2" && occupiedCell.D2.choice === true && occupiedCell.D2.health > 0) {
@@ -1522,14 +2475,28 @@ export const GameWastelandLvl3 = () => {
             }
         }));
         }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A2: {
-                ...prev.A2,
-                health: prev.A2.health - (occupiedCell.D2.attack - prev.A2.defense - 1),
-                first: false
+        
+        if (occupiedCell.D2.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A2: {
+                    ...prev.A2,
+                    health: prev.A2.health - occupiedCell.D2.attack ,
+                    first: false
             }
-        }));
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A2: {
+                    ...prev.A2,
+                    health: prev.A2.health - (occupiedCell.D2.attack - prev.A2.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
     else if (id === "A2" && occupiedCell.D3.choice === true && occupiedCell.D3.health > 0) {
@@ -1542,14 +2509,28 @@ export const GameWastelandLvl3 = () => {
             }
         }));
         }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A2: {
-                ...prev.A2,
-                health: prev.A2.health - (occupiedCell.D3.attack - prev.A2.defense - 1),
-                first: false
+        
+        if (occupiedCell.D3.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A2: {
+                    ...prev.A2,
+                    health: prev.A2.health - occupiedCell.D3.attack ,
+                    first: false
             }
-        }));
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A2: {
+                    ...prev.A2,
+                    health: prev.A2.health - (occupiedCell.D3.attack - prev.A2.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
     else if (id === "A2" && occupiedCell.D4.choice === true && occupiedCell.D4.health > 0) {
@@ -1562,14 +2543,28 @@ export const GameWastelandLvl3 = () => {
             }
         }));
         }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A2: {
-                ...prev.A2,
-                health: prev.A2.health - (occupiedCell.D4.attack - prev.A2.defense - 1),
-                first: false
+        
+        if (occupiedCell.D4.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A2: {
+                    ...prev.A2,
+                    health: prev.A2.health - occupiedCell.D4.attack ,
+                    first: false
             }
-        }));
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A2: {
+                    ...prev.A2,
+                    health: prev.A2.health - (occupiedCell.D4.attack - prev.A2.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
     
@@ -1583,14 +2578,28 @@ export const GameWastelandLvl3 = () => {
             }
         }));
         }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A3: {
-                ...prev.A3,
-                health: prev.A3.health - (occupiedCell.D1.attack - prev.A3.defense - 1),
-                first: false
+        
+        if (occupiedCell.D1.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A3: {
+                    ...prev.A3,
+                    health: prev.A3.health - occupiedCell.D1.attack ,
+                    first: false
             }
-        }));
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A3: {
+                    ...prev.A3,
+                    health: prev.A3.health - (occupiedCell.D1.attack - prev.A3.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
     else if (id === "A3" && occupiedCell.D2.choice === true && occupiedCell.D2.health > 0) {
@@ -1603,14 +2612,28 @@ export const GameWastelandLvl3 = () => {
             }
         }));
         }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A3: {
-                ...prev.A3,
-                health: prev.A3.health - (occupiedCell.D2.attack - prev.A3.defense - 1),
-                first: false
+        
+        if (occupiedCell.D2.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A3: {
+                    ...prev.A3,
+                    health: prev.A3.health - occupiedCell.D2.attack ,
+                    first: false
             }
-        }));
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A3: {
+                    ...prev.A3,
+                    health: prev.A3.health - (occupiedCell.D2.attack - prev.A3.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
     else if (id === "A3" && occupiedCell.D3.choice === true && occupiedCell.D3.health > 0) {
@@ -1623,14 +2646,28 @@ export const GameWastelandLvl3 = () => {
             }
         }));
         }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A3: {
-                ...prev.A3,
-                health: prev.A3.health - (occupiedCell.D3.attack - prev.A3.defense - 1),
-                first: false
+        
+        if (occupiedCell.D3.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A3: {
+                    ...prev.A3,
+                    health: prev.A3.health - occupiedCell.D3.attack ,
+                    first: false
             }
-        }));
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A3: {
+                    ...prev.A3,
+                    health: prev.A3.health - (occupiedCell.D3.attack - prev.A3.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
     else if (id === "A3" && occupiedCell.D4.choice === true && occupiedCell.D4.health > 0) {
@@ -1643,14 +2680,28 @@ export const GameWastelandLvl3 = () => {
             }
         }));
         }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A3: {
-                ...prev.A3,
-                health: prev.A3.health - (occupiedCell.D4.attack - prev.A3.defense - 1),
-                first: false
+        
+        if (occupiedCell.D4.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A3: {
+                    ...prev.A3,
+                    health: prev.A3.health - occupiedCell.D4.attack ,
+                    first: false
             }
-        }));
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A3: {
+                    ...prev.A3,
+                    health: prev.A3.health - (occupiedCell.D4.attack - prev.A3.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
 
@@ -1664,14 +2715,28 @@ export const GameWastelandLvl3 = () => {
             }
         }));
         }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A4: {
-                ...prev.A4,
-                health: prev.A4.health - (occupiedCell.D1.attack - prev.A4.defense - 1),
-                first: false
+        
+        if (occupiedCell.D1.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A4: {
+                    ...prev.A4,
+                    health: prev.A4.health - occupiedCell.D1.attack ,
+                    first: false
             }
-        }));
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A4: {
+                    ...prev.A4,
+                    health: prev.A4.health - (occupiedCell.D1.attack - prev.A4.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
     else if (id === "A4" && occupiedCell.D2.choice === true && occupiedCell.D2.health > 0) {
@@ -1684,14 +2749,28 @@ export const GameWastelandLvl3 = () => {
             }
         }));
         }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A4: {
-                ...prev.A4,
-                health: prev.A4.health - (occupiedCell.D2.attack - prev.A4.defense - 1),
-                first: false
+        
+        if (occupiedCell.D2.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A4: {
+                    ...prev.A4,
+                    health: prev.A4.health - occupiedCell.D2.attack ,
+                    first: false
             }
-        }));
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A4: {
+                    ...prev.A4,
+                    health: prev.A4.health - (occupiedCell.D2.attack - prev.A4.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
     else if (id === "A4" && occupiedCell.D3.choice === true && occupiedCell.D3.health > 0) {
@@ -1704,14 +2783,28 @@ export const GameWastelandLvl3 = () => {
             }
         }));
         }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A4: {
-                ...prev.A4,
-                health: prev.A4.health - (occupiedCell.D3.attack - prev.A4.defense - 1),
-                first: false
+        
+        if (occupiedCell.D3.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A4: {
+                    ...prev.A4,
+                    health: prev.A4.health - occupiedCell.D3.attack ,
+                    first: false
             }
-        }));
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A4: {
+                    ...prev.A4,
+                    health: prev.A4.health - (occupiedCell.D3.attack - prev.A4.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
     else if (id === "A4" && occupiedCell.D4.choice === true && occupiedCell.D4.health > 0) {
@@ -1724,14 +2817,28 @@ export const GameWastelandLvl3 = () => {
             }
         }));
         }
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A4: {
-                ...prev.A4,
-                health: prev.A4.health - (occupiedCell.D4.attack - prev.A4.defense - 1),
-                first: false
+        
+        if (occupiedCell.D4.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A4: {
+                    ...prev.A4,
+                    health: prev.A4.health - occupiedCell.D4.attack ,
+                    first: false
             }
-        }));
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A4: {
+                    ...prev.A4,
+                    health: prev.A4.health - (occupiedCell.D4.attack - prev.A4.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
 
@@ -1756,14 +2863,27 @@ export const GameWastelandLvl3 = () => {
         }
         // Это баф Мечников запада, меньший урон от Метателей.
 
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A5: {
-                ...prev.A5,
-                health: prev.A5.health - (occupiedCell.D1.attack - prev.A5.defense - 1),
-                first: false
+        if (occupiedCell.D1.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A5: {
+                    ...prev.A5,
+                    health: prev.A5.health - occupiedCell.D1.attack ,
+                    first: false
             }
-        }));
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A5: {
+                    ...prev.A5,
+                    health: prev.A5.health - (occupiedCell.D1.attack - prev.A5.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
     else if (id === "A5" && occupiedCell.D2.choice === true && occupiedCell.D2.health > 0) {
@@ -1787,14 +2907,27 @@ export const GameWastelandLvl3 = () => {
         }
         // Это баф Мечников запада, меньший урон от Метателей.
 
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A5: {
-                ...prev.A5,
-                health: prev.A5.health - (occupiedCell.D2.attack - prev.A5.defense - 1),
-                first: false
+        if (occupiedCell.D2.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A5: {
+                    ...prev.A5,
+                    health: prev.A5.health - occupiedCell.D2.attack ,
+                    first: false
             }
-        }));
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A5: {
+                    ...prev.A5,
+                    health: prev.A5.health - (occupiedCell.D2.attack - prev.A5.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
     else if (id === "A5" && occupiedCell.D3.choice === true && occupiedCell.D3.health > 0) {
@@ -1818,14 +2951,27 @@ export const GameWastelandLvl3 = () => {
         }
         // Это баф Мечников запада, меньший урон от Метателей.
 
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A5: {
-                ...prev.A5,
-                health: prev.A5.health - (occupiedCell.D3.attack - prev.A5.defense - 1),
-                first: false
+        if (occupiedCell.D3.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A5: {
+                    ...prev.A5,
+                    health: prev.A5.health - occupiedCell.D3.attack ,
+                    first: false
             }
-        }));
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A5: {
+                    ...prev.A5,
+                    health: prev.A5.health - (occupiedCell.D3.attack - prev.A5.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
     else if (id === "A5" && occupiedCell.D4.choice === true && occupiedCell.D4.health > 0) {
@@ -1849,14 +2995,27 @@ export const GameWastelandLvl3 = () => {
         }
         // Это баф Мечников запада, меньший урон от Метателей.
 
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A5: {
-                ...prev.A5,
-                health: prev.A5.health - (occupiedCell.D4.attack - prev.A5.defense - 1),
-                first: false
+        if (occupiedCell.D4.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A5: {
+                    ...prev.A5,
+                    health: prev.A5.health - occupiedCell.D4.attack ,
+                    first: false
             }
-        }));
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A5: {
+                    ...prev.A5,
+                    health: prev.A5.health - (occupiedCell.D4.attack - prev.A5.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
 
@@ -1873,22 +3032,35 @@ export const GameWastelandLvl3 = () => {
 
         if (occupiedCell.D1.name === "Метатели") {
             setOccupiedCellOpponent(prev => ({...prev, 
-            A5: {
-                ...prev.A5,
-                health: prev.A5.health + 1 
+            A6: {
+                ...prev.A6,
+                health: prev.A6.health + 1 
             }
             }));
         }
         // Это баф Мечников запада, меньший урон от Метателей.
 
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A6: {
-                ...prev.A6,
-                health: prev.A6.health - (occupiedCell.D1.attack - prev.A6.defense - 1),
-                first: false
+        if (occupiedCell.D1.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A6: {
+                    ...prev.A6,
+                    health: prev.A6.health - occupiedCell.D1.attack ,
+                    first: false
             }
-        }));
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A6: {
+                    ...prev.A6,
+                    health: prev.A6.health - (occupiedCell.D1.attack - prev.A6.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
     else if (id === "A6" && occupiedCell.D2.choice === true && occupiedCell.D2.health > 0) {
@@ -1904,22 +3076,35 @@ export const GameWastelandLvl3 = () => {
 
         if (occupiedCell.D2.name === "Метатели") {
             setOccupiedCellOpponent(prev => ({...prev, 
-            A5: {
-                ...prev.A5,
-                health: prev.A5.health + 1 
+            A6: {
+                ...prev.A6,
+                health: prev.A6.health + 1 
             }
             }));
         }
         // Это баф Мечников запада, меньший урон от Метателей.
 
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A6: {
-                ...prev.A6,
-                health: prev.A6.health - (occupiedCell.D2.attack - prev.A6.defense - 1),
-                first: false
+        if (occupiedCell.D2.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A6: {
+                    ...prev.A6,
+                    health: prev.A6.health - occupiedCell.D2.attack ,
+                    first: false
             }
-        }));
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A6: {
+                    ...prev.A6,
+                    health: prev.A6.health - (occupiedCell.D2.attack - prev.A6.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
     else if (id === "A6" && occupiedCell.D3.choice === true && occupiedCell.D3.health > 0) {
@@ -1935,22 +3120,35 @@ export const GameWastelandLvl3 = () => {
 
         if (occupiedCell.D3.name === "Метатели") {
             setOccupiedCellOpponent(prev => ({...prev, 
-            A5: {
-                ...prev.A5,
-                health: prev.A5.health + 1 
+            A6: {
+                ...prev.A6,
+                health: prev.A6.health + 1 
             }
             }));
         }
         // Это баф Мечников запада, меньший урон от Метателей.
 
-        setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A6: {
-                ...prev.A6,
-                health: prev.A6.health - (occupiedCell.D3.attack - prev.A6.defense - 1),
-                first: false
+        if (occupiedCell.D3.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A6: {
+                    ...prev.A6,
+                    health: prev.A6.health - occupiedCell.D3.attack ,
+                    first: false
             }
-        }));
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A6: {
+                    ...prev.A6,
+                    health: prev.A6.health - (occupiedCell.D3.attack - prev.A6.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
     else if (id === "A6" && occupiedCell.D4.choice === true && occupiedCell.D4.health > 0) {
@@ -1966,22 +3164,391 @@ export const GameWastelandLvl3 = () => {
 
         if (occupiedCell.D4.name === "Метатели") {
             setOccupiedCellOpponent(prev => ({...prev, 
-            A5: {
-                ...prev.A5,
-                health: prev.A5.health + 1 
+            A6: {
+                ...prev.A6,
+                health: prev.A6.health + 1 
             }
             }));
         }
         // Это баф Мечников запада, меньший урон от Метателей.
 
-        setOccupiedCellOpponent(prev => ({
+        if (occupiedCell.D4.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A6: {
+                    ...prev.A6,
+                    health: prev.A6.health - occupiedCell.D4.attack ,
+                    first: false
+            }
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A6: {
+                    ...prev.A6,
+                    health: prev.A6.health - (occupiedCell.D4.attack - prev.A6.defense),
+                    first: false
+            }
+            }));
+        }
+
+        handleCounterattack()
+    }
+
+
+    else if (id === "A7" && occupiedCell.D1.choice === true && occupiedCell.D1.health > 0) {
+        if(occupiedCellOpponent.A7.first === true){
+            setOccupiedCell(prev => ({
             ...prev,
-            A6: {
-                ...prev.A6,
-                health: prev.A6.health - (occupiedCell.D4.attack - prev.A6.defense - 1),
-                first: false
+            D1: {
+                ...prev.D1,
+                health: prev.D1.health - 4
             }
         }));
+        }
+
+        if (occupiedCell.D1.name === "Метатели") {
+            setOccupiedCellOpponent(prev => ({...prev, 
+            A7: {
+                ...prev.A7,
+                health: prev.A7.health + 1 
+            }
+            }));
+        }
+        // Это баф Мечников запада, меньший урон от Метателей.
+
+        if (occupiedCell.D1.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A7: {
+                    ...prev.A7,
+                    health: prev.A7.health - occupiedCell.D1.attack ,
+                    first: false
+            }
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A7: {
+                    ...prev.A7,
+                    health: prev.A7.health - (occupiedCell.D1.attack - prev.A7.defense),
+                    first: false
+            }
+            }));
+        }
+
+        handleCounterattack()
+    }
+    else if (id === "A7" && occupiedCell.D2.choice === true && occupiedCell.D2.health > 0) {
+        if(occupiedCellOpponent.A7.first === true){
+            setOccupiedCell(prev => ({
+            ...prev,
+            D2: {
+                ...prev.D2,
+                health: prev.D2.health - 4
+            }
+        }));
+        }
+
+        if (occupiedCell.D2.name === "Метатели") {
+            setOccupiedCellOpponent(prev => ({...prev, 
+            A7: {
+                ...prev.A7,
+                health: prev.A7.health + 1 
+            }
+            }));
+        }
+        // Это баф Мечников запада, меньший урон от Метателей.
+
+        if (occupiedCell.D2.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A7: {
+                    ...prev.A7,
+                    health: prev.A7.health - occupiedCell.D2.attack ,
+                    first: false
+            }
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A7: {
+                    ...prev.A7,
+                    health: prev.A7.health - (occupiedCell.D2.attack - prev.A7.defense),
+                    first: false
+            }
+            }));
+        }
+
+        handleCounterattack()
+    }
+    else if (id === "A7" && occupiedCell.D3.choice === true && occupiedCell.D3.health > 0) {
+        if(occupiedCellOpponent.A7.first === true){
+            setOccupiedCell(prev => ({
+            ...prev,
+            D3: {
+                ...prev.D3,
+                health: prev.D3.health - 4
+            }
+        }));
+        }
+
+        if (occupiedCell.D3.name === "Метатели") {
+            setOccupiedCellOpponent(prev => ({...prev, 
+            A7: {
+                ...prev.A7,
+                health: prev.A7.health + 1 
+            }
+            }));
+        }
+        // Это баф Мечников запада, меньший урон от Метателей.
+
+        if (occupiedCell.D3.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A7: {
+                    ...prev.A7,
+                    health: prev.A7.health - occupiedCell.D3.attack ,
+                    first: false
+            }
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A7: {
+                    ...prev.A7,
+                    health: prev.A7.health - (occupiedCell.D3.attack - prev.A7.defense),
+                    first: false
+            }
+            }));
+        }
+
+        handleCounterattack()
+    }
+    else if (id === "A7" && occupiedCell.D4.choice === true && occupiedCell.D4.health > 0) {
+        if(occupiedCellOpponent.A7.first === true){
+            setOccupiedCell(prev => ({
+            ...prev,
+            D4: {
+                ...prev.D4,
+                health: prev.D4.health - 4
+            }
+        }));
+        }
+
+        if (occupiedCell.D4.name === "Метатели") {
+            setOccupiedCellOpponent(prev => ({...prev, 
+            A7: {
+                ...prev.A7,
+                health: prev.A7.health + 1 
+            }
+            }));
+        }
+        // Это баф Мечников запада, меньший урон от Метателей.
+
+        if (occupiedCell.D4.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A7: {
+                    ...prev.A7,
+                    health: prev.A7.health - occupiedCell.D4.attack ,
+                    first: false
+            }
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A7: {
+                    ...prev.A7,
+                    health: prev.A7.health - (occupiedCell.D4.attack - prev.A7.defense),
+                    first: false
+            }
+            }));
+        }
+
+        handleCounterattack()
+    }
+
+
+    else if (id === "A8" && occupiedCell.D1.choice === true && occupiedCell.D1.health > 0) {
+        if(occupiedCellOpponent.A8.first === true){
+            setOccupiedCell(prev => ({
+            ...prev,
+            D1: {
+                ...prev.D1,
+                health: prev.D1.health - 4
+            }
+        }));
+        }
+
+        if (occupiedCell.D1.name === "Метатели") {
+            setOccupiedCellOpponent(prev => ({...prev, 
+            A8: {
+                ...prev.A8,
+                health: prev.A8.health + 1 
+            }
+            }));
+        }
+        // Это баф Мечников запада, меньший урон от Метателей.
+
+        if (occupiedCell.D1.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A8: {
+                    ...prev.A8,
+                    health: prev.A8.health - occupiedCell.D1.attack ,
+                    first: false
+            }
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A8: {
+                    ...prev.A8,
+                    health: prev.A8.health - (occupiedCell.D1.attack - prev.A8.defense),
+                    first: false
+            }
+            }));
+        }
+
+        handleCounterattack()
+    }
+    else if (id === "A8" && occupiedCell.D2.choice === true && occupiedCell.D2.health > 0) {
+        if(occupiedCellOpponent.A8.first === true){
+            setOccupiedCell(prev => ({
+            ...prev,
+            D2: {
+                ...prev.D2,
+                health: prev.D2.health - 4
+            }
+        }));
+        }
+
+        if (occupiedCell.D2.name === "Метатели") {
+            setOccupiedCellOpponent(prev => ({...prev, 
+            A8: {
+                ...prev.A8,
+                health: prev.A8.health + 1 
+            }
+            }));
+        }
+        // Это баф Мечников запада, меньший урон от Метателей.
+
+        if (occupiedCell.D2.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A8: {
+                    ...prev.A8,
+                    health: prev.A8.health - occupiedCell.D2.attack ,
+                    first: false
+            }
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A8: {
+                    ...prev.A8,
+                    health: prev.A8.health - (occupiedCell.D2.attack - prev.A8.defense),
+                    first: false
+            }
+            }));
+        }
+
+        handleCounterattack()
+    }
+    else if (id === "A8" && occupiedCell.D3.choice === true && occupiedCell.D3.health > 0) {
+        if(occupiedCellOpponent.A8.first === true){
+            setOccupiedCell(prev => ({
+            ...prev,
+            D3: {
+                ...prev.D3,
+                health: prev.D3.health - 4
+            }
+        }));
+        }
+
+        if (occupiedCell.D3.name === "Метатели") {
+            setOccupiedCellOpponent(prev => ({...prev, 
+            A8: {
+                ...prev.A8,
+                health: prev.A8.health + 1 
+            }
+            }));
+        }
+        // Это баф Мечников запада, меньший урон от Метателей.
+
+        if (occupiedCell.D3.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A8: {
+                    ...prev.A8,
+                    health: prev.A8.health - occupiedCell.D3.attack ,
+                    first: false
+            }
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A8: {
+                    ...prev.A8,
+                    health: prev.A8.health - (occupiedCell.D3.attack - prev.A8.defense),
+                    first: false
+            }
+            }));
+        }
+
+        handleCounterattack()
+    }
+    else if (id === "A8" && occupiedCell.D4.choice === true && occupiedCell.D4.health > 0) {
+        if(occupiedCellOpponent.A8.first === true){
+            setOccupiedCell(prev => ({
+            ...prev,
+            D4: {
+                ...prev.D4,
+                health: prev.D4.health - 4
+            }
+        }));
+        }
+
+        if (occupiedCell.D4.name === "Метатели") {
+            setOccupiedCellOpponent(prev => ({...prev, 
+            A8: {
+                ...prev.A8,
+                health: prev.A8.health + 1 
+            }
+            }));
+        }
+        // Это баф Мечников запада, меньший урон от Метателей.
+
+        if (occupiedCell.D4.name === "Ангалиты") {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A8: {
+                    ...prev.A8,
+                    health: prev.A8.health - occupiedCell.D4.attack ,
+                    first: false
+            }
+            }));
+        }
+        else {
+            setOccupiedCellOpponent(prev => ({
+                ...prev,
+                A8: {
+                    ...prev.A8,
+                    health: prev.A8.health - (occupiedCell.D4.attack - prev.A8.defense),
+                    first: false
+            }
+            }));
+        }
+
         handleCounterattack()
     }
 
@@ -2032,15 +3599,15 @@ function handleCounterattack() {
                 setTimeout(() => {
                     setOccupiedCellOpponent(currentOpponents => {
                         const findNextAliveAttacker = (currentQueue: number) => {
-                            let nextQueue = currentQueue === 6 ? 1 : currentQueue + 1;
+                            let nextQueue = currentQueue === 8 ? 1 : currentQueue + 1;
                             let attempts = 0;
                             
-                            while (attempts < 6) {
+                            while (attempts < 8) {
                                 const nextAttackerKey = `A${nextQueue}` as keyof typeof currentOpponents;
                                 if (currentOpponents[nextAttackerKey].health > 0) {
                                     return nextQueue;
                                 }
-                                nextQueue = nextQueue === 6 ? 1 : nextQueue + 1;
+                                nextQueue = nextQueue === 8 ? 1 : nextQueue + 1;
                                 attempts++;
                             }
                             return 1;
@@ -2064,15 +3631,15 @@ function handleCounterattack() {
             setTimeout(() => {
                 setOccupiedCellOpponent(currentOpponents => {
                     const findNextAliveAttacker = (currentQueue: number) => {
-                        let nextQueue = currentQueue === 6 ? 1 : currentQueue + 1;
+                        let nextQueue = currentQueue === 8 ? 1 : currentQueue + 1;
                         let attempts = 0;
                         
-                        while (attempts < 6) {
+                        while (attempts < 8) {
                             const nextAttackerKey = `A${nextQueue}` as keyof typeof currentOpponents;
                             if (currentOpponents[nextAttackerKey].health > 0) {
                                 return nextQueue;
                             }
-                            nextQueue = nextQueue === 6 ? 1 : nextQueue + 1;
+                            nextQueue = nextQueue === 8 ? 1 : nextQueue + 1;
                             attempts++;
                         }
                         return 1;
@@ -2090,15 +3657,15 @@ function handleCounterattack() {
         setTimeout(() => {
             setOccupiedCellOpponent(currentOpponents => {
                 const findNextAliveAttacker = (currentQueue: number) => {
-                    let nextQueue = currentQueue === 6 ? 1 : currentQueue + 1;
+                    let nextQueue = currentQueue === 8 ? 1 : currentQueue + 1;
                     let attempts = 0;
                     
-                    while (attempts < 6) {
+                    while (attempts < 8) {
                         const nextAttackerKey = `A${nextQueue}` as keyof typeof currentOpponents;
                         if (currentOpponents[nextAttackerKey].health > 0) {
                             return nextQueue;
                         }
-                        nextQueue = nextQueue === 6 ? 1 : nextQueue + 1;
+                        nextQueue = nextQueue === 8 ? 1 : nextQueue + 1;
                         attempts++;
                     }
                     return 1;
@@ -2164,6 +3731,24 @@ function handleCounterattack() {
             A6: {
                 ...prev.A6,
                 health: prev.A6.health - 20
+            }
+        }));
+        }
+        else if (attackQueue === 7) {
+            setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A7: {
+                ...prev.A7,
+                health: prev.A7.health - 20
+            }
+        }));
+        }
+        else if (attackQueue === 8) {
+            setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A8: {
+                ...prev.A8,
+                health: prev.A8.health - 20
             }
         }));
         }
@@ -2237,6 +3822,26 @@ function handleCounterattack() {
             }
         }));
         }
+        else if (attackQueue === 7) {
+            setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A7: {
+                ...prev.A7,
+                health: prev.A7.health - 10,
+                defense: prev.A7.defense - 1
+            }
+        }));
+        }
+        else if (attackQueue === 8) {
+            setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A8: {
+                ...prev.A8,
+                health: prev.A8.health - 10,
+                defense: prev.A8.defense - 1
+            }
+        }));
+        }
 
         if (stateSkillsSoldiersWasteland.stateSkillsJavelin === true) {
             setStateSkillsSoldiersWasteland(prev => ({...prev, stateJavelinQuantitySkills : false}));
@@ -2245,7 +3850,7 @@ function handleCounterattack() {
         
     }
 
-     function handleSkillMaces() {
+    function handleSkillMaces() {
 
         if (attackQueue === 1) {
             setOccupiedCellOpponent(prev => ({
@@ -2307,10 +3912,181 @@ function handleCounterattack() {
             }
         }));
         }
+        else if (attackQueue === 7) {
+            setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A7: {
+                ...prev.A7,
+                health: prev.A7.health - 15,
+                defense: prev.A7.defense - 1
+            }
+        }));
+        }
+        else if (attackQueue === 8) {
+            setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A8: {
+                ...prev.A8,
+                health: prev.A8.health - 15,
+                defense: prev.A8.defense - 1
+            }
+        }));
+        }
 
         if (stateSkillsSoldiersWasteland.stateSkillsMaces === true) {
             setStateSkillsSoldiersWasteland(prev => ({...prev, stateMacesQuantitySkills : false}));
             setStateSkillsSoldiersWasteland(prev => ({...prev, showStateSkillsMaces: false}));
+        }
+        
+    }
+    
+    
+    function handleSkillAngalit() {
+
+        if (attackQueue === 1) {
+            setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A1: {
+                ...prev.A1,
+                health: prev.A1.health - 15,
+                
+            },
+            A2: {
+                ...prev.A2,
+                health: prev.A2.health - 5,
+                
+            },
+        }));
+        }
+        else if (attackQueue === 2) {
+            setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A1: {
+                ...prev.A1,
+                health: prev.A1.health - 5,
+                
+            },
+            A2: {
+                ...prev.A2,
+                health: prev.A2.health - 15,
+                
+            },
+            A3: {
+                ...prev.A3,
+                health: prev.A3.health - 5,
+                
+            },
+        }));
+        }
+        else if (attackQueue === 3) {
+            setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A2: {
+                ...prev.A2,
+                health: prev.A2.health - 5,
+                
+            },
+            A3: {
+                ...prev.A3,
+                health: prev.A3.health - 15,
+                
+            },
+            A4: {
+                ...prev.A4,
+                health: prev.A4.health - 5,
+                
+            },
+        }));
+        }
+        else if (attackQueue === 4) {
+            setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A3: {
+                ...prev.A3,
+                health: prev.A3.health - 5,
+                
+            },
+            A4: {
+                ...prev.A4,
+                health: prev.A4.health - 15,
+                
+            },
+        }));
+        }
+        else if (attackQueue === 5) {
+            setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A5: {
+                ...prev.A5,
+                health: prev.A5.health - 15,
+                
+            },
+            A6: {
+                ...prev.A6,
+                health: prev.A6.health - 5,
+                
+            },
+        }));
+        }
+        else if (attackQueue === 6) {
+            setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A5: {
+                ...prev.A5,
+                health: prev.A5.health - 5,
+                
+            },
+            A6: {
+                ...prev.A6,
+                health: prev.A6.health - 15,
+                
+            },
+            A7: {
+                ...prev.A7,
+                health: prev.A7.health - 5,
+                
+            },
+        }));
+        }
+        else if (attackQueue === 7) {
+            setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A6: {
+                ...prev.A6,
+                health: prev.A6.health - 5,
+                
+            },
+            A7: {
+                ...prev.A7,
+                health: prev.A7.health - 15,
+                
+            },
+            A8: {
+                ...prev.A8,
+                health: prev.A8.health - 5,
+                
+            },
+        }));
+        }
+        else if (attackQueue === 8) {
+            setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A7: {
+                ...prev.A7,
+                health: prev.A7.health - 5,
+                
+            },
+            A8: {
+                ...prev.A8,
+                health: prev.A8.health - 15,
+                
+            },
+        }));
+        }
+
+        if (stateSkillsSoldiersWasteland.stateSkillsAngalit === true) {
+            setStateSkillsSoldiersWasteland(prev => ({...prev, stateAngalitQuantitySkills : false}));
+            setStateSkillsSoldiersWasteland(prev => ({...prev, showStateSkillsAngalit: false}));
         }
         
     }
@@ -2677,19 +4453,22 @@ function handleCounterattack() {
         if (stateSkillsSoldiersWasteland.stateSkillsMaces === true) {
             setStateSkillsSoldiersWasteland(prev => ({...prev, showStateSkillsMaces: true}));
         }
+        if (stateSkillsSoldiersWasteland.stateSkillsAngalit === true) {
+            setStateSkillsSoldiersWasteland(prev => ({...prev, showStateSkillsAngalit: true}));
+        }
         if (stateSkillsHero.poultice !== 0){
             setStateSkillsHero(prev => ({...prev, showPoultice: true}))
         }
     };
 
     useEffect(() => {
-        if(occupiedCellOpponent.A1.health + occupiedCellOpponent.A2.health + occupiedCellOpponent.A3.health + occupiedCellOpponent.A4.health + occupiedCellOpponent.A5.health + occupiedCellOpponent.A6.health <= 140 && showStoryMessages.countForMessage === 0) {
+        if(occupiedCellOpponent.A1.health + occupiedCellOpponent.A2.health + occupiedCellOpponent.A3.health + occupiedCellOpponent.A4.health + occupiedCellOpponent.A5.health + occupiedCellOpponent.A6.health + occupiedCellOpponent.A7.health + occupiedCellOpponent.A8.health <= 280 && showStoryMessages.countForMessage === 0) {
             setShowStoryMessages((prev: any) => ({...prev, halfHealth: true}));
         }
         }, [occupiedCellOpponent, showStoryMessages.countForMessage]);
 
     useEffect(() => {
-        if(occupiedCellOpponent.A1.health + occupiedCellOpponent.A2.health + occupiedCellOpponent.A3.health + occupiedCellOpponent.A4.health + occupiedCellOpponent.A5.health + occupiedCellOpponent.A6.health <= 0 && showStoryMessages.countForMessage === 1) {
+        if(occupiedCellOpponent.A1.health + occupiedCellOpponent.A2.health + occupiedCellOpponent.A3.health + occupiedCellOpponent.A4.health + occupiedCellOpponent.A5.health + occupiedCellOpponent.A6.health + occupiedCellOpponent.A7.health + occupiedCellOpponent.A8.health <= 0 && showStoryMessages.countForMessage === 1) {
             setShowStoryMessages((prev: any) => ({...prev, outro: true}));
         }
         }, [occupiedCellOpponent, showStoryMessages.countForMessage]);
@@ -2716,7 +4495,7 @@ function handleCounterattack() {
 
             {showStoryMessages.halfHealth && <MessageHalfHealthLvl3 setShowStoryMessages={setShowStoryMessages}/>}
 
-            {showStoryMessages.outro && <OutroWastelandGameLvl3 setShowStoryMessages={setShowStoryMessages} resources={resources}/>}
+            {showStoryMessages.outro && <OutroWastelandGameLvl3 setShowStoryMessages={setShowStoryMessages} resources={resources} setResources={setResources}/>}
 
             {showStoryMessages.lose && <LoseMessage/>}
 
@@ -2728,6 +4507,8 @@ function handleCounterattack() {
                 ? classes.cardWastelandJavelin
                 : occupiedCell.C1.classWastlelandSoldier === 3 
                 ? classes.cardWastelandMaces 
+                : occupiedCell.C1.classWastlelandSoldier === 4 
+                ? classes.cardWastelandAngalit 
                 : classes.card
                 }>
                     <img className={classes.imageCard} src={occupiedCell.C1.classWastlelandSoldier === 1 
@@ -2736,6 +4517,8 @@ function handleCounterattack() {
                     ? CardAngalJavelin 
                     : occupiedCell.C1.classWastlelandSoldier === 3 
                     ? CardAngalMaces
+                    : occupiedCell.C1.classWastlelandSoldier === 4 
+                    ? CardAngalAngalit
                     : Card} alt="Card" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCell.C1.health}></progress>
                     <p>{occupiedCell.C1.name}</p>
@@ -2749,6 +4532,8 @@ function handleCounterattack() {
                 ? classes.cardWastelandJavelin 
                 : occupiedCell.C2.classWastlelandSoldier === 3 
                 ? classes.cardWastelandMaces 
+                : occupiedCell.C2.classWastlelandSoldier === 4 
+                ? classes.cardWastelandAngalit
                 : classes.card}>
                     <img className={classes.imageCard} src={occupiedCell.C2.classWastlelandSoldier === 1 
                     ? CardAngalHunter
@@ -2756,6 +4541,8 @@ function handleCounterattack() {
                     ? CardAngalJavelin
                     : occupiedCell.C2.classWastlelandSoldier === 3 
                     ? CardAngalMaces
+                    : occupiedCell.C2.classWastlelandSoldier === 4 
+                    ? CardAngalAngalit
                     : Card} alt="Card" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCell.C2.health}></progress>
                     <p>{occupiedCell.C2.name}</p>
@@ -2769,6 +4556,8 @@ function handleCounterattack() {
                 ? classes.cardWastelandJavelin 
                 : occupiedCell.C3.classWastlelandSoldier === 3 
                 ? classes.cardWastelandMaces 
+                : occupiedCell.C3.classWastlelandSoldier === 4 
+                ? classes.cardWastelandAngalit
                 : classes.card}>
                     <img className={classes.imageCard} src={occupiedCell.C3.classWastlelandSoldier === 1 
                     ? CardAngalHunter
@@ -2776,6 +4565,8 @@ function handleCounterattack() {
                     ? CardAngalJavelin
                     : occupiedCell.C3.classWastlelandSoldier === 3 
                     ? CardAngalMaces
+                    : occupiedCell.C3.classWastlelandSoldier === 4 
+                    ? CardAngalAngalit
                     : Card} alt="Card" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCell.C3.health}></progress>
                     <p>{occupiedCell.C3.name}</p>
@@ -2789,6 +4580,8 @@ function handleCounterattack() {
                 ? classes.cardWastelandJavelin 
                 : occupiedCell.C4.classWastlelandSoldier === 3 
                 ? classes.cardWastelandMaces 
+                : occupiedCell.C4.classWastlelandSoldier === 4 
+                ? classes.cardWastelandAngalit
                 : classes.card}>
                     <img className={classes.imageCard} src={occupiedCell.C4.classWastlelandSoldier === 1 
                     ? CardAngalHunter
@@ -2796,6 +4589,8 @@ function handleCounterattack() {
                     ? CardAngalJavelin
                     : occupiedCell.C4.classWastlelandSoldier === 3 
                     ? CardAngalMaces
+                    : occupiedCell.C4.classWastlelandSoldier === 4 
+                    ? CardAngalAngalit
                     : Card} alt="Card" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCell.C4.health}></progress>
                     <p>{occupiedCell.C4.name}</p>
@@ -2809,6 +4604,8 @@ function handleCounterattack() {
                 ? classes.cardWastelandJavelin 
                 : occupiedCell.D1.classWastlelandSoldier === 3 
                 ? classes.cardWastelandMaces 
+                : occupiedCell.D1.classWastlelandSoldier === 4 
+                ? classes.cardWastelandAngalit
                 : classes.card}>
                     <img className={classes.imageCard} src={occupiedCell.D1.classWastlelandSoldier === 1 
                     ? CardAngalHunter
@@ -2816,6 +4613,8 @@ function handleCounterattack() {
                     ? CardAngalJavelin
                     : occupiedCell.D1.classWastlelandSoldier === 3 
                     ? CardAngalMaces
+                    : occupiedCell.D1.classWastlelandSoldier === 4 
+                    ? CardAngalAngalit
                     : Card} alt="Card" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCell.D1.health}></progress>
                     <p>{occupiedCell.D1.name}</p>
@@ -2829,6 +4628,8 @@ function handleCounterattack() {
                 ? classes.cardWastelandJavelin 
                 : occupiedCell.D2.classWastlelandSoldier === 3 
                 ? classes.cardWastelandMaces 
+                : occupiedCell.D2.classWastlelandSoldier === 4 
+                ? classes.cardWastelandAngalit
                 : classes.card}>
                     <img className={classes.imageCard} src={occupiedCell.D2.classWastlelandSoldier === 1 
                     ? CardAngalHunter
@@ -2836,6 +4637,8 @@ function handleCounterattack() {
                     ? CardAngalJavelin
                     : occupiedCell.D2.classWastlelandSoldier === 3 
                     ? CardAngalMaces
+                    : occupiedCell.D2.classWastlelandSoldier === 4 
+                    ? CardAngalAngalit
                     : Card} alt="Card" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCell.D2.health}></progress>
                     <p>{occupiedCell.D2.name}</p>
@@ -2849,6 +4652,8 @@ function handleCounterattack() {
                 ? classes.cardWastelandJavelin 
                 : occupiedCell.D3.classWastlelandSoldier === 3 
                 ? classes.cardWastelandMaces 
+                : occupiedCell.D3.classWastlelandSoldier === 4 
+                ? classes.cardWastelandAngalit
                 : classes.card}>
                     <img className={classes.imageCard} src={occupiedCell.D3.classWastlelandSoldier === 1 
                     ? CardAngalHunter
@@ -2856,6 +4661,8 @@ function handleCounterattack() {
                     ? CardAngalJavelin
                     : occupiedCell.D3.classWastlelandSoldier === 3 
                     ? CardAngalMaces
+                    : occupiedCell.D3.classWastlelandSoldier === 4 
+                    ? CardAngalAngalit
                     : Card} alt="Card" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCell.D3.health}></progress>
                     <p>{occupiedCell.D3.name}</p>
@@ -2869,6 +4676,8 @@ function handleCounterattack() {
                 ? classes.cardWastelandJavelin 
                 : occupiedCell.D4.classWastlelandSoldier === 3 
                 ? classes.cardWastelandMaces 
+                : occupiedCell.D4.classWastlelandSoldier === 4 
+                ? classes.cardWastelandAngalit
                 : classes.card}>
                     <img className={classes.imageCard} src={occupiedCell.D4.classWastlelandSoldier === 1 
                     ? CardAngalHunter
@@ -2876,6 +4685,8 @@ function handleCounterattack() {
                     ? CardAngalJavelin
                     : occupiedCell.D4.classWastlelandSoldier === 3 
                     ? CardAngalMaces
+                    : occupiedCell.D4.classWastlelandSoldier === 4 
+                    ? CardAngalAngalit
                     : Card} alt="Card" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCell.D4.health}></progress>
                     <p>{occupiedCell.D4.name}</p>
@@ -2883,8 +4694,8 @@ function handleCounterattack() {
                     <p>Defense: {occupiedCell.D4.defense}:</p>
                 </div>}
 
-                {occupiedCellOpponent.A1.showCard && <div className={classes.cardWestEmpireArcher}>
-                    <img className={classes.imageCard} src={WestArcher} alt="WestArcher" draggable="false"/>
+                {occupiedCellOpponent.A1.showCard && <div className={classes.cardEastEmpireArcher}>
+                    <img className={classes.imageCard} src={EastArcher} alt="EastArcher" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCellOpponent.A1.health}></progress>
                     <p>{occupiedCellOpponent.A1.name}</p>
                     <p>Attack:  {occupiedCellOpponent.A1.attack}</p>
@@ -2907,8 +4718,8 @@ function handleCounterattack() {
                     <p>Defense: {occupiedCellOpponent.A3.defense}:</p>
                 </div>}
 
-                {occupiedCellOpponent.A4.showCard && <div className={classes.cardWestEmpireArcher}>
-                    <img className={classes.imageCard} src={WestArcher} alt="WestArcher" draggable="false"/>
+                {occupiedCellOpponent.A4.showCard && <div className={classes.cardEastEmpireArcher}>
+                    <img className={classes.imageCard} src={EastArcher} alt="EastArcher" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCellOpponent.A4.health}></progress>
                     <p>{occupiedCellOpponent.A4.name}</p>
                     <p>Attack:  {occupiedCellOpponent.A4.attack}</p>
@@ -2931,6 +4742,22 @@ function handleCounterattack() {
                     <p>Defense: {occupiedCellOpponent.A6.defense}:</p>
                 </div>}
 
+                {occupiedCellOpponent.A7.showCard && <div className={classes.cardWestEmpireSwordsman}>
+                    <img className={classes.imageCard} src={WestSwordsman} alt="WestSwordsman" draggable="false"/>
+                    <progress className={classes.healthScaleWasteland} max="100" value={occupiedCellOpponent.A7.health}></progress>
+                    <p>{occupiedCellOpponent.A7.name}</p>
+                    <p>Attack:  {occupiedCellOpponent.A7.attack}</p>
+                    <p>Defense: {occupiedCellOpponent.A7.defense}:</p>
+                </div>}
+
+                {occupiedCellOpponent.A8.showCard && <div className={classes.cardWestEmpireSwordsman}>
+                    <img className={classes.imageCard} src={WestSwordsman} alt="WestSwordsman" draggable="false"/>
+                    <progress className={classes.healthScaleWasteland} max="100" value={occupiedCellOpponent.A8.health}></progress>
+                    <p>{occupiedCellOpponent.A8.name}</p>
+                    <p>Attack:  {occupiedCellOpponent.A8.attack}</p>
+                    <p>Defense: {occupiedCellOpponent.A8.defense}:</p>
+                </div>}
+
             </div>
 
                 {showShop && <div className={classes.shop}>
@@ -2944,6 +4771,9 @@ function handleCounterattack() {
                     <button className={classes.macesBuy} onClick={handleBuyMaces} disabled={resources <= 0 || stateButtonsSkills === true}><p className={classes.titleBuyUnit}>Ангальские булавоносцы: {reserve.wastelandMaces}</p></button>
                     {resources} resurs
                     
+                    <button className={classes.angalitBuy} onClick={handleBuyAngalit} disabled={resources <= 0 || stateButtonsSkills === true}><p className={classes.titleBuyUnit}>Ангальские ангалиты: {reserve.wastelandAngalit}</p></button>
+                    {resources} resurs
+
                     <button className={classes.poulticeBuy} onClick={handleBuyPoultice} disabled={resources <= 0 || stateButtonsSkills === true}><p className={classes.titleBuyUnit}>Припарки: {stateSkillsHero.poultice}</p></button>
                     {resources} resurs 
 
@@ -2956,7 +4786,8 @@ function handleCounterattack() {
                 {buttonStateGame.stateStartButton && <button className={classes.buttonStartGame} onClick={handleStartGame}>Старт</button>}
                 {buttonStateGame.stateOverallButton && <button className={classes.angalsButtonSkillsHunters} onClick={handleRequestForHunterReserves} disabled={stateStyleSoldier === 2 || stateStyleSoldier === 3 || stateStyleSoldier === 4 ||  stateButtonSoldiers.wastelandButtonHunter === true || reserve.wastelandHunter === 0}>Охотники: {reserve.wastelandHunter}</button>} 
                 {buttonStateGame.stateOverallButton && <button className={classes.angalsButtonSkillsJavelin} onClick={handleRequestForJavelinReserves} disabled={stateStyleSoldier === 1 || stateStyleSoldier === 3 || stateStyleSoldier === 4 || stateButtonSoldiers.wastelandButtonJavelin === true || reserve.wastelandJavelin === 0}>Метатели: {reserve.wastelandJavelin}</button>}
-                {buttonStateGame.stateOverallButton && <button className={classes.angalsButtonSkillsMaces} onClick={handleRequestForMacesReserves} disabled={stateStyleSoldier === 1 || stateStyleSoldier === 3 || stateStyleSoldier === 4 || stateButtonSoldiers.wastelandButtonMaces === true || reserve.wastelandMaces === 0}>Булавоносцы: {reserve.wastelandMaces}</button>}
+                {buttonStateGame.stateOverallButton && <button className={classes.angalsButtonSkillsMaces} onClick={handleRequestForMacesReserves} disabled={stateStyleSoldier === 1 || stateStyleSoldier === 2 || stateStyleSoldier === 4 || stateButtonSoldiers.wastelandButtonMaces === true || reserve.wastelandMaces === 0}>Булавоносцы: {reserve.wastelandMaces}</button>}
+                {buttonStateGame.stateOverallButton && <button className={classes.angalsButtonSkillsAngalit} onClick={handleRequestForAngalitReserves} disabled={stateStyleSoldier === 1 || stateStyleSoldier === 2 || stateStyleSoldier === 3 || stateButtonSoldiers.wastelandButtonAngalit === true || reserve.wastelandAngalit === 0}>Ангалиты: {reserve.wastelandAngalit}</button>}
                
                 {showSkillsSoldierWasteland && <div className={classes.skillSoldiersWasteland}>
 
@@ -2970,6 +4801,8 @@ function handleCounterattack() {
 
                     {stateSkillsSoldiersWasteland.showStateSkillsMaces && <button className={classes.buttonSkillMaces} onClick={handleSkillMaces} title="Дробящий удар Булавоносца">Удар</button>}
                     
+                    {stateSkillsSoldiersWasteland.showStateSkillsAngalit && <button className={classes.buttonSkillAngalit} onClick={handleSkillAngalit} title="Безумное нападение Ангалита">Безумие</button>}
+
                 </div>}
             </div>
 
@@ -2978,7 +4811,7 @@ function handleCounterattack() {
                 <div className={classes.blockFlex1}>
 
                     <div className={classes.cellA1}>
-                        <button className={attackQueue === 1 ? classes.unitEmpireWestArcherChoice : occupiedCellOpponent.A1.health <= 0 ? classes.unitEmpireDeath : classes.unitEmpireWestArcher} id={"A1"} onClick={() => {handleAttack("A1")}} 
+                        <button className={attackQueue === 1 ? classes.unitEmpireEastArcherChoice : occupiedCellOpponent.A1.health <= 0 ? classes.unitEmpireDeath : classes.unitEmpireEastArcher} id={"A1"} onClick={() => {handleAttack("A1")}} 
                             onMouseEnter={() => setOccupiedCellOpponent(prev => ({...prev, A1: {...prev.A1, showCard: true}}))}
                             onMouseLeave={() => setOccupiedCellOpponent(prev => ({...prev, A1: {...prev.A1,showCard: false}}))} 
                             disabled={stateButtonsSkills === true || occupiedCellOpponent.A1.health <= 0 || buttonStateGame.stateAttackButton === false || buttonStateGame.stateFixStartButton === false}>
@@ -3005,7 +4838,7 @@ function handleCounterattack() {
                     </div>
 
                     <div className={classes.cellA4}>
-                        <button className={attackQueue === 4 ? classes.unitEmpireWestArcherChoice : occupiedCellOpponent.A4.health <= 0 ? classes.unitEmpireDeath : classes.unitEmpireWestArcher} id={"A4"} onClick={() => {handleAttack("A4")}} 
+                        <button className={attackQueue === 4 ? classes.unitEmpireEastArcherChoice : occupiedCellOpponent.A4.health <= 0 ? classes.unitEmpireDeath : classes.unitEmpireEastArcher} id={"A4"} onClick={() => {handleAttack("A4")}} 
                             onMouseEnter={() => setOccupiedCellOpponent(prev => ({...prev, A4: {...prev.A4, showCard: true}}))}
                             onMouseLeave={() => setOccupiedCellOpponent(prev => ({...prev, A4: {...prev.A4,showCard: false}}))} 
                             disabled={stateButtonsSkills === true || occupiedCellOpponent.A4.health <= 0 || buttonStateGame.stateAttackButton === false || buttonStateGame.stateFixStartButton === false}>
@@ -3013,7 +4846,7 @@ function handleCounterattack() {
                         </button>
                     </div>
 
-                    <div className={classes.cellA6}>
+                    <div className={classes.cellA5}>
                         <button className={attackQueue === 5 ? classes.unitEmpireWestSwordsmanChoice : occupiedCellOpponent.A5.health <= 0 ? classes.unitEmpireDeath : classes.unitEmpireWestSwordsman} id={"A5"} onClick={() => {handleAttack("A5")}} 
                             onMouseEnter={() => setOccupiedCellOpponent(prev => ({...prev, A5: {...prev.A5, showCard: true}}))}
                             onMouseLeave={() => setOccupiedCellOpponent(prev => ({...prev, A5: {...prev.A5,showCard: false}}))} 
@@ -3022,12 +4855,30 @@ function handleCounterattack() {
                         </button>{occupiedCellOpponent.A5.health}
                     </div>
                     
-                    <div className={classes.cellA7}>
+                    <div className={classes.cellA6}>
                         <button className={attackQueue === 6 ? classes.unitEmpireWestSwordsmanChoice : occupiedCellOpponent.A6.health <= 0 ? classes.unitEmpireDeath : classes.unitEmpireWestSwordsman} id={"A6"} onClick={() => {handleAttack("A6")}} 
                             onMouseEnter={() => setOccupiedCellOpponent(prev => ({...prev, A6: {...prev.A6, showCard: true}}))}
                             onMouseLeave={() => setOccupiedCellOpponent(prev => ({...prev, A6: {...prev.A6,showCard: false}}))} 
                             disabled={stateButtonsSkills === true || occupiedCellOpponent.A6.health <= 0 || buttonStateGame.stateAttackButton === false || buttonStateGame.stateFixStartButton === false}>
                         <progress className={classes.healthScaleImpireUnit} value={occupiedCellOpponent.A6.health} max="100"></progress>
+                        </button>
+                    </div>
+
+                    <div className={classes.cellA7}>
+                        <button className={attackQueue === 7 ? classes.unitEmpireWestSwordsmanChoice : occupiedCellOpponent.A7.health <= 0 ? classes.unitEmpireDeath : classes.unitEmpireWestSwordsman} id={"A7"} onClick={() => {handleAttack("A7")}} 
+                            onMouseEnter={() => setOccupiedCellOpponent(prev => ({...prev, A7: {...prev.A7, showCard: true}}))}
+                            onMouseLeave={() => setOccupiedCellOpponent(prev => ({...prev, A7: {...prev.A7,showCard: false}}))} 
+                            disabled={stateButtonsSkills === true || occupiedCellOpponent.A7.health <= 0 || buttonStateGame.stateAttackButton === false || buttonStateGame.stateFixStartButton === false}>
+                        <progress className={classes.healthScaleImpireUnit} value={occupiedCellOpponent.A7.health} max="100"></progress>
+                        </button>
+                    </div>
+
+                    <div className={classes.cellA8}>
+                        <button className={attackQueue === 8 ? classes.unitEmpireWestSwordsmanChoice : occupiedCellOpponent.A8.health <= 0 ? classes.unitEmpireDeath : classes.unitEmpireWestSwordsman} id={"A8"} onClick={() => {handleAttack("A8")}} 
+                            onMouseEnter={() => setOccupiedCellOpponent(prev => ({...prev, A8: {...prev.A8, showCard: true}}))}
+                            onMouseLeave={() => setOccupiedCellOpponent(prev => ({...prev, A8: {...prev.A8,showCard: false}}))} 
+                            disabled={stateButtonsSkills === true || occupiedCellOpponent.A8.health <= 0 || buttonStateGame.stateAttackButton === false || buttonStateGame.stateFixStartButton === false}>
+                        <progress className={classes.healthScaleImpireUnit} value={occupiedCellOpponent.A8.health} max="100"></progress>
                         </button>
                     </div>
 
@@ -3040,6 +4891,7 @@ function handleCounterattack() {
                             className={occupiedCell.C1.name === "Охотники" && occupiedCell.C1.health !== 0 ? classes.unitWastelandHunter 
                                 : occupiedCell.C1.name === "Метатели" && occupiedCell.C1.health !== 0 ? classes.unitWastelandJavelin 
                                 : occupiedCell.C1.name === "Булавоносцы" && occupiedCell.C1.health !== 0 ? classes.unitWastelandMaces 
+                                : occupiedCell.C1.name === "Ангалиты" && occupiedCell.C1.health !== 0 ? classes.unitWastelandAngalit 
                                 : occupiedCell.C1.occupied === true && occupiedCell.C1.health === 0 ? classes.unitWastelandDeath : classes.cell} 
                             id={"C1"} 
                             onClick={() => handleTroopDeployment("C1")} 
@@ -3052,6 +4904,7 @@ function handleCounterattack() {
                             className={occupiedCell.C2.name === "Охотники" && occupiedCell.C2.health !== 0 ? classes.unitWastelandHunter 
                                 : occupiedCell.C2.name === "Метатели" && occupiedCell.C2.health !== 0 ? classes.unitWastelandJavelin 
                                 : occupiedCell.C2.name === "Булавоносцы" && occupiedCell.C2.health !== 0 ? classes.unitWastelandMaces 
+                                : occupiedCell.C2.name === "Ангалиты" && occupiedCell.C2.health !== 0 ? classes.unitWastelandAngalit 
                                 : occupiedCell.C2.occupied === true && occupiedCell.C2.health === 0 ? classes.unitWastelandDeath : classes.cell}
                             id={"C2"} 
                             onClick={() => handleTroopDeployment("C2")} 
@@ -3064,6 +4917,7 @@ function handleCounterattack() {
                             className={occupiedCell.C3.name === "Охотники" && occupiedCell.C3.health !== 0 ? classes.unitWastelandHunter 
                                 : occupiedCell.C3.name === "Метатели" && occupiedCell.C3.health !== 0 ? classes.unitWastelandJavelin 
                                 : occupiedCell.C3.name === "Булавоносцы" && occupiedCell.C3.health !== 0 ? classes.unitWastelandMaces 
+                                : occupiedCell.C3.name === "Ангалиты" && occupiedCell.C3.health !== 0 ? classes.unitWastelandAngalit 
                                 : occupiedCell.C3.occupied === true && occupiedCell.C3.health === 0 ? classes.unitWastelandDeath : classes.cell}
                             id={"C3"} 
                             onClick={() => handleTroopDeployment("C3")} 
@@ -3076,6 +4930,7 @@ function handleCounterattack() {
                             className={occupiedCell.C4.name === "Охотники" && occupiedCell.C4.health !== 0 ? classes.unitWastelandHunter 
                                 : occupiedCell.C4.name === "Метатели" && occupiedCell.C4.health !== 0 ? classes.unitWastelandJavelin 
                                 : occupiedCell.C4.name === "Булавоносцы" && occupiedCell.C4.health !== 0 ? classes.unitWastelandMaces 
+                                : occupiedCell.C4.name === "Ангалиты" && occupiedCell.C4.health !== 0 ? classes.unitWastelandAngalit 
                                 : occupiedCell.C4.occupied === true && occupiedCell.C4.health === 0 ? classes.unitWastelandDeath : classes.cell}
                             id={"C4"} 
                             onClick={() => handleTroopDeployment("C4")} 
@@ -3095,6 +4950,8 @@ function handleCounterattack() {
                                 : occupiedCell.C1.name === "Метатели" && occupiedCell.C1.health !== 0 ? classes.unitWastelandJavelin 
                                 : occupiedCell.C1.name === "Булавоносцы" && occupiedCell.C1.health !== 0 && occupiedCell.C1.choice === true ? classes.unitWastelandMacesChoice 
                                 : occupiedCell.C1.name === "Булавоносцы" && occupiedCell.C1.health !== 0 ? classes.unitWastelandMaces 
+                                : occupiedCell.C1.name === "Ангалиты" && occupiedCell.C1.health !== 0 && occupiedCell.C1.choice === true ? classes.unitWastelandAngalitChoice 
+                                : occupiedCell.C1.name === "Ангалиты" && occupiedCell.C1.health !== 0 ? classes.unitWastelandAngalit 
                                 : occupiedCell.C1.occupied === true && occupiedCell.C1.health === 0 ? classes.unitWastelandDeath : classes.emptyСell}
                             id={"C1"} 
                             onClick={() => {handleChoiceCellAttack("C1")}} 
@@ -3111,6 +4968,8 @@ function handleCounterattack() {
                                 : occupiedCell.C2.name === "Метатели" && occupiedCell.C2.health !== 0 ? classes.unitWastelandJavelin 
                                 : occupiedCell.C2.name === "Булавоносцы" && occupiedCell.C2.health !== 0 && occupiedCell.C2.choice === true ? classes.unitWastelandMacesChoice 
                                 : occupiedCell.C2.name === "Булавоносцы" && occupiedCell.C2.health !== 0 ? classes.unitWastelandMaces 
+                                : occupiedCell.C2.name === "Ангалиты" && occupiedCell.C2.health !== 0 && occupiedCell.C2.choice === true ? classes.unitWastelandAngalitChoice 
+                                : occupiedCell.C2.name === "Ангалиты" && occupiedCell.C2.health !== 0 ? classes.unitWastelandAngalit 
                                 : occupiedCell.C2.occupied === true && occupiedCell.C2.health === 0 ? classes.unitWastelandDeath : classes.emptyСell}
                             id={"C2"} 
                             onClick={() => {handleChoiceCellAttack("C2")}} 
@@ -3127,6 +4986,8 @@ function handleCounterattack() {
                                 : occupiedCell.C3.name === "Метатели" && occupiedCell.C3.health !== 0 ? classes.unitWastelandJavelin 
                                 : occupiedCell.C3.name === "Булавоносцы" && occupiedCell.C3.health !== 0 && occupiedCell.C3.choice === true ? classes.unitWastelandMacesChoice 
                                 : occupiedCell.C3.name === "Булавоносцы" && occupiedCell.C3.health !== 0 ? classes.unitWastelandMaces 
+                                : occupiedCell.C3.name === "Ангалиты" && occupiedCell.C3.health !== 0 && occupiedCell.C3.choice === true ? classes.unitWastelandAngalitChoice 
+                                : occupiedCell.C3.name === "Ангалиты" && occupiedCell.C3.health !== 0 ? classes.unitWastelandAngalit 
                                 : occupiedCell.C3.occupied === true && occupiedCell.C3.health === 0 ? classes.unitWastelandDeath : classes.emptyСell}
                             id={"C3"} 
                             onClick={() => {handleChoiceCellAttack("C3")}} 
@@ -3143,6 +5004,8 @@ function handleCounterattack() {
                                 : occupiedCell.C4.name === "Метатели" && occupiedCell.C4.health !== 0 ? classes.unitWastelandJavelin 
                                 : occupiedCell.C4.name === "Булавоносцы" && occupiedCell.C4.health !== 0 && occupiedCell.C4.choice === true ? classes.unitWastelandMacesChoice 
                                 : occupiedCell.C4.name === "Булавоносцы" && occupiedCell.C4.health !== 0 ? classes.unitWastelandMaces 
+                                : occupiedCell.C4.name === "Ангалиты" && occupiedCell.C4.health !== 0 && occupiedCell.C4.choice === true ? classes.unitWastelandAngalitChoice 
+                                : occupiedCell.C4.name === "Ангалиты" && occupiedCell.C4.health !== 0 ? classes.unitWastelandAngalit 
                                 : occupiedCell.C4.occupied === true && occupiedCell.C4.health === 0 ? classes.unitWastelandDeath : classes.emptyСell}
                             id={"C4"} 
                             onClick={() => {handleChoiceCellAttack("C4")}} 
@@ -3160,6 +5023,7 @@ function handleCounterattack() {
                             className={occupiedCell.D1.name === "Охотники" && occupiedCell.D1.health !== 0 ? classes.unitWastelandHunter 
                                 : occupiedCell.D1.name === "Метатели" && occupiedCell.D1.health !== 0 ? classes.unitWastelandJavelin 
                                 : occupiedCell.D1.name === "Булавоносцы" && occupiedCell.D1.health !== 0 ? classes.unitWastelandMaces 
+                                : occupiedCell.D1.name === "Ангалиты" && occupiedCell.D1.health !== 0 ? classes.unitWastelandAngalit 
                                 : occupiedCell.D1.occupied === true && occupiedCell.D1.health === 0 ? classes.unitWastelandDeath : classes.cell}
                             id={"D1"} 
                             onClick={() => handleTroopDeployment("D1")} 
@@ -3172,6 +5036,7 @@ function handleCounterattack() {
                             className={occupiedCell.D2.name === "Охотники" && occupiedCell.D2.health !== 0 ? classes.unitWastelandHunter 
                                 : occupiedCell.D2.name === "Метатели" && occupiedCell.D2.health !== 0 ? classes.unitWastelandJavelin 
                                 : occupiedCell.D2.name === "Булавоносцы" && occupiedCell.D2.health !== 0 ? classes.unitWastelandMaces 
+                                : occupiedCell.D2.name === "Ангалиты" && occupiedCell.D2.health !== 0 ? classes.unitWastelandAngalit 
                                 : occupiedCell.D2.occupied === true && occupiedCell.D2.health === 0 ? classes.unitWastelandDeath : classes.cell}
                             id={"D2"} 
                             onClick={() => handleTroopDeployment("D2")} 
@@ -3184,6 +5049,7 @@ function handleCounterattack() {
                             className={occupiedCell.D3.name === "Охотники" && occupiedCell.D3.health !== 0 ? classes.unitWastelandHunter 
                                 : occupiedCell.D3.name === "Метатели" && occupiedCell.D3.health !== 0 ? classes.unitWastelandJavelin 
                                 : occupiedCell.D3.name === "Булавоносцы" && occupiedCell.D3.health !== 0 ? classes.unitWastelandMaces 
+                                : occupiedCell.D3.name === "Ангалиты" && occupiedCell.D3.health !== 0 ? classes.unitWastelandAngalit 
                                 : occupiedCell.D3.occupied === true && occupiedCell.D3.health === 0 ? classes.unitWastelandDeath : classes.cell}
                             id={"D3"} 
                             onClick={() => handleTroopDeployment("D3")} 
@@ -3196,6 +5062,7 @@ function handleCounterattack() {
                             className={occupiedCell.D4.name === "Охотники" && occupiedCell.D4.health !== 0 ? classes.unitWastelandHunter 
                                 : occupiedCell.D4.name === "Метатели" && occupiedCell.D4.health !== 0 ? classes.unitWastelandJavelin 
                                 : occupiedCell.D4.name === "Булавоносцы" && occupiedCell.D4.health !== 0 ? classes.unitWastelandMaces 
+                                : occupiedCell.D4.name === "Ангалиты" && occupiedCell.D4.health !== 0 ? classes.unitWastelandAngalit 
                                 : occupiedCell.D4.occupied === true && occupiedCell.D4.health === 0 ? classes.unitWastelandDeath : classes.cell}
                             id={"D4"} 
                             onClick={() => handleTroopDeployment("D4")} 
@@ -3215,6 +5082,8 @@ function handleCounterattack() {
                                 : occupiedCell.D1.name === "Метатели" && occupiedCell.D1.health !== 0 ? classes.unitWastelandJavelin 
                                 : occupiedCell.D1.name === "Булавоносцы" && occupiedCell.D1.health !== 0 && occupiedCell.D1.choice === true ? classes.unitWastelandMacesChoice 
                                 : occupiedCell.D1.name === "Булавоносцы" && occupiedCell.D1.health !== 0 ? classes.unitWastelandMaces 
+                                : occupiedCell.D1.name === "Ангалиты" && occupiedCell.D1.health !== 0 && occupiedCell.D1.choice === true ? classes.unitWastelandAngalitChoice 
+                                : occupiedCell.D1.name === "Ангалиты" && occupiedCell.D1.health !== 0 ? classes.unitWastelandAngalit 
                                 : occupiedCell.D1.occupied === true && occupiedCell.D1.health === 0 ? classes.unitWastelandDeath : classes.emptyСell}
                             id={"D1"} 
                             onClick={() => {handleChoiceCellAttack("D1")}} 
@@ -3231,6 +5100,8 @@ function handleCounterattack() {
                                 : occupiedCell.D2.name === "Метатели" && occupiedCell.D2.health !== 0 ? classes.unitWastelandJavelin 
                                 : occupiedCell.D2.name === "Булавоносцы" && occupiedCell.D2.health !== 0 && occupiedCell.D2.choice === true ? classes.unitWastelandMacesChoice 
                                 : occupiedCell.D2.name === "Булавоносцы" && occupiedCell.D2.health !== 0 ? classes.unitWastelandMaces 
+                                : occupiedCell.D2.name === "Ангалиты" && occupiedCell.D2.health !== 0 && occupiedCell.D2.choice === true ? classes.unitWastelandAngalitChoice 
+                                : occupiedCell.D2.name === "Ангалиты" && occupiedCell.D2.health !== 0 ? classes.unitWastelandAngalit 
                                 : occupiedCell.D2.occupied === true && occupiedCell.D2.health === 0 ? classes.unitWastelandDeath : classes.emptyСell}
                             id={"D2"} 
                             onClick={() => {handleChoiceCellAttack("D2")}} 
@@ -3247,6 +5118,8 @@ function handleCounterattack() {
                                 : occupiedCell.D3.name === "Метатели" && occupiedCell.D3.health !== 0 ? classes.unitWastelandJavelin 
                                 : occupiedCell.D3.name === "Булавоносцы" && occupiedCell.D3.health !== 0 && occupiedCell.D3.choice === true ? classes.unitWastelandMacesChoice 
                                 : occupiedCell.D3.name === "Булавоносцы" && occupiedCell.D3.health !== 0 ? classes.unitWastelandMaces 
+                                : occupiedCell.D3.name === "Ангалиты" && occupiedCell.D3.health !== 0 && occupiedCell.D3.choice === true ? classes.unitWastelandAngalitChoice 
+                                : occupiedCell.D3.name === "Ангалиты" && occupiedCell.D3.health !== 0 ? classes.unitWastelandAngalit 
                                 : occupiedCell.D3.occupied === true && occupiedCell.D3.health === 0 ? classes.unitWastelandDeath : classes.emptyСell}
                             id={"D3"} 
                             onClick={() => {handleChoiceCellAttack("D3")}} 
@@ -3263,6 +5136,8 @@ function handleCounterattack() {
                                 : occupiedCell.D4.name === "Метатели" && occupiedCell.D4.health !== 0 ? classes.unitWastelandJavelin 
                                 : occupiedCell.D4.name === "Булавоносцы" && occupiedCell.D4.health !== 0 && occupiedCell.D4.choice === true ? classes.unitWastelandMacesChoice 
                                 : occupiedCell.D4.name === "Булавоносцы" && occupiedCell.D4.health !== 0 ? classes.unitWastelandMaces 
+                                : occupiedCell.D4.name === "Ангалиты" && occupiedCell.D4.health !== 0 && occupiedCell.D4.choice === true ? classes.unitWastelandAngalitChoice 
+                                : occupiedCell.D4.name === "Ангалиты" && occupiedCell.D4.health !== 0 ? classes.unitWastelandAngalit 
                                 : occupiedCell.D4.occupied === true && occupiedCell.D4.health === 0 ? classes.unitWastelandDeath : classes.emptyСell}
                             id={"D4"} 
                             onClick={() => {handleChoiceCellAttack("D4")}} 
