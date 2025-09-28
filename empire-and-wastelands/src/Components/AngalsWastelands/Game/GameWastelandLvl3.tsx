@@ -45,9 +45,7 @@ export const GameWastelandLvl3 = () => {
         countForMessage: 0,
         lose: false,
     });
-    const [stateSkillsHero, setStateSkillsHero] = useState({
-        duty: 0,
-        call: 0,    
+    const [stateSkillsHero, setStateSkillsHero] = useState({   
         poultice: 0,
         showDuty: false,
         showCall: false,
@@ -4091,6 +4089,55 @@ function handleCounterattack() {
         
     }
 
+    function handleSkillHeroCall() {
+        setOccupiedCell(prev => ({
+            ...prev,
+            C1: {
+                ...prev.C1,
+                attack: prev.C1.attack + 1,
+                
+            },
+            C2: {
+                ...prev.C2,
+                attack: prev.C2.attack + 1,
+                
+            },
+            C3: {
+                ...prev.C3,
+                attack: prev.C3.attack + 1,
+                
+            },
+            C4: {
+                ...prev.C4,
+                attack: prev.C4.attack + 1,
+                
+            },
+            D1: {
+                ...prev.D1,
+                attack: prev.D1.attack + 1,
+                
+            },
+            D2: {
+                ...prev.D2,
+                attack: prev.D2.attack + 1,
+                
+            },
+            D3: {
+                ...prev.D3,
+                attack: prev.D3.attack + 1,
+                
+            },
+            D4: {
+                ...prev.D4,
+                attack: prev.D4.attack + 1,
+                
+            },
+
+            
+        }));
+        setStateSkillsHero(prev => ({...prev, showCall: false}));
+    }
+
     function handleSkillPoultice() {
         if (occupiedCell.C1.choice === true && occupiedCell.C1.health !== 0 && occupiedCell.C1.health !== 20 && occupiedCell.C1.priority === 1) {
             setOccupiedCell(prev => ({
@@ -4459,6 +4506,9 @@ function handleCounterattack() {
         if (stateSkillsHero.poultice !== 0){
             setStateSkillsHero(prev => ({...prev, showPoultice: true}))
         }
+        
+        setStateSkillsHero(prev => ({...prev, showCall: true}))
+       
     };
 
     useEffect(() => {
@@ -4794,6 +4844,8 @@ function handleCounterattack() {
                     <img className={classes.avatarHero} src={Avatar} alt="Avatar" draggable="false" />
 
                     {stateSkillsHero.showPoultice && <button className={classes.buttonSkillPoultice} onClick={handleSkillPoultice} title="Припарка лечит выбранного юнита">Припарка: {stateSkillsHero.poultice}</button>}
+
+                    {stateSkillsHero.showCall && <button className={classes.buttonSkillCall} onClick={handleSkillHeroCall} title="Призыв - воодушевляет всех ангалов и повышает их атаку">Призыв</button>}
 
                     {stateSkillsSoldiersWasteland.showStateSkillsHunter && <button className={classes.buttonSkillHunter} onClick={handleSkillHunter} title="Яростная атака Охотника">Разделка</button>}
 

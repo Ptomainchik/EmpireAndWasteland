@@ -792,7 +792,7 @@
 
 .buttonSkillHunter{
     position: absolute;
-    bottom: 35%;
+    bottom: 33%;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 50%;
@@ -816,7 +816,7 @@
 
 .buttonSkillJavelin{
     position: absolute;
-    bottom: 25%;
+    bottom: 23%;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 50%;
@@ -840,7 +840,7 @@
 
 .buttonSkillMaces{
     position: absolute;
-    bottom: 15%;
+    bottom: 13%;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 50%;
@@ -864,7 +864,7 @@
 
 .buttonSkillAngalit{
     position: absolute;
-    bottom: 5%;
+    bottom: 3%;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 50%;
@@ -888,7 +888,7 @@
 
 .buttonSkillPoultice{
     position: absolute;
-    top: 30%;
+    top: 25%;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 50%;
@@ -905,6 +905,30 @@
 }
 
 .buttonSkillPoultice:hover{
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 95%);
+    filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
+}
+
+.buttonSkillCall{
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    border: solid 0.1vw black;
+    width: 9vw;
+    height: 3vw;
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 110%);
+    font-family: "El Messiri";
+    font-size: 1.5vw;
+    cursor: pointer;
+    margin: 0;
+    color: rgb(220, 220, 220);
+}
+
+.buttonSkillCall:hover{
     background-color: darkolivegreen;
     background-image: linear-gradient(176deg, darkolivegreen 3%, black 95%);
     filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
