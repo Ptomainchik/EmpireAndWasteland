@@ -469,6 +469,16 @@
     background: cadetblue;
 }
 
+.cardEastEmpirePathfinder{
+    width: 90%;
+    height: 40%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 2%;
+    background: cadetblue;
+}
+
 .cardWastelandHunter{
     width: 90%;
     height: 40%;
@@ -669,7 +679,7 @@
 
 
 .unitEmpireWestArcher{
-    width: 5vw; 
+    width: 5.3vw; 
     height: 12vw;
     margin: 0;
     border: none;
@@ -679,7 +689,7 @@
 }
 
 .unitEmpireWestArcherChoice{
-    width: 5vw; 
+    width: 5.3vw; 
     height: 12vw;
     margin: 0;
     filter: drop-shadow( 0 0 1vw red);
@@ -741,6 +751,35 @@
 
 .unitEmpireEastArcher:hover{
     filter: drop-shadow( 0 0 1vw red);
+}
+
+.unitEmpireEastPathfinder{
+    width: 5vw; 
+    height: 11vw;
+    margin: 0;
+    border: none;
+    background: url(../../Images/ImpireMarahImage/ElfEastPathfinder.webp) no-repeat center;
+    background-size: contain;
+    cursor: pointer;
+}
+
+.unitEmpireEastPathfinderChoice{
+    width: 5vw; 
+    height: 11vw;
+    margin: 0;
+    filter: drop-shadow( 0 0 1vw red);
+    border: none;
+    background: url(../../Images/ImpireMarahImage/ElfEastPathfinder.webp) no-repeat center;
+    background-size: contain;
+    cursor: pointer;
+}
+
+.unitEmpireEastPathfinder:hover{
+    filter: drop-shadow( 0 0 1vw red);
+}
+
+.unitEmpireEastPathfinderInvisible{
+    opacity: 1;
 }
 
 .unitEmpireDeath{
@@ -888,7 +927,7 @@
 
 .buttonSkillPoultice{
     position: absolute;
-    top: 25%;
+    top: 27%;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 50%;
@@ -912,7 +951,7 @@
 
 .buttonSkillCall{
     position: absolute;
-    top: 35%;
+    top: 37%;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 50%;
@@ -929,6 +968,30 @@
 }
 
 .buttonSkillCall:hover{
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 95%);
+    filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
+}
+
+.buttonSkillBloodDebt{
+    position: absolute;
+    top: 47%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    border: solid 0.1vw black;
+    width: 9vw;
+    height: 3vw;
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 110%);
+    font-family: "El Messiri";
+    font-size: 1.5vw;
+    cursor: pointer;
+    margin: 0;
+    color: rgb(220, 220, 220);
+}
+
+.buttonSkillBloodDebt:hover{
     background-color: darkolivegreen;
     background-image: linear-gradient(176deg, darkolivegreen 3%, black 95%);
     filter: drop-shadow(0.3vw 0.3vw 0.3vw black);

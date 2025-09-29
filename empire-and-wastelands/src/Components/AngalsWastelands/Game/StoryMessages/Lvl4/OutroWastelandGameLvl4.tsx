@@ -9,7 +9,7 @@ export const OutroWastelandGameLvl4 = (props:any) => {
 
     function handleCloseMessage() {
         props.setShowStoryMessages((prev: any) => ({...prev, outro: false, countForMessage: 2 }));
-        navigate("/");
+        navigate("/"); 
     };
     
     return (
@@ -21,7 +21,7 @@ export const OutroWastelandGameLvl4 = (props:any) => {
                 Consequatur magnam pariatur et ad ea labore dolor molestiae, cum quod iste molestias ab nulla minima. Libero iure nesciunt id.
                 Excepturi, repellat. Lorem ipsum dolor sit amet co iste quis non tenetur sed minus officiis doloribus deleniti reiciendis explicabo debitis ullam!
             </p>
-            <button className={classes.nextButton} onClick={handleCloseMessage}>Продолжить</button>
+            <button className={classes.nextButton} onClick={handleCloseMessage}>На главную</button>
         </div>
     )
 }

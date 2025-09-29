@@ -19,6 +19,7 @@ import CardAngalAngalit from "../../../Images/AngalsWastelandsImage/ImageWastela
 import WestArcher from "../../../Images/ImpireMarahImage/ImageImpireCardWestArcher.jpg";
 import WestSwordsman from "../../../Images/ImpireMarahImage/ImageImpireCardWestSwordsman.jpg";
 import EastArcher from "../../../Images/ImpireMarahImage/ImageImpireCardEastArcher.jpg";
+import EastPathfinder from "../../../Images/ImpireMarahImage/ImageImpireCardEastPathfinder.jpg";
 import { LoseMessage } from "./StoryMessages/LoseMessage";
 import { IntroWastelandGameLvl4 } from "./StoryMessages/Lvl4/IntroWastelandGameLvl4";
 import { MessageHalfHealthLvl4 } from "./StoryMessages/Lvl4/MessageHalfHealthLvl4";
@@ -38,6 +39,7 @@ export const GameWastelandLvl4 = () => {
     const [stateButtonStoryMessages, setStateButtonStoryMessages] = useState({
         closeButtonIntro: false,
     });
+    const [stateInvisiblePathfinder, setStateInvisiblePathfinder] = useState({pathfinder1: false, pathfinder2: false});
     const [showStoryMessages, setShowStoryMessages]:any = useState({
         intro: true,
         halfHealth: false,
@@ -47,7 +49,7 @@ export const GameWastelandLvl4 = () => {
     });
     const [stateSkillsHero, setStateSkillsHero] = useState({   
         poultice: 0,
-        showDuty: false,
+        showBloodDebt: false,
         showCall: false,
         showPoultice: false,
     });
@@ -128,11 +130,11 @@ export const GameWastelandLvl4 = () => {
                 showCard: false,
             },
             A5:{
-                name: "Мечники запада",
+                name: "Следопыты востока",
                 occupied: false,
-                health: 40,
+                health: 50,
                 attack: 15,
-                defense: 5,
+                defense: 4,
                 first: false,
                 classEmpireSoldier: 0,
                 showCard: false,
@@ -158,11 +160,11 @@ export const GameWastelandLvl4 = () => {
                 showCard: false,
             },
             A8:{
-                name: "Мечники запада",
+                name: "Следопыты востока",
                 occupied: false,
-                health: 40,
+                health: 50,
                 attack: 15,
-                defense: 5,
+                defense: 4,
                 first: false,
                 classEmpireSoldier: 0,
                 showCard: false,
@@ -4138,6 +4140,54 @@ function handleCounterattack() {
         setStateSkillsHero(prev => ({...prev, showCall: false}));
     }
 
+    function handleSkillHeroBloodDebt() {
+        setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A1: {
+                ...prev.A1,
+                health: prev.A1.health - 2,
+                
+            },
+            A2: {
+                ...prev.A2,
+                health: prev.A2.health - 2,
+                
+            },
+            A3: {
+                ...prev.A3,
+                health: prev.A3.health - 2,
+                
+            },
+            A4: {
+                ...prev.A4,
+                health: prev.A4.health - 2,
+                
+            },
+            A5: {
+                ...prev.A5,
+                health: prev.A5.health - 2,
+                
+            },
+            A6: {
+                ...prev.A6,
+                health: prev.A6.health - 2,
+                
+            },
+            A7: {
+                ...prev.A7,
+                health: prev.A7.health - 2,
+                
+            },
+            A8: {
+                ...prev.A8,
+                health: prev.A8.health - 2,
+                
+            },
+
+        }));
+        setStateSkillsHero(prev => ({...prev, showBloodDebt: false}));
+    }
+
     function handleSkillPoultice() {
         if (occupiedCell.C1.choice === true && occupiedCell.C1.health !== 0 && occupiedCell.C1.health !== 20 && occupiedCell.C1.priority === 1) {
             setOccupiedCell(prev => ({
@@ -4504,18 +4554,116 @@ function handleCounterattack() {
             setStateSkillsSoldiersWasteland(prev => ({...prev, showStateSkillsAngalit: true}));
         }
         if (stateSkillsHero.poultice !== 0){
-            setStateSkillsHero(prev => ({...prev, showPoultice: true}))
+            setStateSkillsHero(prev => ({...prev, showPoultice: true}));
         }
         
-        setStateSkillsHero(prev => ({...prev, showCall: true}))
+        setStateSkillsHero(prev => ({...prev, showCall: true}));
+
+        setStateSkillsHero(prev => ({...prev, showBloodDebt: true}));
        
     };
 
     useEffect(() => {
-        if(occupiedCellOpponent.A1.health + occupiedCellOpponent.A2.health + occupiedCellOpponent.A3.health + occupiedCellOpponent.A4.health + occupiedCellOpponent.A5.health + occupiedCellOpponent.A6.health + occupiedCellOpponent.A7.health + occupiedCellOpponent.A8.health <= 280 && showStoryMessages.countForMessage === 0) {
+        if(occupiedCellOpponent.A1.health + occupiedCellOpponent.A2.health + occupiedCellOpponent.A3.health + occupiedCellOpponent.A4.health + occupiedCellOpponent.A5.health + occupiedCellOpponent.A6.health + occupiedCellOpponent.A7.health + occupiedCellOpponent.A8.health <= 150 && showStoryMessages.countForMessage === 0) {
             setShowStoryMessages((prev: any) => ({...prev, halfHealth: true}));
         }
         }, [occupiedCellOpponent, showStoryMessages.countForMessage]);
+
+    useEffect(() => {
+        if(occupiedCellOpponent.A1.health <= 0) {
+            setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A1: {
+                ...prev.A1,
+                health: 0,
+            }
+            }));
+        }
+    }, [occupiedCellOpponent.A1.health]);
+
+    useEffect(() => {
+        if(occupiedCellOpponent.A2.health <= 0) {
+            setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A2: {
+                ...prev.A2,
+                health: 0,
+            }
+            }));
+        }
+    }, [occupiedCellOpponent.A2.health]);
+
+    useEffect(() => {
+        if(occupiedCellOpponent.A3.health <= 0) {
+            setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A3: {
+                ...prev.A3,
+                health: 0,
+            }
+            }));
+        }
+    }, [occupiedCellOpponent.A3.health]);
+
+    useEffect(() => {
+        if(occupiedCellOpponent.A4.health <= 0) {
+            setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A4: {
+                ...prev.A4,
+                health: 0,
+            }
+            }));
+        }
+    }, [occupiedCellOpponent.A4.health]);
+
+    useEffect(() => {
+        if(occupiedCellOpponent.A5.health <= 0) {
+            setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A5: {
+                ...prev.A5,
+                health: 0,
+            }
+            }));
+        }
+    }, [occupiedCellOpponent.A5.health]);
+
+    useEffect(() => {
+        if(occupiedCellOpponent.A6.health <= 0) {
+            setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A6: {
+                ...prev.A6,
+                health: 0,
+            }
+            }));
+        }
+    }, [occupiedCellOpponent.A6.health]);
+
+    useEffect(() => {
+        if(occupiedCellOpponent.A7.health <= 0) {
+            setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A7: {
+                ...prev.A7,
+                health: 0,
+            }
+            }));
+        }
+    }, [occupiedCellOpponent.A7.health]);
+
+    useEffect(() => {
+        if(occupiedCellOpponent.A8.health <= 0) {
+            setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A8: {
+                ...prev.A8,
+                health: 0,
+            }
+            }));
+        }
+    }, [occupiedCellOpponent.A8.health]);
 
     useEffect(() => {
         if(occupiedCellOpponent.A1.health + occupiedCellOpponent.A2.health + occupiedCellOpponent.A3.health + occupiedCellOpponent.A4.health + occupiedCellOpponent.A5.health + occupiedCellOpponent.A6.health + occupiedCellOpponent.A7.health + occupiedCellOpponent.A8.health <= 0 && showStoryMessages.countForMessage === 1) {
@@ -4535,6 +4683,18 @@ function handleCounterattack() {
         }
     }, [stateSkillsHero.poultice]);
 
+    useEffect(() => {
+        if(attackQueue === 5) {
+            setStateInvisiblePathfinder(prev => ({...prev, pathfinder1: true} ))
+        }
+    }, [attackQueue]);
+
+    useEffect(() => {
+        if(attackQueue === 8) {
+            setStateInvisiblePathfinder(prev => ({...prev, pathfinder2: true} ))
+        }
+    }, [attackQueue]);
+
     return (
         <div className={classes.gamePageWasteland}>
             
@@ -4545,7 +4705,7 @@ function handleCounterattack() {
 
             {showStoryMessages.halfHealth && <MessageHalfHealthLvl4 setShowStoryMessages={setShowStoryMessages}/>}
 
-            {showStoryMessages.outro && <OutroWastelandGameLvl4 setShowStoryMessages={setShowStoryMessages} resources={resources} setResources={setResources}/>}
+            {showStoryMessages.outro && <OutroWastelandGameLvl4 showStoryMessages={showStoryMessages} setShowStoryMessages={setShowStoryMessages}/>}
 
             {showStoryMessages.lose && <LoseMessage/>}
 
@@ -4776,8 +4936,8 @@ function handleCounterattack() {
                     <p>Defense: {occupiedCellOpponent.A4.defense}:</p>
                 </div>}
 
-                {occupiedCellOpponent.A5.showCard && <div className={classes.cardWestEmpireSwordsman}>
-                    <img className={classes.imageCard} src={WestSwordsman} alt="WestSwordsman" draggable="false"/>
+                {occupiedCellOpponent.A5.showCard && <div className={classes.cardEastEmpirePathfinder}>
+                    <img className={classes.imageCard} src={EastPathfinder} alt="EastPathfinder" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCellOpponent.A5.health}></progress>
                     <p>{occupiedCellOpponent.A5.name}</p>
                     <p>Attack:  {occupiedCellOpponent.A5.attack}</p>
@@ -4800,8 +4960,8 @@ function handleCounterattack() {
                     <p>Defense: {occupiedCellOpponent.A7.defense}:</p>
                 </div>}
 
-                {occupiedCellOpponent.A8.showCard && <div className={classes.cardWestEmpireSwordsman}>
-                    <img className={classes.imageCard} src={WestSwordsman} alt="WestSwordsman" draggable="false"/>
+                {occupiedCellOpponent.A8.showCard && <div className={classes.cardEastEmpirePathfinder}>
+                    <img className={classes.imageCard} src={EastPathfinder} alt="EastPathfinder" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCellOpponent.A8.health}></progress>
                     <p>{occupiedCellOpponent.A8.name}</p>
                     <p>Attack:  {occupiedCellOpponent.A8.attack}</p>
@@ -4847,6 +5007,8 @@ function handleCounterattack() {
 
                     {stateSkillsHero.showCall && <button className={classes.buttonSkillCall} onClick={handleSkillHeroCall} title="Призыв - воодушевляет всех ангалов и повышает их атаку">Призыв</button>}
 
+                    {stateSkillsHero.showBloodDebt && <button className={classes.buttonSkillBloodDebt} onClick={handleSkillHeroBloodDebt} title="Долг крови - обрушивает на армию противника волну фамильяров">Долг крови</button>}
+
                     {stateSkillsSoldiersWasteland.showStateSkillsHunter && <button className={classes.buttonSkillHunter} onClick={handleSkillHunter} title="Яростная атака Охотника">Разделка</button>}
 
                     {stateSkillsSoldiersWasteland.showStateSkillsJavelin && <button className={classes.buttonSkillJavelin} onClick={handleSkillJavelin} title="Смертельный бросок Метателя">Бросок</button>}
@@ -4861,9 +5023,11 @@ function handleCounterattack() {
             <div className={classes.blockUnits}>
 
                 <div className={classes.blockFlex1}>
-
                     <div className={classes.cellA1}>
-                        <button className={attackQueue === 1 ? classes.unitEmpireEastArcherChoice : occupiedCellOpponent.A1.health <= 0 ? classes.unitEmpireDeath : classes.unitEmpireEastArcher} id={"A1"} onClick={() => {handleAttack("A1")}} 
+                        <button className={occupiedCellOpponent.A1.health > 0 && attackQueue === 1 ? classes.unitEmpireEastArcherChoice 
+                        : occupiedCellOpponent.A1.health <= 0 && attackQueue === 1 ? classes.unitEmpireDeath 
+                        : occupiedCellOpponent.A1.health <= 0 ? classes.unitEmpireDeath 
+                        : classes.unitEmpireEastArcher} id={"A1"} onClick={() => {handleAttack("A1")}} 
                             onMouseEnter={() => setOccupiedCellOpponent(prev => ({...prev, A1: {...prev.A1, showCard: true}}))}
                             onMouseLeave={() => setOccupiedCellOpponent(prev => ({...prev, A1: {...prev.A1,showCard: false}}))} 
                             disabled={stateButtonsSkills === true || occupiedCellOpponent.A1.health <= 0 || buttonStateGame.stateAttackButton === false || buttonStateGame.stateFixStartButton === false}>
@@ -4872,7 +5036,10 @@ function handleCounterattack() {
                     </div>
 
                     <div className={classes.cellA2}>
-                        <button className={attackQueue === 2 ? classes.unitEmpireWestArcherChoice : occupiedCellOpponent.A2.health <= 0 ? classes.unitEmpireDeath : classes.unitEmpireWestArcher} id={"A2"} onClick={() => {handleAttack("A2")}} 
+                        <button className={occupiedCellOpponent.A2.health > 0 && attackQueue === 2 ? classes.unitEmpireWestArcherChoice 
+                        : occupiedCellOpponent.A2.health <= 0 && attackQueue === 2 ? classes.unitEmpireDeath 
+                        : occupiedCellOpponent.A2.health <= 0 ? classes.unitEmpireDeath 
+                        : classes.unitEmpireWestArcher} id={"A2"} onClick={() => {handleAttack("A2")}} 
                             onMouseEnter={() => setOccupiedCellOpponent(prev => ({...prev, A2: {...prev.A2, showCard: true}}))}
                             onMouseLeave={() => setOccupiedCellOpponent(prev => ({...prev, A2: {...prev.A2,showCard: false}}))} 
                             disabled={stateButtonsSkills === true || occupiedCellOpponent.A2.health <= 0 || buttonStateGame.stateAttackButton === false || buttonStateGame.stateFixStartButton === false}>
@@ -4881,7 +5048,10 @@ function handleCounterattack() {
                     </div>
                        
                     <div className={classes.cellA3}>
-                        <button className={attackQueue === 3 ? classes.unitEmpireWestArcherChoice : occupiedCellOpponent.A3.health <= 0 ? classes.unitEmpireDeath : classes.unitEmpireWestArcher} id={"A3"} onClick={() => {handleAttack("A3")}} 
+                        <button className={occupiedCellOpponent.A3.health > 0 && attackQueue === 3 ? classes.unitEmpireWestArcherChoice 
+                        : occupiedCellOpponent.A3.health <= 0 && attackQueue === 3 ? classes.unitEmpireDeath 
+                        : occupiedCellOpponent.A3.health <= 0 ? classes.unitEmpireDeath 
+                        : classes.unitEmpireWestArcher} id={"A3"} onClick={() => {handleAttack("A3")}}
                             onMouseEnter={() => setOccupiedCellOpponent(prev => ({...prev, A3: {...prev.A3, showCard: true}}))}
                             onMouseLeave={() => setOccupiedCellOpponent(prev => ({...prev, A3: {...prev.A3,showCard: false}}))} 
                             disabled={stateButtonsSkills === true || occupiedCellOpponent.A3.health <= 0 || buttonStateGame.stateAttackButton === false || buttonStateGame.stateFixStartButton === false}>
@@ -4890,7 +5060,10 @@ function handleCounterattack() {
                     </div>
 
                     <div className={classes.cellA4}>
-                        <button className={attackQueue === 4 ? classes.unitEmpireEastArcherChoice : occupiedCellOpponent.A4.health <= 0 ? classes.unitEmpireDeath : classes.unitEmpireEastArcher} id={"A4"} onClick={() => {handleAttack("A4")}} 
+                        <button  className={occupiedCellOpponent.A4.health > 0 && attackQueue === 4 ? classes.unitEmpireEastArcherChoice 
+                        : occupiedCellOpponent.A4.health <= 0 && attackQueue === 4 ? classes.unitEmpireDeath 
+                        : occupiedCellOpponent.A4.health <= 0 ? classes.unitEmpireDeath 
+                        : classes.unitEmpireEastArcher} id={"A4"} onClick={() => {handleAttack("A4")}} 
                             onMouseEnter={() => setOccupiedCellOpponent(prev => ({...prev, A4: {...prev.A4, showCard: true}}))}
                             onMouseLeave={() => setOccupiedCellOpponent(prev => ({...prev, A4: {...prev.A4,showCard: false}}))} 
                             disabled={stateButtonsSkills === true || occupiedCellOpponent.A4.health <= 0 || buttonStateGame.stateAttackButton === false || buttonStateGame.stateFixStartButton === false}>
@@ -4898,17 +5071,23 @@ function handleCounterattack() {
                         </button>
                     </div>
 
-                    <div className={classes.cellA5}>
-                        <button className={attackQueue === 5 ? classes.unitEmpireWestSwordsmanChoice : occupiedCellOpponent.A5.health <= 0 ? classes.unitEmpireDeath : classes.unitEmpireWestSwordsman} id={"A5"} onClick={() => {handleAttack("A5")}} 
+                    {stateInvisiblePathfinder.pathfinder1 && <div className={classes.cellA5}>
+                        <button className={occupiedCellOpponent.A5.health > 0 && attackQueue === 5 ? classes.unitEmpireEastPathfinderChoice 
+                        : occupiedCellOpponent.A5.health <= 0 && attackQueue === 5 ? classes.unitEmpireDeath 
+                        : occupiedCellOpponent.A5.health <= 0 ? classes.unitEmpireDeath 
+                        : classes.unitEmpireEastPathfinder} id={"A5"} onClick={() => {handleAttack("A5")}} 
                             onMouseEnter={() => setOccupiedCellOpponent(prev => ({...prev, A5: {...prev.A5, showCard: true}}))}
                             onMouseLeave={() => setOccupiedCellOpponent(prev => ({...prev, A5: {...prev.A5,showCard: false}}))} 
                             disabled={stateButtonsSkills === true || occupiedCellOpponent.A5.health <= 0 || buttonStateGame.stateAttackButton === false || buttonStateGame.stateFixStartButton === false}>
                         <progress className={classes.healthScaleImpireUnit} value={occupiedCellOpponent.A5.health} max="100"></progress>
                         </button>{occupiedCellOpponent.A5.health}
-                    </div>
+                    </div>}
                     
                     <div className={classes.cellA6}>
-                        <button className={attackQueue === 6 ? classes.unitEmpireWestSwordsmanChoice : occupiedCellOpponent.A6.health <= 0 ? classes.unitEmpireDeath : classes.unitEmpireWestSwordsman} id={"A6"} onClick={() => {handleAttack("A6")}} 
+                        <button className={occupiedCellOpponent.A6.health > 0 && attackQueue === 6 ? classes.unitEmpireWestSwordsmanChoice 
+                        : occupiedCellOpponent.A6.health <= 0 && attackQueue === 6 ? classes.unitEmpireDeath 
+                        : occupiedCellOpponent.A6.health <= 0 ? classes.unitEmpireDeath 
+                        : classes.unitEmpireWestSwordsman} id={"A6"} onClick={() => {handleAttack("A6")}} 
                             onMouseEnter={() => setOccupiedCellOpponent(prev => ({...prev, A6: {...prev.A6, showCard: true}}))}
                             onMouseLeave={() => setOccupiedCellOpponent(prev => ({...prev, A6: {...prev.A6,showCard: false}}))} 
                             disabled={stateButtonsSkills === true || occupiedCellOpponent.A6.health <= 0 || buttonStateGame.stateAttackButton === false || buttonStateGame.stateFixStartButton === false}>
@@ -4917,7 +5096,10 @@ function handleCounterattack() {
                     </div>
 
                     <div className={classes.cellA7}>
-                        <button className={attackQueue === 7 ? classes.unitEmpireWestSwordsmanChoice : occupiedCellOpponent.A7.health <= 0 ? classes.unitEmpireDeath : classes.unitEmpireWestSwordsman} id={"A7"} onClick={() => {handleAttack("A7")}} 
+                        <button className={occupiedCellOpponent.A7.health > 0 && attackQueue === 7 ? classes.unitEmpireWestSwordsmanChoice 
+                        : occupiedCellOpponent.A7.health <= 0 && attackQueue === 7 ? classes.unitEmpireDeath 
+                        : occupiedCellOpponent.A7.health <= 0 ? classes.unitEmpireDeath 
+                        : classes.unitEmpireWestSwordsman} id={"A7"} onClick={() => {handleAttack("A7")}} 
                             onMouseEnter={() => setOccupiedCellOpponent(prev => ({...prev, A7: {...prev.A7, showCard: true}}))}
                             onMouseLeave={() => setOccupiedCellOpponent(prev => ({...prev, A7: {...prev.A7,showCard: false}}))} 
                             disabled={stateButtonsSkills === true || occupiedCellOpponent.A7.health <= 0 || buttonStateGame.stateAttackButton === false || buttonStateGame.stateFixStartButton === false}>
@@ -4925,14 +5107,17 @@ function handleCounterattack() {
                         </button>
                     </div>
 
-                    <div className={classes.cellA8}>
-                        <button className={attackQueue === 8 ? classes.unitEmpireWestSwordsmanChoice : occupiedCellOpponent.A8.health <= 0 ? classes.unitEmpireDeath : classes.unitEmpireWestSwordsman} id={"A8"} onClick={() => {handleAttack("A8")}} 
+                    {stateInvisiblePathfinder.pathfinder2 && <div className={classes.cellA8}>
+                        <button className={occupiedCellOpponent.A8.health > 0 && attackQueue === 8 ? classes.unitEmpireEastPathfinderChoice 
+                        : occupiedCellOpponent.A8.health <= 0 && attackQueue === 8 ? classes.unitEmpireDeath 
+                        : occupiedCellOpponent.A8.health <= 0 ? classes.unitEmpireDeath 
+                        : classes.unitEmpireEastPathfinder} id={"A8"} onClick={() => {handleAttack("A8")}} 
                             onMouseEnter={() => setOccupiedCellOpponent(prev => ({...prev, A8: {...prev.A8, showCard: true}}))}
                             onMouseLeave={() => setOccupiedCellOpponent(prev => ({...prev, A8: {...prev.A8,showCard: false}}))} 
                             disabled={stateButtonsSkills === true || occupiedCellOpponent.A8.health <= 0 || buttonStateGame.stateAttackButton === false || buttonStateGame.stateFixStartButton === false}>
-                        <progress className={classes.healthScaleImpireUnit} value={occupiedCellOpponent.A8.health} max="100"></progress>
+                         <progress className={classes.healthScaleImpireUnit} value={occupiedCellOpponent.A8.health} max="100"></progress>
                         </button>
-                    </div>
+                    </div>}
 
                 </div>
 
