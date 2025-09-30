@@ -15,7 +15,7 @@ export const MessageHalfHealthLvl1 = ({setShowStoryMessages}: any) => {
                 Consequatur magnam pariatur et ad ea labore dolor molestiae, cum quod iste molestias ab nulla minima. Libero iure nesciunt id.
                 Excepturi, repellat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus modi facere vel ipsam eligendi, excepturi quam maxime iste quis non tenetur sed minus officiis doloribus deleniti reiciendis explicabo debitis ullam!
             </p>
-            <button className={classes.nextButton} onClick={handleCloseMessage}>Продолжить</button>
+            <button className={classes.nextButtonWasteland} onClick={handleCloseMessage}>Продолжить</button>
         </div>
     )
 }

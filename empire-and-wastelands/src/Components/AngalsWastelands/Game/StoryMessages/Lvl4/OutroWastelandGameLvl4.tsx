@@ -13,7 +13,7 @@ export const OutroWastelandGameLvl4 = (props:any) => {
     };
     
     return (
-        <div className={classes.outroWasteland}>
+        <div className={classes.outro}>
             <img className={classes.rightImage} src={images} alt="images" draggable="false"/>
             <img className={classes.leftImage} src={imagess} alt="images" draggable="false"/>
             <p>
@@ -21,7 +21,7 @@ export const OutroWastelandGameLvl4 = (props:any) => {
                 Consequatur magnam pariatur et ad ea labore dolor molestiae, cum quod iste molestias ab nulla minima. Libero iure nesciunt id.
                 Excepturi, repellat. Lorem ipsum dolor sit amet co iste quis non tenetur sed minus officiis doloribus deleniti reiciendis explicabo debitis ullam!
             </p>
-            <button className={classes.nextButton} onClick={handleCloseMessage}>На главную</button>
+            <button className={classes.nextButtonWasteland} onClick={handleCloseMessage}>На главную</button>
         </div>
     )
 }

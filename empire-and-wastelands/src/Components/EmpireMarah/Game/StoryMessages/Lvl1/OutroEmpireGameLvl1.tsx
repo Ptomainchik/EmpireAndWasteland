@@ -3,14 +3,14 @@ import images from "../../../../../Images/AngalsWastelandsImage/AngalHunter.webp
 import imagess from "../../../../../Images/AngalsWastelandsImage/AngalJavelin.webp";
 import { useNavigate } from "react-router-dom";
 
-export const OutroWastelandGameLvl1 = (props:any) => {
+export const OutroEmpireGameLvl1 = (props:any) => {
 
     const navigate = useNavigate();
 
     function handleCloseMessage() {
         props.setResources(props.resources + 100);
         props.setShowStoryMessages((prev: any) => ({...prev, outro: false, countForMessage: 2 }));
-        navigate("/gamewaslvl2");
+        navigate("/gameemplvl2");
     };
 
     return (
@@ -23,7 +23,7 @@ export const OutroWastelandGameLvl1 = (props:any) => {
                 Excepturi, repellat. Lorem ipsum dolor sit amet co iste quis non tenetur sed minus officiis doloribus deleniti reiciendis explicabo debitis ullam!
                 +100GOLD!!!
             </p>
-            <button className={classes.nextButtonWasteland} onClick={handleCloseMessage}>Продолжить</button>
+            <button className={classes.nextButtonEmpire} onClick={handleCloseMessage}>Продолжить</button>
         </div>
     )
 }
