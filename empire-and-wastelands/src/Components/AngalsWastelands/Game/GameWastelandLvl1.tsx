@@ -1956,7 +1956,7 @@ function handleCounterattack() {
 
             {showStoryMessages.lose && <LoseMessage/>}
 
-            <div className={classes.skillsBlockEmpire}>
+            <div className={classes.skillsBlockLeft}>
 
                 {occupiedCell.C1.showCard && <div className={classes.cardWastelandBottom}>
                     <img className={classes.imageCard} src={occupiedCell.C1.classWastlelandSoldier === 1 
@@ -2103,7 +2103,7 @@ function handleCounterattack() {
                     
                 </div>}
 
-            <div className={classes.skillsBlockWasteland}>
+            <div className={classes.skillsBlockRight}>
                 {buttonStateGame.stateShopButton && <button className={classes.shopButtonWasteland} onClick={handleOpenShop}>Магазин</button>}
                 {buttonStateGame.stateStartButton && <button className={classes.buttonStartGameWasteland} onClick={handleStartGame}>Старт</button>}
                 {buttonStateGame.stateOverallButton && <button className={classes.angalsButtonSkillsHunters} onClick={handleRequestForHunterReserves} disabled={stateStyleSoldier === 2 || stateStyleSoldier === 3 || stateStyleSoldier === 4 ||  stateButtonSoldiers.wastelandButtonHunter === true || reserve.wastelandHunter === 0}>Охотники: {reserve.wastelandHunter}</button>} 

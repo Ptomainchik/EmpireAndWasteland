@@ -53,20 +53,20 @@ export const GameEmpireLvl3 = () => {
     });
     const [stateChoiceButton, setStateChoiceButton] = useState(true);
     const [showGameField, setShowGameField] = useState(false);
-    const [showSkillsSoldierWasteland, setShowSkillsSoldierWasteland] = useState(false);
-    const [stateSkillsSoldiersWasteland, setStateSkillsSoldiersWasteland] = useState({
-        stateSkillsHunter: false,
-        stateSkillsJavelin: false,
-        stateSkillsMaces: false,
-        stateSkillsAngalit: false,
-        showStateSkillsHunter: false,
-        showStateSkillsJavelin: false,
-        showStateSkillsMaces: false,
-        showStateSkillsAngalit: false,
-        stateHunterQuantitySkills: true,
-        stateJavelinQuantitySkills: true,
-        stateMacesQuantitySkills: true,
-        stateAngalitQuantitySkills: true,
+    const [showSkillsSoldierEmpire, setShowSkillsSoldierEmpire] = useState(false);
+    const [stateSkillsSoldiersEmpire, setStateSkillsSoldiersEmpire] = useState({
+        stateSkillsWestArcher: false,
+        stateSkillsWestSwordsman: false,
+        stateSkillsEastArcher: false,
+        stateSkillsEastPathfinder: false,
+        showStateSkillsWestArcher: false,
+        showStateSkillsWestSwordsman: false,
+        showStateSkillsEastArcher: false,
+        showStateSkillsEastPathfinder: false,
+        stateWestArcherQuantitySkills: true,
+        stateWestSwordsmanQuantitySkills: true,
+        stateEastArcherQuantitySkills: true,
+        stateEastPathfinderQuantitySkills: true,
     });
     const [buttonStateGame, setButtonStateGame] = useState({
         stateOverallButton: true,
@@ -93,7 +93,7 @@ export const GameEmpireLvl3 = () => {
                 health: 30,
                 attack: 15,
                 defense: 2,
-                first: true,
+                first: false,
                 classEmpireSoldier: 0,
                 showCard: false,
             },
@@ -103,7 +103,7 @@ export const GameEmpireLvl3 = () => {
                 health: 30,
                 attack: 10,
                 defense: 3,
-                first: true,
+                first: false,
                 classEmpireSoldier: 0,
                 showCard: false,
             },
@@ -113,7 +113,7 @@ export const GameEmpireLvl3 = () => {
                 health: 30,
                 attack: 10,
                 defense: 3,
-                first: true,
+                first: false,
                 classEmpireSoldier: 0,
                 showCard: false,
             },
@@ -123,7 +123,7 @@ export const GameEmpireLvl3 = () => {
                 health: 30,
                 attack: 15,
                 defense: 2,
-                first: true,
+                first: false,
                 classEmpireSoldier: 0,
                 showCard: false,
             },
@@ -418,7 +418,7 @@ export const GameEmpireLvl3 = () => {
                     priority: 1,
                 },
         }));
-        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsHunter: true}));
+        setStateSkillsSoldiersEmpire(prev => ({...prev, stateSkillsWestArcher: true}));
         }
         else if(id === "C2"){
             setOccupiedCell(prevOccupiedCell => ({
@@ -435,7 +435,7 @@ export const GameEmpireLvl3 = () => {
                     priority: 1,
                 },
         }));
-        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsHunter: true}));
+        setStateSkillsSoldiersEmpire(prev => ({...prev, stateSkillsWestArcher: true}));
         }
         else if(id === "C3"){
             setOccupiedCell(prevOccupiedCell => ({
@@ -452,7 +452,7 @@ export const GameEmpireLvl3 = () => {
                     priority: 1,
                 },
         }));
-        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsHunter: true}));
+        setStateSkillsSoldiersEmpire(prev => ({...prev, stateSkillsWestArcher: true}));
         }
         else if(id === "C4"){
             setOccupiedCell(prevOccupiedCell => ({
@@ -469,7 +469,7 @@ export const GameEmpireLvl3 = () => {
                     priority: 1,
                 },
         }));
-        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsHunter: true}));
+        setStateSkillsSoldiersEmpire(prev => ({...prev, stateSkillsWestArcher: true}));
         }
         else if(id === "D1"){
             setOccupiedCell(prevOccupiedCell => ({
@@ -486,7 +486,7 @@ export const GameEmpireLvl3 = () => {
                     priority: 1,
                 },
         }));
-        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsHunter: true}));
+        setStateSkillsSoldiersEmpire(prev => ({...prev, stateSkillsWestArcher: true}));
         }
         else if(id === "D2"){
             setOccupiedCell(prevOccupiedCell => ({
@@ -503,7 +503,7 @@ export const GameEmpireLvl3 = () => {
                     priority: 1,
                 },
         }));
-        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsHunter: true}));
+        setStateSkillsSoldiersEmpire(prev => ({...prev, stateSkillsWestArcher: true}));
         }
         else if(id === "D3"){
             setOccupiedCell(prevOccupiedCell => ({
@@ -520,7 +520,7 @@ export const GameEmpireLvl3 = () => {
                     priority: 1,
                 },
         }));
-        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsHunter: true}));
+        setStateSkillsSoldiersEmpire(prev => ({...prev, stateSkillsWestArcher: true}));
         }
         else if(id === "D4"){
             setOccupiedCell(prevOccupiedCell => ({
@@ -537,7 +537,7 @@ export const GameEmpireLvl3 = () => {
                     priority: 1,
                 },
         }));
-        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsHunter: true}));
+        setStateSkillsSoldiersEmpire(prev => ({...prev, stateSkillsWestArcher: true}));
         }
     }
     else if(["C1", "C2", "C3", "C4", "D1", "D2", "D3", "D4"].includes(id) && stateButtonSoldiers.empireButtonWestSwodsman === true ) {
@@ -567,7 +567,7 @@ export const GameEmpireLvl3 = () => {
                 priority: 3,
             },
         }));
-        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsJavelin: true}));
+        setStateSkillsSoldiersEmpire(prev => ({...prev, stateSkillsWestSwordsman: true}));
         }
         else if(id === "C2"){
             setOccupiedCell(prevOccupiedCell => ({
@@ -584,7 +584,7 @@ export const GameEmpireLvl3 = () => {
                     priority: 3,
                 },
         }));
-        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsJavelin: true}));
+        setStateSkillsSoldiersEmpire(prev => ({...prev, stateSkillsWestSwordsman: true}));
         }
         else if(id === "C3"){
             setOccupiedCell(prevOccupiedCell => ({
@@ -601,7 +601,7 @@ export const GameEmpireLvl3 = () => {
                     priority: 3,
                 },
         }));
-        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsJavelin: true}));
+        setStateSkillsSoldiersEmpire(prev => ({...prev, stateSkillsWestSwordsman: true}));
         }
         else if(id === "C4"){
             setOccupiedCell(prevOccupiedCell => ({
@@ -618,7 +618,7 @@ export const GameEmpireLvl3 = () => {
                     priority: 3,
                 },
         }));
-        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsJavelin: true}));
+        setStateSkillsSoldiersEmpire(prev => ({...prev, stateSkillsWestSwordsman: true}));
         }
         else if(id === "D1"){
             setOccupiedCell(prevOccupiedCell => ({
@@ -635,7 +635,7 @@ export const GameEmpireLvl3 = () => {
                     priority: 3,
                 },
         }));
-        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsJavelin: true}));
+        setStateSkillsSoldiersEmpire(prev => ({...prev, stateSkillsWestSwordsman: true}));
         }
         else if(id === "D2"){
             setOccupiedCell(prevOccupiedCell => ({
@@ -652,7 +652,7 @@ export const GameEmpireLvl3 = () => {
                     priority: 3,
                 },
         }));
-        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsJavelin: true}));
+        setStateSkillsSoldiersEmpire(prev => ({...prev, stateSkillsWestSwordsman: true}));
         }
         else if(id === "D3"){
             setOccupiedCell(prevOccupiedCell => ({
@@ -669,7 +669,7 @@ export const GameEmpireLvl3 = () => {
                     priority: 3,
                 },
         }));
-        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsJavelin: true}));
+        setStateSkillsSoldiersEmpire(prev => ({...prev, stateSkillsWestSwordsman: true}));
         }
         else if(id === "D4"){
             setOccupiedCell(prevOccupiedCell => ({
@@ -686,7 +686,7 @@ export const GameEmpireLvl3 = () => {
                     priority: 3,
                 },
         }));
-        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsJavelin: true}));
+        setStateSkillsSoldiersEmpire(prev => ({...prev, stateSkillsWestSwordsman: true}));
         }
     }
 
@@ -717,7 +717,7 @@ export const GameEmpireLvl3 = () => {
                 priority: 2,
             },
         }));
-        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsMaces: true}));
+        setStateSkillsSoldiersEmpire(prev => ({...prev, stateSkillsEastArcher: true}));
         }
         else if(id === "C2"){
             setOccupiedCell(prevOccupiedCell => ({
@@ -734,7 +734,7 @@ export const GameEmpireLvl3 = () => {
                     priority: 2,
                 },
         }));
-        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsMaces: true}));
+        setStateSkillsSoldiersEmpire(prev => ({...prev, stateSkillsEastArcher: true}));
         }
         else if(id === "C3"){
             setOccupiedCell(prevOccupiedCell => ({
@@ -751,7 +751,7 @@ export const GameEmpireLvl3 = () => {
                     priority: 2,
                 },
         }));
-        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsMaces: true}));
+        setStateSkillsSoldiersEmpire(prev => ({...prev, stateSkillsEastArcher: true}));
         }
         else if(id === "C4"){
             setOccupiedCell(prevOccupiedCell => ({
@@ -768,7 +768,7 @@ export const GameEmpireLvl3 = () => {
                     priority: 2,
                 },
         }));
-        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsMaces: true}));
+        setStateSkillsSoldiersEmpire(prev => ({...prev, stateSkillsEastArcher: true}));
         }
         else if(id === "D1"){
             setOccupiedCell(prevOccupiedCell => ({
@@ -785,7 +785,7 @@ export const GameEmpireLvl3 = () => {
                     priority: 2,
                 },
         }));
-        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsMaces: true}));
+        setStateSkillsSoldiersEmpire(prev => ({...prev, stateSkillsEastArcher: true}));
         }
         else if(id === "D2"){
             setOccupiedCell(prevOccupiedCell => ({
@@ -802,7 +802,7 @@ export const GameEmpireLvl3 = () => {
                     priority: 2,
                 },
         }));
-        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsMaces: true}));
+        setStateSkillsSoldiersEmpire(prev => ({...prev, stateSkillsEastArcher: true}));
         }
         else if(id === "D3"){
             setOccupiedCell(prevOccupiedCell => ({
@@ -819,7 +819,7 @@ export const GameEmpireLvl3 = () => {
                     priority: 2,
                 },
         }));
-        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsMaces: true}));
+        setStateSkillsSoldiersEmpire(prev => ({...prev, stateSkillsEastArcher: true}));
         }
         else if(id === "D4"){
             setOccupiedCell(prevOccupiedCell => ({
@@ -836,7 +836,7 @@ export const GameEmpireLvl3 = () => {
                     priority: 2,
                 },
         }));
-        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsMaces: true}));
+        setStateSkillsSoldiersEmpire(prev => ({...prev, stateSkillsEastArcher: true}));
         }
     }
 
@@ -868,7 +868,7 @@ export const GameEmpireLvl3 = () => {
                 priority: 4,
             },
         }));
-        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsAngalit: true}));
+        setStateSkillsSoldiersEmpire(prev => ({...prev, stateSkillsEastPathfinder: true}));
         }
         else if(id === "C2"){
             setOccupiedCell(prevOccupiedCell => ({
@@ -885,7 +885,7 @@ export const GameEmpireLvl3 = () => {
                     priority: 4,
                 },
         }));
-        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsAngalit: true}));
+        setStateSkillsSoldiersEmpire(prev => ({...prev, stateSkillsEastPathfinder: true}));
         }
         else if(id === "C3"){
             setOccupiedCell(prevOccupiedCell => ({
@@ -902,7 +902,7 @@ export const GameEmpireLvl3 = () => {
                     priority: 4,
                 },
         }));
-        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsAngalit: true}));
+        setStateSkillsSoldiersEmpire(prev => ({...prev, stateSkillsEastPathfinder: true}));
         }
         else if(id === "C4"){
             setOccupiedCell(prevOccupiedCell => ({
@@ -919,7 +919,7 @@ export const GameEmpireLvl3 = () => {
                     priority: 4,
                 },
         }));
-        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsAngalit: true}));
+        setStateSkillsSoldiersEmpire(prev => ({...prev, stateSkillsEastPathfinder: true}));
         }
         else if(id === "D1"){
             setOccupiedCell(prevOccupiedCell => ({
@@ -936,7 +936,7 @@ export const GameEmpireLvl3 = () => {
                     priority: 4,
                 },
         }));
-        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsAngalit: true}));
+        setStateSkillsSoldiersEmpire(prev => ({...prev, stateSkillsEastPathfinder: true}));
         }
         else if(id === "D2"){
             setOccupiedCell(prevOccupiedCell => ({
@@ -953,7 +953,7 @@ export const GameEmpireLvl3 = () => {
                     priority: 4,
                 },
         }));
-        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsAngalit: true}));
+        setStateSkillsSoldiersEmpire(prev => ({...prev, stateSkillsEastPathfinder: true}));
         }
         else if(id === "D3"){
             setOccupiedCell(prevOccupiedCell => ({
@@ -970,7 +970,7 @@ export const GameEmpireLvl3 = () => {
                     priority: 4,
                 },
         }));
-        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsAngalit: true}));
+        setStateSkillsSoldiersEmpire(prev => ({...prev, stateSkillsEastPathfinder: true}));
         }
         else if(id === "D4"){
             setOccupiedCell(prevOccupiedCell => ({
@@ -987,7 +987,7 @@ export const GameEmpireLvl3 = () => {
                     priority: 4,
                 },
         }));
-        setStateSkillsSoldiersWasteland(prev => ({...prev, stateSkillsAngalit: true}));
+        setStateSkillsSoldiersEmpire(prev => ({...prev, stateSkillsEastPathfinder: true}));
         }
     }
 
@@ -1034,742 +1034,212 @@ export const GameEmpireLvl3 = () => {
         stateAttackButton: false,
     }));
     if (id === "A1" && occupiedCell.C1.choice === true && occupiedCell.C1.health > 0) {
-        if(occupiedCellOpponent.A1.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            C1: {
-                ...prev.C1,
-                health: prev.C1.health - 4
-            }
-        }));
-        }
-
-        if (occupiedCell.C1.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A1: {
-                    ...prev.A1,
-                    health: prev.A1.health - occupiedCell.C1.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A1: {
                     ...prev.A1,
                     health: prev.A1.health - (occupiedCell.C1.attack - prev.A1.defense),
-                    first: false
             }
             }));
-        }
-        
         handleCounterattack()
     }
     else if (id === "A1" && occupiedCell.C2.choice === true && occupiedCell.C2.health > 0) {
-        if(occupiedCellOpponent.A1.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            C2: {
-                ...prev.C2,
-                health: prev.C2.health - 4
-            }
-        }));
-        }
-        
-        if (occupiedCell.C2.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A1: {
-                    ...prev.A1,
-                    health: prev.A1.health - occupiedCell.C2.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A1: {
                     ...prev.A1,
                     health: prev.A1.health - (occupiedCell.C2.attack - prev.A1.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
     else if (id === "A1" && occupiedCell.C3.choice === true && occupiedCell.C3.health > 0) {
-        if(occupiedCellOpponent.A1.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            C3: {
-                ...prev.C3,
-                health: prev.C3.health - 4
-            }
-        }));
-        }
-        
-        if (occupiedCell.C3.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A1: {
-                    ...prev.A1,
-                    health: prev.A1.health - occupiedCell.C3.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A1: {
                     ...prev.A1,
                     health: prev.A1.health - (occupiedCell.C3.attack - prev.A1.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
     else if (id === "A1" && occupiedCell.C4.choice === true && occupiedCell.C4.health > 0) {
-        if(occupiedCellOpponent.A1.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            C4: {
-                ...prev.C4,
-                health: prev.C4.health - 4
-            }
-        }));
-        }
-        
-        if (occupiedCell.C4.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A1: {
-                    ...prev.A1,
-                    health: prev.A1.health - occupiedCell.C4.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A1: {
                     ...prev.A1,
                     health: prev.A1.health - (occupiedCell.C4.attack - prev.A1.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
 
     else if (id === "A2" && occupiedCell.C1.choice === true && occupiedCell.C1.health > 0) {
-        if(occupiedCellOpponent.A2.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            C1: {
-                ...prev.C1,
-                health: prev.C1.health - 4
-            }
-        }));
-        }
-        
-        if (occupiedCell.C1.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A2: {
-                    ...prev.A2,
-                    health: prev.A2.health - occupiedCell.C1.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A2: {
                     ...prev.A2,
                     health: prev.A2.health - (occupiedCell.C1.attack - prev.A2.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
     else if (id === "A2" && occupiedCell.C2.choice === true && occupiedCell.C2.health > 0) {
-        if(occupiedCellOpponent.A2.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            C2: {
-                ...prev.C2,
-                health: prev.C2.health - 4
-            }
-        }));
-        }
-        
-        if (occupiedCell.C2.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A2: {
-                    ...prev.A2,
-                    health: prev.A2.health - occupiedCell.C2.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A2: {
                     ...prev.A2,
                     health: prev.A2.health - (occupiedCell.C2.attack - prev.A2.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
     else if (id === "A2" && occupiedCell.C3.choice === true && occupiedCell.C3.health > 0) {
-        if(occupiedCellOpponent.A2.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            C3: {
-                ...prev.C3,
-                health: prev.C3.health - 4
-            }
-        }));
-        }
-        
-        if (occupiedCell.C3.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A2: {
-                    ...prev.A2,
-                    health: prev.A2.health - occupiedCell.C3.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A2: {
                     ...prev.A2,
                     health: prev.A2.health - (occupiedCell.C3.attack - prev.A2.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
     else if (id === "A2" && occupiedCell.C4.choice === true && occupiedCell.C4.health > 0) {
-        if(occupiedCellOpponent.A2.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            C4: {
-                ...prev.C4,
-                health: prev.C4.health - 4
-            }
-        }));
-        }
-        
-        if (occupiedCell.C4.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A2: {
-                    ...prev.A2,
-                    health: prev.A2.health - occupiedCell.C4.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A2: {
                     ...prev.A2,
                     health: prev.A2.health - (occupiedCell.C4.attack - prev.A2.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
 
     else if (id === "A3" && occupiedCell.C1.choice === true && occupiedCell.C1.health > 0) {
-        if(occupiedCellOpponent.A3.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            C1: {
-                ...prev.C1,
-                health: prev.C1.health - 4
-            }
-        }));
-        }
-        
-        if (occupiedCell.C1.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A3: {
-                    ...prev.A3,
-                    health: prev.A3.health - occupiedCell.C1.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A3: {
                     ...prev.A3,
                     health: prev.A3.health - (occupiedCell.C1.attack - prev.A3.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
     else if (id === "A3" && occupiedCell.C2.choice === true && occupiedCell.C2.health > 0) {
-        if(occupiedCellOpponent.A3.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            C2: {
-                ...prev.C2,
-                health: prev.C2.health - 4
-            }
-        }));
-        }
-        
-        if (occupiedCell.C2.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A3: {
-                    ...prev.A3,
-                    health: prev.A3.health - occupiedCell.C2.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A3: {
                     ...prev.A3,
                     health: prev.A3.health - (occupiedCell.C2.attack - prev.A3.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
     else if (id === "A3" && occupiedCell.C3.choice === true && occupiedCell.C3.health > 0) {
-        if(occupiedCellOpponent.A3.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            C3: {
-                ...prev.C3,
-                health: prev.C3.health - 4
-            }
-        }));
-        }
-        
-        if (occupiedCell.C3.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A3: {
-                    ...prev.A3,
-                    health: prev.A3.health - occupiedCell.C3.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A3: {
                     ...prev.A3,
                     health: prev.A3.health - (occupiedCell.C3.attack - prev.A3.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
     else if (id === "A3" && occupiedCell.C4.choice === true && occupiedCell.C4.health > 0) {
-        if(occupiedCellOpponent.A3.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            C4: {
-                ...prev.C4,
-                health: prev.C4.health - 4
-            }
-        }));
-        }
-        
-        if (occupiedCell.C4.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A3: {
-                    ...prev.A3,
-                    health: prev.A3.health - occupiedCell.C4.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A3: {
                     ...prev.A3,
                     health: prev.A3.health - (occupiedCell.C4.attack - prev.A3.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
 
     else if (id === "A4" && occupiedCell.C1.choice === true && occupiedCell.C1.health > 0) {
-        if(occupiedCellOpponent.A4.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            C1: {
-                ...prev.C1,
-                health: prev.C1.health - 4
-            }
-        }));
-        }
-        
-        if (occupiedCell.C1.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A4: {
-                    ...prev.A4,
-                    health: prev.A4.health - occupiedCell.C1.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A4: {
                     ...prev.A4,
                     health: prev.A4.health - (occupiedCell.C1.attack - prev.A4.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
     else if (id === "A4" && occupiedCell.C2.choice === true && occupiedCell.C2.health > 0) {
-        if(occupiedCellOpponent.A4.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            C2: {
-                ...prev.C2,
-                health: prev.C2.health - 4
-            }
-        }));
-        }
-        
-        if (occupiedCell.C2.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A4: {
-                    ...prev.A4,
-                    health: prev.A4.health - occupiedCell.C2.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A4: {
                     ...prev.A4,
                     health: prev.A4.health - (occupiedCell.C2.attack - prev.A4.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
     else if (id === "A4" && occupiedCell.C3.choice === true && occupiedCell.C3.health > 0) {
-        if(occupiedCellOpponent.A4.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            C3: {
-                ...prev.C3,
-                health: prev.C3.health - 4
-            }
-        }));
-        }
-        
-        if (occupiedCell.C3.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A4: {
-                    ...prev.A4,
-                    health: prev.A4.health - occupiedCell.C3.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A4: {
                     ...prev.A4,
                     health: prev.A4.health - (occupiedCell.C3.attack - prev.A4.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
     else if (id === "A4" && occupiedCell.C4.choice === true && occupiedCell.C4.health > 0) {
-        if(occupiedCellOpponent.A4.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            C4: {
-                ...prev.C4,
-                health: prev.C4.health - 4
-            }
-        }));
-        }
-        
-        if (occupiedCell.C4.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A4: {
-                    ...prev.A4,
-                    health: prev.A4.health - occupiedCell.C4.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A4: {
                     ...prev.A4,
                     health: prev.A4.health - (occupiedCell.C4.attack - prev.A4.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
 
     else if (id === "A5" && occupiedCell.C1.choice === true && occupiedCell.C1.health > 0) {
-        if(occupiedCellOpponent.A5.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            C1: {
-                ...prev.C1,
-                health: prev.C1.health - 4
-            }
-        }));
-        }
-
-        if (occupiedCell.C1.name === "Метатели") {
-            setOccupiedCellOpponent(prev => ({...prev, 
-            A5: {
-                ...prev.A5,
-                health: prev.A5.health + 1 
-            }
-            }));
-        }
-        // Это баф Мечников запада, меньший урон от Метателей.
-
-        if (occupiedCell.C1.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A5: {
-                    ...prev.A5,
-                    health: prev.A5.health - occupiedCell.C1.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A5: {
                     ...prev.A5,
                     health: prev.A5.health - (occupiedCell.C1.attack - prev.A5.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
     else if (id === "A5" && occupiedCell.C2.choice === true && occupiedCell.C2.health > 0) {
-        if(occupiedCellOpponent.A5.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            C2: {
-                ...prev.C2,
-                health: prev.C2.health - 4
-            }
-        }));
-        }
-
-        if (occupiedCell.C2.name === "Метатели") {
-            setOccupiedCellOpponent(prev => ({...prev, 
-            A5: {
-                ...prev.A5,
-                health: prev.A5.health + 1 
-            }
-            }));
-        }
-        // Это баф Мечников запада, меньший урон от Метателей.
-
-        if (occupiedCell.C2.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A5: {
-                    ...prev.A5,
-                    health: prev.A5.health - occupiedCell.C2.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A5: {
                     ...prev.A5,
                     health: prev.A5.health - (occupiedCell.C2.attack - prev.A5.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
     else if (id === "A5" && occupiedCell.C3.choice === true && occupiedCell.C3.health > 0) {
-        if(occupiedCellOpponent.A5.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            C3: {
-                ...prev.C3,
-                health: prev.C3.health - 4
-            }
-        }));
-        }
-
-        if (occupiedCell.C3.name === "Метатели") {
-            setOccupiedCellOpponent(prev => ({...prev, 
-            A5: {
-                ...prev.A5,
-                health: prev.A5.health + 1 
-            }
-            }));
-        }
-        // Это баф Мечников запада, меньший урон от Метателей.
-
-        if (occupiedCell.C3.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A5: {
-                    ...prev.A5,
-                    health: prev.A5.health - occupiedCell.C3.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A5: {
                     ...prev.A5,
                     health: prev.A5.health - (occupiedCell.C3.attack - prev.A5.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
     else if (id === "A5" && occupiedCell.C4.choice === true && occupiedCell.C4.health > 0) {
-        if(occupiedCellOpponent.A5.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            C4: {
-                ...prev.C4,
-                health: prev.C4.health - 4
-            }
-        }));
-        }
-
-        if (occupiedCell.C4.name === "Метатели") {
-            setOccupiedCellOpponent(prev => ({...prev, 
-            A5: {
-                ...prev.A5,
-                health: prev.A5.health + 1 
-            }
-            }));
-        }
-        // Это баф Мечников запада, меньший урон от Метателей.
-
-        if (occupiedCell.C4.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A5: {
-                    ...prev.A5,
-                    health: prev.A5.health - occupiedCell.C4.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A5: {
                     ...prev.A5,
                     health: prev.A5.health - (occupiedCell.C4.attack - prev.A5.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
 
     else if (id === "A6" && occupiedCell.C1.choice === true && occupiedCell.C1.health > 0) {
-        if(occupiedCellOpponent.A6.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            C1: {
-                ...prev.C1,
-                health: prev.C1.health - 4
-            }
-        }));
-        }
-
-        if (occupiedCell.C1.name === "Метатели") {
+        if (occupiedCell.C1.name === "Мечники запада") {
             setOccupiedCellOpponent(prev => ({...prev, 
             A6: {
                 ...prev.A6,
@@ -1777,43 +1247,18 @@ export const GameEmpireLvl3 = () => {
             }
             }));
         }
-        // Это баф Мечников запада, меньший урон от Метателей.
-
-        if (occupiedCell.C1.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A6: {
-                    ...prev.A6,
-                    health: prev.A6.health - occupiedCell.C1.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
+        // Это баф Булавоносцев запада, меньший урон от Мечников запада.
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A6: {
                     ...prev.A6,
                     health: prev.A6.health - (occupiedCell.C1.attack - prev.A6.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
     else if (id === "A6" && occupiedCell.C2.choice === true && occupiedCell.C2.health > 0) {
-        if(occupiedCellOpponent.A6.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            C2: {
-                ...prev.C2,
-                health: prev.C2.health - 4
-            }
-        }));
-        }
-
-        if (occupiedCell.C2.name === "Метатели") {
+        if (occupiedCell.C2.name === "Мечники запада") {
             setOccupiedCellOpponent(prev => ({...prev, 
             A6: {
                 ...prev.A6,
@@ -1821,43 +1266,18 @@ export const GameEmpireLvl3 = () => {
             }
             }));
         }
-        // Это баф Мечников запада, меньший урон от Метателей.
-
-        if (occupiedCell.C2.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A6: {
-                    ...prev.A6,
-                    health: prev.A6.health - occupiedCell.C2.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
+        // Это баф Булавоносцев запада, меньший урон от Мечников запада.
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A6: {
                     ...prev.A6,
                     health: prev.A6.health - (occupiedCell.C2.attack - prev.A6.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
     else if (id === "A6" && occupiedCell.C3.choice === true && occupiedCell.C3.health > 0) {
-        if(occupiedCellOpponent.A6.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            C3: {
-                ...prev.C3,
-                health: prev.C3.health - 4
-            }
-        }));
-        }
-
-        if (occupiedCell.C3.name === "Метатели") {
+        if (occupiedCell.C3.name === "Мечники запада") {
             setOccupiedCellOpponent(prev => ({...prev, 
             A6: {
                 ...prev.A6,
@@ -1865,43 +1285,18 @@ export const GameEmpireLvl3 = () => {
             }
             }));
         }
-        // Это баф Мечников запада, меньший урон от Метателей.
-
-        if (occupiedCell.C3.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A6: {
-                    ...prev.A6,
-                    health: prev.A6.health - occupiedCell.C3.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
+        // Это баф Булавоносцев запада, меньший урон от Мечников запада.
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A6: {
                     ...prev.A6,
                     health: prev.A6.health - (occupiedCell.C3.attack - prev.A6.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
     else if (id === "A6" && occupiedCell.C4.choice === true && occupiedCell.C4.health > 0) {
-        if(occupiedCellOpponent.A6.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            C4: {
-                ...prev.C4,
-                health: prev.C4.health - 4
-            }
-        }));
-        }
-
-        if (occupiedCell.C4.name === "Метатели") {
+        if (occupiedCell.C4.name === "Мечники запада") {
             setOccupiedCellOpponent(prev => ({...prev, 
             A6: {
                 ...prev.A6,
@@ -1909,45 +1304,20 @@ export const GameEmpireLvl3 = () => {
             }
             }));
         }
-        // Это баф Мечников запада, меньший урон от Метателей.
-
-        if (occupiedCell.C4.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A6: {
-                    ...prev.A6,
-                    health: prev.A6.health - occupiedCell.C4.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
+        // Это баф Булавоносцев запада, меньший урон от Мечников запада.
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A6: {
                     ...prev.A6,
                     health: prev.A6.health - (occupiedCell.C4.attack - prev.A6.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
 
 
     else if (id === "A7" && occupiedCell.C1.choice === true && occupiedCell.C1.health > 0) {
-        if(occupiedCellOpponent.A7.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            C1: {
-                ...prev.C1,
-                health: prev.C1.health - 4
-            }
-        }));
-        }
-
-        if (occupiedCell.C1.name === "Метатели") {
+        if (occupiedCell.C1.name === "Мечники запада") {
             setOccupiedCellOpponent(prev => ({...prev, 
             A7: {
                 ...prev.A7,
@@ -1955,43 +1325,18 @@ export const GameEmpireLvl3 = () => {
             }
             }));
         }
-        // Это баф Мечников запада, меньший урон от Метателей.
-
-        if (occupiedCell.C1.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A7: {
-                    ...prev.A7,
-                    health: prev.A7.health - occupiedCell.C1.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
+        // Это баф Булавоносцев запада, меньший урон от Мечников запада.
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A7: {
                     ...prev.A7,
                     health: prev.A7.health - (occupiedCell.C1.attack - prev.A7.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
     else if (id === "A7" && occupiedCell.C2.choice === true && occupiedCell.C2.health > 0) {
-        if(occupiedCellOpponent.A7.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            C2: {
-                ...prev.C2,
-                health: prev.C2.health - 4
-            }
-        }));
-        }
-
-        if (occupiedCell.C2.name === "Метатели") {
+        if (occupiedCell.C2.name === "Мечники запада") {
             setOccupiedCellOpponent(prev => ({...prev, 
             A7: {
                 ...prev.A7,
@@ -1999,43 +1344,18 @@ export const GameEmpireLvl3 = () => {
             }
             }));
         }
-        // Это баф Мечников запада, меньший урон от Метателей.
-
-        if (occupiedCell.C2.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A7: {
-                    ...prev.A7,
-                    health: prev.A7.health - occupiedCell.C2.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
+        // Это баф Булавоносцев запада, меньший урон от Мечников запада.
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A7: {
                     ...prev.A7,
                     health: prev.A7.health - (occupiedCell.C2.attack - prev.A7.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
     else if (id === "A7" && occupiedCell.C3.choice === true && occupiedCell.C3.health > 0) {
-        if(occupiedCellOpponent.A7.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            C3: {
-                ...prev.C3,
-                health: prev.C3.health - 4
-            }
-        }));
-        }
-
-        if (occupiedCell.C3.name === "Метатели") {
+        if (occupiedCell.C3.name === "Мечники запада") {
             setOccupiedCellOpponent(prev => ({...prev, 
             A7: {
                 ...prev.A7,
@@ -2043,43 +1363,18 @@ export const GameEmpireLvl3 = () => {
             }
             }));
         }
-        // Это баф Мечников запада, меньший урон от Метателей.
-
-        if (occupiedCell.C3.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A7: {
-                    ...prev.A7,
-                    health: prev.A7.health - occupiedCell.C3.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
+        // Это баф Булавоносцев запада, меньший урон от Мечников запада.
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A7: {
                     ...prev.A7,
                     health: prev.A7.health - (occupiedCell.C3.attack - prev.A7.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
     else if (id === "A7" && occupiedCell.C4.choice === true && occupiedCell.C4.health > 0) {
-        if(occupiedCellOpponent.A7.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            C4: {
-                ...prev.C4,
-                health: prev.C4.health - 4
-            }
-        }));
-        }
-
-        if (occupiedCell.C4.name === "Метатели") {
+        if (occupiedCell.C4.name === "Мечники запада") {
             setOccupiedCellOpponent(prev => ({...prev, 
             A7: {
                 ...prev.A7,
@@ -2087,948 +1382,267 @@ export const GameEmpireLvl3 = () => {
             }
             }));
         }
-        // Это баф Мечников запада, меньший урон от Метателей.
-
-        if (occupiedCell.C4.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A7: {
-                    ...prev.A7,
-                    health: prev.A7.health - occupiedCell.C4.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
+        // Это баф Булавоносцев запада, меньший урон от Мечников запада.
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A7: {
                     ...prev.A7,
                     health: prev.A7.health - (occupiedCell.C4.attack - prev.A7.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
 
 
     else if (id === "A8" && occupiedCell.C1.choice === true && occupiedCell.C1.health > 0) {
-        if(occupiedCellOpponent.A8.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            C1: {
-                ...prev.C1,
-                health: prev.C1.health - 4
-            }
-        }));
-        }
-
-        if (occupiedCell.C1.name === "Метатели") {
-            setOccupiedCellOpponent(prev => ({...prev, 
-            A8: {
-                ...prev.A8,
-                health: prev.A8.health + 1 
-            }
-            }));
-        }
-        // Это баф Мечников запада, меньший урон от Метателей.
-
-        if (occupiedCell.C1.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A8: {
-                    ...prev.A8,
-                    health: prev.A8.health - occupiedCell.C1.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A8: {
                     ...prev.A8,
                     health: prev.A8.health - (occupiedCell.C1.attack - prev.A8.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
     else if (id === "A8" && occupiedCell.C2.choice === true && occupiedCell.C2.health > 0) {
-        if(occupiedCellOpponent.A8.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            C2: {
-                ...prev.C2,
-                health: prev.C2.health - 4
-            }
-        }));
-        }
-
-        if (occupiedCell.C2.name === "Метатели") {
-            setOccupiedCellOpponent(prev => ({...prev, 
-            A8: {
-                ...prev.A8,
-                health: prev.A8.health + 1 
-            }
-            }));
-        }
-        // Это баф Мечников запада, меньший урон от Метателей.
-
-        if (occupiedCell.C2.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A8: {
-                    ...prev.A8,
-                    health: prev.A8.health - occupiedCell.C2.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A8: {
                     ...prev.A8,
                     health: prev.A8.health - (occupiedCell.C2.attack - prev.A8.defense),
-                    first: false
             }
             }));
-        }
-        
         handleCounterattack()
     }
     else if (id === "A8" && occupiedCell.C3.choice === true && occupiedCell.C3.health > 0) {
-        if(occupiedCellOpponent.A8.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            C3: {
-                ...prev.C3,
-                health: prev.C3.health - 4
-            }
-        }));
-        }
-
-        if (occupiedCell.C3.name === "Метатели") {
-            setOccupiedCellOpponent(prev => ({...prev, 
-            A8: {
-                ...prev.A8,
-                health: prev.A8.health + 1 
-            }
-            }));
-        }
-        // Это баф Мечников запада, меньший урон от Метателей.
-
-        if (occupiedCell.C3.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A8: {
-                    ...prev.A8,
-                    health: prev.A8.health - occupiedCell.C3.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A8: {
                     ...prev.A8,
                     health: prev.A8.health - (occupiedCell.C3.attack - prev.A8.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
     else if (id === "A8" && occupiedCell.C4.choice === true && occupiedCell.C4.health > 0) {
-        if(occupiedCellOpponent.A8.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            C4: {
-                ...prev.C4,
-                health: prev.C4.health - 4
-            }
-        }));
-        }
-
-        if (occupiedCell.C4.name === "Метатели") {
-            setOccupiedCellOpponent(prev => ({...prev, 
-            A8: {
-                ...prev.A8,
-                health: prev.A8.health + 1 
-            }
-            }));
-        }
-        // Это баф Мечников запада, меньший урон от Метателей.
-
-        if (occupiedCell.C4.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A8: {
-                    ...prev.A8,
-                    health: prev.A8.health - occupiedCell.C4.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A8: {
                     ...prev.A8,
                     health: prev.A8.health - (occupiedCell.C4.attack - prev.A8.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
 
 
     else if (id === "A1" && occupiedCell.D1.choice === true && occupiedCell.D1.health > 0) {
-        if(occupiedCellOpponent.A1.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            D1: {
-                ...prev.D1,
-                health: prev.D1.health - 4
-            }
-        }));
-        }
-        
-        if (occupiedCell.D1.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A1: {
-                    ...prev.A1,
-                    health: prev.A1.health - occupiedCell.D1.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A1: {
                     ...prev.A1,
                     health: prev.A1.health - (occupiedCell.D1.attack - prev.A1.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
     else if (id === "A1" && occupiedCell.D2.choice === true && occupiedCell.D2.health > 0) {
-        if(occupiedCellOpponent.A1.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            D2: {
-                ...prev.D2,
-                health: prev.D2.health - 4
-            }
-        }));
-        }
-        
-        if (occupiedCell.D2.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A1: {
-                    ...prev.A1,
-                    health: prev.A1.health - occupiedCell.D2.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A1: {
                     ...prev.A1,
                     health: prev.A1.health - (occupiedCell.D2.attack - prev.A1.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
     else if (id === "A1" && occupiedCell.D3.choice === true && occupiedCell.D3.health > 0) {
-        if(occupiedCellOpponent.A1.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            D3: {
-                ...prev.D3,
-                health: prev.D3.health - 4
-            }
-        }));
-        }
-        
-        if (occupiedCell.D3.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A1: {
-                    ...prev.A1,
-                    health: prev.A1.health - occupiedCell.D3.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A1: {
                     ...prev.A1,
                     health: prev.A1.health - (occupiedCell.D3.attack - prev.A1.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
     else if (id === "A1" && occupiedCell.D4.choice === true && occupiedCell.D4.health > 0) {
-        if(occupiedCellOpponent.A1.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            D4: {
-                ...prev.D4,
-                health: prev.D4.health - 4
-            }
-        }));
-        }
-        
-        if (occupiedCell.D4.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A1: {
-                    ...prev.A1,
-                    health: prev.A1.health - occupiedCell.D4.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A1: {
                     ...prev.A1,
                     health: prev.A1.health - (occupiedCell.D4.attack - prev.A1.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
 
     else if (id === "A2" && occupiedCell.D1.choice === true && occupiedCell.D1.health > 0) {
-        if(occupiedCellOpponent.A2.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            D1: {
-                ...prev.D1,
-                health: prev.D1.health - 4
-            }
-        }));
-        }
-
-        if (occupiedCell.D1.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A2: {
-                    ...prev.A2,
-                    health: prev.A2.health - occupiedCell.D1.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A2: {
                     ...prev.A2,
                     health: prev.A2.health - (occupiedCell.D1.attack - prev.A2.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
     else if (id === "A2" && occupiedCell.D2.choice === true && occupiedCell.D2.health > 0) {
-        if(occupiedCellOpponent.A2.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            D2: {
-                ...prev.D2,
-                health: prev.D2.health - 4
-            }
-        }));
-        }
-        
-        if (occupiedCell.D2.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A2: {
-                    ...prev.A2,
-                    health: prev.A2.health - occupiedCell.D2.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A2: {
                     ...prev.A2,
                     health: prev.A2.health - (occupiedCell.D2.attack - prev.A2.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
     else if (id === "A2" && occupiedCell.D3.choice === true && occupiedCell.D3.health > 0) {
-        if(occupiedCellOpponent.A2.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            D3: {
-                ...prev.D3,
-                health: prev.D3.health - 4
-            }
-        }));
-        }
-        
-        if (occupiedCell.D3.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A2: {
-                    ...prev.A2,
-                    health: prev.A2.health - occupiedCell.D3.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A2: {
                     ...prev.A2,
                     health: prev.A2.health - (occupiedCell.D3.attack - prev.A2.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
     else if (id === "A2" && occupiedCell.D4.choice === true && occupiedCell.D4.health > 0) {
-        if(occupiedCellOpponent.A2.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            D4: {
-                ...prev.D4,
-                health: prev.D4.health - 4
-            }
-        }));
-        }
-        
-        if (occupiedCell.D4.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A2: {
-                    ...prev.A2,
-                    health: prev.A2.health - occupiedCell.D4.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A2: {
                     ...prev.A2,
                     health: prev.A2.health - (occupiedCell.D4.attack - prev.A2.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
-    
+
     else if (id === "A3" && occupiedCell.D1.choice === true && occupiedCell.D1.health > 0) {
-        if(occupiedCellOpponent.A3.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            D1: {
-                ...prev.D1,
-                health: prev.D1.health - 4
-            }
-        }));
-        }
-        
-        if (occupiedCell.D1.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A3: {
-                    ...prev.A3,
-                    health: prev.A3.health - occupiedCell.D1.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A3: {
                     ...prev.A3,
                     health: prev.A3.health - (occupiedCell.D1.attack - prev.A3.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
     else if (id === "A3" && occupiedCell.D2.choice === true && occupiedCell.D2.health > 0) {
-        if(occupiedCellOpponent.A3.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            D2: {
-                ...prev.D2,
-                health: prev.D2.health - 4
-            }
-        }));
-        }
-        
-        if (occupiedCell.D2.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A3: {
-                    ...prev.A3,
-                    health: prev.A3.health - occupiedCell.D2.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A3: {
                     ...prev.A3,
                     health: prev.A3.health - (occupiedCell.D2.attack - prev.A3.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
     else if (id === "A3" && occupiedCell.D3.choice === true && occupiedCell.D3.health > 0) {
-        if(occupiedCellOpponent.A3.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            D3: {
-                ...prev.D3,
-                health: prev.D3.health - 4
-            }
-        }));
-        }
-        
-        if (occupiedCell.D3.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A3: {
-                    ...prev.A3,
-                    health: prev.A3.health - occupiedCell.D3.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A3: {
                     ...prev.A3,
                     health: prev.A3.health - (occupiedCell.D3.attack - prev.A3.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
     else if (id === "A3" && occupiedCell.D4.choice === true && occupiedCell.D4.health > 0) {
-        if(occupiedCellOpponent.A3.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            D4: {
-                ...prev.D4,
-                health: prev.D4.health - 4
-            }
-        }));
-        }
-        
-        if (occupiedCell.D4.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A3: {
-                    ...prev.A3,
-                    health: prev.A3.health - occupiedCell.D4.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A3: {
                     ...prev.A3,
                     health: prev.A3.health - (occupiedCell.D4.attack - prev.A3.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
 
     else if (id === "A4" && occupiedCell.D1.choice === true && occupiedCell.D1.health > 0) {
-        if(occupiedCellOpponent.A4.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            D1: {
-                ...prev.D1,
-                health: prev.D1.health - 4
-            }
-        }));
-        }
-        
-        if (occupiedCell.D1.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A4: {
-                    ...prev.A4,
-                    health: prev.A4.health - occupiedCell.D1.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A4: {
                     ...prev.A4,
                     health: prev.A4.health - (occupiedCell.D1.attack - prev.A4.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
     else if (id === "A4" && occupiedCell.D2.choice === true && occupiedCell.D2.health > 0) {
-        if(occupiedCellOpponent.A4.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            D2: {
-                ...prev.D2,
-                health: prev.D2.health - 4
-            }
-        }));
-        }
-        
-        if (occupiedCell.D2.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A4: {
-                    ...prev.A4,
-                    health: prev.A4.health - occupiedCell.D2.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A4: {
                     ...prev.A4,
                     health: prev.A4.health - (occupiedCell.D2.attack - prev.A4.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
     else if (id === "A4" && occupiedCell.D3.choice === true && occupiedCell.D3.health > 0) {
-        if(occupiedCellOpponent.A4.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            D3: {
-                ...prev.D3,
-                health: prev.D3.health - 4
-            }
-        }));
-        }
-        
-        if (occupiedCell.D3.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A4: {
-                    ...prev.A4,
-                    health: prev.A4.health - occupiedCell.D3.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A4: {
                     ...prev.A4,
                     health: prev.A4.health - (occupiedCell.D3.attack - prev.A4.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
     else if (id === "A4" && occupiedCell.D4.choice === true && occupiedCell.D4.health > 0) {
-        if(occupiedCellOpponent.A4.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            D4: {
-                ...prev.D4,
-                health: prev.D4.health - 4
-            }
-        }));
-        }
-        
-        if (occupiedCell.D4.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A4: {
-                    ...prev.A4,
-                    health: prev.A4.health - occupiedCell.D4.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A4: {
                     ...prev.A4,
                     health: prev.A4.health - (occupiedCell.D4.attack - prev.A4.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
 
     else if (id === "A5" && occupiedCell.D1.choice === true && occupiedCell.D1.health > 0) {
-        if(occupiedCellOpponent.A5.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            D1: {
-                ...prev.D1,
-                health: prev.D1.health - 4
-            }
-        }));
-        }
-
-        if (occupiedCell.D1.name === "Метатели") {
-            setOccupiedCellOpponent(prev => ({...prev, 
-            A5: {
-                ...prev.A5,
-                health: prev.A5.health + 1 
-            }
-            }));
-        }
-        // Это баф Мечников запада, меньший урон от Метателей.
-
-        if (occupiedCell.D1.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A5: {
-                    ...prev.A5,
-                    health: prev.A5.health - occupiedCell.D1.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A5: {
                     ...prev.A5,
                     health: prev.A5.health - (occupiedCell.D1.attack - prev.A5.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
     else if (id === "A5" && occupiedCell.D2.choice === true && occupiedCell.D2.health > 0) {
-        if(occupiedCellOpponent.A5.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            D2: {
-                ...prev.D2,
-                health: prev.D2.health - 4
-            }
-        }));
-        }
-
-        if (occupiedCell.D2.name === "Метатели") {
-            setOccupiedCellOpponent(prev => ({...prev, 
-            A5: {
-                ...prev.A5,
-                health: prev.A5.health + 1 
-            }
-            }));
-        }
-        // Это баф Мечников запада, меньший урон от Метателей.
-
-        if (occupiedCell.D2.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A5: {
-                    ...prev.A5,
-                    health: prev.A5.health - occupiedCell.D2.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A5: {
                     ...prev.A5,
                     health: prev.A5.health - (occupiedCell.D2.attack - prev.A5.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
     else if (id === "A5" && occupiedCell.D3.choice === true && occupiedCell.D3.health > 0) {
-        if(occupiedCellOpponent.A5.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            D3: {
-                ...prev.D3,
-                health: prev.D3.health - 4
-            }
-        }));
-        }
-
-        if (occupiedCell.D3.name === "Метатели") {
-            setOccupiedCellOpponent(prev => ({...prev, 
-            A5: {
-                ...prev.A5,
-                health: prev.A5.health + 1 
-            }
-            }));
-        }
-        // Это баф Мечников запада, меньший урон от Метателей.
-
-        if (occupiedCell.D3.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A5: {
-                    ...prev.A5,
-                    health: prev.A5.health - occupiedCell.D3.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A5: {
                     ...prev.A5,
                     health: prev.A5.health - (occupiedCell.D3.attack - prev.A5.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
     else if (id === "A5" && occupiedCell.D4.choice === true && occupiedCell.D4.health > 0) {
-        if(occupiedCellOpponent.A5.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            D4: {
-                ...prev.D4,
-                health: prev.D4.health - 4
-            }
-        }));
-        }
-
-        if (occupiedCell.D4.name === "Метатели") {
-            setOccupiedCellOpponent(prev => ({...prev, 
-            A5: {
-                ...prev.A5,
-                health: prev.A5.health + 1 
-            }
-            }));
-        }
-        // Это баф Мечников запада, меньший урон от Метателей.
-
-        if (occupiedCell.D4.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A5: {
-                    ...prev.A5,
-                    health: prev.A5.health - occupiedCell.D4.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A5: {
                     ...prev.A5,
                     health: prev.A5.health - (occupiedCell.D4.attack - prev.A5.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
 
     else if (id === "A6" && occupiedCell.D1.choice === true && occupiedCell.D1.health > 0) {
-        if(occupiedCellOpponent.A6.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            D1: {
-                ...prev.D1,
-                health: prev.D1.health - 4
-            }
-        }));
-        }
-
-        if (occupiedCell.D1.name === "Метатели") {
+        if (occupiedCell.D1.name === "Мечники запада") {
             setOccupiedCellOpponent(prev => ({...prev, 
             A6: {
                 ...prev.A6,
@@ -3036,43 +1650,18 @@ export const GameEmpireLvl3 = () => {
             }
             }));
         }
-        // Это баф Мечников запада, меньший урон от Метателей.
-
-        if (occupiedCell.D1.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A6: {
-                    ...prev.A6,
-                    health: prev.A6.health - occupiedCell.D1.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
+        // Это баф Булавоносцев запада, меньший урон от Мечников запада.
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A6: {
                     ...prev.A6,
                     health: prev.A6.health - (occupiedCell.D1.attack - prev.A6.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
     else if (id === "A6" && occupiedCell.D2.choice === true && occupiedCell.D2.health > 0) {
-        if(occupiedCellOpponent.A6.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            D2: {
-                ...prev.D2,
-                health: prev.D2.health - 4
-            }
-        }));
-        }
-
-        if (occupiedCell.D2.name === "Метатели") {
+        if (occupiedCell.D2.name === "Мечники запада") {
             setOccupiedCellOpponent(prev => ({...prev, 
             A6: {
                 ...prev.A6,
@@ -3080,43 +1669,18 @@ export const GameEmpireLvl3 = () => {
             }
             }));
         }
-        // Это баф Мечников запада, меньший урон от Метателей.
-
-        if (occupiedCell.D2.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A6: {
-                    ...prev.A6,
-                    health: prev.A6.health - occupiedCell.D2.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
+        // Это баф Булавоносцев запада, меньший урон от Мечников запада.
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A6: {
                     ...prev.A6,
                     health: prev.A6.health - (occupiedCell.D2.attack - prev.A6.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
     else if (id === "A6" && occupiedCell.D3.choice === true && occupiedCell.D3.health > 0) {
-        if(occupiedCellOpponent.A6.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            D3: {
-                ...prev.D3,
-                health: prev.D3.health - 4
-            }
-        }));
-        }
-
-        if (occupiedCell.D3.name === "Метатели") {
+        if (occupiedCell.D3.name === "Мечники запада") {
             setOccupiedCellOpponent(prev => ({...prev, 
             A6: {
                 ...prev.A6,
@@ -3124,43 +1688,18 @@ export const GameEmpireLvl3 = () => {
             }
             }));
         }
-        // Это баф Мечников запада, меньший урон от Метателей.
-
-        if (occupiedCell.D3.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A6: {
-                    ...prev.A6,
-                    health: prev.A6.health - occupiedCell.D3.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
+        // Это баф Булавоносцев запада, меньший урон от Мечников запада.
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A6: {
                     ...prev.A6,
                     health: prev.A6.health - (occupiedCell.D3.attack - prev.A6.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
     else if (id === "A6" && occupiedCell.D4.choice === true && occupiedCell.D4.health > 0) {
-        if(occupiedCellOpponent.A6.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            D4: {
-                ...prev.D4,
-                health: prev.D4.health - 4
-            }
-        }));
-        }
-
-        if (occupiedCell.D4.name === "Метатели") {
+        if (occupiedCell.D4.name === "Мечники запада") {
             setOccupiedCellOpponent(prev => ({...prev, 
             A6: {
                 ...prev.A6,
@@ -3168,45 +1707,20 @@ export const GameEmpireLvl3 = () => {
             }
             }));
         }
-        // Это баф Мечников запада, меньший урон от Метателей.
-
-        if (occupiedCell.D4.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A6: {
-                    ...prev.A6,
-                    health: prev.A6.health - occupiedCell.D4.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
+        // Это баф Булавоносцев запада, меньший урон от Мечников запада.
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A6: {
                     ...prev.A6,
                     health: prev.A6.health - (occupiedCell.D4.attack - prev.A6.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
 
 
     else if (id === "A7" && occupiedCell.D1.choice === true && occupiedCell.D1.health > 0) {
-        if(occupiedCellOpponent.A7.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            D1: {
-                ...prev.D1,
-                health: prev.D1.health - 4
-            }
-        }));
-        }
-
-        if (occupiedCell.D1.name === "Метатели") {
+        if (occupiedCell.D1.name === "Мечники запада") {
             setOccupiedCellOpponent(prev => ({...prev, 
             A7: {
                 ...prev.A7,
@@ -3214,43 +1728,18 @@ export const GameEmpireLvl3 = () => {
             }
             }));
         }
-        // Это баф Мечников запада, меньший урон от Метателей.
-
-        if (occupiedCell.D1.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A7: {
-                    ...prev.A7,
-                    health: prev.A7.health - occupiedCell.D1.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
+        // Это баф Булавоносцев запада, меньший урон от Мечников запада.
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A7: {
                     ...prev.A7,
                     health: prev.A7.health - (occupiedCell.D1.attack - prev.A7.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
     else if (id === "A7" && occupiedCell.D2.choice === true && occupiedCell.D2.health > 0) {
-        if(occupiedCellOpponent.A7.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            D2: {
-                ...prev.D2,
-                health: prev.D2.health - 4
-            }
-        }));
-        }
-
-        if (occupiedCell.D2.name === "Метатели") {
+        if (occupiedCell.D2.name === "Мечники запада") {
             setOccupiedCellOpponent(prev => ({...prev, 
             A7: {
                 ...prev.A7,
@@ -3258,43 +1747,18 @@ export const GameEmpireLvl3 = () => {
             }
             }));
         }
-        // Это баф Мечников запада, меньший урон от Метателей.
-
-        if (occupiedCell.D2.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A7: {
-                    ...prev.A7,
-                    health: prev.A7.health - occupiedCell.D2.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
+        // Это баф Булавоносцев запада, меньший урон от Мечников запада.
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A7: {
                     ...prev.A7,
                     health: prev.A7.health - (occupiedCell.D2.attack - prev.A7.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
     else if (id === "A7" && occupiedCell.D3.choice === true && occupiedCell.D3.health > 0) {
-        if(occupiedCellOpponent.A7.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            D3: {
-                ...prev.D3,
-                health: prev.D3.health - 4
-            }
-        }));
-        }
-
-        if (occupiedCell.D3.name === "Метатели") {
+        if (occupiedCell.D3.name === "Мечники запада") {
             setOccupiedCellOpponent(prev => ({...prev, 
             A7: {
                 ...prev.A7,
@@ -3302,43 +1766,18 @@ export const GameEmpireLvl3 = () => {
             }
             }));
         }
-        // Это баф Мечников запада, меньший урон от Метателей.
-
-        if (occupiedCell.D3.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A7: {
-                    ...prev.A7,
-                    health: prev.A7.health - occupiedCell.D3.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
+        // Это баф Булавоносцев запада, меньший урон от Мечников запада.
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A7: {
                     ...prev.A7,
                     health: prev.A7.health - (occupiedCell.D3.attack - prev.A7.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
     else if (id === "A7" && occupiedCell.D4.choice === true && occupiedCell.D4.health > 0) {
-        if(occupiedCellOpponent.A7.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            D4: {
-                ...prev.D4,
-                health: prev.D4.health - 4
-            }
-        }));
-        }
-
-        if (occupiedCell.D4.name === "Метатели") {
+        if (occupiedCell.D4.name === "Мечники запада") {
             setOccupiedCellOpponent(prev => ({...prev, 
             A7: {
                 ...prev.A7,
@@ -3346,207 +1785,56 @@ export const GameEmpireLvl3 = () => {
             }
             }));
         }
-        // Это баф Мечников запада, меньший урон от Метателей.
-
-        if (occupiedCell.D4.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A7: {
-                    ...prev.A7,
-                    health: prev.A7.health - occupiedCell.D4.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
+        // Это баф Булавоносцев запада, меньший урон от Мечников запада.
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A7: {
                     ...prev.A7,
                     health: prev.A7.health - (occupiedCell.D4.attack - prev.A7.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
 
 
     else if (id === "A8" && occupiedCell.D1.choice === true && occupiedCell.D1.health > 0) {
-        if(occupiedCellOpponent.A8.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            D1: {
-                ...prev.D1,
-                health: prev.D1.health - 4
-            }
-        }));
-        }
-
-        if (occupiedCell.D1.name === "Метатели") {
-            setOccupiedCellOpponent(prev => ({...prev, 
-            A8: {
-                ...prev.A8,
-                health: prev.A8.health + 1 
-            }
-            }));
-        }
-        // Это баф Мечников запада, меньший урон от Метателей.
-
-        if (occupiedCell.D1.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A8: {
-                    ...prev.A8,
-                    health: prev.A8.health - occupiedCell.D1.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A8: {
                     ...prev.A8,
                     health: prev.A8.health - (occupiedCell.D1.attack - prev.A8.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
     else if (id === "A8" && occupiedCell.D2.choice === true && occupiedCell.D2.health > 0) {
-        if(occupiedCellOpponent.A8.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            D2: {
-                ...prev.D2,
-                health: prev.D2.health - 4
-            }
-        }));
-        }
-
-        if (occupiedCell.D2.name === "Метатели") {
-            setOccupiedCellOpponent(prev => ({...prev, 
-            A8: {
-                ...prev.A8,
-                health: prev.A8.health + 1 
-            }
-            }));
-        }
-        // Это баф Мечников запада, меньший урон от Метателей.
-
-        if (occupiedCell.D2.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A8: {
-                    ...prev.A8,
-                    health: prev.A8.health - occupiedCell.D2.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A8: {
                     ...prev.A8,
                     health: prev.A8.health - (occupiedCell.D2.attack - prev.A8.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
     else if (id === "A8" && occupiedCell.D3.choice === true && occupiedCell.D3.health > 0) {
-        if(occupiedCellOpponent.A8.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            D3: {
-                ...prev.D3,
-                health: prev.D3.health - 4
-            }
-        }));
-        }
-
-        if (occupiedCell.D3.name === "Метатели") {
-            setOccupiedCellOpponent(prev => ({...prev, 
-            A8: {
-                ...prev.A8,
-                health: prev.A8.health + 1 
-            }
-            }));
-        }
-        // Это баф Мечников запада, меньший урон от Метателей.
-
-        if (occupiedCell.D3.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A8: {
-                    ...prev.A8,
-                    health: prev.A8.health - occupiedCell.D3.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A8: {
                     ...prev.A8,
                     health: prev.A8.health - (occupiedCell.D3.attack - prev.A8.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
     else if (id === "A8" && occupiedCell.D4.choice === true && occupiedCell.D4.health > 0) {
-        if(occupiedCellOpponent.A8.first === true){
-            setOccupiedCell(prev => ({
-            ...prev,
-            D4: {
-                ...prev.D4,
-                health: prev.D4.health - 4
-            }
-        }));
-        }
-
-        if (occupiedCell.D4.name === "Метатели") {
-            setOccupiedCellOpponent(prev => ({...prev, 
-            A8: {
-                ...prev.A8,
-                health: prev.A8.health + 1 
-            }
-            }));
-        }
-        // Это баф Мечников запада, меньший урон от Метателей.
-
-        if (occupiedCell.D4.name === "Ангалиты") {
-            setOccupiedCellOpponent(prev => ({
-                ...prev,
-                A8: {
-                    ...prev.A8,
-                    health: prev.A8.health - occupiedCell.D4.attack ,
-                    first: false
-            }
-            }));
-        }
-        else {
             setOccupiedCellOpponent(prev => ({
                 ...prev,
                 A8: {
                     ...prev.A8,
                     health: prev.A8.health - (occupiedCell.D4.attack - prev.A8.defense),
-                    first: false
             }
             }));
-        }
-
         handleCounterattack()
     }
 
@@ -3677,13 +1965,13 @@ function handleCounterattack() {
 }
 // Здесь происходит атака на юнита противника и проверяется приоритет атаки.
 
-    function handleSkillHunter() {
+    function handleSkillWestArcher() {
         if (attackQueue === 1) {
             setOccupiedCellOpponent(prev => ({
             ...prev,
             A1: {
                 ...prev.A1,
-                health: prev.A1.health - 20
+                health: prev.A1.health - 5
             }
         }));
         }
@@ -3692,7 +1980,7 @@ function handleCounterattack() {
             ...prev,
             A2: {
                 ...prev.A2,
-                health: prev.A2.health - 20
+                health: prev.A2.health - 5
             }
         }));
         }
@@ -3701,7 +1989,7 @@ function handleCounterattack() {
             ...prev,
             A3: {
                 ...prev.A3,
-                health: prev.A3.health - 20
+                health: prev.A3.health - 5
             }
         }));
         }
@@ -3710,7 +1998,7 @@ function handleCounterattack() {
             ...prev,
             A4: {
                 ...prev.A4,
-                health: prev.A4.health - 20
+                health: prev.A4.health - 5
             }
         }));
         }
@@ -3719,7 +2007,7 @@ function handleCounterattack() {
             ...prev,
             A5: {
                 ...prev.A5,
-                health: prev.A5.health - 20
+                health: prev.A5.health - 5
             }
         }));
         }
@@ -3728,7 +2016,7 @@ function handleCounterattack() {
             ...prev,
             A6: {
                 ...prev.A6,
-                health: prev.A6.health - 20
+                health: prev.A6.health - 5
             }
         }));
         }
@@ -3737,7 +2025,7 @@ function handleCounterattack() {
             ...prev,
             A7: {
                 ...prev.A7,
-                health: prev.A7.health - 20
+                health: prev.A7.health - 5
             }
         }));
         }
@@ -3746,217 +2034,21 @@ function handleCounterattack() {
             ...prev,
             A8: {
                 ...prev.A8,
-                health: prev.A8.health - 20
+                health: prev.A8.health - 5
             }
         }));
         }
 
-        if (stateSkillsSoldiersWasteland.stateSkillsHunter === true) {
-            setStateSkillsSoldiersWasteland(prev => ({...prev, stateHunterQuantitySkills : false}));
-            setStateSkillsSoldiersWasteland(prev => ({...prev, showStateSkillsHunter: false}));
+        if (stateSkillsSoldiersEmpire.stateSkillsWestArcher === true) {
+            setStateSkillsSoldiersEmpire(prev => ({...prev, stateWestArcherQuantitySkills : false}));
+            setStateSkillsSoldiersEmpire(prev => ({...prev, showStateSkillsWestArcher: false}));
         }
        
     }
 
-    function handleSkillJavelin() {
+    function handleSkillWestSwordsman() {
 
         if (attackQueue === 1) {
-            setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A1: {
-                ...prev.A1,
-                health: prev.A1.health - 10,
-                defense: prev.A1.defense - 1
-            }
-        }));
-        }
-        else if (attackQueue === 2) {
-            setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A2: {
-                ...prev.A2,
-                health: prev.A2.health - 10,
-                defense: prev.A2.defense - 1
-            }
-        }));
-        }
-        else if (attackQueue === 3) {
-            setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A3: {
-                ...prev.A3,
-                health: prev.A3.health - 10,
-                defense: prev.A3.defense - 1
-            }
-        }));
-        }
-        else if (attackQueue === 4) {
-            setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A4: {
-                ...prev.A4,
-                health: prev.A4.health - 10,
-                defense: prev.A4.defense - 1
-            }
-        }));
-        }
-        else if (attackQueue === 5) {
-            setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A5: {
-                ...prev.A5,
-                health: prev.A5.health - 10,
-                defense: prev.A5.defense - 1
-            }
-        }));
-        }
-        else if (attackQueue === 6) {
-            setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A6: {
-                ...prev.A6,
-                health: prev.A6.health - 10,
-                defense: prev.A6.defense - 1
-            }
-        }));
-        }
-        else if (attackQueue === 7) {
-            setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A7: {
-                ...prev.A7,
-                health: prev.A7.health - 10,
-                defense: prev.A7.defense - 1
-            }
-        }));
-        }
-        else if (attackQueue === 8) {
-            setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A8: {
-                ...prev.A8,
-                health: prev.A8.health - 10,
-                defense: prev.A8.defense - 1
-            }
-        }));
-        }
-
-        if (stateSkillsSoldiersWasteland.stateSkillsJavelin === true) {
-            setStateSkillsSoldiersWasteland(prev => ({...prev, stateJavelinQuantitySkills : false}));
-            setStateSkillsSoldiersWasteland(prev => ({...prev, showStateSkillsJavelin: false}));
-        }
-        
-    }
-
-    function handleSkillMaces() {
-
-        if (attackQueue === 1) {
-            setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A1: {
-                ...prev.A1,
-                health: prev.A1.health - 15,
-                defense: prev.A1.defense - 1
-            }
-        }));
-        }
-        else if (attackQueue === 2) {
-            setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A2: {
-                ...prev.A2,
-                health: prev.A2.health - 15,
-                defense: prev.A2.defense - 1
-            }
-        }));
-        }
-        else if (attackQueue === 3) {
-            setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A3: {
-                ...prev.A3,
-                health: prev.A3.health - 15,
-                defense: prev.A3.defense - 1
-            }
-        }));
-        }
-        else if (attackQueue === 4) {
-            setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A4: {
-                ...prev.A4,
-                health: prev.A4.health - 15,
-                defense: prev.A4.defense - 1
-            }
-        }));
-        }
-        else if (attackQueue === 5) {
-            setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A5: {
-                ...prev.A5,
-                health: prev.A5.health - 15,
-                defense: prev.A5.defense - 1
-            }
-        }));
-        }
-        else if (attackQueue === 6) {
-            setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A6: {
-                ...prev.A6,
-                health: prev.A6.health - 15,
-                defense: prev.A6.defense - 1
-            }
-        }));
-        }
-        else if (attackQueue === 7) {
-            setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A7: {
-                ...prev.A7,
-                health: prev.A7.health - 15,
-                defense: prev.A7.defense - 1
-            }
-        }));
-        }
-        else if (attackQueue === 8) {
-            setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A8: {
-                ...prev.A8,
-                health: prev.A8.health - 15,
-                defense: prev.A8.defense - 1
-            }
-        }));
-        }
-
-        if (stateSkillsSoldiersWasteland.stateSkillsMaces === true) {
-            setStateSkillsSoldiersWasteland(prev => ({...prev, stateMacesQuantitySkills : false}));
-            setStateSkillsSoldiersWasteland(prev => ({...prev, showStateSkillsMaces: false}));
-        }
-        
-    }
-    
-    
-    function handleSkillAngalit() {
-
-        if (attackQueue === 1) {
-            setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A1: {
-                ...prev.A1,
-                health: prev.A1.health - 15,
-                
-            },
-            A2: {
-                ...prev.A2,
-                health: prev.A2.health - 5,
-                
-            },
-        }));
-        }
-        else if (attackQueue === 2) {
             setOccupiedCellOpponent(prev => ({
             ...prev,
             A1: {
@@ -3966,12 +2058,27 @@ function handleCounterattack() {
             },
             A2: {
                 ...prev.A2,
-                health: prev.A2.health - 15,
+                health: prev.A2.health - 2,
+                
+            },
+        }));
+        }
+        else if (attackQueue === 2) {
+            setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A1: {
+                ...prev.A1,
+                health: prev.A1.health - 2,
+                
+            },
+            A2: {
+                ...prev.A2,
+                health: prev.A2.health - 5,
                 
             },
             A3: {
                 ...prev.A3,
-                health: prev.A3.health - 5,
+                health: prev.A3.health - 2,
                 
             },
         }));
@@ -3981,17 +2088,17 @@ function handleCounterattack() {
             ...prev,
             A2: {
                 ...prev.A2,
-                health: prev.A2.health - 5,
+                health: prev.A2.health - 2,
                 
             },
             A3: {
                 ...prev.A3,
-                health: prev.A3.health - 15,
+                health: prev.A3.health - 5,
                 
             },
             A4: {
                 ...prev.A4,
-                health: prev.A4.health - 5,
+                health: prev.A4.health - 2,
                 
             },
         }));
@@ -4001,12 +2108,12 @@ function handleCounterattack() {
             ...prev,
             A3: {
                 ...prev.A3,
-                health: prev.A3.health - 5,
+                health: prev.A3.health - 2,
                 
             },
             A4: {
                 ...prev.A4,
-                health: prev.A4.health - 15,
+                health: prev.A4.health - 5,
                 
             },
         }));
@@ -4016,12 +2123,12 @@ function handleCounterattack() {
             ...prev,
             A5: {
                 ...prev.A5,
-                health: prev.A5.health - 15,
+                health: prev.A5.health - 5,
                 
             },
             A6: {
                 ...prev.A6,
-                health: prev.A6.health - 5,
+                health: prev.A6.health - 2,
                 
             },
         }));
@@ -4031,17 +2138,17 @@ function handleCounterattack() {
             ...prev,
             A5: {
                 ...prev.A5,
-                health: prev.A5.health - 5,
+                health: prev.A5.health - 2,
                 
             },
             A6: {
                 ...prev.A6,
-                health: prev.A6.health - 15,
+                health: prev.A6.health - 5,
                 
             },
             A7: {
                 ...prev.A7,
-                health: prev.A7.health - 5,
+                health: prev.A7.health - 2,
                 
             },
         }));
@@ -4051,17 +2158,17 @@ function handleCounterattack() {
             ...prev,
             A6: {
                 ...prev.A6,
-                health: prev.A6.health - 5,
+                health: prev.A6.health - 2,
                 
             },
             A7: {
                 ...prev.A7,
-                health: prev.A7.health - 15,
+                health: prev.A7.health - 5,
                 
             },
             A8: {
                 ...prev.A8,
-                health: prev.A8.health - 5,
+                health: prev.A8.health - 2,
                 
             },
         }));
@@ -4071,20 +2178,297 @@ function handleCounterattack() {
             ...prev,
             A7: {
                 ...prev.A7,
-                health: prev.A7.health - 5,
+                health: prev.A7.health - 2,
                 
             },
             A8: {
                 ...prev.A8,
-                health: prev.A8.health - 15,
+                health: prev.A8.health - 5,
                 
             },
         }));
         }
 
-        if (stateSkillsSoldiersWasteland.stateSkillsAngalit === true) {
-            setStateSkillsSoldiersWasteland(prev => ({...prev, stateAngalitQuantitySkills : false}));
-            setStateSkillsSoldiersWasteland(prev => ({...prev, showStateSkillsAngalit: false}));
+        if (stateSkillsSoldiersEmpire.stateSkillsWestSwordsman === true) {
+            setStateSkillsSoldiersEmpire(prev => ({...prev, stateWestSwordsmanQuantitySkills : false}));
+            setStateSkillsSoldiersEmpire(prev => ({...prev, showStateSkillsWestSwordsman: false}));
+        }
+        
+    }
+
+    function handleSkillEastArcher() {
+
+        if (attackQueue === 1) {
+            setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A1: {
+                ...prev.A1,
+                health: prev.A1.health - 15,
+                defense: prev.A1.defense - 1
+            }
+        }));
+        }
+        else if (attackQueue === 2) {
+            setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A2: {
+                ...prev.A2,
+                health: prev.A2.health - 15,
+                defense: prev.A2.defense - 1
+            }
+        }));
+        }
+        else if (attackQueue === 3) {
+            setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A3: {
+                ...prev.A3,
+                health: prev.A3.health - 15,
+                defense: prev.A3.defense - 1
+            }
+        }));
+        }
+        else if (attackQueue === 4) {
+            setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A4: {
+                ...prev.A4,
+                health: prev.A4.health - 15,
+                defense: prev.A4.defense - 1
+            }
+        }));
+        }
+        else if (attackQueue === 5) {
+            setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A5: {
+                ...prev.A5,
+                health: prev.A5.health - 15,
+                defense: prev.A5.defense - 1
+            }
+        }));
+        }
+        else if (attackQueue === 6) {
+            setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A6: {
+                ...prev.A6,
+                health: prev.A6.health - 15,
+                defense: prev.A6.defense - 1
+            }
+        }));
+        }
+        else if (attackQueue === 7) {
+            setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A7: {
+                ...prev.A7,
+                health: prev.A7.health - 15,
+                defense: prev.A7.defense - 1
+            }
+        }));
+        }
+        else if (attackQueue === 8) {
+            setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A8: {
+                ...prev.A8,
+                health: prev.A8.health - 15,
+                defense: prev.A8.defense - 1
+            }
+        }));
+        }
+
+        if (stateSkillsSoldiersEmpire.stateSkillsEastArcher === true) {
+            setStateSkillsSoldiersEmpire(prev => ({...prev, stateEastArcherQuantitySkills : false}));
+            setStateSkillsSoldiersEmpire(prev => ({...prev, showStateSkillsEastArcher: false}));
+        }
+        
+    }
+    
+    function handleSkillEastPathfinder() {
+
+        if (attackQueue === 1) {
+            if(occupiedCellOpponent.A1.name === "Ангалит"){
+                setOccupiedCellOpponent(prev => ({
+                    ...prev,
+                    A1: {
+                        ...prev.A1,
+                        health: prev.A1.health - 25,
+                        
+                    }
+                    }));
+            }
+            else {
+                setOccupiedCellOpponent(prev => ({
+                    ...prev,
+                    A1: {
+                        ...prev.A1,
+                        health: prev.A1.health - 10,
+                        
+                    }
+                    }));
+            }
+        }
+        else if (attackQueue === 2) {
+            if(occupiedCellOpponent.A2.name === "Ангалит"){
+                setOccupiedCellOpponent(prev => ({
+                    ...prev,
+                    A2: {
+                        ...prev.A2,
+                        health: prev.A2.health - 25,
+                        
+                    }
+                    }));
+            }
+            else {
+                setOccupiedCellOpponent(prev => ({
+                    ...prev,
+                    A2: {
+                        ...prev.A2,
+                        health: prev.A2.health - 10,
+                        
+                    }
+                    }));
+            }
+        }
+        else if (attackQueue === 3) {
+            if(occupiedCellOpponent.A3.name === "Ангалит"){
+                setOccupiedCellOpponent(prev => ({
+                    ...prev,
+                    A3: {
+                        ...prev.A3,
+                        health: prev.A3.health - 25,
+                        
+                    }
+                    }));
+            }
+            else {
+                setOccupiedCellOpponent(prev => ({
+                    ...prev,
+                    A3: {
+                        ...prev.A3,
+                        health: prev.A3.health - 10,
+                        
+                    }
+                    }));
+            }
+        }
+        else if (attackQueue === 4) {
+            if(occupiedCellOpponent.A4.name === "Ангалит"){
+                setOccupiedCellOpponent(prev => ({
+                    ...prev,
+                    A4: {
+                        ...prev.A4,
+                        health: prev.A4.health - 25,
+                        
+                    }
+                    }));
+            }
+            else {
+                setOccupiedCellOpponent(prev => ({
+                    ...prev,
+                    A4: {
+                        ...prev.A4,
+                        health: prev.A4.health - 10,
+                        
+                    }
+                    }));
+            }
+        }
+        else if (attackQueue === 5) {
+            if(occupiedCellOpponent.A5.name === "Ангалит"){
+                setOccupiedCellOpponent(prev => ({
+                    ...prev,
+                    A5: {
+                        ...prev.A5,
+                        health: prev.A5.health - 25,
+                        
+                    }
+                    }));
+            }
+            else {
+                setOccupiedCellOpponent(prev => ({
+                    ...prev,
+                    A5: {
+                        ...prev.A5,
+                        health: prev.A5.health - 10,
+                        
+                    }
+                    }));
+            }
+        }
+        else if (attackQueue === 6) {
+            if(occupiedCellOpponent.A6.name === "Ангалит"){
+                setOccupiedCellOpponent(prev => ({
+                    ...prev,
+                    A6: {
+                        ...prev.A6,
+                        health: prev.A6.health - 25,
+                        
+                    }
+                    }));
+            }
+            else {
+                setOccupiedCellOpponent(prev => ({
+                    ...prev,
+                    A6: {
+                        ...prev.A6,
+                        health: prev.A6.health - 10,
+                        
+                    }
+                    }));
+            }
+        }
+        else if (attackQueue === 7) {
+            if(occupiedCellOpponent.A7.name === "Ангалит"){
+                setOccupiedCellOpponent(prev => ({
+                    ...prev,
+                    A7: {
+                        ...prev.A7,
+                        health: prev.A7.health - 25,
+                        
+                    }
+                    }));
+            }
+            else {
+                setOccupiedCellOpponent(prev => ({
+                    ...prev,
+                    A7: {
+                        ...prev.A7,
+                        health: prev.A7.health - 10,
+                        
+                    }
+                    }));
+            }
+        }
+        else if (attackQueue === 8) {
+            if(occupiedCellOpponent.A8.name === "Ангалит"){
+                setOccupiedCellOpponent(prev => ({
+                    ...prev,
+                    A8: {
+                        ...prev.A8,
+                        health: prev.A8.health - 25,
+                        
+                    }
+                    }));
+            }
+            else {
+                setOccupiedCellOpponent(prev => ({
+                    ...prev,
+                    A8: {
+                        ...prev.A8,
+                        health: prev.A8.health - 10,
+                        
+                    }
+                    }));
+            }
+        }
+        
+
+        if (stateSkillsSoldiersEmpire.stateSkillsEastPathfinder === true) {
+            setStateSkillsSoldiersEmpire(prev => ({...prev, stateEastPathfinderQuantitySkills : false}));
+            setStateSkillsSoldiersEmpire(prev => ({...prev, showStateSkillsEastPathfinder: false}));
         }
         
     }
@@ -4164,7 +2548,7 @@ function handleCounterattack() {
         }));
         }
 
-        setStateSkillsHero(prev => ({...prev, showFury: false}));
+        setStateSkillsHero(prev => ({...prev, showKeepInLine: false}));
 
     }
 
@@ -4520,24 +2904,24 @@ function handleCounterattack() {
             stateButtonValidationOfStart: true,
         });
         setShowGameField(true);
-        setShowSkillsSoldierWasteland(true);
-        if (stateSkillsSoldiersWasteland.stateSkillsHunter === true) {
-            setStateSkillsSoldiersWasteland(prev => ({...prev, showStateSkillsHunter: true}));
+        setShowSkillsSoldierEmpire(true);
+        if (stateSkillsSoldiersEmpire.stateSkillsWestArcher === true) {
+            setStateSkillsSoldiersEmpire(prev => ({...prev, showStateSkillsWestArcher: true}));
         }
-        if (stateSkillsSoldiersWasteland.stateSkillsJavelin === true) {
-            setStateSkillsSoldiersWasteland(prev => ({...prev, showStateSkillsJavelin: true}));
+        if (stateSkillsSoldiersEmpire.stateSkillsWestSwordsman === true) {
+            setStateSkillsSoldiersEmpire(prev => ({...prev, showStateSkillsWestSwordsman: true}));
         }
-        if (stateSkillsSoldiersWasteland.stateSkillsMaces === true) {
-            setStateSkillsSoldiersWasteland(prev => ({...prev, showStateSkillsMaces: true}));
+        if (stateSkillsSoldiersEmpire.stateSkillsEastArcher === true) {
+            setStateSkillsSoldiersEmpire(prev => ({...prev, showStateSkillsEastArcher: true}));
         }
-        if (stateSkillsSoldiersWasteland.stateSkillsAngalit === true) {
-            setStateSkillsSoldiersWasteland(prev => ({...prev, showStateSkillsAngalit: true}));
+        if (stateSkillsSoldiersEmpire.stateSkillsEastPathfinder === true) {
+            setStateSkillsSoldiersEmpire(prev => ({...prev, showStateSkillsEastPathfinder: true}));
         }
         if (stateSkillsHero.poultice !== 0){
             setStateSkillsHero(prev => ({...prev, showPoultice: true}))
         }
         
-        setStateSkillsHero(prev => ({...prev, showFury: true}))
+        setStateSkillsHero(prev => ({...prev, showKeepInLine: true}))
        
     };
 
@@ -4662,7 +3046,7 @@ function handleCounterattack() {
     }, [stateSkillsHero.poultice]);
 
     return (
-        <div className={classes.gamePageWasteland}>
+        <div className={classes.gamePageEmpire}>
             
             <div className={classes.topbar} style={{backgroundColor: "cadetblue", backgroundImage: "linear-gradient(180deg, black -20%, cadetblue 47%, cadetblue 53%, black 120%)"}}>
                 <HomeButton/>Игра<BackButton/>
@@ -4675,7 +3059,7 @@ function handleCounterattack() {
 
             {showStoryMessages.lose && <LoseMessage/>}
 
-            <div className={classes.skillsBlockEmpire}>
+            <div className={classes.skillsBlockLeft}>
 
                 {occupiedCell.C1.showCard && <div className={classes.cardEmpireBottom}>
                     <img className={classes.imageCard} src={occupiedCell.C1.classEmpireSoldier === 1 
@@ -4892,7 +3276,7 @@ function handleCounterattack() {
                     
                 </div>}
 
-            <div className={classes.skillsBlockWasteland}>
+            <div className={classes.skillsBlockRight}>
                 {buttonStateGame.stateShopButton && <button className={classes.shopButtonEmpire} onClick={handleOpenShop}>Магазин</button>}
                 {buttonStateGame.stateStartButton && <button className={classes.buttonStartGameEmpire} onClick={handleStartGame}>Старт</button>}
                 {buttonStateGame.stateOverallButton && <button className={classes.elvesButtonSkillsWestArcher} onClick={handleRequestForWestArcherReserves} disabled={stateStyleSoldier === 2 || stateStyleSoldier === 3 || stateStyleSoldier === 4 ||  stateButtonSoldiers.empireButtonWestArcher === true || reserve.empireWestArcher === 0}>Лучники запада: {reserve.empireWestArcher}</button>} 
@@ -4900,21 +3284,21 @@ function handleCounterattack() {
                 {buttonStateGame.stateOverallButton && <button className={classes.elvesButtonSkillsEastArcher} onClick={handleRequestForEastArcherReserves} disabled={stateStyleSoldier === 1 || stateStyleSoldier === 2 || stateStyleSoldier === 4 || stateButtonSoldiers.empireButtonEastArcher === true || reserve.empireEastArcher === 0}>Лучники востока: {reserve.empireEastArcher}</button>}
                 {buttonStateGame.stateOverallButton && <button className={classes.elvesButtonSkillsEastPathfinder} onClick={handleRequestForEastPathfinderReserves} disabled={stateStyleSoldier === 1 || stateStyleSoldier === 2 || stateStyleSoldier === 3 || stateButtonSoldiers.empireButtonEastPathfinder === true || reserve.empireEastPathfinder === 0}>Следопыты востока: {reserve.empireEastPathfinder}</button>}
                
-                {showSkillsSoldierWasteland && <div className={classes.skillSoldiersWasteland}>
+                {showSkillsSoldierEmpire && <div className={classes.skillSoldiersWasteland}>
 
                     <img className={classes.avatarHeroEmpire} src={Avatar} alt="Avatar" draggable="false" />
 
                     {stateSkillsHero.showPoultice && <button className={classes.buttonSkillPoulticeEmpire} onClick={handleSkillPoultice} title="Припарка лечит выбранного юнита">Припарка: {stateSkillsHero.poultice}</button>}
 
-                    {stateSkillsHero.showFury && <button className={classes.buttonSkillKeepInLine} onClick={handleSkillHeroKeepInLine} title="Дисциплина - воодушевляет всех эльфов запада и повышает их защиту">Дисциплина</button>}
+                    {stateSkillsHero.showKeepInLine && <button className={classes.buttonSkillKeepInLine} onClick={handleSkillHeroKeepInLine} title="Дисциплина - воодушевляет всех эльфов запада и повышает их защиту">Дисциплина</button>}
 
-                    {stateSkillsSoldiersWasteland.showStateSkillsHunter && <button className={classes.buttonSkillWestArcher} onClick={handleSkillHunter} title="Яростная атака Охотника">Разделка</button>}
+                    {stateSkillsSoldiersEmpire.showStateSkillsWestArcher && <button className={classes.buttonSkillWestArcher} onClick={handleSkillWestArcher} title="Залп стрел по противнику">Залп</button>}
 
-                    {stateSkillsSoldiersWasteland.showStateSkillsJavelin && <button className={classes.buttonSkillWestSwordsman} onClick={handleSkillJavelin} title="Смертельный бросок Метателя">Бросок</button>}
+                    {stateSkillsSoldiersEmpire.showStateSkillsWestSwordsman && <button className={classes.buttonSkillWestSwordsman} onClick={handleSkillWestSwordsman} title="Атака строем - мечники запада, атакуют по площади">Атака строем</button>}
 
-                    {stateSkillsSoldiersWasteland.showStateSkillsMaces && <button className={classes.buttonSkillEastArcher} onClick={handleSkillMaces} title="Дробящий удар Булавоносца">Удар</button>}
+                    {stateSkillsSoldiersEmpire.showStateSkillsEastArcher && <button className={classes.buttonSkillEastArcher} onClick={handleSkillEastArcher} title="Меткий выстрел - лучники востока, атакуют юнита и ослабляют его защиту">Меткий выстрел</button>}
                     
-                    {stateSkillsSoldiersWasteland.showStateSkillsAngalit && <button className={classes.buttonSkillEastPathfinder} onClick={handleSkillAngalit} title="Безумное нападение Ангалита">Безумие</button>}
+                    {stateSkillsSoldiersEmpire.showStateSkillsEastPathfinder && <button className={classes.buttonSkillEastPathfinder} onClick={handleSkillEastPathfinder} title="Истребление - если цель является Ангалитом, то Следопыты востока наносят колосальный урон юнит, иначе противник получает средний урон">Истребление</button>}
 
                 </div>}
             </div>
@@ -4922,7 +3306,10 @@ function handleCounterattack() {
             <div className={classes.blockUnits}>
 
                 <div className={classes.blockFlex1}>
-
+                    {occupiedCell.C1.attack}:{occupiedCell.C2.attack}:{occupiedCell.C3.attack}:{occupiedCell.C4.attack}:
+                {occupiedCell.D1.attack}:{occupiedCell.D2.attack}:{occupiedCell.D3.attack}:{occupiedCell.D4.attack}===
+                {occupiedCell.C1.defense}:{occupiedCell.C2.defense}:{occupiedCell.C3.defense}:{occupiedCell.C4.defense}:
+                {occupiedCell.D1.defense}:{occupiedCell.D2.defense}:{occupiedCell.D3.defense}:{occupiedCell.D4.defense}
                     <div className={classes.cellA1}>
                         <button className={occupiedCellOpponent.A1.health > 0 && attackQueue === 1 ? classes.unitWastelandJavelinChoice 
                         : occupiedCellOpponent.A1.health <= 0 && attackQueue === 1 ? classes.unitWastelandDeath 
@@ -5054,7 +3441,7 @@ function handleCounterattack() {
                             className={occupiedCell.C3.name === "Лучники запада" && occupiedCell.C3.health !== 0 ? classes.unitEmpireWestArcherBack 
                                 : occupiedCell.C3.name === "Мечники запада" && occupiedCell.C3.health !== 0 ? classes.unitEmpireWestSwordsmanBack 
                                 : occupiedCell.C3.name === "Лучники востока" && occupiedCell.C3.health !== 0 ? classes.unitEmpireEastArcherBack 
-                                : occupiedCell.C3.name === "Следопыты востока" && occupiedCell.C3.health !== 0 ? classes.unitempireEastPathfinderBack 
+                                : occupiedCell.C3.name === "Следопыты востока" && occupiedCell.C3.health !== 0 ? classes.unitEmpireEastPathfinderBack 
                                 : occupiedCell.C3.occupied === true && occupiedCell.C3.health === 0 ? classes.unitEmpireDeath : classes.cell}
                             id={"C3"} 
                             onClick={() => handleTroopDeployment("C3")} 
@@ -5067,7 +3454,7 @@ function handleCounterattack() {
                             className={occupiedCell.C4.name === "Лучники запада" && occupiedCell.C4.health !== 0 ? classes.unitEmpireWestArcherBack 
                                 : occupiedCell.C4.name === "Мечники запада" && occupiedCell.C4.health !== 0 ? classes.unitEmpireWestSwordsmanBack 
                                 : occupiedCell.C4.name === "Лучники востока" && occupiedCell.C4.health !== 0 ? classes.unitEmpireEastArcherBack 
-                                : occupiedCell.C4.name === "Следопыты востока" && occupiedCell.C4.health !== 0 ? classes.unitempireEastPathfinderBack 
+                                : occupiedCell.C4.name === "Следопыты востока" && occupiedCell.C4.health !== 0 ? classes.unitEmpireEastPathfinderBack 
                                 : occupiedCell.C4.occupied === true && occupiedCell.C4.health === 0 ? classes.unitEmpireDeath : classes.cell}
                             id={"C4"} 
                             onClick={() => handleTroopDeployment("C4")} 

@@ -14,165 +14,14 @@
     z-index: 21;
 }
 
+/* -----Wasteland----- */
+
 .gamePageWasteland{
     width: 100%;
     height: 100%;
     position: fixed;
     background: rgb(41, 41, 41) no-repeat;
     background-size: cover;
-}
-
-.skillsBlockEmpire{
-    width: 10%;
-    height: 89%;
-    position: absolute;
-    left: 0;
-    top: 11%;
-    background: wheat;
-}
-
-.skillsBlockWasteland{
-    width: 10%;
-    height: 89%;
-    position: absolute;
-    right: 0;
-    top: 11%;
-    background: wheat;
-}
-
-.skillsBlockEmpire img{
-    width: 100%;
-    height: 50%;
-    margin-top: 5%;
-}
-
-.skillsBlockEmpire p{
-    font-size: 0.8vw;
-    font-weight: 700;
-    font-family: "El Messiri";
-    margin: 0;
-    margin-left: 10%;
-}
-
-.blockUnits{
-    width: 80%;
-    height: 89%;
-    position: absolute;
-    top: 11%;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.cell{
-    width: 8.5vw; 
-    height: 8vw;
-    margin: 0;
-    border: solid 0.3vw black;
-    background: rgb(100, 158, 66);
-    cursor: pointer;
-    opacity: 0.5;
-    font-size: 2vw;
-}
-
-.cellA1{
-    position: absolute;
-    bottom: 70%;
-    left: 5%;
-}
-
-.cellA2{
-    position: absolute;
-    bottom: 70%;
-    left: 30%;
-}
-
-.cellA3{
-    position: absolute;
-    bottom: 70%;
-    left: 55%;
-}
-
-.cellA4{
-    position: absolute;
-    bottom: 70%;
-    left: 80%;
-}
-
-.cellA5{
-    position: absolute;
-    bottom: 50%;
-    left: 13%;
-}
-
-.cellA6{
-    position: absolute;
-    bottom: 50%;
-    left: 38%;
-}
-
-.cellA7{
-    position: absolute;
-    bottom: 50%;
-    left: 63%;
-}
-
-.cellA8{
-    position: absolute;
-    bottom: 50%;
-    left: 88%;
-}
-
-.cellC1{
-    position: absolute;
-    bottom: 20%;
-    left: 5%;
-}
-
-.cellC2{
-    position: absolute;
-    bottom: 20%;
-    left: 30%;
-}
-
-.cellC3{
-    position: absolute;
-    bottom: 20%;
-    left: 55%;
-}
-
-.cellC4{
-    position: absolute;
-    bottom: 20%;
-    left: 80%;
-}
-
-.cellD1{
-    position: absolute;
-    bottom: 5%;
-    left: 13%;
-}
-
-.cellD2{
-    position: absolute;
-    bottom: 5%;
-    left: 38%;
-}
-
-.cellD3{
-    position: absolute;
-    bottom: 5%;
-    left: 63%;
-}
-
-.cellD4{
-    position: absolute;
-    bottom: 5%;
-    left: 88%;
-}
-
-.emptyСell{
-    border: none;
-    opacity: 0;
 }
 
 .shopButtonWasteland{
@@ -200,220 +49,6 @@
     filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
 }
 
-.shopButtonEmpire{
-    position: absolute;
-    top: 2%;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 50%;
-    border: solid 0.1vw black;
-    width: 9vw;
-    height: 3vw;
-    background-color: cadetblue;
-    background-image: linear-gradient(176deg, cadetblue 3%, black 110%);
-    font-family: "El Messiri";
-    font-size: 1.5vw;
-    cursor: pointer;
-    margin: 0;
-    color: rgb(220, 220, 220);
-    z-index: 20;
-}
-
-.shopButtonEmpire:hover{
-    background-color: cadetblue;
-    background-image: linear-gradient(176deg, cadetblue 3%, black 95%);
-    filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
-}
-
-.shop{
-    width: 100%; 
-    height: 100%;
-    position: absolute;
-    top: 0%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: wheat;
-    z-index: 21;
-}
-
-.titleBuyUnitWasteland{
-    font-size: 1.3vw;
-    font-family: "El Messiri";
-    font-weight: 700;
-    color: brown;
-    position: relative;
-    bottom: -10vw;
-}
-
-.titleBuyUnitEmpire{
-    font-size: 1.3vw;
-    font-family: "El Messiri";
-    font-weight: 700;
-    color: darkslategray;
-    position: relative;
-    bottom: -10vw;
-}
-
-.hunterBuy{
-    position: absolute;
-    top: 2%;
-    left: 5%;
-    width: 14vw;
-    height: 14vw;
-    background: url(../../Images/AngalsWastelandsImage/ImageWastelandCardAngalHunter.jpg) no-repeat center;
-    background-size: cover;
-    border: solid 0.2vw brown;
-    cursor: pointer;
-}
-
-.hunterBuy:hover{
-    border: solid 0.4vw brown;
-}
-
-.javelinBuy{
-    position: absolute;
-    top: 2%;
-    left: 30%;
-    width: 14vw;
-    height: 14vw;
-    background: url(../../Images/AngalsWastelandsImage/ImageWastelandCardAngalJavelin.jpg) no-repeat center;
-    background-size: cover;
-    border: solid 0.2vw brown;
-    cursor: pointer;
-}
-
-.javelinBuy:hover{
-    border: solid 0.4vw brown;
-}
-
-.macesBuy{
-    position: absolute;
-    top: 2%;
-    left: 55%;
-    width: 14vw;
-    height: 14vw;
-    background: url(../../Images/AngalsWastelandsImage/ImageWastelandCardAngalMaces.jpg) no-repeat center;
-    background-size: cover;
-    border: solid 0.2vw brown;
-    cursor: pointer;
-}
-
-.macesBuy:hover{
-    border: solid 0.4vw brown;
-}
-
-.angalitBuy{
-    position: absolute;
-    top: 2%;
-    left: 80%;
-    width: 14vw;
-    height: 14vw;
-    background: url(../../Images/AngalsWastelandsImage/ImageWastelandCardAngalAngalit.jpg) no-repeat center;
-    background-size: cover;
-    border: solid 0.2vw brown;
-    cursor: pointer;
-}
-
-.angalitBuy:hover{
-    border: solid 0.4vw brown;
-}
-
-.westArcherBuy{
-    position: absolute;
-    top: 2%;
-    left: 5%;
-    width: 14vw;
-    height: 14vw;
-    background: url(../../Images/ImpireMarahImage/ImageImpireCardWestArcher.jpg) no-repeat center;
-    background-size: cover;
-    border: solid 0.2vw cadetblue;
-    cursor: pointer;
-}
-
-.westArcherBuy:hover{
-    border: solid 0.4vw cadetblue;
-}
-
-.westSwordsmanBuy{
-    position: absolute;
-    top: 2%;
-    left: 30%;
-    width: 14vw;
-    height: 14vw;
-    background: url(../../Images/ImpireMarahImage/ImageImpireCardWestSwordsman.jpg) no-repeat center;
-    background-size: cover;
-    border: solid 0.2vw cadetblue;
-    cursor: pointer;
-}
-
-.westSwordsmanBuy:hover{
-    border: solid 0.4vw cadetblue;
-}
-
-.eastArcherBuy{
-    position: absolute;
-    top: 2%;
-    left: 55%;
-    width: 14vw;
-    height: 14vw;
-    background: url(../../Images/ImpireMarahImage/ImageImpireCardEastArcher.jpg) no-repeat center;
-    background-size: cover;
-    border: solid 0.2vw cadetblue;
-    cursor: pointer;
-}
-
-.eastArcherBuy:hover{
-    border: solid 0.4vw cadetblue;
-}
-
-.eastPathfinderBuy{
-    position: absolute;
-    top: 2%;
-    left: 80%;
-    width: 14vw;
-    height: 14vw;
-    background: url(../../Images/ImpireMarahImage/ImageImpireCardEastPathfinder.jpg) no-repeat center;
-    background-size: cover;
-    border: solid 0.2vw cadetblue;
-    cursor: pointer;
-}
-
-.eastPathfinderBuy:hover{
-    border: solid 0.4vw cadetblue;
-}
-
-.poulticeBuyWasteland{
-    position: absolute;
-    top: 50%;
-    left: 5%;
-    width: 14vw;
-    height: 14vw;
-    background: red no-repeat center;
-    background-size: cover;
-    border: solid 0.2vw brown;
-    cursor: pointer;
-}
-
-.poulticeBuyWasteland:hover{
-    border: solid 0.4vw brown;
-}
-
-.poulticeBuyEmpire{
-    position: absolute;
-    top: 50%;
-    left: 5%;
-    width: 14vw;
-    height: 14vw;
-    background: cadetblue no-repeat center;
-    background-size: cover;
-    border: solid 0.2vw cadetblue;
-    cursor: pointer;
-}
-
-.poulticeBuyEmpire:hover{
-    border: solid 0.4vw cadetblue;
-}
-
 .buttonStartGameWasteland{
     position: absolute;
     top: 10%;
@@ -436,31 +71,6 @@
 .buttonStartGameWasteland:hover{
     background-color: darkolivegreen;
     background-image: linear-gradient(176deg, darkolivegreen 3%, black 95%);
-    filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
-}
-
-.buttonStartGameEmpire{
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 50%;
-    border: solid 0.1vw black;
-    width: 9vw;
-    height: 3vw;
-    background-color: cadetblue;
-    background-image: linear-gradient(176deg, cadetblue 3%, black 110%);
-    font-family: "El Messiri";
-    font-size: 1.5vw;
-    cursor: pointer;
-    margin: 0;
-    color: rgb(220, 220, 220);
-    z-index: 20;
-}
-
-.buttonStartGameEmpire:hover{
-    background-color: cadetblue;
-    background-image: linear-gradient(176deg, cadetblue 3%, black 95%);
     filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
 }
 
@@ -564,6 +174,594 @@
     filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
 }
 
+/* UnitMarketWasteland */
+
+.titleBuyUnitWasteland{
+    font-size: 1.2vw;
+    font-family: "El Messiri";
+    font-weight: 700;
+    color: brown;
+    position: relative;
+    bottom: -10vw;
+}
+
+.hunterBuy{
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 14vw;
+    height: 14vw;
+    background: url(../../Images/AngalsWastelandsImage/ImageWastelandCardAngalHunter.jpg) no-repeat center;
+    background-size: cover;
+    border: solid 0.2vw brown;
+    cursor: pointer;
+}
+
+.hunterBuy:hover{
+    border: solid 0.4vw brown;
+}
+
+.javelinBuy{
+    position: absolute;
+    top: 5%;
+    left: 30%;
+    width: 14vw;
+    height: 14vw;
+    background: url(../../Images/AngalsWastelandsImage/ImageWastelandCardAngalJavelin.jpg) no-repeat center;
+    background-size: cover;
+    border: solid 0.2vw brown;
+    cursor: pointer;
+}
+
+.javelinBuy:hover{
+    border: solid 0.4vw brown;
+}
+
+.macesBuy{
+    position: absolute;
+    top: 5%;
+    left: 55%;
+    width: 14vw;
+    height: 14vw;
+    background: url(../../Images/AngalsWastelandsImage/ImageWastelandCardAngalMaces.jpg) no-repeat center;
+    background-size: cover;
+    border: solid 0.2vw brown;
+    cursor: pointer;
+}
+
+.macesBuy:hover{
+    border: solid 0.4vw brown;
+}
+
+.angalitBuy{
+    position: absolute;
+    top: 5%;
+    left: 80%;
+    width: 14vw;
+    height: 14vw;
+    background: url(../../Images/AngalsWastelandsImage/ImageWastelandCardAngalAngalit.jpg) no-repeat center;
+    background-size: cover;
+    border: solid 0.2vw brown;
+    cursor: pointer;
+}
+
+.angalitBuy:hover{
+    border: solid 0.4vw brown;
+}
+
+.poulticeBuyWasteland{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 14vw;
+    height: 14vw;
+    background: url(../../Images/AngalsWastelandsImage/PoulticeWasteland.jpg) no-repeat center;
+    background-size: cover;
+    border: solid 0.2vw brown;
+    cursor: pointer;
+}
+
+.poulticeBuyWasteland:hover{
+    border: solid 0.4vw brown;
+}
+
+/* Units */
+
+.cardWastelandTop{
+    width: 90%;
+    height: 40%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 2%;
+    background: darkolivegreen;
+}
+
+.cardWastelandBottom{
+    width: 90%;
+    height: 40%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 2%;
+    background: darkolivegreen;
+}
+
+.healthScaleWasteland{
+    appearance: none;
+    -webkit-appearance: none;
+    width: 90%;
+    height: 1vw;
+    margin: 5% 5%;
+}
+
+.healthScaleWasteland::-webkit-progress-inner-element {
+    border: 0.1vw solid rgb(0, 0, 0);
+}
+  
+.healthScaleWasteland::-webkit-progress-bar {
+    background-color: rgb(189, 189, 189);
+    
+}
+  
+.healthScaleWasteland::-webkit-progress-value {
+    background-color: brown;
+}
+
+.unitWastelandHunter{
+    width: 5vw; 
+    height: 10vw;
+    margin: 0;
+    border: none;
+    background: url(../../Images/AngalsWastelandsImage/AngalHunter.webp) no-repeat center;
+    background-size: contain;
+    cursor: pointer;
+}
+
+.unitWastelandHunter:active{
+    filter: drop-shadow( 0 0 1vw rgb(97, 15, 15));
+}
+
+.unitWastelandHunterChoice{
+    width: 5vw; 
+    height: 10vw;
+    margin: 0;
+    filter: drop-shadow( 0 0 1vw rgb(97, 15, 15));
+    border: none;
+    background: url(../../Images/AngalsWastelandsImage/AngalHunter.webp) no-repeat center;
+    background-size: contain;
+    cursor: pointer;
+}
+
+.unitWastelandJavelin{
+    width: 5vw; 
+    height: 10vw;
+    margin: 0;
+    border: none;
+    background: url(../../Images/AngalsWastelandsImage/AngalJavelin.webp) no-repeat center;
+    background-size: contain;
+    cursor: pointer;
+}
+
+.unitWastelandJavelin:active{
+    filter: drop-shadow( 0 0 1vw rgb(97, 15, 15));
+}
+
+.unitWastelandJavelinChoice{
+    width: 5vw; 
+    height: 10vw;
+    margin: 0;
+    filter: drop-shadow( 0 0 1vw rgb(97, 15, 15));
+    border: none;
+    background: url(../../Images/AngalsWastelandsImage/AngalJavelin.webp) no-repeat center;
+    background-size: contain;
+    cursor: pointer;
+}
+
+.unitWastelandMaces{
+    width: 6vw; 
+    height: 10.5vw;
+    margin: 0;
+    border: none;
+    background: url(../../Images/AngalsWastelandsImage/AngalMaces.webp) no-repeat center;
+    background-size: contain;
+    cursor: pointer;
+}
+
+.unitWastelandMaces:active{
+    filter: drop-shadow( 0 0 1vw rgb(97, 15, 15));
+}
+
+.unitWastelandMacesChoice{
+    width: 6vw; 
+    height: 10.5vw;
+    margin: 0;
+    filter: drop-shadow( 0 0 1vw rgb(97, 15, 15));
+    border: none;
+    background: url(../../Images/AngalsWastelandsImage/AngalMaces.webp) no-repeat center;
+    background-size: contain;
+    cursor: pointer;
+}
+
+.unitWastelandAngalit{
+    width: 6vw; 
+    height: 10.5vw;
+    margin: 0;
+    border: none;
+    background: url(../../Images/AngalsWastelandsImage/AngalAngalit.webp) no-repeat center;
+    background-size: contain;
+    cursor: pointer;
+}
+
+.unitWastelandAngalit:active{
+    filter: drop-shadow( 0 0 1vw rgb(97, 15, 15));
+}
+
+.unitWastelandAngalitChoice{
+    width: 5.7vw; 
+    height: 12vw;
+    margin: 0;
+    filter: drop-shadow( 0 0 1vw rgb(97, 15, 15));
+    border: none;
+    background: url(../../Images/AngalsWastelandsImage/AngalAngalit.webp) no-repeat center;
+    background-size: contain;
+    cursor: pointer;
+}
+
+.unitWastelandHunterBack{
+    width: 5vw; 
+    height: 11.5vw;
+    margin: 0;
+    border: none;
+    background: url(../../Images/AngalsWastelandsImage/AngalHunterBack.webp) no-repeat center;
+    background-size: contain;
+    cursor: pointer;
+}
+
+.unitWastelandHunterBack:active{
+    filter: drop-shadow( 0 0 1vw rgb(97, 15, 15));
+}
+
+.unitWastelandHunterBackChoice{
+    width: 5vw; 
+    height: 11.5vw;
+    margin: 0;
+    filter: drop-shadow( 0 0 1vw rgb(97, 15, 15));
+    border: none;
+    background: url(../../Images/AngalsWastelandsImage/AngalHunterBack.webp) no-repeat center;
+    background-size: contain;
+    cursor: pointer;
+}
+
+.unitWastelandJavelinBack{
+    width: 5vw; 
+    height: 12vw;
+    margin: 0;
+    border: none;
+    background: url(../../Images/AngalsWastelandsImage/AngalJavelinBack.webp) no-repeat center;
+    background-size: contain;
+    cursor: pointer;
+}
+
+.unitWastelandJavelinBack:active{
+    filter: drop-shadow( 0 0 1vw rgb(97, 15, 15));
+}
+
+.unitWastelandJavelinBackChoice{
+    width: 5vw; 
+    height: 12vw;
+    margin: 0;
+    filter: drop-shadow( 0 0 1vw rgb(97, 15, 15));
+    border: none;
+    background: url(../../Images/AngalsWastelandsImage/AngalJavelinBack.webp) no-repeat center;
+    background-size: contain;
+    cursor: pointer;
+}
+
+.unitWastelandMacesBack{
+    width: 5.2vw; 
+    height: 12vw;
+    margin: 0;
+    border: none;
+    background: url(../../Images/AngalsWastelandsImage/AngalMacesBack.webp) no-repeat center;
+    background-size: contain;
+    cursor: pointer;
+}
+
+.unitWastelandMacesBack:active{
+    filter: drop-shadow( 0 0 1vw rgb(97, 15, 15));
+}
+
+.unitWastelandMacesBackChoice{
+    width: 5.2vw; 
+    height: 12vw;
+    margin: 0;
+    filter: drop-shadow( 0 0 1vw rgb(97, 15, 15));
+    border: none;
+    background: url(../../Images/AngalsWastelandsImage/AngalMacesBack.webp) no-repeat center;
+    background-size: contain;
+    cursor: pointer;
+}
+
+.unitWastelandAngalitBack{
+    width: 5.7vw; 
+    height: 12vw;
+    margin: 0;
+    border: none;
+    background: url(../../Images/AngalsWastelandsImage/AngalAngalitBack.webp) no-repeat center;
+    background-size: contain;
+    cursor: pointer;
+}
+
+.unitWastelandAngalitBack:active{
+    filter: drop-shadow( 0 0 1vw rgb(97, 15, 15));
+}
+
+.unitWastelandAngalitBackChoice{
+    width: 5.7vw; 
+    height: 12vw;
+    margin: 0;
+    filter: drop-shadow( 0 0 1vw rgb(97, 15, 15));
+    border: none;
+    background: url(../../Images/AngalsWastelandsImage/AngalAngalitBack.webp) no-repeat center;
+    background-size: contain;
+    cursor: pointer;
+    
+}
+
+.unitWastelandDeath{
+    width: 6vw; 
+    height: 4vw;
+    margin: 0;
+    position: relative;
+    border: none;
+    background: url(../../Images/AngalsWastelandsImage/DeadAngal.webp) no-repeat bottom;
+    background-size: contain;
+    filter: drop-shadow(0.3vw 0vw 0.5vw black);
+}
+
+.healthScaleWastelandUnit{
+    appearance: none;
+    -webkit-appearance: none;
+    width: 5vw;
+    height: 0.5vw;
+    margin: 5% 5%;
+    position: relative;
+    bottom: -60%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.healthScaleWastelandUnit::-webkit-progress-inner-element {
+    border: 0.1vw solid black;
+}
+  
+.healthScaleWastelandUnit::-webkit-progress-bar {
+    background-color: silver;
+    
+}
+  
+.healthScaleWastelandUnit::-webkit-progress-value {
+    background-color: brown;
+}
+
+/* SkillsWastelandSoldiers */
+
+.avatarHeroWasteland{
+    width: 80%;
+    position: relative;
+    top: 0.5vw;
+    left: 50%;
+    transform: translateX(-50%);
+    border: solid darkolivegreen 0.3vw;
+}
+
+.buttonSkillHunter{
+    position: absolute;
+    bottom: 33%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    border: solid 0.1vw black;
+    width: 9vw;
+    height: 3vw;
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 110%);
+    font-family: "El Messiri";
+    font-size: 1vw;
+    cursor: pointer;
+    margin: 0;
+    color: rgb(220, 220, 220);
+}
+
+.buttonSkillHunter:hover{
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 95%);
+    filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
+}
+
+.buttonSkillJavelin{
+    position: absolute;
+    bottom: 23%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    border: solid 0.1vw black;
+    width: 9vw;
+    height: 3vw;
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 110%);
+    font-family: "El Messiri";
+    font-size: 1vw;
+    cursor: pointer;
+    margin: 0;
+    color: rgb(220, 220, 220);
+}
+
+.buttonSkillJavelin:hover{
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 95%);
+    filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
+}
+
+.buttonSkillMaces{
+    position: absolute;
+    bottom: 13%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    border: solid 0.1vw black;
+    width: 9vw;
+    height: 3vw;
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 110%);
+    font-family: "El Messiri";
+    font-size: 1vw;
+    cursor: pointer;
+    margin: 0;
+    color: rgb(220, 220, 220);
+}
+
+.buttonSkillMaces:hover{
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 95%);
+    filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
+}
+
+.buttonSkillAngalit{
+    position: absolute;
+    bottom: 3%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    border: solid 0.1vw black;
+    width: 9vw;
+    height: 3vw;
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 110%);
+    font-family: "El Messiri";
+    font-size: 1vw;
+    cursor: pointer;
+    margin: 0;
+    color: rgb(220, 220, 220);
+}
+
+.buttonSkillAngalit:hover{
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 95%);
+    filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
+}
+
+.buttonSkillPoulticeWasteland{
+    position: absolute;
+    top: 27%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    border: solid 0.1vw black;
+    width: 9vw;
+    height: 3vw;
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 110%);
+    font-family: "El Messiri";
+    font-size: 1vw;
+    cursor: pointer;
+    margin: 0;
+    color: rgb(220, 220, 220);
+}
+
+.buttonSkillPoulticeWasteland:hover{
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 95%);
+    filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
+}
+
+.buttonSkillCall{
+    position: absolute;
+    top: 37%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    border: solid 0.1vw black;
+    width: 9vw;
+    height: 3vw;
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 110%);
+    font-family: "El Messiri";
+    font-size: 1vw;
+    cursor: pointer;
+    margin: 0;
+    color: rgb(220, 220, 220);
+}
+
+.buttonSkillCall:hover{
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 95%);
+    filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
+}
+
+.buttonSkillBloodDebt{
+    position: absolute;
+    top: 47%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    border: solid 0.1vw black;
+    width: 9vw;
+    height: 3vw;
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 110%);
+    font-family: "El Messiri";
+    font-size: 1vw;
+    cursor: pointer;
+    margin: 0;
+    color: rgb(220, 220, 220);
+}
+
+.buttonSkillBloodDebt:hover{
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 95%);
+    filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
+}
+
+
+
+/* -----Empire----- */
+
+.gamePageEmpire{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: rgb(41, 41, 41) no-repeat;
+    background-size: cover;
+}
+
+.buttonStartGameEmpire{
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    border: solid 0.1vw black;
+    width: 9vw;
+    height: 3vw;
+    background-color: cadetblue;
+    background-image: linear-gradient(176deg, cadetblue 3%, black 110%);
+    font-family: "El Messiri";
+    font-size: 1.5vw;
+    cursor: pointer;
+    margin: 0;
+    color: rgb(220, 220, 220);
+    z-index: 20;
+}
+
+.buttonStartGameEmpire:hover{
+    background-color: cadetblue;
+    background-image: linear-gradient(176deg, cadetblue 3%, black 95%);
+    filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
+}
+
 .elvesButtonSkillsWestArcher{
     position: absolute;
     bottom: 40%;
@@ -664,19 +862,125 @@
     filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
 }
 
-.card{
-    width: 10%;
-    height: 30%;
+/* UnitMarketEmpire */
+
+
+.shopButtonEmpire{
     position: absolute;
-    bottom: 2%;
+    top: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    border: solid 0.1vw black;
+    width: 9vw;
+    height: 3vw;
+    background-color: cadetblue;
+    background-image: linear-gradient(176deg, cadetblue 3%, black 110%);
+    font-family: "El Messiri";
+    font-size: 1.5vw;
+    cursor: pointer;
+    margin: 0;
+    color: rgb(220, 220, 220);
+    z-index: 20;
 }
 
-.skillsBlockEmpire .imageCard{
-    width: 8vw;
-    height: 8vw;
-    margin: 3.5%;
-    border: solid 0.2vw whitesmoke;
+.shopButtonEmpire:hover{
+    background-color: cadetblue;
+    background-image: linear-gradient(176deg, cadetblue 3%, black 95%);
+    filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
 }
+
+.titleBuyUnitEmpire{
+    font-size: 1.2vw;
+    font-family: "El Messiri";
+    font-weight: 700;
+    color: darkslategray;
+    position: relative;
+    bottom: -10vw;
+}
+
+.westArcherBuy{
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 14vw;
+    height: 14vw;
+    background: url(../../Images/ImpireMarahImage/ImageImpireCardWestArcher.jpg) no-repeat center;
+    background-size: cover;
+    border: solid 0.2vw cadetblue;
+    cursor: pointer;
+}
+
+.westArcherBuy:hover{
+    border: solid 0.4vw cadetblue;
+}
+
+.westSwordsmanBuy{
+    position: absolute;
+    top: 5%;
+    left: 30%;
+    width: 14vw;
+    height: 14vw;
+    background: url(../../Images/ImpireMarahImage/ImageImpireCardWestSwordsman.jpg) no-repeat center;
+    background-size: cover;
+    border: solid 0.2vw cadetblue;
+    cursor: pointer;
+}
+
+.westSwordsmanBuy:hover{
+    border: solid 0.4vw cadetblue;
+}
+
+.eastArcherBuy{
+    position: absolute;
+    top: 5%;
+    left: 55%;
+    width: 14vw;
+    height: 14vw;
+    background: url(../../Images/ImpireMarahImage/ImageImpireCardEastArcher.jpg) no-repeat center;
+    background-size: cover;
+    border: solid 0.2vw cadetblue;
+    cursor: pointer;
+}
+
+.eastArcherBuy:hover{
+    border: solid 0.4vw cadetblue;
+}
+
+.eastPathfinderBuy{
+    position: absolute;
+    top: 5%;
+    left: 80%;
+    width: 14vw;
+    height: 14vw;
+    background: url(../../Images/ImpireMarahImage/ImageImpireCardEastPathfinder.jpg) no-repeat center;
+    background-size: cover;
+    border: solid 0.2vw cadetblue;
+    cursor: pointer;
+}
+
+.eastPathfinderBuy:hover{
+    border: solid 0.4vw cadetblue;
+}
+
+.poulticeBuyEmpire{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 14vw;
+    height: 14vw;
+    background: url(../../Images/ImpireMarahImage/PoulticeEmpire.jpg) no-repeat center;
+    background-size: cover;
+    border: solid 0.2vw cadetblue;
+    cursor: pointer;
+}
+
+.poulticeBuyEmpire:hover{
+    border: solid 0.4vw cadetblue;
+}
+
+/* Units */
 
 .cardEmpireTop{
     width: 90%;
@@ -718,286 +1022,6 @@
 .healthScaleEmpire::-webkit-progress-value {
     background-color: darkslategray;
 }
-
-.cardWastelandTop{
-    width: 90%;
-    height: 40%;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 2%;
-    background: darkolivegreen;
-}
-
-.cardWastelandBottom{
-    width: 90%;
-    height: 40%;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 2%;
-    background: darkolivegreen;
-}
-
-.healthScaleWasteland{
-    appearance: none;
-    -webkit-appearance: none;
-    width: 90%;
-    height: 1vw;
-    margin: 5% 5%;
-}
-
-.healthScaleWasteland::-webkit-progress-inner-element {
-    border: 0.1vw solid rgb(0, 0, 0);
-}
-  
-.healthScaleWasteland::-webkit-progress-bar {
-    background-color: rgb(189, 189, 189);
-    
-}
-  
-.healthScaleWasteland::-webkit-progress-value {
-    background-color: brown;
-}
-
-.unitWastelandHunter{
-    width: 5vw; 
-    height: 10vw;
-    margin: 0;
-    border: none;
-    background: url(../../Images/AngalsWastelandsImage/AngalHunter.webp) no-repeat center;
-    background-size: contain;
-    cursor: pointer;
-}
-
-.unitWastelandHunter:active{
-    filter: drop-shadow( 0 0 1vw rgb(75, 22, 22));
-}
-
-.unitWastelandHunterChoice{
-    width: 5vw; 
-    height: 10vw;
-    margin: 0;
-    filter: drop-shadow( 0 0 1vw rgb(75, 22, 22));
-    border: none;
-    background: url(../../Images/AngalsWastelandsImage/AngalHunter.webp) no-repeat center;
-    background-size: contain;
-    cursor: pointer;
-}
-
-.unitWastelandJavelin{
-    width: 5vw; 
-    height: 10vw;
-    margin: 0;
-    border: none;
-    background: url(../../Images/AngalsWastelandsImage/AngalJavelin.webp) no-repeat center;
-    background-size: contain;
-    cursor: pointer;
-}
-
-.unitWastelandJavelin:active{
-    filter: drop-shadow( 0 0 1vw rgb(75, 22, 22));
-}
-
-.unitWastelandJavelinChoice{
-    width: 5vw; 
-    height: 10vw;
-    margin: 0;
-    filter: drop-shadow( 0 0 1vw rgb(75, 22, 22));
-    border: none;
-    background: url(../../Images/AngalsWastelandsImage/AngalJavelin.webp) no-repeat center;
-    background-size: contain;
-    cursor: pointer;
-}
-
-.unitWastelandMaces{
-    width: 6vw; 
-    height: 10.5vw;
-    margin: 0;
-    border: none;
-    background: url(../../Images/AngalsWastelandsImage/AngalMaces.webp) no-repeat center;
-    background-size: contain;
-    cursor: pointer;
-}
-
-.unitWastelandMaces:active{
-    filter: drop-shadow( 0 0 1vw rgb(82, 14, 14));
-}
-
-.unitWastelandMacesChoice{
-    width: 6vw; 
-    height: 10.5vw;
-    margin: 0;
-    filter: drop-shadow( 0 0 1vw rgb(82, 14, 14));
-    border: none;
-    background: url(../../Images/AngalsWastelandsImage/AngalMaces.webp) no-repeat center;
-    background-size: contain;
-    cursor: pointer;
-}
-
-.unitWastelandAngalit{
-    width: 6vw; 
-    height: 10.5vw;
-    margin: 0;
-    border: none;
-    background: url(../../Images/AngalsWastelandsImage/AngalAngalit.webp) no-repeat center;
-    background-size: contain;
-    cursor: pointer;
-}
-
-.unitWastelandAngalit:active{
-    filter: drop-shadow( 0 0 1vw rgb(82, 14, 14));
-}
-
-.unitWastelandAngalitChoice{
-    width: 5.7vw; 
-    height: 12vw;
-    margin: 0;
-    filter: drop-shadow( 0 0 1vw rgb(82, 14, 14));
-    border: none;
-    background: url(../../Images/AngalsWastelandsImage/AngalAngalit.webp) no-repeat center;
-    background-size: contain;
-    cursor: pointer;
-}
-
-.unitWastelandHunterBack{
-    width: 5vw; 
-    height: 11.5vw;
-    margin: 0;
-    border: none;
-    background: url(../../Images/AngalsWastelandsImage/AngalHunterBack.webp) no-repeat center;
-    background-size: contain;
-    cursor: pointer;
-}
-
-.unitWastelandHunterBack:active{
-    filter: drop-shadow( 0 0 1vw rgb(82, 14, 14));
-}
-
-.unitWastelandHunterBackChoice{
-    width: 5vw; 
-    height: 11.5vw;
-    margin: 0;
-    filter: drop-shadow( 0 0 1vw rgb(82, 14, 14));
-    border: none;
-    background: url(../../Images/AngalsWastelandsImage/AngalHunterBack.webp) no-repeat center;
-    background-size: contain;
-    cursor: pointer;
-}
-
-.unitWastelandJavelinBack{
-    width: 5vw; 
-    height: 12vw;
-    margin: 0;
-    border: none;
-    background: url(../../Images/AngalsWastelandsImage/AngalJavelinBack.webp) no-repeat center;
-    background-size: contain;
-    cursor: pointer;
-}
-
-.unitWastelandJavelinBack:active{
-    filter: drop-shadow( 0 0 1vw rgb(82, 14, 14));
-}
-
-.unitWastelandJavelinBackChoice{
-    width: 5vw; 
-    height: 12vw;
-    margin: 0;
-    filter: drop-shadow( 0 0 1vw rgb(82, 14, 14));
-    border: none;
-    background: url(../../Images/AngalsWastelandsImage/AngalJavelinBack.webp) no-repeat center;
-    background-size: contain;
-    cursor: pointer;
-}
-
-.unitWastelandMacesBack{
-    width: 5.2vw; 
-    height: 12vw;
-    margin: 0;
-    border: none;
-    background: url(../../Images/AngalsWastelandsImage/AngalMacesBack.webp) no-repeat center;
-    background-size: contain;
-    cursor: pointer;
-}
-
-.unitWastelandMacesBack:active{
-    filter: drop-shadow( 0 0 1vw rgb(82, 14, 14));
-}
-
-.unitWastelandMacesBackChoice{
-    width: 5.2vw; 
-    height: 12vw;
-    margin: 0;
-    filter: drop-shadow( 0 0 1vw rgb(82, 14, 14));
-    border: none;
-    background: url(../../Images/AngalsWastelandsImage/AngalMacesBack.webp) no-repeat center;
-    background-size: contain;
-    cursor: pointer;
-}
-
-.unitWastelandAngalitBack{
-    width: 5.7vw; 
-    height: 12vw;
-    margin: 0;
-    border: none;
-    background: url(../../Images/AngalsWastelandsImage/AngalAngalitBack.webp) no-repeat center;
-    background-size: contain;
-    cursor: pointer;
-}
-
-.unitWastelandAngalitBack:active{
-    filter: drop-shadow( 0 0 1vw rgb(82, 14, 14));
-}
-
-.unitWastelandAngalitBackChoice{
-    width: 5.7vw; 
-    height: 12vw;
-    margin: 0;
-    filter: drop-shadow( 0 0 1vw rgb(82, 14, 14));
-    border: none;
-    background: url(../../Images/AngalsWastelandsImage/AngalAngalitBack.webp) no-repeat center;
-    background-size: contain;
-    cursor: pointer;
-    
-}
-
-
-.unitWastelandDeath{
-    width: 6vw; 
-    height: 4vw;
-    margin: 0;
-    position: relative;
-    border: none;
-    background: url(../../Images/AngalsWastelandsImage/DeadAngal.webp) no-repeat bottom;
-    background-size: contain;
-    filter: drop-shadow(0.3vw 0vw 0.5vw black);
-}
-
-.healthScaleWastelandUnit{
-    appearance: none;
-    -webkit-appearance: none;
-    width: 5vw;
-    height: 0.5vw;
-    margin: 5% 5%;
-    position: relative;
-    bottom: -60%;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.healthScaleWastelandUnit::-webkit-progress-inner-element {
-    border: 0.1vw solid black;
-}
-  
-.healthScaleWastelandUnit::-webkit-progress-bar {
-    background-color: silver;
-    
-}
-  
-.healthScaleWastelandUnit::-webkit-progress-value {
-    background-color: brown;
-}
-
 
 .unitEmpireWestArcher{
     width: 5.3vw; 
@@ -1243,185 +1267,6 @@
     background-color: darkslategray;
 }
 
-/* SkillsWastelandSoldiers */
-
-.avatarHeroWasteland{
-    width: 80%;
-    position: relative;
-    top: 0.5vw;
-    left: 50%;
-    transform: translateX(-50%);
-    border: solid darkolivegreen 0.3vw;
-}
-
-.buttonSkillHunter{
-    position: absolute;
-    bottom: 33%;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 50%;
-    border: solid 0.1vw black;
-    width: 9vw;
-    height: 3vw;
-    background-color: darkolivegreen;
-    background-image: linear-gradient(176deg, darkolivegreen 3%, black 110%);
-    font-family: "El Messiri";
-    font-size: 1.2vw;
-    cursor: pointer;
-    margin: 0;
-    color: rgb(220, 220, 220);
-}
-
-.buttonSkillHunter:hover{
-    background-color: darkolivegreen;
-    background-image: linear-gradient(176deg, darkolivegreen 3%, black 95%);
-    filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
-}
-
-.buttonSkillJavelin{
-    position: absolute;
-    bottom: 23%;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 50%;
-    border: solid 0.1vw black;
-    width: 9vw;
-    height: 3vw;
-    background-color: darkolivegreen;
-    background-image: linear-gradient(176deg, darkolivegreen 3%, black 110%);
-    font-family: "El Messiri";
-    font-size: 1.2vw;
-    cursor: pointer;
-    margin: 0;
-    color: rgb(220, 220, 220);
-}
-
-.buttonSkillJavelin:hover{
-    background-color: darkolivegreen;
-    background-image: linear-gradient(176deg, darkolivegreen 3%, black 95%);
-    filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
-}
-
-.buttonSkillMaces{
-    position: absolute;
-    bottom: 13%;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 50%;
-    border: solid 0.1vw black;
-    width: 9vw;
-    height: 3vw;
-    background-color: darkolivegreen;
-    background-image: linear-gradient(176deg, darkolivegreen 3%, black 110%);
-    font-family: "El Messiri";
-    font-size: 1.2vw;
-    cursor: pointer;
-    margin: 0;
-    color: rgb(220, 220, 220);
-}
-
-.buttonSkillMaces:hover{
-    background-color: darkolivegreen;
-    background-image: linear-gradient(176deg, darkolivegreen 3%, black 95%);
-    filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
-}
-
-.buttonSkillAngalit{
-    position: absolute;
-    bottom: 3%;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 50%;
-    border: solid 0.1vw black;
-    width: 9vw;
-    height: 3vw;
-    background-color: darkolivegreen;
-    background-image: linear-gradient(176deg, darkolivegreen 3%, black 110%);
-    font-family: "El Messiri";
-    font-size: 1.2vw;
-    cursor: pointer;
-    margin: 0;
-    color: rgb(220, 220, 220);
-}
-
-.buttonSkillAngalit:hover{
-    background-color: darkolivegreen;
-    background-image: linear-gradient(176deg, darkolivegreen 3%, black 95%);
-    filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
-}
-
-.buttonSkillPoulticeWasteland{
-    position: absolute;
-    top: 27%;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 50%;
-    border: solid 0.1vw black;
-    width: 9vw;
-    height: 3vw;
-    background-color: darkolivegreen;
-    background-image: linear-gradient(176deg, darkolivegreen 3%, black 110%);
-    font-family: "El Messiri";
-    font-size: 1.2vw;
-    cursor: pointer;
-    margin: 0;
-    color: rgb(220, 220, 220);
-}
-
-.buttonSkillPoulticeWasteland:hover{
-    background-color: darkolivegreen;
-    background-image: linear-gradient(176deg, darkolivegreen 3%, black 95%);
-    filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
-}
-
-.buttonSkillCall{
-    position: absolute;
-    top: 37%;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 50%;
-    border: solid 0.1vw black;
-    width: 9vw;
-    height: 3vw;
-    background-color: darkolivegreen;
-    background-image: linear-gradient(176deg, darkolivegreen 3%, black 110%);
-    font-family: "El Messiri";
-    font-size: 1.2vw;
-    cursor: pointer;
-    margin: 0;
-    color: rgb(220, 220, 220);
-}
-
-.buttonSkillCall:hover{
-    background-color: darkolivegreen;
-    background-image: linear-gradient(176deg, darkolivegreen 3%, black 95%);
-    filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
-}
-
-.buttonSkillBloodDebt{
-    position: absolute;
-    top: 47%;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 50%;
-    border: solid 0.1vw black;
-    width: 9vw;
-    height: 3vw;
-    background-color: darkolivegreen;
-    background-image: linear-gradient(176deg, darkolivegreen 3%, black 110%);
-    font-family: "El Messiri";
-    font-size: 1.2vw;
-    cursor: pointer;
-    margin: 0;
-    color: rgb(220, 220, 220);
-}
-
-.buttonSkillBloodDebt:hover{
-    background-color: darkolivegreen;
-    background-image: linear-gradient(176deg, darkolivegreen 3%, black 95%);
-    filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
-}
-
 /* SkillsEmpireSoldiers */
 
 .avatarHeroEmpire{
@@ -1445,7 +1290,7 @@
     background-color: cadetblue;
     background-image: linear-gradient(176deg, cadetblue 3%, black 110%);
     font-family: "El Messiri";
-    font-size: 1.2vw;
+    font-size: 1vw;
     cursor: pointer;
     margin: 0;
     color: rgb(220, 220, 220);
@@ -1469,7 +1314,7 @@
     background-color: cadetblue;
     background-image: linear-gradient(176deg, cadetblue 3%, black 110%);
     font-family: "El Messiri";
-    font-size: 1.2vw;
+    font-size: 1vw;
     cursor: pointer;
     margin: 0;
     color: rgb(220, 220, 220);
@@ -1493,7 +1338,7 @@
     background-color: cadetblue;
     background-image: linear-gradient(176deg, cadetblue 3%, black 110%);
     font-family: "El Messiri";
-    font-size: 1.2vw;
+    font-size: 1vw;
     cursor: pointer;
     margin: 0;
     color: rgb(220, 220, 220);
@@ -1517,7 +1362,7 @@
     background-color: cadetblue;
     background-image: linear-gradient(176deg, cadetblue 3%, black 110%);
     font-family: "El Messiri";
-    font-size: 1.2vw;
+    font-size: 1vw;
     cursor: pointer;
     margin: 0;
     color: rgb(220, 220, 220);
@@ -1541,7 +1386,7 @@
     background-color: cadetblue;
     background-image: linear-gradient(176deg, cadetblue 3%, black 110%);
     font-family: "El Messiri";
-    font-size: 1.2vw;
+    font-size: 1vw;
     cursor: pointer;
     margin: 0;
     color: rgb(220, 220, 220);
@@ -1565,7 +1410,7 @@
     background-color: cadetblue;
     background-image: linear-gradient(176deg, cadetblue 3%, black 110%);
     font-family: "El Messiri";
-    font-size: 1.2vw;
+    font-size: 1vw;
     cursor: pointer;
     margin: 0;
     color: rgb(220, 220, 220);
@@ -1589,7 +1434,7 @@
     background-color: cadetblue;
     background-image: linear-gradient(176deg, cadetblue 3%, black 110%);
     font-family: "El Messiri";
-    font-size: 1.2vw;
+    font-size: 1vw;
     cursor: pointer;
     margin: 0;
     color: rgb(220, 220, 220);
@@ -1599,6 +1444,69 @@
     background-color: cadetblue;
     background-image: linear-gradient(176deg, cadetblue 3%, black 95%);
     filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
+}
+
+
+/* -----Overall----- */
+
+.shop{
+    width: 100%; 
+    height: 100%;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: wheat;
+    z-index: 21;
+}
+
+.blockUnits{
+    width: 80%;
+    height: 89%;
+    position: absolute;
+    top: 11%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.skillsBlockRight{
+    width: 10%;
+    height: 89%;
+    position: absolute;
+    right: 0;
+    top: 11%;
+    background: wheat;
+}
+
+.skillsBlockLeft p{
+    font-size: 0.8vw;
+    font-weight: 700;
+    font-family: "El Messiri";
+    margin: 0;
+    margin-left: 10%;
+}
+
+.card{
+    width: 10%;
+    height: 30%;
+    position: absolute;
+    bottom: 2%;
+}
+
+.skillsBlockLeft{
+    width: 10%;
+    height: 89%;
+    position: absolute;
+    left: 0;
+    top: 11%;
+    background: wheat;
+}
+
+.skillsBlockLeft .imageCard{
+    width: 8vw;
+    height: 8vw;
+    margin: 3.5%;
+    border: solid 0.2vw whitesmoke;
 }
 
 .closeButton{
@@ -1622,3 +1530,130 @@
     background-image: linear-gradient(176deg, red 3%, rgb(17, 17, 17) 90%);
     filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
 }
+
+/* Overall Positions Cells */
+
+.cell{
+    width: 8.5vw; 
+    height: 8vw;
+    margin: 0;
+    border: solid 0.3vw black;
+    background: rgb(100, 158, 66);
+    cursor: pointer;
+    opacity: 0.5;
+    font-size: 2vw;
+}
+
+.cellA1{
+    position: absolute;
+    bottom: 70%;
+    left: 5%;
+}
+
+.cellA2{
+    position: absolute;
+    bottom: 70%;
+    left: 30%;
+}
+
+.cellA3{
+    position: absolute;
+    bottom: 70%;
+    left: 55%;
+}
+
+.cellA4{
+    position: absolute;
+    bottom: 70%;
+    left: 80%;
+}
+
+.cellA5{
+    position: absolute;
+    bottom: 50%;
+    left: 13%;
+}
+
+.cellA6{
+    position: absolute;
+    bottom: 50%;
+    left: 38%;
+}
+
+.cellA7{
+    position: absolute;
+    bottom: 50%;
+    left: 63%;
+}
+
+.cellA8{
+    position: absolute;
+    bottom: 50%;
+    left: 88%;
+}
+
+.cellC1{
+    position: absolute;
+    bottom: 20%;
+    left: 5%;
+}
+
+.cellC2{
+    position: absolute;
+    bottom: 20%;
+    left: 30%;
+}
+
+.cellC3{
+    position: absolute;
+    bottom: 20%;
+    left: 55%;
+}
+
+.cellC4{
+    position: absolute;
+    bottom: 20%;
+    left: 80%;
+}
+
+.cellD1{
+    position: absolute;
+    bottom: 5%;
+    left: 13%;
+}
+
+.cellD2{
+    position: absolute;
+    bottom: 5%;
+    left: 38%;
+}
+
+.cellD3{
+    position: absolute;
+    bottom: 5%;
+    left: 63%;
+}
+
+.cellD4{
+    position: absolute;
+    bottom: 5%;
+    left: 88%;
+}
+
+.emptyСell{
+    border: none;
+    opacity: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
