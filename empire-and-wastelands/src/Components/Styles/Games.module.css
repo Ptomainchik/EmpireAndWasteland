@@ -252,8 +252,7 @@
 .poulticeBuyWasteland{
     position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 5%;
     width: 14vw;
     height: 14vw;
     background: url(../../Images/AngalsWastelandsImage/PoulticeWasteland.jpg) no-repeat center;
@@ -264,6 +263,17 @@
 
 .poulticeBuyWasteland:hover{
     border: solid 0.4vw brown;
+}
+
+.shop h1 {
+    position: absolute;
+    top: 45%;
+    right: 20%;
+    font-size: 7vw;
+    font-weight: 700;
+    font-family: "El Messiri";
+    color: goldenrod;
+    -webkit-text-stroke: 0.1vw black;
 }
 
 /* Units */
@@ -399,8 +409,8 @@
 }
 
 .unitWastelandAngalitChoice{
-    width: 5.7vw; 
-    height: 12vw;
+    width: 6vw; 
+    height: 10.5vw;
     margin: 0;
     filter: drop-shadow( 0 0 1vw rgb(97, 15, 15));
     border: none;
@@ -966,8 +976,7 @@
 .poulticeBuyEmpire{
     position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 5%;
     width: 14vw;
     height: 14vw;
     background: url(../../Images/ImpireMarahImage/PoulticeEmpire.jpg) no-repeat center;

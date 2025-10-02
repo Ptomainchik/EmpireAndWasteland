@@ -12,6 +12,7 @@ import { IntroWastelandGameLvl1 } from "./StoryMessages/Lvl1/IntroWastelandGameL
 import { MessageHalfHealthLvl1 } from "./StoryMessages/Lvl1/MessageHalfHealthLvl1";
 import { OutroWastelandGameLvl1 } from "./StoryMessages/Lvl1/OutroWastelandGameLvl1";
 import { useGameResources } from "./HookForResources/HookResources";
+import { Soldiers } from "../../EmpireMarah/Game/BalansSoldiers";
 
 export const GameWastelandLvl1 = () => {
     const [resources, setResources] = useGameResources();
@@ -1942,6 +1943,38 @@ function handleCounterattack() {
         }
     }, [stateSkillsHero.poultice]);
 
+    useEffect(() => {
+        const swordsmanCells = Object.values(occupiedCell).filter(cell => 
+            cell.name === "Охотники"
+        );
+                       
+        const allSwordsmenDead = swordsmanCells.length > 0 && 
+        swordsmanCells.every(cell => cell.health <= 0);
+                        
+        if (allSwordsmenDead) {
+            setStateSkillsSoldiersWasteland(prev => ({
+                ...prev, 
+                showStateSkillsHunter: false
+         }));
+     }
+      }, [occupiedCell]);
+                    
+     useEffect(() => {
+      const swordsmanCells = Object.values(occupiedCell).filter(cell => 
+             cell.name === "Метатели"
+          );
+                            
+          const allSwordsmenDead = swordsmanCells.length > 0 && 
+                            swordsmanCells.every(cell => cell.health <= 0);
+                        
+          if (allSwordsmenDead) {
+               setStateSkillsSoldiersWasteland(prev => ({
+                  ...prev, 
+                   showStateSkillsJavelin: false
+          }));
+      }
+      }, [occupiedCell]);
+
     return (
         <div className={classes.gamePageWasteland}>
             
@@ -2091,13 +2124,12 @@ function handleCounterattack() {
                 {showShop && <div className={classes.shop}>
                     
                     <button className={classes.hunterBuy} onClick={handleBuyHunter} disabled={resources <= 0 || stateButtonsSkills === true}><p className={classes.titleBuyUnitWasteland}>Охотники: {reserve.wastelandHunter}</p></button>
-                    {resources} resurs 
                     
                     <button className={classes.javelinBuy} onClick={handleBuyJavelin} disabled={resources <= 0 || stateButtonsSkills === true}><p className={classes.titleBuyUnitWasteland}>Метатели: {reserve.wastelandJavelin}</p></button>
-                    {resources} resurs 
                     
                     <button className={classes.poulticeBuyWasteland} onClick={handleBuyPoultice} disabled={resources <= 0 || stateButtonsSkills === true}><p className={classes.titleBuyUnitWasteland}>Припарки: {stateSkillsHero.poultice}</p></button>
-                    {resources} resurs 
+
+                    <h1>GOLD:{resources}</h1>
 
                     <button className={classes.closeButton} onClick={handleCloseShop} disabled={reserve.wastelandHunter + reserve.wastelandJavelin + reserve.wastelandMaces + reserve.wastelandAngalit === 0}>Готово</button>
                     
@@ -2342,8 +2374,9 @@ function handleCounterattack() {
                         </button>  
                     </div>
                 
+                
                 </div>}
-                    
+                    <Soldiers/>
             </div>
             
         </div>

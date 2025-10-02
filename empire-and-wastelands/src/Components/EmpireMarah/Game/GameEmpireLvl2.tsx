@@ -41,6 +41,7 @@ export const GameEmpireLvl2 = () => {
         showFury: false,
         showPoultice: false,
     });
+    const [showButtonPoultice, setShowButtonPoultice] = useState(false);
     const [stateChoiceButton, setStateChoiceButton] = useState(true);
     const [showGameField, setShowGameField] = useState(false);
     const [showSkillsSoldierEmpire, setShowSkillsSoldierEmpire] = useState(false);
@@ -80,9 +81,9 @@ export const GameEmpireLvl2 = () => {
             A1:{
                 name: "Метатели",
                 occupied: false,
-                health: 30,
-                attack: 10,
-                defense: 3,
+                health: 150,
+                attack: 15,
+                defense: 4,
                 first: true,
                 classEmpireSoldier: 0,
                 showCard: false,
@@ -90,9 +91,9 @@ export const GameEmpireLvl2 = () => {
             A2:{
                 name: "Метатели",
                 occupied: false,
-                health: 30,
-                attack: 10,
-                defense: 3,
+                health: 150,
+                attack: 15,
+                defense: 4,
                 first: true,
                 classEmpireSoldier: 0,
                 showCard: false,
@@ -100,9 +101,9 @@ export const GameEmpireLvl2 = () => {
             A3:{
                 name: "Метатели",
                 occupied: false,
-                health: 30,
-                attack: 10,
-                defense: 3,
+                health: 150,
+                attack: 15,
+                defense: 4,
                 first: true,
                 classEmpireSoldier: 0,
                 showCard: false,
@@ -110,9 +111,9 @@ export const GameEmpireLvl2 = () => {
             A4:{
                 name: "Метатели",
                 occupied: false,
-                health: 30,
-                attack: 10,
-                defense: 3,
+                health: 150,
+                attack: 15,
+                defense: 4,
                 first: true,
                 classEmpireSoldier: 0,
                 showCard: false,
@@ -120,9 +121,9 @@ export const GameEmpireLvl2 = () => {
             A5:{
                 name: "Охотники",
                 occupied: false,
-                health: 40,
-                attack: 15,
-                defense: 5,
+                health: 100,
+                attack: 12,
+                defense: 3,
                 first: false,
                 classEmpireSoldier: 0,
                 showCard: false,
@@ -130,9 +131,9 @@ export const GameEmpireLvl2 = () => {
             A6:{
                 name: "Охотники",
                 occupied: false,
-                health: 40,
-                attack: 15,
-                defense: 5,
+                health: 100,
+                attack: 12,
+                defense: 3,
                 first: false,
                 classEmpireSoldier: 0,
                 showCard: false,
@@ -237,7 +238,7 @@ export const GameEmpireLvl2 = () => {
     const [styledButtons, setStyledButtons] = useState<Record<string, number>>({});
     const [stateButtonSoldiers, setStateButtonSoldiers] = useState({
         empireButtonWestArcher: false,
-        empireButtonWestSwodsman: false,
+        empireButtonWestSwordsman: false,
         empireButtonEastArcher: false,
         empireButtonEastPathfinder: false,
     });
@@ -259,35 +260,59 @@ export const GameEmpireLvl2 = () => {
     }
 
     function handleBuyWestArcher() {
-        setResources(prev => prev - 50);
-        setReserve(prevReserve => ({
-        ...prevReserve,
-        empireWestArcher: prevReserve.empireWestArcher + 1,
-    }));
+        if (resources >= 35) {
+            setResources(prev => prev - 35);
+            setReserve(prevReserve => ({
+            ...prevReserve,
+            empireWestArcher: prevReserve.empireWestArcher + 1,
+        }));
+        }
+        else if (resources < 35) {
+            return
+        }
     }
 
     function handleBuyWestSwordsman() {
-        setResources(prev => prev - 50);
-        setReserve(prevReserve => ({
-        ...prevReserve,
-        empireWestSwordsman: prevReserve.empireWestSwordsman + 1,
-    }));
+        if (resources >= 75) {
+            setResources(prev => prev - 75);
+            setReserve(prevReserve => ({
+            ...prevReserve,
+            empireWestSwordsman: prevReserve.empireWestSwordsman + 1,
+        }));
+        }
+        else if (resources < 75) {
+            return
+        }
+        
     }
 
     function handleBuyEastArcher() {
-        setResources(prev => prev - 50);
-        setReserve(prevReserve => ({
-        ...prevReserve,
-        empireEastArcher: prevReserve.empireEastArcher + 1,
-    }));
+        if (resources >= 90) {
+            setResources(prev => prev - 90);
+            setReserve(prevReserve => ({
+            ...prevReserve,
+            empireEastArcher: prevReserve.empireEastArcher + 1,
+        }));
+        }
+        else if (resources < 90) {
+            return
+        }
+        
     }
 
     function handleBuyPoultice() {
-        setResources(prev => prev - 50);
-        setStateSkillsHero(prevReserve => ({
-        ...prevReserve,
-        poultice: prevReserve.poultice + 1,
-    }));
+        if (resources >= 50) {
+            setResources(prev => prev - 50);
+            setStateSkillsHero(prevReserve => ({
+            ...prevReserve,
+            poultice: prevReserve.poultice + 1,
+        }));
+        }
+        else if (resources < 50) {
+            return
+        }
+
+        
     }
 
     function handleRequestForWestArcherReserves() {
@@ -299,7 +324,7 @@ export const GameEmpireLvl2 = () => {
         setStateStyleSoldier(1);
         setStateButtonSoldiers({
             empireButtonWestArcher: true,
-            empireButtonWestSwodsman: false,
+            empireButtonWestSwordsman: false,
             empireButtonEastArcher: false,
             empireButtonEastPathfinder: false,
         });
@@ -314,7 +339,7 @@ export const GameEmpireLvl2 = () => {
         setStateStyleSoldier(2);
         setStateButtonSoldiers({
             empireButtonWestArcher: false,
-            empireButtonWestSwodsman: true,
+            empireButtonWestSwordsman: true,
             empireButtonEastArcher: false,
             empireButtonEastPathfinder: false,
         });
@@ -329,7 +354,7 @@ export const GameEmpireLvl2 = () => {
         setStateStyleSoldier(3);
         setStateButtonSoldiers({
             empireButtonWestArcher: false,
-            empireButtonWestSwodsman: false,
+            empireButtonWestSwordsman: false,
             empireButtonEastArcher: true,
             empireButtonEastPathfinder: false,
         });
@@ -342,7 +367,7 @@ export const GameEmpireLvl2 = () => {
         
         setStateButtonSoldiers({
             empireButtonWestArcher: false,
-            empireButtonWestSwodsman: false,
+            empireButtonWestSwordsman: false,
             empireButtonEastArcher: false,
             empireButtonEastPathfinder: false,
         });
@@ -356,9 +381,9 @@ export const GameEmpireLvl2 = () => {
             C1:{
                     name: "Лучники запада",
                     occupied: true,
-                    health: 20,
-                    attack: 5,
-                    defense: 5,
+                    health: 80,
+                    attack: 10,
+                    defense: 4,
                     choice: false,
                     classEmpireSoldier: 1,
                     showCard: false,
@@ -373,9 +398,9 @@ export const GameEmpireLvl2 = () => {
             C2:{    
                     name: "Лучники запада",
                     occupied: true,
-                    health: 20,
-                    attack: 5,
-                    defense: 5,
+                    health: 80,
+                    attack: 10,
+                    defense: 4,
                     choice: false,
                     classEmpireSoldier: 1,
                     showCard: false,
@@ -390,9 +415,9 @@ export const GameEmpireLvl2 = () => {
             C3:{    
                     name: "Лучники запада",
                     occupied: true,
-                    health: 20,
-                    attack: 5,
-                    defense: 5,
+                    health: 80,
+                    attack: 10,
+                    defense: 4,
                     choice: false,
                     classEmpireSoldier: 1,
                     showCard: false,
@@ -407,9 +432,9 @@ export const GameEmpireLvl2 = () => {
             C4:{
                     name: "Лучники запада",
                     occupied: true,
-                    health: 20,
-                    attack: 5,
-                    defense: 5,
+                    health: 80,
+                    attack: 10,
+                    defense: 4,
                     choice: false,
                     classEmpireSoldier: 1,
                     showCard: false,
@@ -424,9 +449,9 @@ export const GameEmpireLvl2 = () => {
             D1:{
                     name: "Лучники запада",
                     occupied: true,
-                    health: 20,
-                    attack: 5,
-                    defense: 5,
+                    health: 80,
+                    attack: 10,
+                    defense: 4,
                     choice: false,
                     classEmpireSoldier: 1,
                     showCard: false,
@@ -441,9 +466,9 @@ export const GameEmpireLvl2 = () => {
             D2:{
                     name: "Лучники запада",
                     occupied: true,
-                    health: 20,
-                    attack: 5,
-                    defense: 5,
+                    health: 80,
+                    attack: 10,
+                    defense: 4,
                     choice: false,
                     classEmpireSoldier: 1,
                     showCard: false,
@@ -458,9 +483,9 @@ export const GameEmpireLvl2 = () => {
             D3:{
                     name: "Лучники запада",
                     occupied: true,
-                    health: 20,
-                    attack: 5,
-                    defense: 5,
+                    health: 80,
+                    attack: 10,
+                    defense: 4,
                     choice: false,
                     classEmpireSoldier: 1,
                     showCard: false,
@@ -475,9 +500,9 @@ export const GameEmpireLvl2 = () => {
             D4:{
                     name: "Лучники запада",
                     occupied: true,
-                    health: 20,
-                    attack: 5,
-                    defense: 5,
+                    health: 80,
+                    attack: 10,
+                    defense: 4,
                     choice: false,
                     classEmpireSoldier: 1,
                     showCard: false,
@@ -487,11 +512,11 @@ export const GameEmpireLvl2 = () => {
         setStateSkillsSoldiersEmpire(prev => ({...prev, stateSkillsWestArcher: true}));
         }
     }
-    else if(["C1", "C2", "C3", "C4", "D1", "D2", "D3", "D4"].includes(id) && stateButtonSoldiers.empireButtonWestSwodsman === true ) {
+    else if(["C1", "C2", "C3", "C4", "D1", "D2", "D3", "D4"].includes(id) && stateButtonSoldiers.empireButtonWestSwordsman === true ) {
         
         setStateButtonSoldiers({
             empireButtonWestArcher: false,
-            empireButtonWestSwodsman: false,
+            empireButtonWestSwordsman: false,
             empireButtonEastArcher: false,
             empireButtonEastPathfinder: false,
         });
@@ -505,8 +530,8 @@ export const GameEmpireLvl2 = () => {
             C1:{
                 name: "Мечники запада",
                 occupied: true,
-                health: 30,
-                attack: 10,
+                health: 130,
+                attack: 15,
                 defense: 5,
                 choice: false,
                 classEmpireSoldier: 2,
@@ -522,8 +547,8 @@ export const GameEmpireLvl2 = () => {
             C2:{    
                     name: "Мечники запада",
                     occupied: true,
-                    health: 30,
-                    attack: 10,
+                    health: 130,
+                    attack: 15,
                     defense: 5,
                     choice: false,
                     classEmpireSoldier: 2,
@@ -539,8 +564,8 @@ export const GameEmpireLvl2 = () => {
             C3:{    
                     name: "Мечники запада",
                     occupied: true,
-                    health: 30,
-                    attack: 10,
+                    health: 130,
+                    attack: 15,
                     defense: 5,
                     choice: false,
                     classEmpireSoldier: 2,
@@ -556,8 +581,8 @@ export const GameEmpireLvl2 = () => {
             C4:{
                     name: "Мечники запада",
                     occupied: true,
-                    health: 30,
-                    attack: 10,
+                    health: 130,
+                    attack: 15,
                     defense: 5,
                     choice: false,
                     classEmpireSoldier: 2,
@@ -573,8 +598,8 @@ export const GameEmpireLvl2 = () => {
             D1:{
                     name: "Мечники запада",
                     occupied: true,
-                    health: 30,
-                    attack: 10,
+                    health: 130,
+                    attack: 15,
                     defense: 5,
                     choice: false,
                     classEmpireSoldier: 2,
@@ -590,8 +615,8 @@ export const GameEmpireLvl2 = () => {
             D2:{
                     name: "Мечники запада",
                     occupied: true,
-                    health: 30,
-                    attack: 10,
+                    health: 130,
+                    attack: 15,
                     defense: 5,
                     choice: false,
                     classEmpireSoldier: 2,
@@ -607,8 +632,8 @@ export const GameEmpireLvl2 = () => {
             D3:{
                     name: "Мечники запада",
                     occupied: true,
-                    health: 30,
-                    attack: 10,
+                    health: 130,
+                    attack: 15,
                     defense: 5,
                     choice: false,
                     classEmpireSoldier: 2,
@@ -624,8 +649,8 @@ export const GameEmpireLvl2 = () => {
             D4:{
                     name: "Мечники запада",
                     occupied: true,
-                    health: 30,
-                    attack: 10,
+                    health: 130,
+                    attack: 15,
                     defense: 5,
                     choice: false,
                     classEmpireSoldier: 2,
@@ -641,7 +666,7 @@ export const GameEmpireLvl2 = () => {
         
         setStateButtonSoldiers({
             empireButtonWestArcher: false,
-            empireButtonWestSwodsman: false,
+            empireButtonWestSwordsman: false,
             empireButtonEastArcher: false,
             empireButtonEastPathfinder: false,
         });
@@ -655,9 +680,9 @@ export const GameEmpireLvl2 = () => {
             C1:{
                 name: "Лучники востока",
                 occupied: true,
-                health: 40,
-                attack: 10,
-                defense: 7,
+                health: 150,
+                attack: 25,
+                defense: 4,
                 choice: false,
                 classEmpireSoldier: 3,
                 showCard: false,
@@ -672,9 +697,9 @@ export const GameEmpireLvl2 = () => {
             C2:{    
                     name: "Лучники востока",
                     occupied: true,
-                    health: 40,
-                    attack: 10,
-                    defense: 7,
+                    health: 150,
+                    attack: 25,
+                    defense: 4,
                     choice: false,
                     classEmpireSoldier: 3,
                     showCard: false,
@@ -689,9 +714,9 @@ export const GameEmpireLvl2 = () => {
             C3:{    
                     name: "Лучники востока",
                     occupied: true,
-                    health: 40,
-                    attack: 10,
-                    defense: 7,
+                    health: 150,
+                    attack: 25,
+                    defense: 4,
                     choice: false,
                     classEmpireSoldier: 3,
                     showCard: false,
@@ -706,9 +731,9 @@ export const GameEmpireLvl2 = () => {
             C4:{
                     name: "Лучники востока",
                     occupied: true,
-                    health: 40,
-                    attack: 10,
-                    defense: 7,
+                    health: 150,
+                    attack: 25,
+                    defense: 4,
                     choice: false,
                     classEmpireSoldier: 3,
                     showCard: false,
@@ -723,9 +748,9 @@ export const GameEmpireLvl2 = () => {
             D1:{
                     name: "Лучники востока",
                     occupied: true,
-                    health: 40,
-                    attack: 10,
-                    defense: 7,
+                    health: 150,
+                    attack: 25,
+                    defense: 4,
                     choice: false,
                     classEmpireSoldier: 3,
                     showCard: false,
@@ -740,9 +765,9 @@ export const GameEmpireLvl2 = () => {
             D2:{
                     name: "Лучники востока",
                     occupied: true,
-                    health: 40,
-                    attack: 10,
-                    defense: 7,
+                    health: 150,
+                    attack: 25,
+                    defense: 4,
                     choice: false,
                     classEmpireSoldier: 3,
                     showCard: false,
@@ -757,9 +782,9 @@ export const GameEmpireLvl2 = () => {
             D3:{
                     name: "Лучники востока",
                     occupied: true,
-                    health: 40,
-                    attack: 10,
-                    defense: 7,
+                    health: 150,
+                    attack: 25,
+                    defense: 4,
                     choice: false,
                     classEmpireSoldier: 3,
                     showCard: false,
@@ -774,9 +799,9 @@ export const GameEmpireLvl2 = () => {
             D4:{
                     name: "Лучники востока",
                     occupied: true,
-                    health: 40,
-                    attack: 10,
-                    defense: 7,
+                    health: 150,
+                    attack: 25,
+                    defense: 4,
                     choice: false,
                     classEmpireSoldier: 3,
                     showCard: false,
@@ -1455,7 +1480,7 @@ function handleCounterattack() {
             ...prev,
             A1: {
                 ...prev.A1,
-                health: prev.A1.health - 5
+                health: prev.A1.health - 20
             }
         }));
         }
@@ -1464,7 +1489,7 @@ function handleCounterattack() {
             ...prev,
             A2: {
                 ...prev.A2,
-                health: prev.A2.health - 5
+                health: prev.A2.health - 20
             }
         }));
         }
@@ -1473,7 +1498,7 @@ function handleCounterattack() {
             ...prev,
             A3: {
                 ...prev.A3,
-                health: prev.A3.health - 5
+                health: prev.A3.health - 20
             }
         }));
         }
@@ -1482,7 +1507,7 @@ function handleCounterattack() {
             ...prev,
             A4: {
                 ...prev.A4,
-                health: prev.A4.health - 5
+                health: prev.A4.health - 20
             }
         }));
         }
@@ -1491,7 +1516,7 @@ function handleCounterattack() {
             ...prev,
             A5: {
                 ...prev.A5,
-                health: prev.A5.health - 5
+                health: prev.A5.health - 20
             }
         }));
         }
@@ -1500,7 +1525,7 @@ function handleCounterattack() {
             ...prev,
             A6: {
                 ...prev.A6,
-                health: prev.A6.health - 5
+                health: prev.A6.health - 20
             }
         }));
         }
@@ -1519,12 +1544,12 @@ function handleCounterattack() {
             ...prev,
             A1: {
                 ...prev.A1,
-                health: prev.A1.health - 5,
+                health: prev.A1.health - 10,
                 
             },
             A2: {
                 ...prev.A2,
-                health: prev.A2.health - 2,
+                health: prev.A2.health - 5,
                 
             },
         }));
@@ -1534,17 +1559,17 @@ function handleCounterattack() {
             ...prev,
             A1: {
                 ...prev.A1,
-                health: prev.A1.health - 2,
+                health: prev.A1.health - 5,
                 
             },
             A2: {
                 ...prev.A2,
-                health: prev.A2.health - 5,
+                health: prev.A2.health - 10,
                 
             },
             A3: {
                 ...prev.A3,
-                health: prev.A3.health - 2,
+                health: prev.A3.health - 5,
                 
             },
         }));
@@ -1554,27 +1579,12 @@ function handleCounterattack() {
             ...prev,
             A2: {
                 ...prev.A2,
-                health: prev.A2.health - 2,
+                health: prev.A2.health - 5,
                 
             },
             A3: {
                 ...prev.A3,
-                health: prev.A3.health - 5,
-                
-            },
-            A4: {
-                ...prev.A4,
-                health: prev.A4.health - 2,
-                
-            },
-        }));
-        }
-        else if (attackQueue === 4) {
-            setOccupiedCellOpponent(prev => ({
-            ...prev,
-            A3: {
-                ...prev.A3,
-                health: prev.A3.health - 2,
+                health: prev.A3.health - 10,
                 
             },
             A4: {
@@ -1584,17 +1594,32 @@ function handleCounterattack() {
             },
         }));
         }
+        else if (attackQueue === 4) {
+            setOccupiedCellOpponent(prev => ({
+            ...prev,
+            A3: {
+                ...prev.A3,
+                health: prev.A3.health - 5,
+                
+            },
+            A4: {
+                ...prev.A4,
+                health: prev.A4.health - 10,
+                
+            },
+        }));
+        }
         else if (attackQueue === 5) {
             setOccupiedCellOpponent(prev => ({
             ...prev,
             A5: {
                 ...prev.A5,
-                health: prev.A5.health - 5,
+                health: prev.A5.health - 10,
                 
             },
             A6: {
                 ...prev.A6,
-                health: prev.A6.health - 2,
+                health: prev.A6.health - 5,
                 
             },
         }));
@@ -1604,12 +1629,12 @@ function handleCounterattack() {
             ...prev,
             A5: {
                 ...prev.A5,
-                health: prev.A5.health - 2,
+                health: prev.A5.health - 5,
                 
             },
             A6: {
                 ...prev.A6,
-                health: prev.A6.health - 5,
+                health: prev.A6.health - 10,
                 
             },
         }));
@@ -1629,7 +1654,7 @@ function handleCounterattack() {
             ...prev,
             A1: {
                 ...prev.A1,
-                health: prev.A1.health - 15,
+                health: prev.A1.health - 30,
                 defense: prev.A1.defense - 1
             }
         }));
@@ -1639,7 +1664,7 @@ function handleCounterattack() {
             ...prev,
             A2: {
                 ...prev.A2,
-                health: prev.A2.health - 15,
+                health: prev.A2.health - 30,
                 defense: prev.A2.defense - 1
             }
         }));
@@ -1649,7 +1674,7 @@ function handleCounterattack() {
             ...prev,
             A3: {
                 ...prev.A3,
-                health: prev.A3.health - 15,
+                health: prev.A3.health - 30,
                 defense: prev.A3.defense - 1
             }
         }));
@@ -1659,7 +1684,7 @@ function handleCounterattack() {
             ...prev,
             A4: {
                 ...prev.A4,
-                health: prev.A4.health - 15,
+                health: prev.A4.health - 30,
                 defense: prev.A4.defense - 1
             }
         }));
@@ -1669,7 +1694,7 @@ function handleCounterattack() {
             ...prev,
             A5: {
                 ...prev.A5,
-                health: prev.A5.health - 15,
+                health: prev.A5.health - 30,
                 defense: prev.A5.defense - 1
             }
         }));
@@ -1679,7 +1704,7 @@ function handleCounterattack() {
             ...prev,
             A6: {
                 ...prev.A6,
-                health: prev.A6.health - 15,
+                health: prev.A6.health - 30,
                 defense: prev.A6.defense - 1
             }
         }));
@@ -1694,336 +1719,336 @@ function handleCounterattack() {
     
 
     function handleSkillPoultice() {
-        if (occupiedCell.C1.choice === true && occupiedCell.C1.health !== 0 && occupiedCell.C1.health !== 20 && occupiedCell.C1.priority === 1) {
+        if (occupiedCell.C1.choice === true && occupiedCell.C1.health !== 0 && occupiedCell.C1.health !== 80 && occupiedCell.C1.priority === 1) {
             setOccupiedCell(prev => ({
             ...prev,
             C1: {
                 ...prev.C1,
-                health: 20,
+                health: 80,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.C1.choice === true && occupiedCell.C1.health !== 0 && occupiedCell.C1.health !== 30 && occupiedCell.C1.priority === 3) {
+        else if (occupiedCell.C1.choice === true && occupiedCell.C1.health !== 0 && occupiedCell.C1.health !== 130 && occupiedCell.C1.priority === 3) {
             setOccupiedCell(prev => ({
             ...prev,
             C1: {
                 ...prev.C1,
-                health: 30,
+                health: 130,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.C1.choice === true && occupiedCell.C1.health !== 0 && occupiedCell.C1.health !== 40 && occupiedCell.C1.priority === 2) {
+        else if (occupiedCell.C1.choice === true && occupiedCell.C1.health !== 0 && occupiedCell.C1.health !== 150 && occupiedCell.C1.priority === 2) {
             setOccupiedCell(prev => ({
             ...prev,
             C1: {
                 ...prev.C1,
-                health: 40,
+                health: 150,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.C1.choice === true && occupiedCell.C1.health !== 0 && occupiedCell.C1.health !== 50 && occupiedCell.C1.priority === 4) {
+        else if (occupiedCell.C1.choice === true && occupiedCell.C1.health !== 0 && occupiedCell.C1.health !== 250 && occupiedCell.C1.priority === 4) {
             setOccupiedCell(prev => ({
             ...prev,
             C1: {
                 ...prev.C1,
-                health: 50,
+                health: 250,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
 
 
-        else if (occupiedCell.C2.choice === true && occupiedCell.C2.health !== 0 && occupiedCell.C2.health !== 20 && occupiedCell.C2.priority === 1) {
+        else if (occupiedCell.C2.choice === true && occupiedCell.C2.health !== 0 && occupiedCell.C2.health !== 80 && occupiedCell.C2.priority === 1) {
             setOccupiedCell(prev => ({
             ...prev,
             C2: {
                 ...prev.C2,
-                health: 20,
+                health: 80,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.C2.choice === true && occupiedCell.C2.health !== 0 && occupiedCell.C2.health !== 30 && occupiedCell.C2.priority === 3) {
+        else if (occupiedCell.C2.choice === true && occupiedCell.C2.health !== 0 && occupiedCell.C2.health !== 130 && occupiedCell.C2.priority === 3) {
             setOccupiedCell(prev => ({
             ...prev,
             C2: {
                 ...prev.C2,
-                health: 30,
+                health: 130,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.C2.choice === true && occupiedCell.C2.health !== 0 && occupiedCell.C2.health !== 40 && occupiedCell.C2.priority === 2) {
+        else if (occupiedCell.C2.choice === true && occupiedCell.C2.health !== 0 && occupiedCell.C2.health !== 150 && occupiedCell.C2.priority === 2) {
             setOccupiedCell(prev => ({
             ...prev,
             C2: {
                 ...prev.C2,
-                health: 40,
+                health: 150,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.C2.choice === true && occupiedCell.C2.health !== 0 && occupiedCell.C2.health !== 50 && occupiedCell.C2.priority === 4) {
+        else if (occupiedCell.C2.choice === true && occupiedCell.C2.health !== 0 && occupiedCell.C2.health !== 250 && occupiedCell.C2.priority === 4) {
             setOccupiedCell(prev => ({
             ...prev,
             C2: {
                 ...prev.C2,
-                health: 50,
+                health: 250,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
 
 
-        else if (occupiedCell.C3.choice === true && occupiedCell.C3.health !== 0 && occupiedCell.C3.health !== 20 && occupiedCell.C3.priority === 1) {
+        else if (occupiedCell.C3.choice === true && occupiedCell.C3.health !== 0 && occupiedCell.C3.health !== 80 && occupiedCell.C3.priority === 1) {
             setOccupiedCell(prev => ({
             ...prev,
             C3: {
                 ...prev.C3,
-                health: 20,
+                health: 80,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.C3.choice === true && occupiedCell.C3.health !== 0 && occupiedCell.C3.health !== 30 && occupiedCell.C3.priority === 3) {
+        else if (occupiedCell.C3.choice === true && occupiedCell.C3.health !== 0 && occupiedCell.C3.health !== 130 && occupiedCell.C3.priority === 3) {
             setOccupiedCell(prev => ({
             ...prev,
             C3: {
                 ...prev.C3,
-                health: 30,
+                health: 130,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.C3.choice === true && occupiedCell.C3.health !== 0 && occupiedCell.C3.health !== 40 && occupiedCell.C3.priority === 2) {
+        else if (occupiedCell.C3.choice === true && occupiedCell.C3.health !== 0 && occupiedCell.C3.health !== 150 && occupiedCell.C3.priority === 2) {
             setOccupiedCell(prev => ({
             ...prev,
             C3: {
                 ...prev.C3,
-                health: 40,
+                health: 150,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.C3.choice === true && occupiedCell.C3.health !== 0 && occupiedCell.C3.health !== 50 && occupiedCell.C3.priority === 4) {
+        else if (occupiedCell.C3.choice === true && occupiedCell.C3.health !== 0 && occupiedCell.C3.health !== 250 && occupiedCell.C3.priority === 4) {
             setOccupiedCell(prev => ({
             ...prev,
             C3: {
                 ...prev.C3,
-                health: 50,
+                health: 250,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
 
 
-        else if (occupiedCell.C4.choice === true && occupiedCell.C4.health !== 0 && occupiedCell.C4.health !== 20 && occupiedCell.C4.priority === 1) {
+        else if (occupiedCell.C4.choice === true && occupiedCell.C4.health !== 0 && occupiedCell.C4.health !== 80 && occupiedCell.C4.priority === 1) {
             setOccupiedCell(prev => ({
             ...prev,
             C4: {
                 ...prev.C4,
-                health: 20,
+                health: 80,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.C4.choice === true && occupiedCell.C4.health !== 0 && occupiedCell.C4.health !== 30 && occupiedCell.C4.priority === 3) {
+        else if (occupiedCell.C4.choice === true && occupiedCell.C4.health !== 0 && occupiedCell.C4.health !== 130 && occupiedCell.C4.priority === 3) {
             setOccupiedCell(prev => ({
             ...prev,
             C4: {
                 ...prev.C4,
-                health: 30,
+                health: 130,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.C4.choice === true && occupiedCell.C4.health !== 0 && occupiedCell.C4.health !== 40 && occupiedCell.C4.priority === 2) {
+        else if (occupiedCell.C4.choice === true && occupiedCell.C4.health !== 0 && occupiedCell.C4.health !== 150 && occupiedCell.C4.priority === 2) {
             setOccupiedCell(prev => ({
             ...prev,
             C4: {
                 ...prev.C4,
-                health: 40,
+                health: 150,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.C4.choice === true && occupiedCell.C4.health !== 0 && occupiedCell.C4.health !== 50 && occupiedCell.C4.priority === 4) {
+        else if (occupiedCell.C4.choice === true && occupiedCell.C4.health !== 0 && occupiedCell.C4.health !== 250 && occupiedCell.C4.priority === 4) {
             setOccupiedCell(prev => ({
             ...prev,
             C4: {
                 ...prev.C4,
-                health: 50,
+                health: 250,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
 
 
-        else if (occupiedCell.D1.choice === true && occupiedCell.D1.health !== 0 && occupiedCell.D1.health !== 20 && occupiedCell.D1.priority === 1) {
+        else if (occupiedCell.D1.choice === true && occupiedCell.D1.health !== 0 && occupiedCell.D1.health !== 80 && occupiedCell.D1.priority === 1) {
             setOccupiedCell(prev => ({
             ...prev,
             D1: {
                 ...prev.D1,
-                health: 20,
+                health: 80,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.D1.choice === true && occupiedCell.D1.health !== 0 && occupiedCell.D1.health !== 30 && occupiedCell.D1.priority === 3) {
+        else if (occupiedCell.D1.choice === true && occupiedCell.D1.health !== 0 && occupiedCell.D1.health !== 130 && occupiedCell.D1.priority === 3) {
             setOccupiedCell(prev => ({
             ...prev,
             D1: {
                 ...prev.D1,
-                health: 30,
+                health: 130,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.D1.choice === true && occupiedCell.D1.health !== 0 && occupiedCell.D1.health !== 40 && occupiedCell.D1.priority === 2) {
+        else if (occupiedCell.D1.choice === true && occupiedCell.D1.health !== 0 && occupiedCell.D1.health !== 150 && occupiedCell.D1.priority === 2) {
             setOccupiedCell(prev => ({
             ...prev,
             D1: {
                 ...prev.D1,
-                health: 40,
+                health: 150,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.D1.choice === true && occupiedCell.D1.health !== 0 && occupiedCell.D1.health !== 50 && occupiedCell.D1.priority === 4) {
+        else if (occupiedCell.D1.choice === true && occupiedCell.D1.health !== 0 && occupiedCell.D1.health !== 250 && occupiedCell.D1.priority === 4) {
             setOccupiedCell(prev => ({
             ...prev,
             D1: {
                 ...prev.D1,
-                health: 50,
+                health: 250,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
 
 
-        else if (occupiedCell.D2.choice === true && occupiedCell.D2.health !== 0 && occupiedCell.D2.health !== 20 && occupiedCell.D2.priority === 1) {
+        else if (occupiedCell.D2.choice === true && occupiedCell.D2.health !== 0 && occupiedCell.D2.health !== 80 && occupiedCell.D2.priority === 1) {
             setOccupiedCell(prev => ({
             ...prev,
             D2: {
                 ...prev.D2,
-                health: 20,
+                health: 80,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.D2.choice === true && occupiedCell.D2.health !== 0 && occupiedCell.D2.health !== 30 && occupiedCell.D2.priority === 3) {
+        else if (occupiedCell.D2.choice === true && occupiedCell.D2.health !== 0 && occupiedCell.D2.health !== 130 && occupiedCell.D2.priority === 3) {
             setOccupiedCell(prev => ({
             ...prev,
             D2: {
                 ...prev.D2,
-                health: 30,
+                health: 130,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.D2.choice === true && occupiedCell.D2.health !== 0 && occupiedCell.D2.health !== 40 && occupiedCell.D2.priority === 2) {
+        else if (occupiedCell.D2.choice === true && occupiedCell.D2.health !== 0 && occupiedCell.D2.health !== 150 && occupiedCell.D2.priority === 2) {
             setOccupiedCell(prev => ({
             ...prev,
             D2: {
                 ...prev.D2,
-                health: 40,
+                health: 150,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.D2.choice === true && occupiedCell.D2.health !== 0 && occupiedCell.D2.health !== 50 && occupiedCell.D2.priority === 4) {
+        else if (occupiedCell.D2.choice === true && occupiedCell.D2.health !== 0 && occupiedCell.D2.health !== 250 && occupiedCell.D2.priority === 4) {
             setOccupiedCell(prev => ({
             ...prev,
             D2: {
                 ...prev.D2,
-                health: 50,
+                health: 250,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
 
 
-        else if (occupiedCell.D3.choice === true && occupiedCell.D3.health !== 0 && occupiedCell.D3.health !== 20 && occupiedCell.D3.priority === 1) {
+        else if (occupiedCell.D3.choice === true && occupiedCell.D3.health !== 0 && occupiedCell.D3.health !== 80 && occupiedCell.D3.priority === 1) {
             setOccupiedCell(prev => ({
             ...prev,
             D3: {
                 ...prev.D3,
-                health: 20,
+                health: 80,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.D3.choice === true && occupiedCell.D3.health !== 0 && occupiedCell.D3.health !== 30 && occupiedCell.D3.priority === 3) {
+        else if (occupiedCell.D3.choice === true && occupiedCell.D3.health !== 0 && occupiedCell.D3.health !== 130 && occupiedCell.D3.priority === 3) {
             setOccupiedCell(prev => ({
             ...prev,
             D3: {
                 ...prev.D3,
-                health: 30,
+                health: 130,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.D3.choice === true && occupiedCell.D3.health !== 0 && occupiedCell.D3.health !== 40 && occupiedCell.D3.priority === 2) {
+        else if (occupiedCell.D3.choice === true && occupiedCell.D3.health !== 0 && occupiedCell.D3.health !== 150 && occupiedCell.D3.priority === 2) {
             setOccupiedCell(prev => ({
             ...prev,
             D3: {
                 ...prev.D3,
-                health: 40,
+                health: 150,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.D3.choice === true && occupiedCell.D3.health !== 0 && occupiedCell.D3.health !== 50 && occupiedCell.D3.priority === 4) {
+        else if (occupiedCell.D3.choice === true && occupiedCell.D3.health !== 0 && occupiedCell.D3.health !== 250 && occupiedCell.D3.priority === 4) {
             setOccupiedCell(prev => ({
             ...prev,
             D3: {
                 ...prev.D3,
-                health: 50,
+                health: 250,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
 
 
-        else if (occupiedCell.D4.choice === true && occupiedCell.D4.health !== 0 && occupiedCell.D4.health !== 20 && occupiedCell.D4.priority === 1) {
+        else if (occupiedCell.D4.choice === true && occupiedCell.D4.health !== 0 && occupiedCell.D4.health !== 80 && occupiedCell.D4.priority === 1) {
             setOccupiedCell(prev => ({
             ...prev,
             D4: {
                 ...prev.D4,
-                health: 20,
+                health: 80,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.D4.choice === true && occupiedCell.D4.health !== 0 && occupiedCell.D4.health !== 30 && occupiedCell.D4.priority === 3) {
+        else if (occupiedCell.D4.choice === true && occupiedCell.D4.health !== 0 && occupiedCell.D4.health !== 130 && occupiedCell.D4.priority === 3) {
             setOccupiedCell(prev => ({
             ...prev,
             D4: {
                 ...prev.D4,
-                health: 30,
+                health: 130,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.D4.choice === true && occupiedCell.D4.health !== 0 && occupiedCell.D4.health !== 40 && occupiedCell.D4.priority === 2) {
+        else if (occupiedCell.D4.choice === true && occupiedCell.D4.health !== 0 && occupiedCell.D4.health !== 150 && occupiedCell.D4.priority === 2) {
             setOccupiedCell(prev => ({
             ...prev,
             D4: {
                 ...prev.D4,
-                health: 40,
+                health: 150,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.D4.choice === true && occupiedCell.D4.health !== 0 && occupiedCell.D4.health !== 50 && occupiedCell.D4.priority === 4) {
+        else if (occupiedCell.D4.choice === true && occupiedCell.D4.health !== 0 && occupiedCell.D4.health !== 250 && occupiedCell.D4.priority === 4) {
             setOccupiedCell(prev => ({
             ...prev,
             D4: {
                 ...prev.D4,
-                health: 50,
+                health: 250,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
@@ -2061,7 +2086,7 @@ function handleCounterattack() {
     };
 
     useEffect(() => {
-        if(occupiedCellOpponent.A1.health + occupiedCellOpponent.A2.health + occupiedCellOpponent.A3.health + occupiedCellOpponent.A4.health + occupiedCellOpponent.A5.health + occupiedCellOpponent.A6.health <= 100 && showStoryMessages.countForMessage === 0) {
+        if(occupiedCellOpponent.A1.health + occupiedCellOpponent.A2.health + occupiedCellOpponent.A3.health + occupiedCellOpponent.A4.health + occupiedCellOpponent.A5.health + occupiedCellOpponent.A6.health <= 400 && showStoryMessages.countForMessage === 0) {
             setShowStoryMessages((prev: any) => ({...prev, halfHealth: true}));
         }
         }, [occupiedCellOpponent, showStoryMessages.countForMessage]);
@@ -2156,6 +2181,66 @@ function handleCounterattack() {
         }
     }, [stateSkillsHero.poultice]);
 
+    useEffect(() => {
+            const swordsmanCells = Object.values(occupiedCell).filter(cell => 
+                cell.name === "Лучники запада"
+            );
+        
+        
+            const allSwordsmenDead = swordsmanCells.length > 0 && 
+            swordsmanCells.every(cell => cell.health <= 0);
+        
+            if (allSwordsmenDead) {
+                setStateSkillsSoldiersEmpire(prev => ({
+                    ...prev, 
+                    showStateSkillsWestArcher: false
+            }));
+        }
+        }, [occupiedCell]);
+    
+        useEffect(() => {
+            const swordsmanCells = Object.values(occupiedCell).filter(cell => 
+                cell.name === "Мечники запада"
+            );
+        
+        
+            const allSwordsmenDead = swordsmanCells.length > 0 && 
+            swordsmanCells.every(cell => cell.health <= 0);
+        
+            if (allSwordsmenDead) {
+                setStateSkillsSoldiersEmpire(prev => ({
+                    ...prev, 
+                    showStateSkillsWestSwordsman: false
+            }));
+        }
+        }, [occupiedCell]);
+
+        useEffect(() => {
+            const swordsmanCells = Object.values(occupiedCell).filter(cell => 
+                cell.name === "Лучники востока"
+            );
+        
+        
+            const allSwordsmenDead = swordsmanCells.length > 0 && 
+            swordsmanCells.every(cell => cell.health <= 0);
+        
+            if (allSwordsmenDead) {
+                setStateSkillsSoldiersEmpire(prev => ({
+                    ...prev, 
+                    showStateSkillsEastArcher: false
+            }));
+        }
+        }, [occupiedCell]);
+
+        useEffect(() => {
+                    if (reserve.empireEastArcher === 0 && reserve.empireEastPathfinder === 0 && reserve.empireWestArcher === 0 && reserve.empireWestSwordsman === 0) {
+                        setShowButtonPoultice(false);
+                    }
+                    else {
+                        setShowButtonPoultice(true);
+                    }
+                }, [reserve]);
+
     return (
         <div className={classes.gamePageEmpire}>
             
@@ -2180,7 +2265,7 @@ function handleCounterattack() {
                     : occupiedCell.C1.classEmpireSoldier === 3 
                     ? CardEastArcher
                     : Card} alt="Card" draggable="false"/>
-                    <progress className={classes.healthScaleEmpire} max="100" value={occupiedCell.C1.health}></progress>
+                    <progress className={classes.healthScaleEmpire} max={ occupiedCell.C1.name === "Лучники запада" ? 80 : occupiedCell.C1.name === "Мечники запада" ? 130 : occupiedCell.C1.name === "Лучники востока" ? 150 : 0 } value={occupiedCell.C1.health}></progress>
                     <p>{occupiedCell.C1.name}</p>
                     <p>Attack:  {occupiedCell.C1.attack}</p>
                     <p>Defense: {occupiedCell.C1.defense}:</p>
@@ -2194,7 +2279,7 @@ function handleCounterattack() {
                     : occupiedCell.C2.classEmpireSoldier === 3 
                     ? CardEastArcher
                     : Card} alt="Card" draggable="false"/>
-                    <progress className={classes.healthScaleEmpire} max="100" value={occupiedCell.C2.health}></progress>
+                    <progress className={classes.healthScaleEmpire} max={ occupiedCell.C2.name === "Лучники запада" ? 80 : occupiedCell.C2.name === "Мечники запада" ? 130 : occupiedCell.C2.name === "Лучники востока" ? 150 : 0 } value={occupiedCell.C2.health}></progress>
                     <p>{occupiedCell.C2.name}</p>
                     <p>Attack:  {occupiedCell.C2.attack}</p>
                     <p>Defense: {occupiedCell.C2.defense}:</p>
@@ -2208,7 +2293,7 @@ function handleCounterattack() {
                     : occupiedCell.C3.classEmpireSoldier === 3 
                     ? CardEastArcher
                     : Card} alt="Card" draggable="false"/>
-                    <progress className={classes.healthScaleEmpire} max="100" value={occupiedCell.C3.health}></progress>
+                    <progress className={classes.healthScaleEmpire} max={ occupiedCell.C3.name === "Лучники запада" ? 80 : occupiedCell.C3.name === "Мечники запада" ? 130 : occupiedCell.C3.name === "Лучники востока" ? 150 : 0 } value={occupiedCell.C3.health}></progress>
                     <p>{occupiedCell.C3.name}</p>
                     <p>Attack:  {occupiedCell.C3.attack}</p>
                     <p>Defense: {occupiedCell.C3.defense}:</p>
@@ -2222,7 +2307,7 @@ function handleCounterattack() {
                     : occupiedCell.C4.classEmpireSoldier === 3 
                     ? CardEastArcher
                     : Card} alt="Card" draggable="false"/>
-                    <progress className={classes.healthScaleEmpire} max="100" value={occupiedCell.C4.health}></progress>
+                    <progress className={classes.healthScaleEmpire} max={ occupiedCell.C4.name === "Лучники запада" ? 80 : occupiedCell.C4.name === "Мечники запада" ? 130 : occupiedCell.C4.name === "Лучники востока" ? 150 : 0 } value={occupiedCell.C4.health}></progress>
                     <p>{occupiedCell.C4.name}</p>
                     <p>Attack:  {occupiedCell.C4.attack}</p>
                     <p>Defense: {occupiedCell.C4.defense}:</p>
@@ -2236,7 +2321,7 @@ function handleCounterattack() {
                     : occupiedCell.D1.classEmpireSoldier === 3 
                     ? CardEastArcher
                     : Card} alt="Card" draggable="false"/>
-                    <progress className={classes.healthScaleEmpire} max="100" value={occupiedCell.D1.health}></progress>
+                    <progress className={classes.healthScaleEmpire} max={ occupiedCell.D1.name === "Лучники запада" ? 80 : occupiedCell.D1.name === "Мечники запада" ? 130 : occupiedCell.D1.name === "Лучники востока" ? 150 : 0 } value={occupiedCell.D1.health}></progress>
                     <p>{occupiedCell.D1.name}</p>
                     <p>Attack:  {occupiedCell.D1.attack}</p>
                     <p>Defense: {occupiedCell.D1.defense}:</p>
@@ -2250,7 +2335,7 @@ function handleCounterattack() {
                     : occupiedCell.D2.classEmpireSoldier === 3 
                     ? CardEastArcher
                     : Card} alt="Card" draggable="false"/>
-                    <progress className={classes.healthScaleEmpire} max="100" value={occupiedCell.D2.health}></progress>
+                    <progress className={classes.healthScaleEmpire} max={ occupiedCell.D2.name === "Лучники запада" ? 80 : occupiedCell.D2.name === "Мечники запада" ? 130 : occupiedCell.D2.name === "Лучники востока" ? 150 : 0 } value={occupiedCell.D2.health}></progress>
                     <p>{occupiedCell.D2.name}</p>
                     <p>Attack:  {occupiedCell.D2.attack}</p>
                     <p>Defense: {occupiedCell.D2.defense}:</p>
@@ -2264,7 +2349,7 @@ function handleCounterattack() {
                     : occupiedCell.D3.classEmpireSoldier === 3 
                     ? CardEastArcher
                     : Card} alt="Card" draggable="false"/>
-                    <progress className={classes.healthScaleEmpire} max="100" value={occupiedCell.D3.health}></progress>
+                    <progress className={classes.healthScaleEmpire} max={ occupiedCell.D3.name === "Лучники запада" ? 80 : occupiedCell.D3.name === "Мечники запада" ? 130 : occupiedCell.D3.name === "Лучники востока" ? 150 : 0 } value={occupiedCell.D3.health}></progress>
                     <p>{occupiedCell.D3.name}</p>
                     <p>Attack:  {occupiedCell.D3.attack}</p>
                     <p>Defense: {occupiedCell.D3.defense}:</p>
@@ -2278,7 +2363,7 @@ function handleCounterattack() {
                     : occupiedCell.D4.classEmpireSoldier === 3 
                     ? CardEastArcher
                     : Card} alt="Card" draggable="false"/>
-                    <progress className={classes.healthScaleEmpire} max="100" value={occupiedCell.D4.health}></progress>
+                    <progress className={classes.healthScaleEmpire} max={ occupiedCell.D4.name === "Лучники запада" ? 80 : occupiedCell.D4.name === "Мечники запада" ? 130 : occupiedCell.D4.name === "Лучники востока" ? 150 : 0 } value={occupiedCell.D4.health}></progress>
                     <p>{occupiedCell.D4.name}</p>
                     <p>Attack:  {occupiedCell.D4.attack}</p>
                     <p>Defense: {occupiedCell.D4.defense}:</p>
@@ -2286,7 +2371,7 @@ function handleCounterattack() {
 
                 {occupiedCellOpponent.A1.showCard && <div className={classes.cardWastelandTop}>
                     <img className={classes.imageCard} src={AngalJavelin} alt="AngalJavelin" draggable="false"/>
-                    <progress className={classes.healthScaleWasteland} max="100" value={occupiedCellOpponent.A1.health}></progress>
+                    <progress className={classes.healthScaleWasteland} max="150" value={occupiedCellOpponent.A1.health}></progress>
                     <p>{occupiedCellOpponent.A1.name}</p>
                     <p>Attack:  {occupiedCellOpponent.A1.attack}</p>
                     <p>Defense: {occupiedCellOpponent.A1.defense}:</p>
@@ -2294,7 +2379,7 @@ function handleCounterattack() {
 
                 {occupiedCellOpponent.A2.showCard && <div className={classes.cardWastelandTop}>
                     <img className={classes.imageCard} src={AngalJavelin} alt="AngalJavelin" draggable="false"/>
-                    <progress className={classes.healthScaleWasteland} max="100" value={occupiedCellOpponent.A2.health}></progress>
+                    <progress className={classes.healthScaleWasteland} max="150" value={occupiedCellOpponent.A2.health}></progress>
                     <p>{occupiedCellOpponent.A2.name}</p>
                     <p>Attack:  {occupiedCellOpponent.A2.attack}</p>
                     <p>Defense: {occupiedCellOpponent.A2.defense}:</p>
@@ -2302,7 +2387,7 @@ function handleCounterattack() {
 
                 {occupiedCellOpponent.A3.showCard && <div className={classes.cardWastelandTop}>
                     <img className={classes.imageCard} src={AngalJavelin} alt="AngalJavelin" draggable="false"/>
-                    <progress className={classes.healthScaleWasteland} max="100" value={occupiedCellOpponent.A3.health}></progress>
+                    <progress className={classes.healthScaleWasteland} max="150" value={occupiedCellOpponent.A3.health}></progress>
                     <p>{occupiedCellOpponent.A3.name}</p>
                     <p>Attack:  {occupiedCellOpponent.A3.attack}</p>
                     <p>Defense: {occupiedCellOpponent.A3.defense}:</p>
@@ -2310,7 +2395,7 @@ function handleCounterattack() {
 
                 {occupiedCellOpponent.A4.showCard && <div className={classes.cardWastelandTop}>
                     <img className={classes.imageCard} src={AngalJavelin} alt="AngalJavelin" draggable="false"/>
-                    <progress className={classes.healthScaleWasteland} max="100" value={occupiedCellOpponent.A4.health}></progress>
+                    <progress className={classes.healthScaleWasteland} max="150" value={occupiedCellOpponent.A4.health}></progress>
                     <p>{occupiedCellOpponent.A4.name}</p>
                     <p>Attack:  {occupiedCellOpponent.A4.attack}</p>
                     <p>Defense: {occupiedCellOpponent.A4.defense}:</p>
@@ -2337,17 +2422,15 @@ function handleCounterattack() {
                 {showShop && <div className={classes.shop}>
                     
                     <button className={classes.westArcherBuy} onClick={handleBuyWestArcher} disabled={resources <= 0 || stateButtonsSkills === true}><p className={classes.titleBuyUnitEmpire}>Лучники запада: {reserve.empireWestArcher}</p></button>
-                    {resources} resurs 
-                    
+
                     <button className={classes.westSwordsmanBuy} onClick={handleBuyWestSwordsman} disabled={resources <= 0 || stateButtonsSkills === true}><p className={classes.titleBuyUnitEmpire}>Мечники запада: {reserve.empireWestSwordsman}</p></button>
-                    {resources} resurs 
 
                     <button className={classes.eastArcherBuy} onClick={handleBuyEastArcher} disabled={resources <= 0 || stateButtonsSkills === true}><p className={classes.titleBuyUnitEmpire}>Лучники востока: {reserve.empireEastArcher}</p></button>
-                    {resources} resurs
-                    
-                    <button className={classes.poulticeBuyEmpire} onClick={handleBuyPoultice} disabled={resources <= 0 || stateButtonsSkills === true}><p className={classes.titleBuyUnitEmpire}>Припарки: {stateSkillsHero.poultice}</p></button>
-                    {resources} resurs 
-
+                     
+                    {showButtonPoultice && <button className={classes.poulticeBuyEmpire} onClick={handleBuyPoultice} disabled={resources <= 0 || stateButtonsSkills === true}><p className={classes.titleBuyUnitEmpire}>Припарки: {stateSkillsHero.poultice}</p></button>}
+        
+                    <h1>GOLD:{resources}</h1>
+                        
                     <button className={classes.closeButton} onClick={handleCloseShop} disabled={reserve.empireWestArcher + reserve.empireWestSwordsman + reserve.empireEastArcher + reserve.empireEastPathfinder === 0}>Готово</button>
                     
                 </div>}
@@ -2356,7 +2439,7 @@ function handleCounterattack() {
                 {buttonStateGame.stateShopButton && <button className={classes.shopButtonEmpire} onClick={handleOpenShop}>Магазин</button>}
                 {buttonStateGame.stateStartButton && <button className={classes.buttonStartGameEmpire} onClick={handleStartGame}>Старт</button>}
                 {buttonStateGame.stateOverallButton && <button className={classes.elvesButtonSkillsWestArcher} onClick={handleRequestForWestArcherReserves} disabled={stateStyleSoldier === 2 || stateStyleSoldier === 3 || stateStyleSoldier === 4 ||  stateButtonSoldiers.empireButtonWestArcher === true || reserve.empireWestArcher === 0}>Лучники запада: {reserve.empireWestArcher}</button>} 
-                {buttonStateGame.stateOverallButton && <button className={classes.elvesButtonSkillsWestSwordsman} onClick={handleRequestForWestSwordsmanReserves} disabled={stateStyleSoldier === 1 || stateStyleSoldier === 3 || stateStyleSoldier === 4 || stateButtonSoldiers.empireButtonWestSwodsman === true || reserve.empireWestSwordsman === 0}>Мечники запада: {reserve.empireWestSwordsman}</button>}
+                {buttonStateGame.stateOverallButton && <button className={classes.elvesButtonSkillsWestSwordsman} onClick={handleRequestForWestSwordsmanReserves} disabled={stateStyleSoldier === 1 || stateStyleSoldier === 3 || stateStyleSoldier === 4 || stateButtonSoldiers.empireButtonWestSwordsman === true || reserve.empireWestSwordsman === 0}>Мечники запада: {reserve.empireWestSwordsman}</button>}
                 {buttonStateGame.stateOverallButton && <button className={classes.elvesButtonSkillsEastArcher} onClick={handleRequestForEastArcherReserves} disabled={stateStyleSoldier === 1 || stateStyleSoldier === 2 || stateStyleSoldier === 4 || stateButtonSoldiers.empireButtonEastArcher === true || reserve.empireEastArcher === 0}>Лучники востока: {reserve.empireEastArcher}</button>}
                
                 {showSkillsSoldierEmpire && <div className={classes.skillSoldiersWasteland}>
@@ -2386,7 +2469,7 @@ function handleCounterattack() {
                             onMouseEnter={() => setOccupiedCellOpponent(prev => ({...prev, A1: {...prev.A1, showCard: true}}))}
                             onMouseLeave={() => setOccupiedCellOpponent(prev => ({...prev, A1: {...prev.A1,showCard: false}}))} 
                             disabled={stateButtonsSkills === true || occupiedCellOpponent.A1.health <= 0 || buttonStateGame.stateAttackButton === false || buttonStateGame.stateFixStartButton === false}>
-                        <progress className={classes.healthScaleWastelandUnit} value={occupiedCellOpponent.A1.health} max="100"></progress>
+                        <progress className={classes.healthScaleWastelandUnit} value={occupiedCellOpponent.A1.health} max="150"></progress>
                         </button>
                     </div>
 
@@ -2398,7 +2481,7 @@ function handleCounterattack() {
                             onMouseEnter={() => setOccupiedCellOpponent(prev => ({...prev, A2: {...prev.A2, showCard: true}}))}
                             onMouseLeave={() => setOccupiedCellOpponent(prev => ({...prev, A2: {...prev.A2,showCard: false}}))} 
                             disabled={stateButtonsSkills === true || occupiedCellOpponent.A2.health <= 0 || buttonStateGame.stateAttackButton === false || buttonStateGame.stateFixStartButton === false}>
-                        <progress className={classes.healthScaleWastelandUnit} value={occupiedCellOpponent.A2.health} max="100"></progress>
+                        <progress className={classes.healthScaleWastelandUnit} value={occupiedCellOpponent.A2.health} max="150"></progress>
                         </button>
                     </div>
                        
@@ -2410,7 +2493,7 @@ function handleCounterattack() {
                             onMouseEnter={() => setOccupiedCellOpponent(prev => ({...prev, A3: {...prev.A3, showCard: true}}))}
                             onMouseLeave={() => setOccupiedCellOpponent(prev => ({...prev, A3: {...prev.A3,showCard: false}}))} 
                             disabled={stateButtonsSkills === true || occupiedCellOpponent.A3.health <= 0 || buttonStateGame.stateAttackButton === false || buttonStateGame.stateFixStartButton === false}>
-                        <progress className={classes.healthScaleWastelandUnit} value={occupiedCellOpponent.A3.health} max="100"></progress>
+                        <progress className={classes.healthScaleWastelandUnit} value={occupiedCellOpponent.A3.health} max="150"></progress>
                         </button>
                     </div>
 
@@ -2422,7 +2505,7 @@ function handleCounterattack() {
                             onMouseEnter={() => setOccupiedCellOpponent(prev => ({...prev, A4: {...prev.A4, showCard: true}}))}
                             onMouseLeave={() => setOccupiedCellOpponent(prev => ({...prev, A4: {...prev.A4,showCard: false}}))} 
                             disabled={stateButtonsSkills === true || occupiedCellOpponent.A4.health <= 0 || buttonStateGame.stateAttackButton === false || buttonStateGame.stateFixStartButton === false}>
-                        <progress className={classes.healthScaleWastelandUnit} value={occupiedCellOpponent.A4.health} max="100"></progress>
+                        <progress className={classes.healthScaleWastelandUnit} value={occupiedCellOpponent.A4.health} max="150"></progress>
                         </button>
                     </div>
 
@@ -2435,7 +2518,7 @@ function handleCounterattack() {
                             onMouseLeave={() => setOccupiedCellOpponent(prev => ({...prev, A5: {...prev.A5,showCard: false}}))} 
                             disabled={stateButtonsSkills === true || occupiedCellOpponent.A5.health <= 0 || buttonStateGame.stateAttackButton === false || buttonStateGame.stateFixStartButton === false}>
                         <progress className={classes.healthScaleWastelandUnit} value={occupiedCellOpponent.A5.health} max="100"></progress>
-                        </button>{occupiedCellOpponent.A5.health}
+                        </button>
                     </div>
                     
                     <div className={classes.cellA7}>
@@ -2518,7 +2601,7 @@ function handleCounterattack() {
                             id={"C1"} 
                             onClick={() => {handleChoiceCellAttack("C1")}} 
                             disabled={occupiedCell.C1.occupied === false || stateOfButtonsDuringAttack === false || occupiedCell.C1.health <= 0}>
-                        <progress className={classes.healthScaleEmpireUnit} value={occupiedCell.C1.health} max="100"></progress>
+                        <progress className={classes.healthScaleEmpireUnit} value={occupiedCell.C1.health} max={ occupiedCell.C1.name === "Лучники запада" ? 80 : occupiedCell.C1.name === "Мечники запада" ? 130 : occupiedCell.C1.name === "Лучники востока" ? 150 : 0 }></progress>
                         </button>
                     </div>
 
@@ -2534,7 +2617,7 @@ function handleCounterattack() {
                             id={"C2"} 
                             onClick={() => {handleChoiceCellAttack("C2")}} 
                             disabled={occupiedCell.C2.occupied === false || stateOfButtonsDuringAttack === false || occupiedCell.C2.health <= 0}>
-                        <progress className={classes.healthScaleEmpireUnit} value={occupiedCell.C2.health} max="100"></progress>
+                        <progress className={classes.healthScaleEmpireUnit} value={occupiedCell.C2.health} max={ occupiedCell.C2.name === "Лучники запада" ? 80 : occupiedCell.C2.name === "Мечники запада" ? 130 : occupiedCell.C2.name === "Лучники востока" ? 150 : 0 }></progress>
                         </button>
                     </div>
 
@@ -2550,7 +2633,7 @@ function handleCounterattack() {
                             id={"C3"} 
                             onClick={() => {handleChoiceCellAttack("C3")}} 
                             disabled={occupiedCell.C3.occupied === false || stateOfButtonsDuringAttack === false || occupiedCell.C3.health <= 0}>
-                        <progress className={classes.healthScaleEmpireUnit} value={occupiedCell.C3.health} max="100"></progress>
+                        <progress className={classes.healthScaleEmpireUnit} value={occupiedCell.C3.health} max={ occupiedCell.C3.name === "Лучники запада" ? 80 : occupiedCell.C3.name === "Мечники запада" ? 130 : occupiedCell.C3.name === "Лучники востока" ? 150 : 0 }></progress>
                         </button>
                     </div>
 
@@ -2566,7 +2649,7 @@ function handleCounterattack() {
                             id={"C4"} 
                             onClick={() => {handleChoiceCellAttack("C4")}} 
                             disabled={occupiedCell.C4.occupied === false || stateOfButtonsDuringAttack === false || occupiedCell.C4.health <= 0}>
-                        <progress className={classes.healthScaleEmpireUnit} value={occupiedCell.C4.health} max="100"></progress>
+                        <progress className={classes.healthScaleEmpireUnit} value={occupiedCell.C4.health} max={ occupiedCell.C4.name === "Лучники запада" ? 80 : occupiedCell.C4.name === "Мечники запада" ? 130 : occupiedCell.C4.name === "Лучники востока" ? 150 : 0 }></progress>
                         </button>
                     </div>
                     
@@ -2638,7 +2721,7 @@ function handleCounterattack() {
                             id={"D1"} 
                             onClick={() => {handleChoiceCellAttack("D1")}} 
                             disabled={occupiedCell.D1.occupied === false || stateOfButtonsDuringAttack === false || occupiedCell.D1.health <= 0}>
-                        <progress className={classes.healthScaleEmpireUnit} value={occupiedCell.D1.health} max="100"></progress>
+                        <progress className={classes.healthScaleEmpireUnit} value={occupiedCell.D1.health} max={ occupiedCell.D1.name === "Лучники запада" ? 80 : occupiedCell.D1.name === "Мечники запада" ? 130 : occupiedCell.D1.name === "Лучники востока" ? 150 : 0 }></progress>
                         </button>
                     </div>
 
@@ -2654,7 +2737,7 @@ function handleCounterattack() {
                             id={"D2"} 
                             onClick={() => {handleChoiceCellAttack("D2")}} 
                             disabled={occupiedCell.D2.occupied === false || stateOfButtonsDuringAttack === false || occupiedCell.D2.health <= 0}>
-                        <progress className={classes.healthScaleEmpireUnit} value={occupiedCell.D2.health} max="100"></progress>
+                        <progress className={classes.healthScaleEmpireUnit} value={occupiedCell.D2.health} max={ occupiedCell.D2.name === "Лучники запада" ? 80 : occupiedCell.D2.name === "Мечники запада" ? 130 : occupiedCell.D2.name === "Лучники востока" ? 150 : 0 }></progress>
                         </button>
                     </div>
 
@@ -2670,7 +2753,7 @@ function handleCounterattack() {
                             id={"D3"} 
                             onClick={() => {handleChoiceCellAttack("D3")}} 
                             disabled={occupiedCell.D3.occupied === false || stateOfButtonsDuringAttack === false || occupiedCell.D3.health <= 0}>
-                        <progress className={classes.healthScaleEmpireUnit} value={occupiedCell.D3.health} max="100"></progress>
+                        <progress className={classes.healthScaleEmpireUnit} value={occupiedCell.D3.health} max={ occupiedCell.D3.name === "Лучники запада" ? 80 : occupiedCell.D3.name === "Мечники запада" ? 130 : occupiedCell.D3.name === "Лучники востока" ? 150 : 0 }></progress>
                         </button>
                     </div>
 
@@ -2686,7 +2769,7 @@ function handleCounterattack() {
                             id={"D4"} 
                             onClick={() => {handleChoiceCellAttack("D4")}} 
                             disabled={occupiedCell.D4.occupied === false || stateOfButtonsDuringAttack === false || occupiedCell.D4.health <= 0}>
-                        <progress className={classes.healthScaleEmpireUnit} value={occupiedCell.D4.health} max="100"></progress>
+                        <progress className={classes.healthScaleEmpireUnit} value={occupiedCell.D4.health} max={ occupiedCell.D4.name === "Лучники запада" ? 80 : occupiedCell.D4.name === "Мечники запада" ? 130 : occupiedCell.D4.name === "Лучники востока" ? 150 : 0 }></progress>
                         </button>  
                     </div>
                 

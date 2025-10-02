@@ -4631,6 +4631,74 @@ function handleCounterattack() {
         }
     }, [stateSkillsHero.poultice]);
 
+    useEffect(() => {
+                            const swordsmanCells = Object.values(occupiedCell).filter(cell => 
+                                cell.name === "Охотники"
+                            );
+                        
+                        
+                            const allSwordsmenDead = swordsmanCells.length > 0 && 
+                            swordsmanCells.every(cell => cell.health <= 0);
+                        
+                            if (allSwordsmenDead) {
+                                setStateSkillsSoldiersWasteland(prev => ({
+                                    ...prev, 
+                                    showStateSkillsHunter: false
+                            }));
+                        }
+                        }, [occupiedCell]);
+                    
+                        useEffect(() => {
+                            const swordsmanCells = Object.values(occupiedCell).filter(cell => 
+                                cell.name === "Метатели"
+                            );
+                        
+                        
+                            const allSwordsmenDead = swordsmanCells.length > 0 && 
+                            swordsmanCells.every(cell => cell.health <= 0);
+                        
+                            if (allSwordsmenDead) {
+                                setStateSkillsSoldiersWasteland(prev => ({
+                                    ...prev, 
+                                    showStateSkillsJavelin: false
+                            }));
+                        }
+                        }, [occupiedCell]);
+                
+                        useEffect(() => {
+                            const swordsmanCells = Object.values(occupiedCell).filter(cell => 
+                                cell.name === "Булавоносцы"
+                            );
+                        
+                        
+                            const allSwordsmenDead = swordsmanCells.length > 0 && 
+                            swordsmanCells.every(cell => cell.health <= 0);
+                        
+                            if (allSwordsmenDead) {
+                                setStateSkillsSoldiersWasteland(prev => ({
+                                    ...prev, 
+                                    showStateSkillsMaces: false
+                            }));
+                        }
+                        }, [occupiedCell]);
+            
+                        useEffect(() => {
+                            const swordsmanCells = Object.values(occupiedCell).filter(cell => 
+                                cell.name === "Ангалиты"
+                            );
+                        
+                        
+                            const allSwordsmenDead = swordsmanCells.length > 0 && 
+                            swordsmanCells.every(cell => cell.health <= 0);
+                        
+                            if (allSwordsmenDead) {
+                                setStateSkillsSoldiersWasteland(prev => ({
+                                    ...prev, 
+                                    showStateSkillsAngalit: false
+                            }));
+                        }
+                        }, [occupiedCell]);
+
     return (
         <div className={classes.gamePageWasteland}>
             
