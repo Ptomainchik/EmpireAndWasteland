@@ -1,5 +1,5 @@
 import classes from "../../../Styles/StoryMessages.module.css";
-import images from "../../../../Images/AngalsWastelandsImage/DeadAngal.webp";
+import DeadAngal from "../../../../Images/AngalsWastelandsImage/DeadAngal.webp";
 import { useNavigate } from "react-router-dom";
 
 export const LoseMessage = () => {
@@ -12,7 +12,7 @@ export const LoseMessage = () => {
 
     return (
         <div className={classes.loseMessage}>
-            <img className={classes.centerImage} style={{border: "solid 0.3vw darkolivegreen"}} src={images} alt="images" draggable="false"/>
+            <img className={classes.centerImageLoseWasteland} src={DeadAngal} alt="DeadAngal" draggable="false"/>
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                 Consequatur magnam pariatur et ad ea labore dolor molestiae, cum quod iste molestias ab nulla minima. Libero iure nesciunt id.

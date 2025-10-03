@@ -2421,13 +2421,13 @@ function handleCounterattack() {
 
                 {showShop && <div className={classes.shop}>
                     
-                    <button className={classes.westArcherBuy} onClick={handleBuyWestArcher} disabled={resources <= 0 || stateButtonsSkills === true}><p className={classes.titleBuyUnitEmpire}>Лучники запада: {reserve.empireWestArcher}</p></button>
+                    <button className={classes.westArcherBuy} onClick={handleBuyWestArcher} disabled={resources <= 0 || stateButtonsSkills === true}><p className={classes.titleBuyUnitEmpire}>Лучники запада: {reserve.empireWestArcher}</p> <p className={classes.titleBuyUnitEmpire}>Цена: 35</p> </button>
 
-                    <button className={classes.westSwordsmanBuy} onClick={handleBuyWestSwordsman} disabled={resources <= 0 || stateButtonsSkills === true}><p className={classes.titleBuyUnitEmpire}>Мечники запада: {reserve.empireWestSwordsman}</p></button>
+                    <button className={classes.westSwordsmanBuy} onClick={handleBuyWestSwordsman} disabled={resources <= 0 || stateButtonsSkills === true}><p className={classes.titleBuyUnitEmpire}>Мечники запада: {reserve.empireWestSwordsman}</p> <p className={classes.titleBuyUnitEmpire}>Цена: 75</p> </button>
 
-                    <button className={classes.eastArcherBuy} onClick={handleBuyEastArcher} disabled={resources <= 0 || stateButtonsSkills === true}><p className={classes.titleBuyUnitEmpire}>Лучники востока: {reserve.empireEastArcher}</p></button>
+                    <button className={classes.eastArcherBuy} onClick={handleBuyEastArcher} disabled={resources <= 0 || stateButtonsSkills === true}><p className={classes.titleBuyUnitEmpire}>Лучники востока: {reserve.empireEastArcher}</p> <p className={classes.titleBuyUnitEmpire}>Цена: 90</p> </button>
                      
-                    {showButtonPoultice && <button className={classes.poulticeBuyEmpire} onClick={handleBuyPoultice} disabled={resources <= 0 || stateButtonsSkills === true}><p className={classes.titleBuyUnitEmpire}>Припарки: {stateSkillsHero.poultice}</p></button>}
+                    {showButtonPoultice && <button className={classes.poulticeBuyEmpire} onClick={handleBuyPoultice} disabled={resources <= 0 || stateButtonsSkills === true}><p className={classes.titleBuyUnitEmpire}>Припарки: {stateSkillsHero.poultice}</p> <p className={classes.titleBuyUnitEmpire}>Цена: 50</p></button>}
         
                     <h1>GOLD:{resources}</h1>
                         

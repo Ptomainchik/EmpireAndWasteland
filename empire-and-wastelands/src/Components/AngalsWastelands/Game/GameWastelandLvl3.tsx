@@ -1,11 +1,3 @@
-//НЕ ЗАБЫВАЙ ПРО БАФЫ ИХ ДОБАВЛЯТЬ В АТАКЕР, И У КАЖДОГО ОНИ СВОИ!!!!!!! ВАЖНО, ОЧЕНЬОМА!!!!
-//НЕ ЗАБЫВАЙ ПРО БАФЫ ИХ ДОБАВЛЯТЬ В АТАКЕР, И У КАЖДОГО ОНИ СВОИ!!!!!!! ВАЖНО, ОЧЕНЬОМА!!!!
-//НЕ ЗАБЫВАЙ ПРО БАФЫ ИХ ДОБАВЛЯТЬ В АТАКЕР, И У КАЖДОГО ОНИ СВОИ!!!!!!! ВАЖНО, ОЧЕНЬОМА!!!!
-//НЕ ЗАБЫВАЙ ПРО БАФЫ ИХ ДОБАВЛЯТЬ В АТАКЕР, И У КАЖДОГО ОНИ СВОИ!!!!!!! ВАЖНО, ОЧЕНЬОМА!!!!
-//НЕ ЗАБЫВАЙ ПРО БАФЫ ИХ ДОБАВЛЯТЬ В АТАКЕР, И У КАЖДОГО ОНИ СВОИ!!!!!!! ВАЖНО, ОЧЕНЬОМА!!!!
-//НЕ ЗАБЫВАЙ ПРО БАФЫ ИХ ДОБАВЛЯТЬ В АТАКЕР, И У КАЖДОГО ОНИ СВОИ!!!!!!! ВАЖНО, ОЧЕНЬОМА!!!!
-//НЕ ЗАБЫВАЙ ПРО БАФЫ ИХ ДОБАВЛЯТЬ В АТАКЕР, И У КАЖДОГО ОНИ СВОИ!!!!!!! ВАЖНО, ОЧЕНЬОМА!!!!
-
 import classes from "../../Styles/Games.module.css";
 import { BackButton } from "../../Buttons/BackButton";
 import { HomeButton } from "../../Buttons/HomeButton";
@@ -51,6 +43,7 @@ export const GameWastelandLvl3 = () => {
         showCall: false,
         showPoultice: false,
     });
+    const [showButtonPoultice, setShowButtonPoultice] = useState(false);
     const [stateChoiceButton, setStateChoiceButton] = useState(true);
     const [showGameField, setShowGameField] = useState(false);
     const [showSkillsSoldierWasteland, setShowSkillsSoldierWasteland] = useState(false);
@@ -90,9 +83,9 @@ export const GameWastelandLvl3 = () => {
             A1:{
                 name: "Лучники востока",
                 occupied: false,
-                health: 30,
-                attack: 15,
-                defense: 2,
+                health: 150,
+                attack: 25,
+                defense: 4,
                 first: true,
                 classEmpireSoldier: 0,
                 showCard: false,
@@ -100,9 +93,9 @@ export const GameWastelandLvl3 = () => {
             A2:{
                 name: "Лучники запада",
                 occupied: false,
-                health: 30,
-                attack: 10,
-                defense: 3,
+                health: 80,
+                attack: 12,
+                defense: 4,
                 first: true,
                 classEmpireSoldier: 0,
                 showCard: false,
@@ -110,9 +103,9 @@ export const GameWastelandLvl3 = () => {
             A3:{
                 name: "Лучники запада",
                 occupied: false,
-                health: 30,
-                attack: 10,
-                defense: 3,
+                health: 80,
+                attack: 12,
+                defense: 4,
                 first: true,
                 classEmpireSoldier: 0,
                 showCard: false,
@@ -120,9 +113,9 @@ export const GameWastelandLvl3 = () => {
             A4:{
                 name: "Лучники востока",
                 occupied: false,
-                health: 30,
-                attack: 15,
-                defense: 2,
+                health: 150,
+                attack: 25,
+                defense: 4,
                 first: true,
                 classEmpireSoldier: 0,
                 showCard: false,
@@ -130,8 +123,8 @@ export const GameWastelandLvl3 = () => {
             A5:{
                 name: "Мечники запада",
                 occupied: false,
-                health: 40,
-                attack: 15,
+                health: 130,
+                attack: 18,
                 defense: 5,
                 first: false,
                 classEmpireSoldier: 0,
@@ -140,8 +133,8 @@ export const GameWastelandLvl3 = () => {
             A6:{
                 name: "Мечники запада",
                 occupied: false,
-                health: 40,
-                attack: 15,
+                health: 130,
+                attack: 18,
                 defense: 5,
                 first: false,
                 classEmpireSoldier: 0,
@@ -150,8 +143,8 @@ export const GameWastelandLvl3 = () => {
             A7:{
                 name: "Мечники запада",
                 occupied: false,
-                health: 40,
-                attack: 15,
+                health: 130,
+                attack: 18,
                 defense: 5,
                 first: false,
                 classEmpireSoldier: 0,
@@ -160,8 +153,8 @@ export const GameWastelandLvl3 = () => {
             A8:{
                 name: "Мечники запада",
                 occupied: false,
-                health: 40,
-                attack: 15,
+                health: 130,
+                attack: 18,
                 defense: 5,
                 first: false,
                 classEmpireSoldier: 0,
@@ -289,43 +282,67 @@ export const GameWastelandLvl3 = () => {
     }
 
     function handleBuyHunter() {
-        setResources(prev => prev - 50);
-        setReserve(prevReserve => ({
-        ...prevReserve,
-        wastelandHunter: prevReserve.wastelandHunter + 1,
-    }));
+        if (resources >= 40){
+            setResources(prev => prev - 40);
+            setReserve(prevReserve => ({
+            ...prevReserve,
+            wastelandHunter: prevReserve.wastelandHunter + 1,
+        }));
+        }
+        else if (resources < 50){
+            return
+        }
     }
 
     function handleBuyJavelin() {
-        setResources(prev => prev - 50);
-        setReserve(prevReserve => ({
-        ...prevReserve,
-        wastelandJavelin: prevReserve.wastelandJavelin + 1,
-    }));
+        if (resources >= 70) {
+            setResources(prev => prev - 70);
+            setReserve(prevReserve => ({
+            ...prevReserve,
+            wastelandJavelin: prevReserve.wastelandJavelin + 1,
+        }));
+        }
+        else if (resources < 70) {
+            return
+        }
     }
 
     function handleBuyMaces() {
-        setResources(prev => prev - 50);
-        setReserve(prevReserve => ({
-        ...prevReserve,
-        wastelandMaces: prevReserve.wastelandMaces + 1,
-    }));
+        if (resources >= 100) {
+            setResources(prev => prev - 100);
+            setReserve(prevReserve => ({
+            ...prevReserve,
+            wastelandMaces: prevReserve.wastelandMaces + 1,
+        }));
+        }
+        else if (resources < 100) {
+            return
+        }
     }
 
     function handleBuyAngalit() {
-        setResources(prev => prev - 100);
-        setReserve(prevReserve => ({
-        ...prevReserve,
-        wastelandAngalit: prevReserve.wastelandAngalit + 1,
-    }));
+        if (resources >= 150) {
+            setResources(prev => prev - 150);
+            setReserve(prevReserve => ({
+            ...prevReserve,
+            wastelandAngalit: prevReserve.wastelandAngalit + 1,
+        }));
+        }
+        else if (resources < 150)
+        return
     }
 
     function handleBuyPoultice() {
-        setResources(prev => prev - 50);
-        setStateSkillsHero(prevReserve => ({
-        ...prevReserve,
-        poultice: prevReserve.poultice + 1,
-    }));
+        if (resources >= 50) {
+            setResources(prev => prev - 50);
+            setStateSkillsHero(prevReserve => ({
+            ...prevReserve,
+            poultice: prevReserve.poultice + 1,
+        }));
+        }
+        else if (resources < 50) {
+            return
+        }
     }
 
     function handleRequestForHunterReserves() {
@@ -409,9 +426,9 @@ export const GameWastelandLvl3 = () => {
             C1:{
                     name: "Охотники",
                     occupied: true,
-                    health: 20,
-                    attack: 5,
-                    defense: 5,
+                    health: 80,
+                    attack: 12,
+                    defense: 3,
                     choice: false,
                     classWastlelandSoldier: 1,
                     showCard: false,
@@ -426,9 +443,9 @@ export const GameWastelandLvl3 = () => {
             C2:{    
                     name: "Охотники",
                     occupied: true,
-                    health: 20,
-                    attack: 5,
-                    defense: 5,
+                    health: 80,
+                    attack: 12,
+                    defense: 3,
                     choice: false,
                     classWastlelandSoldier: 1,
                     showCard: false,
@@ -443,9 +460,9 @@ export const GameWastelandLvl3 = () => {
             C3:{    
                     name: "Охотники",
                     occupied: true,
-                    health: 20,
-                    attack: 5,
-                    defense: 5,
+                    health: 80,
+                    attack: 12,
+                    defense: 3,
                     choice: false,
                     classWastlelandSoldier: 1,
                     showCard: false,
@@ -460,9 +477,9 @@ export const GameWastelandLvl3 = () => {
             C4:{
                     name: "Охотники",
                     occupied: true,
-                    health: 20,
-                    attack: 5,
-                    defense: 5,
+                    health: 80,
+                    attack: 12,
+                    defense: 3,
                     choice: false,
                     classWastlelandSoldier: 1,
                     showCard: false,
@@ -477,9 +494,9 @@ export const GameWastelandLvl3 = () => {
             D1:{
                     name: "Охотники",
                     occupied: true,
-                    health: 20,
-                    attack: 5,
-                    defense: 5,
+                    health: 80,
+                    attack: 12,
+                    defense: 3,
                     choice: false,
                     classWastlelandSoldier: 1,
                     showCard: false,
@@ -494,9 +511,9 @@ export const GameWastelandLvl3 = () => {
             D2:{
                     name: "Охотники",
                     occupied: true,
-                    health: 20,
-                    attack: 5,
-                    defense: 5,
+                    health: 80,
+                    attack: 12,
+                    defense: 3,
                     choice: false,
                     classWastlelandSoldier: 1,
                     showCard: false,
@@ -511,9 +528,9 @@ export const GameWastelandLvl3 = () => {
             D3:{
                     name: "Охотники",
                     occupied: true,
-                    health: 20,
-                    attack: 5,
-                    defense: 5,
+                    health: 80,
+                    attack: 12,
+                    defense: 3,
                     choice: false,
                     classWastlelandSoldier: 1,
                     showCard: false,
@@ -528,9 +545,9 @@ export const GameWastelandLvl3 = () => {
             D4:{
                     name: "Охотники",
                     occupied: true,
-                    health: 20,
-                    attack: 5,
-                    defense: 5,
+                    health: 80,
+                    attack: 12,
+                    defense: 3,
                     choice: false,
                     classWastlelandSoldier: 1,
                     showCard: false,
@@ -558,9 +575,9 @@ export const GameWastelandLvl3 = () => {
             C1:{
                 name: "Метатели",
                 occupied: true,
-                health: 30,
-                attack: 10,
-                defense: 5,
+                health: 100,
+                attack: 15,
+                defense: 4,
                 choice: false,
                 classWastlelandSoldier: 2,
                 showCard: false,
@@ -575,9 +592,9 @@ export const GameWastelandLvl3 = () => {
             C2:{    
                     name: "Метатели",
                     occupied: true,
-                    health: 30,
-                    attack: 10,
-                    defense: 5,
+                    health: 100,
+                    attack: 15,
+                    defense: 4,
                     choice: false,
                     classWastlelandSoldier: 2,
                     showCard: false,
@@ -592,9 +609,9 @@ export const GameWastelandLvl3 = () => {
             C3:{    
                     name: "Метатели",
                     occupied: true,
-                    health: 30,
-                    attack: 10,
-                    defense: 5,
+                    health: 100,
+                    attack: 15,
+                    defense: 4,
                     choice: false,
                     classWastlelandSoldier: 2,
                     showCard: false,
@@ -609,9 +626,9 @@ export const GameWastelandLvl3 = () => {
             C4:{
                     name: "Метатели",
                     occupied: true,
-                    health: 30,
-                    attack: 10,
-                    defense: 5,
+                    health: 100,
+                    attack: 15,
+                    defense: 4,
                     choice: false,
                     classWastlelandSoldier: 2,
                     showCard: false,
@@ -626,9 +643,9 @@ export const GameWastelandLvl3 = () => {
             D1:{
                     name: "Метатели",
                     occupied: true,
-                    health: 30,
-                    attack: 10,
-                    defense: 5,
+                    health: 100,
+                    attack: 15,
+                    defense: 4,
                     choice: false,
                     classWastlelandSoldier: 2,
                     showCard: false,
@@ -643,9 +660,9 @@ export const GameWastelandLvl3 = () => {
             D2:{
                     name: "Метатели",
                     occupied: true,
-                    health: 30,
-                    attack: 10,
-                    defense: 5,
+                    health: 100,
+                    attack: 15,
+                    defense: 4,
                     choice: false,
                     classWastlelandSoldier: 2,
                     showCard: false,
@@ -660,9 +677,9 @@ export const GameWastelandLvl3 = () => {
             D3:{
                     name: "Метатели",
                     occupied: true,
-                    health: 30,
-                    attack: 10,
-                    defense: 5,
+                    health: 100,
+                    attack: 15,
+                    defense: 4,
                     choice: false,
                     classWastlelandSoldier: 2,
                     showCard: false,
@@ -677,9 +694,9 @@ export const GameWastelandLvl3 = () => {
             D4:{
                     name: "Метатели",
                     occupied: true,
-                    health: 30,
-                    attack: 10,
-                    defense: 5,
+                    health: 100,
+                    attack: 15,
+                    defense: 4,
                     choice: false,
                     classWastlelandSoldier: 2,
                     showCard: false,
@@ -708,9 +725,9 @@ export const GameWastelandLvl3 = () => {
             C1:{
                 name: "Булавоносцы",
                 occupied: true,
-                health: 40,
-                attack: 10,
-                defense: 7,
+                health: 180,
+                attack: 20,
+                defense: 4,
                 choice: false,
                 classWastlelandSoldier: 3,
                 showCard: false,
@@ -725,9 +742,9 @@ export const GameWastelandLvl3 = () => {
             C2:{    
                     name: "Булавоносцы",
                     occupied: true,
-                    health: 40,
-                    attack: 10,
-                    defense: 7,
+                    health: 180,
+                    attack: 20,
+                    defense: 4,
                     choice: false,
                     classWastlelandSoldier: 3,
                     showCard: false,
@@ -742,9 +759,9 @@ export const GameWastelandLvl3 = () => {
             C3:{    
                     name: "Булавоносцы",
                     occupied: true,
-                    health: 40,
-                    attack: 10,
-                    defense: 7,
+                    health: 180,
+                    attack: 20,
+                    defense: 4,
                     choice: false,
                     classWastlelandSoldier: 3,
                     showCard: false,
@@ -759,9 +776,9 @@ export const GameWastelandLvl3 = () => {
             C4:{
                     name: "Булавоносцы",
                     occupied: true,
-                    health: 40,
-                    attack: 10,
-                    defense: 7,
+                    health: 180,
+                    attack: 20,
+                    defense: 4,
                     choice: false,
                     classWastlelandSoldier: 3,
                     showCard: false,
@@ -776,9 +793,9 @@ export const GameWastelandLvl3 = () => {
             D1:{
                     name: "Булавоносцы",
                     occupied: true,
-                    health: 40,
-                    attack: 10,
-                    defense: 7,
+                    health: 180,
+                    attack: 20,
+                    defense: 4,
                     choice: false,
                     classWastlelandSoldier: 3,
                     showCard: false,
@@ -793,9 +810,9 @@ export const GameWastelandLvl3 = () => {
             D2:{
                     name: "Булавоносцы",
                     occupied: true,
-                    health: 40,
-                    attack: 10,
-                    defense: 7,
+                    health: 180,
+                    attack: 20,
+                    defense: 4,
                     choice: false,
                     classWastlelandSoldier: 3,
                     showCard: false,
@@ -810,9 +827,9 @@ export const GameWastelandLvl3 = () => {
             D3:{
                     name: "Булавоносцы",
                     occupied: true,
-                    health: 40,
-                    attack: 10,
-                    defense: 7,
+                    health: 180,
+                    attack: 20,
+                    defense: 4,
                     choice: false,
                     classWastlelandSoldier: 3,
                     showCard: false,
@@ -827,9 +844,9 @@ export const GameWastelandLvl3 = () => {
             D4:{
                     name: "Булавоносцы",
                     occupied: true,
-                    health: 40,
-                    attack: 10,
-                    defense: 7,
+                    health: 180,
+                    attack: 20,
+                    defense: 4,
                     choice: false,
                     classWastlelandSoldier: 3,
                     showCard: false,
@@ -859,9 +876,9 @@ export const GameWastelandLvl3 = () => {
             C1:{
                 name: "Ангалиты",
                 occupied: true,
-                health: 50,
-                attack: 15,
-                defense: 7,
+                health: 250,
+                attack: 30,
+                defense: 5,
                 choice: false,
                 classWastlelandSoldier: 4,
                 showCard: false,
@@ -876,9 +893,9 @@ export const GameWastelandLvl3 = () => {
             C2:{    
                     name: "Ангалиты",
                     occupied: true,
-                    health: 50,
-                    attack: 15,
-                    defense: 7,
+                    health: 250,
+                    attack: 30,
+                    defense: 5,
                     choice: false,
                     classWastlelandSoldier: 4,
                     showCard: false,
@@ -893,9 +910,9 @@ export const GameWastelandLvl3 = () => {
             C3:{    
                     name: "Ангалиты",
                     occupied: true,
-                    health: 50,
-                    attack: 15,
-                    defense: 7,
+                    health: 250,
+                    attack: 30,
+                    defense: 5,
                     choice: false,
                     classWastlelandSoldier: 4,
                     showCard: false,
@@ -910,9 +927,9 @@ export const GameWastelandLvl3 = () => {
             C4:{
                     name: "Ангалиты",
                     occupied: true,
-                    health: 50,
-                    attack: 15,
-                    defense: 7,
+                    health: 250,
+                    attack: 30,
+                    defense: 5,
                     choice: false,
                     classWastlelandSoldier: 4,
                     showCard: false,
@@ -927,9 +944,9 @@ export const GameWastelandLvl3 = () => {
             D1:{
                     name: "Ангалиты",
                     occupied: true,
-                    health: 50,
-                    attack: 15,
-                    defense: 7,
+                    health: 250,
+                    attack: 30,
+                    defense: 5,
                     choice: false,
                     classWastlelandSoldier: 4,
                     showCard: false,
@@ -944,9 +961,9 @@ export const GameWastelandLvl3 = () => {
             D2:{
                     name: "Ангалиты",
                     occupied: true,
-                    health: 50,
-                    attack: 15,
-                    defense: 7,
+                    health: 250,
+                    attack: 30,
+                    defense: 5,
                     choice: false,
                     classWastlelandSoldier: 4,
                     showCard: false,
@@ -961,9 +978,9 @@ export const GameWastelandLvl3 = () => {
             D3:{
                     name: "Ангалиты",
                     occupied: true,
-                    health: 50,
-                    attack: 15,
-                    defense: 7,
+                    health: 250,
+                    attack: 30,
+                    defense: 5,
                     choice: false,
                     classWastlelandSoldier: 4,
                     showCard: false,
@@ -978,9 +995,9 @@ export const GameWastelandLvl3 = () => {
             D4:{
                     name: "Ангалиты",
                     occupied: true,
-                    health: 50,
-                    attack: 15,
-                    defense: 7,
+                    health: 250,
+                    attack: 30,
+                    defense: 5,
                     choice: false,
                     classWastlelandSoldier: 4,
                     showCard: false,
@@ -1039,7 +1056,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             C1: {
                 ...prev.C1,
-                health: prev.C1.health - 4
+                health: prev.C1.health - 5
             }
         }));
         }
@@ -1073,7 +1090,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             C2: {
                 ...prev.C2,
-                health: prev.C2.health - 4
+                health: prev.C2.health - 5
             }
         }));
         }
@@ -1107,7 +1124,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             C3: {
                 ...prev.C3,
-                health: prev.C3.health - 4
+                health: prev.C3.health - 5
             }
         }));
         }
@@ -1141,7 +1158,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             C4: {
                 ...prev.C4,
-                health: prev.C4.health - 4
+                health: prev.C4.health - 5
             }
         }));
         }
@@ -1176,7 +1193,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             C1: {
                 ...prev.C1,
-                health: prev.C1.health - 4
+                health: prev.C1.health - 5
             }
         }));
         }
@@ -1210,7 +1227,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             C2: {
                 ...prev.C2,
-                health: prev.C2.health - 4
+                health: prev.C2.health - 5
             }
         }));
         }
@@ -1244,7 +1261,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             C3: {
                 ...prev.C3,
-                health: prev.C3.health - 4
+                health: prev.C3.health - 5
             }
         }));
         }
@@ -1278,7 +1295,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             C4: {
                 ...prev.C4,
-                health: prev.C4.health - 4
+                health: prev.C4.health - 5
             }
         }));
         }
@@ -1313,7 +1330,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             C1: {
                 ...prev.C1,
-                health: prev.C1.health - 4
+                health: prev.C1.health - 5
             }
         }));
         }
@@ -1347,7 +1364,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             C2: {
                 ...prev.C2,
-                health: prev.C2.health - 4
+                health: prev.C2.health - 5
             }
         }));
         }
@@ -1381,7 +1398,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             C3: {
                 ...prev.C3,
-                health: prev.C3.health - 4
+                health: prev.C3.health - 5
             }
         }));
         }
@@ -1415,7 +1432,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             C4: {
                 ...prev.C4,
-                health: prev.C4.health - 4
+                health: prev.C4.health - 5
             }
         }));
         }
@@ -1450,7 +1467,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             C1: {
                 ...prev.C1,
-                health: prev.C1.health - 4
+                health: prev.C1.health - 5
             }
         }));
         }
@@ -1484,7 +1501,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             C2: {
                 ...prev.C2,
-                health: prev.C2.health - 4
+                health: prev.C2.health - 5
             }
         }));
         }
@@ -1518,7 +1535,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             C3: {
                 ...prev.C3,
-                health: prev.C3.health - 4
+                health: prev.C3.health - 5
             }
         }));
         }
@@ -1552,7 +1569,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             C4: {
                 ...prev.C4,
-                health: prev.C4.health - 4
+                health: prev.C4.health - 5
             }
         }));
         }
@@ -1587,7 +1604,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             C1: {
                 ...prev.C1,
-                health: prev.C1.health - 4
+                health: prev.C1.health - 5
             }
         }));
         }
@@ -1596,7 +1613,7 @@ export const GameWastelandLvl3 = () => {
             setOccupiedCellOpponent(prev => ({...prev, 
             A5: {
                 ...prev.A5,
-                health: prev.A5.health + 1 
+                health: prev.A5.health + 2 
             }
             }));
         }
@@ -1631,7 +1648,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             C2: {
                 ...prev.C2,
-                health: prev.C2.health - 4
+                health: prev.C2.health - 5
             }
         }));
         }
@@ -1640,7 +1657,7 @@ export const GameWastelandLvl3 = () => {
             setOccupiedCellOpponent(prev => ({...prev, 
             A5: {
                 ...prev.A5,
-                health: prev.A5.health + 1 
+                health: prev.A5.health + 2 
             }
             }));
         }
@@ -1675,7 +1692,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             C3: {
                 ...prev.C3,
-                health: prev.C3.health - 4
+                health: prev.C3.health - 5
             }
         }));
         }
@@ -1684,7 +1701,7 @@ export const GameWastelandLvl3 = () => {
             setOccupiedCellOpponent(prev => ({...prev, 
             A5: {
                 ...prev.A5,
-                health: prev.A5.health + 1 
+                health: prev.A5.health + 2 
             }
             }));
         }
@@ -1719,7 +1736,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             C4: {
                 ...prev.C4,
-                health: prev.C4.health - 4
+                health: prev.C4.health - 5
             }
         }));
         }
@@ -1728,7 +1745,7 @@ export const GameWastelandLvl3 = () => {
             setOccupiedCellOpponent(prev => ({...prev, 
             A5: {
                 ...prev.A5,
-                health: prev.A5.health + 1 
+                health: prev.A5.health + 2 
             }
             }));
         }
@@ -1764,7 +1781,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             C1: {
                 ...prev.C1,
-                health: prev.C1.health - 4
+                health: prev.C1.health - 5
             }
         }));
         }
@@ -1773,7 +1790,7 @@ export const GameWastelandLvl3 = () => {
             setOccupiedCellOpponent(prev => ({...prev, 
             A6: {
                 ...prev.A6,
-                health: prev.A6.health + 1 
+                health: prev.A6.health + 2 
             }
             }));
         }
@@ -1808,7 +1825,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             C2: {
                 ...prev.C2,
-                health: prev.C2.health - 4
+                health: prev.C2.health - 5
             }
         }));
         }
@@ -1817,7 +1834,7 @@ export const GameWastelandLvl3 = () => {
             setOccupiedCellOpponent(prev => ({...prev, 
             A6: {
                 ...prev.A6,
-                health: prev.A6.health + 1 
+                health: prev.A6.health + 2 
             }
             }));
         }
@@ -1852,7 +1869,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             C3: {
                 ...prev.C3,
-                health: prev.C3.health - 4
+                health: prev.C3.health - 5
             }
         }));
         }
@@ -1861,7 +1878,7 @@ export const GameWastelandLvl3 = () => {
             setOccupiedCellOpponent(prev => ({...prev, 
             A6: {
                 ...prev.A6,
-                health: prev.A6.health + 1 
+                health: prev.A6.health + 2 
             }
             }));
         }
@@ -1896,7 +1913,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             C4: {
                 ...prev.C4,
-                health: prev.C4.health - 4
+                health: prev.C4.health - 5
             }
         }));
         }
@@ -1905,7 +1922,7 @@ export const GameWastelandLvl3 = () => {
             setOccupiedCellOpponent(prev => ({...prev, 
             A6: {
                 ...prev.A6,
-                health: prev.A6.health + 1 
+                health: prev.A6.health + 2 
             }
             }));
         }
@@ -1942,7 +1959,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             C1: {
                 ...prev.C1,
-                health: prev.C1.health - 4
+                health: prev.C1.health - 5
             }
         }));
         }
@@ -1951,7 +1968,7 @@ export const GameWastelandLvl3 = () => {
             setOccupiedCellOpponent(prev => ({...prev, 
             A7: {
                 ...prev.A7,
-                health: prev.A7.health + 1 
+                health: prev.A7.health + 2 
             }
             }));
         }
@@ -1986,7 +2003,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             C2: {
                 ...prev.C2,
-                health: prev.C2.health - 4
+                health: prev.C2.health - 5
             }
         }));
         }
@@ -1995,7 +2012,7 @@ export const GameWastelandLvl3 = () => {
             setOccupiedCellOpponent(prev => ({...prev, 
             A7: {
                 ...prev.A7,
-                health: prev.A7.health + 1 
+                health: prev.A7.health + 2 
             }
             }));
         }
@@ -2030,7 +2047,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             C3: {
                 ...prev.C3,
-                health: prev.C3.health - 4
+                health: prev.C3.health - 5
             }
         }));
         }
@@ -2039,7 +2056,7 @@ export const GameWastelandLvl3 = () => {
             setOccupiedCellOpponent(prev => ({...prev, 
             A7: {
                 ...prev.A7,
-                health: prev.A7.health + 1 
+                health: prev.A7.health + 2 
             }
             }));
         }
@@ -2074,7 +2091,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             C4: {
                 ...prev.C4,
-                health: prev.C4.health - 4
+                health: prev.C4.health - 5
             }
         }));
         }
@@ -2083,7 +2100,7 @@ export const GameWastelandLvl3 = () => {
             setOccupiedCellOpponent(prev => ({...prev, 
             A7: {
                 ...prev.A7,
-                health: prev.A7.health + 1 
+                health: prev.A7.health + 2 
             }
             }));
         }
@@ -2120,7 +2137,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             C1: {
                 ...prev.C1,
-                health: prev.C1.health - 4
+                health: prev.C1.health - 5
             }
         }));
         }
@@ -2129,7 +2146,7 @@ export const GameWastelandLvl3 = () => {
             setOccupiedCellOpponent(prev => ({...prev, 
             A8: {
                 ...prev.A8,
-                health: prev.A8.health + 1 
+                health: prev.A8.health + 2 
             }
             }));
         }
@@ -2164,7 +2181,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             C2: {
                 ...prev.C2,
-                health: prev.C2.health - 4
+                health: prev.C2.health - 5
             }
         }));
         }
@@ -2173,7 +2190,7 @@ export const GameWastelandLvl3 = () => {
             setOccupiedCellOpponent(prev => ({...prev, 
             A8: {
                 ...prev.A8,
-                health: prev.A8.health + 1 
+                health: prev.A8.health + 2 
             }
             }));
         }
@@ -2208,7 +2225,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             C3: {
                 ...prev.C3,
-                health: prev.C3.health - 4
+                health: prev.C3.health - 5
             }
         }));
         }
@@ -2217,7 +2234,7 @@ export const GameWastelandLvl3 = () => {
             setOccupiedCellOpponent(prev => ({...prev, 
             A8: {
                 ...prev.A8,
-                health: prev.A8.health + 1 
+                health: prev.A8.health + 2 
             }
             }));
         }
@@ -2252,7 +2269,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             C4: {
                 ...prev.C4,
-                health: prev.C4.health - 4
+                health: prev.C4.health - 5
             }
         }));
         }
@@ -2261,7 +2278,7 @@ export const GameWastelandLvl3 = () => {
             setOccupiedCellOpponent(prev => ({...prev, 
             A8: {
                 ...prev.A8,
-                health: prev.A8.health + 1 
+                health: prev.A8.health + 2 
             }
             }));
         }
@@ -2298,7 +2315,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             D1: {
                 ...prev.D1,
-                health: prev.D1.health - 4
+                health: prev.D1.health - 5
             }
         }));
         }
@@ -2332,7 +2349,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             D2: {
                 ...prev.D2,
-                health: prev.D2.health - 4
+                health: prev.D2.health - 5
             }
         }));
         }
@@ -2366,7 +2383,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             D3: {
                 ...prev.D3,
-                health: prev.D3.health - 4
+                health: prev.D3.health - 5
             }
         }));
         }
@@ -2400,7 +2417,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             D4: {
                 ...prev.D4,
-                health: prev.D4.health - 4
+                health: prev.D4.health - 5
             }
         }));
         }
@@ -2435,7 +2452,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             D1: {
                 ...prev.D1,
-                health: prev.D1.health - 4
+                health: prev.D1.health - 5
             }
         }));
         }
@@ -2469,7 +2486,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             D2: {
                 ...prev.D2,
-                health: prev.D2.health - 4
+                health: prev.D2.health - 5
             }
         }));
         }
@@ -2503,7 +2520,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             D3: {
                 ...prev.D3,
-                health: prev.D3.health - 4
+                health: prev.D3.health - 5
             }
         }));
         }
@@ -2537,7 +2554,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             D4: {
                 ...prev.D4,
-                health: prev.D4.health - 4
+                health: prev.D4.health - 5
             }
         }));
         }
@@ -2572,7 +2589,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             D1: {
                 ...prev.D1,
-                health: prev.D1.health - 4
+                health: prev.D1.health - 5
             }
         }));
         }
@@ -2606,7 +2623,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             D2: {
                 ...prev.D2,
-                health: prev.D2.health - 4
+                health: prev.D2.health - 5
             }
         }));
         }
@@ -2640,7 +2657,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             D3: {
                 ...prev.D3,
-                health: prev.D3.health - 4
+                health: prev.D3.health - 5
             }
         }));
         }
@@ -2674,7 +2691,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             D4: {
                 ...prev.D4,
-                health: prev.D4.health - 4
+                health: prev.D4.health - 5
             }
         }));
         }
@@ -2709,7 +2726,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             D1: {
                 ...prev.D1,
-                health: prev.D1.health - 4
+                health: prev.D1.health - 5
             }
         }));
         }
@@ -2743,7 +2760,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             D2: {
                 ...prev.D2,
-                health: prev.D2.health - 4
+                health: prev.D2.health - 5
             }
         }));
         }
@@ -2777,7 +2794,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             D3: {
                 ...prev.D3,
-                health: prev.D3.health - 4
+                health: prev.D3.health - 5
             }
         }));
         }
@@ -2811,7 +2828,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             D4: {
                 ...prev.D4,
-                health: prev.D4.health - 4
+                health: prev.D4.health - 5
             }
         }));
         }
@@ -2846,7 +2863,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             D1: {
                 ...prev.D1,
-                health: prev.D1.health - 4
+                health: prev.D1.health - 5
             }
         }));
         }
@@ -2855,7 +2872,7 @@ export const GameWastelandLvl3 = () => {
             setOccupiedCellOpponent(prev => ({...prev, 
             A5: {
                 ...prev.A5,
-                health: prev.A5.health + 1 
+                health: prev.A5.health + 2 
             }
             }));
         }
@@ -2890,7 +2907,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             D2: {
                 ...prev.D2,
-                health: prev.D2.health - 4
+                health: prev.D2.health - 5
             }
         }));
         }
@@ -2899,7 +2916,7 @@ export const GameWastelandLvl3 = () => {
             setOccupiedCellOpponent(prev => ({...prev, 
             A5: {
                 ...prev.A5,
-                health: prev.A5.health + 1 
+                health: prev.A5.health + 2 
             }
             }));
         }
@@ -2934,7 +2951,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             D3: {
                 ...prev.D3,
-                health: prev.D3.health - 4
+                health: prev.D3.health - 5
             }
         }));
         }
@@ -2943,7 +2960,7 @@ export const GameWastelandLvl3 = () => {
             setOccupiedCellOpponent(prev => ({...prev, 
             A5: {
                 ...prev.A5,
-                health: prev.A5.health + 1 
+                health: prev.A5.health + 2 
             }
             }));
         }
@@ -2978,7 +2995,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             D4: {
                 ...prev.D4,
-                health: prev.D4.health - 4
+                health: prev.D4.health - 5
             }
         }));
         }
@@ -2987,7 +3004,7 @@ export const GameWastelandLvl3 = () => {
             setOccupiedCellOpponent(prev => ({...prev, 
             A5: {
                 ...prev.A5,
-                health: prev.A5.health + 1 
+                health: prev.A5.health + 2 
             }
             }));
         }
@@ -3023,7 +3040,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             D1: {
                 ...prev.D1,
-                health: prev.D1.health - 4
+                health: prev.D1.health - 5
             }
         }));
         }
@@ -3032,7 +3049,7 @@ export const GameWastelandLvl3 = () => {
             setOccupiedCellOpponent(prev => ({...prev, 
             A6: {
                 ...prev.A6,
-                health: prev.A6.health + 1 
+                health: prev.A6.health + 2 
             }
             }));
         }
@@ -3067,7 +3084,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             D2: {
                 ...prev.D2,
-                health: prev.D2.health - 4
+                health: prev.D2.health - 5
             }
         }));
         }
@@ -3076,7 +3093,7 @@ export const GameWastelandLvl3 = () => {
             setOccupiedCellOpponent(prev => ({...prev, 
             A6: {
                 ...prev.A6,
-                health: prev.A6.health + 1 
+                health: prev.A6.health + 2 
             }
             }));
         }
@@ -3111,7 +3128,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             D3: {
                 ...prev.D3,
-                health: prev.D3.health - 4
+                health: prev.D3.health - 5
             }
         }));
         }
@@ -3120,7 +3137,7 @@ export const GameWastelandLvl3 = () => {
             setOccupiedCellOpponent(prev => ({...prev, 
             A6: {
                 ...prev.A6,
-                health: prev.A6.health + 1 
+                health: prev.A6.health + 2 
             }
             }));
         }
@@ -3155,7 +3172,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             D4: {
                 ...prev.D4,
-                health: prev.D4.health - 4
+                health: prev.D4.health - 5
             }
         }));
         }
@@ -3164,7 +3181,7 @@ export const GameWastelandLvl3 = () => {
             setOccupiedCellOpponent(prev => ({...prev, 
             A6: {
                 ...prev.A6,
-                health: prev.A6.health + 1 
+                health: prev.A6.health + 2 
             }
             }));
         }
@@ -3201,7 +3218,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             D1: {
                 ...prev.D1,
-                health: prev.D1.health - 4
+                health: prev.D1.health - 5
             }
         }));
         }
@@ -3210,7 +3227,7 @@ export const GameWastelandLvl3 = () => {
             setOccupiedCellOpponent(prev => ({...prev, 
             A7: {
                 ...prev.A7,
-                health: prev.A7.health + 1 
+                health: prev.A7.health + 2 
             }
             }));
         }
@@ -3245,7 +3262,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             D2: {
                 ...prev.D2,
-                health: prev.D2.health - 4
+                health: prev.D2.health - 5
             }
         }));
         }
@@ -3254,7 +3271,7 @@ export const GameWastelandLvl3 = () => {
             setOccupiedCellOpponent(prev => ({...prev, 
             A7: {
                 ...prev.A7,
-                health: prev.A7.health + 1 
+                health: prev.A7.health + 2
             }
             }));
         }
@@ -3289,7 +3306,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             D3: {
                 ...prev.D3,
-                health: prev.D3.health - 4
+                health: prev.D3.health - 5
             }
         }));
         }
@@ -3298,7 +3315,7 @@ export const GameWastelandLvl3 = () => {
             setOccupiedCellOpponent(prev => ({...prev, 
             A7: {
                 ...prev.A7,
-                health: prev.A7.health + 1 
+                health: prev.A7.health + 2 
             }
             }));
         }
@@ -3333,7 +3350,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             D4: {
                 ...prev.D4,
-                health: prev.D4.health - 4
+                health: prev.D4.health - 5
             }
         }));
         }
@@ -3342,7 +3359,7 @@ export const GameWastelandLvl3 = () => {
             setOccupiedCellOpponent(prev => ({...prev, 
             A7: {
                 ...prev.A7,
-                health: prev.A7.health + 1 
+                health: prev.A7.health + 2 
             }
             }));
         }
@@ -3379,7 +3396,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             D1: {
                 ...prev.D1,
-                health: prev.D1.health - 4
+                health: prev.D1.health - 5
             }
         }));
         }
@@ -3388,7 +3405,7 @@ export const GameWastelandLvl3 = () => {
             setOccupiedCellOpponent(prev => ({...prev, 
             A8: {
                 ...prev.A8,
-                health: prev.A8.health + 1 
+                health: prev.A8.health + 2 
             }
             }));
         }
@@ -3423,7 +3440,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             D2: {
                 ...prev.D2,
-                health: prev.D2.health - 4
+                health: prev.D2.health - 5
             }
         }));
         }
@@ -3432,7 +3449,7 @@ export const GameWastelandLvl3 = () => {
             setOccupiedCellOpponent(prev => ({...prev, 
             A8: {
                 ...prev.A8,
-                health: prev.A8.health + 1 
+                health: prev.A8.health + 2 
             }
             }));
         }
@@ -3467,7 +3484,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             D3: {
                 ...prev.D3,
-                health: prev.D3.health - 4
+                health: prev.D3.health - 5
             }
         }));
         }
@@ -3476,7 +3493,7 @@ export const GameWastelandLvl3 = () => {
             setOccupiedCellOpponent(prev => ({...prev, 
             A8: {
                 ...prev.A8,
-                health: prev.A8.health + 1 
+                health: prev.A8.health + 2 
             }
             }));
         }
@@ -3511,7 +3528,7 @@ export const GameWastelandLvl3 = () => {
             ...prev,
             D4: {
                 ...prev.D4,
-                health: prev.D4.health - 4
+                health: prev.D4.health - 5
             }
         }));
         }
@@ -3520,7 +3537,7 @@ export const GameWastelandLvl3 = () => {
             setOccupiedCellOpponent(prev => ({...prev, 
             A8: {
                 ...prev.A8,
-                health: prev.A8.health + 1 
+                health: prev.A8.health + 2 
             }
             }));
         }
@@ -3765,7 +3782,7 @@ function handleCounterattack() {
             ...prev,
             A1: {
                 ...prev.A1,
-                health: prev.A1.health - 10,
+                health: prev.A1.health - 20,
                 defense: prev.A1.defense - 1
             }
         }));
@@ -3775,7 +3792,7 @@ function handleCounterattack() {
             ...prev,
             A2: {
                 ...prev.A2,
-                health: prev.A2.health - 10,
+                health: prev.A2.health - 20,
                 defense: prev.A2.defense - 1
             }
         }));
@@ -3785,7 +3802,7 @@ function handleCounterattack() {
             ...prev,
             A3: {
                 ...prev.A3,
-                health: prev.A3.health - 10,
+                health: prev.A3.health - 20,
                 defense: prev.A3.defense - 1
             }
         }));
@@ -3795,7 +3812,7 @@ function handleCounterattack() {
             ...prev,
             A4: {
                 ...prev.A4,
-                health: prev.A4.health - 10,
+                health: prev.A4.health - 20,
                 defense: prev.A4.defense - 1
             }
         }));
@@ -3805,7 +3822,7 @@ function handleCounterattack() {
             ...prev,
             A5: {
                 ...prev.A5,
-                health: prev.A5.health - 10,
+                health: prev.A5.health - 20,
                 defense: prev.A5.defense - 1
             }
         }));
@@ -3815,7 +3832,7 @@ function handleCounterattack() {
             ...prev,
             A6: {
                 ...prev.A6,
-                health: prev.A6.health - 10,
+                health: prev.A6.health - 20,
                 defense: prev.A6.defense - 1
             }
         }));
@@ -3825,7 +3842,7 @@ function handleCounterattack() {
             ...prev,
             A7: {
                 ...prev.A7,
-                health: prev.A7.health - 10,
+                health: prev.A7.health - 20,
                 defense: prev.A7.defense - 1
             }
         }));
@@ -3835,7 +3852,7 @@ function handleCounterattack() {
             ...prev,
             A8: {
                 ...prev.A8,
-                health: prev.A8.health - 10,
+                health: prev.A8.health - 20,
                 defense: prev.A8.defense - 1
             }
         }));
@@ -3855,8 +3872,8 @@ function handleCounterattack() {
             ...prev,
             A1: {
                 ...prev.A1,
-                health: prev.A1.health - 15,
-                defense: prev.A1.defense - 1
+                health: prev.A1.health - 25,
+                defense: prev.A1.defense - 2
             }
         }));
         }
@@ -3865,8 +3882,8 @@ function handleCounterattack() {
             ...prev,
             A2: {
                 ...prev.A2,
-                health: prev.A2.health - 15,
-                defense: prev.A2.defense - 1
+                health: prev.A2.health - 25,
+                defense: prev.A2.defense - 2
             }
         }));
         }
@@ -3875,8 +3892,8 @@ function handleCounterattack() {
             ...prev,
             A3: {
                 ...prev.A3,
-                health: prev.A3.health - 15,
-                defense: prev.A3.defense - 1
+                health: prev.A3.health - 25,
+                defense: prev.A3.defense - 2
             }
         }));
         }
@@ -3885,8 +3902,8 @@ function handleCounterattack() {
             ...prev,
             A4: {
                 ...prev.A4,
-                health: prev.A4.health - 15,
-                defense: prev.A4.defense - 1
+                health: prev.A4.health - 25,
+                defense: prev.A4.defense - 2
             }
         }));
         }
@@ -3895,8 +3912,8 @@ function handleCounterattack() {
             ...prev,
             A5: {
                 ...prev.A5,
-                health: prev.A5.health - 15,
-                defense: prev.A5.defense - 1
+                health: prev.A5.health - 25,
+                defense: prev.A5.defense - 2
             }
         }));
         }
@@ -3905,8 +3922,8 @@ function handleCounterattack() {
             ...prev,
             A6: {
                 ...prev.A6,
-                health: prev.A6.health - 15,
-                defense: prev.A6.defense - 1
+                health: prev.A6.health - 25,
+                defense: prev.A6.defense - 2
             }
         }));
         }
@@ -3915,8 +3932,8 @@ function handleCounterattack() {
             ...prev,
             A7: {
                 ...prev.A7,
-                health: prev.A7.health - 15,
-                defense: prev.A7.defense - 1
+                health: prev.A7.health - 25,
+                defense: prev.A7.defense - 2
             }
         }));
         }
@@ -3925,8 +3942,8 @@ function handleCounterattack() {
             ...prev,
             A8: {
                 ...prev.A8,
-                health: prev.A8.health - 15,
-                defense: prev.A8.defense - 1
+                health: prev.A8.health - 25,
+                defense: prev.A8.defense - 2
             }
         }));
         }
@@ -4139,336 +4156,336 @@ function handleCounterattack() {
     }
 
     function handleSkillPoultice() {
-        if (occupiedCell.C1.choice === true && occupiedCell.C1.health !== 0 && occupiedCell.C1.health !== 20 && occupiedCell.C1.priority === 1) {
+        if (occupiedCell.C1.choice === true && occupiedCell.C1.health !== 0 && occupiedCell.C1.health !== 80 && occupiedCell.C1.priority === 1) {
             setOccupiedCell(prev => ({
             ...prev,
             C1: {
                 ...prev.C1,
-                health: 20,
+                health: 80,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.C1.choice === true && occupiedCell.C1.health !== 0 && occupiedCell.C1.health !== 30 && occupiedCell.C1.priority === 3) {
+        else if (occupiedCell.C1.choice === true && occupiedCell.C1.health !== 0 && occupiedCell.C1.health !== 100 && occupiedCell.C1.priority === 3) {
             setOccupiedCell(prev => ({
             ...prev,
             C1: {
                 ...prev.C1,
-                health: 30,
+                health: 100,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.C1.choice === true && occupiedCell.C1.health !== 0 && occupiedCell.C1.health !== 40 && occupiedCell.C1.priority === 2) {
+        else if (occupiedCell.C1.choice === true && occupiedCell.C1.health !== 0 && occupiedCell.C1.health !== 180 && occupiedCell.C1.priority === 2) {
             setOccupiedCell(prev => ({
             ...prev,
             C1: {
                 ...prev.C1,
-                health: 40,
+                health: 180,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.C1.choice === true && occupiedCell.C1.health !== 0 && occupiedCell.C1.health !== 50 && occupiedCell.C1.priority === 4) {
+        else if (occupiedCell.C1.choice === true && occupiedCell.C1.health !== 0 && occupiedCell.C1.health !== 250 && occupiedCell.C1.priority === 4) {
             setOccupiedCell(prev => ({
             ...prev,
             C1: {
                 ...prev.C1,
-                health: 50,
+                health: 250,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
 
 
-        else if (occupiedCell.C2.choice === true && occupiedCell.C2.health !== 0 && occupiedCell.C2.health !== 20 && occupiedCell.C2.priority === 1) {
+        else if (occupiedCell.C2.choice === true && occupiedCell.C2.health !== 0 && occupiedCell.C2.health !== 80 && occupiedCell.C2.priority === 1) {
             setOccupiedCell(prev => ({
             ...prev,
             C2: {
                 ...prev.C2,
-                health: 20,
+                health: 80,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.C2.choice === true && occupiedCell.C2.health !== 0 && occupiedCell.C2.health !== 30 && occupiedCell.C2.priority === 3) {
+        else if (occupiedCell.C2.choice === true && occupiedCell.C2.health !== 0 && occupiedCell.C2.health !== 100 && occupiedCell.C2.priority === 3) {
             setOccupiedCell(prev => ({
             ...prev,
             C2: {
                 ...prev.C2,
-                health: 30,
+                health: 100,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.C2.choice === true && occupiedCell.C2.health !== 0 && occupiedCell.C2.health !== 40 && occupiedCell.C2.priority === 2) {
+        else if (occupiedCell.C2.choice === true && occupiedCell.C2.health !== 0 && occupiedCell.C2.health !== 180 && occupiedCell.C2.priority === 2) {
             setOccupiedCell(prev => ({
             ...prev,
             C2: {
                 ...prev.C2,
-                health: 40,
+                health: 180,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.C2.choice === true && occupiedCell.C2.health !== 0 && occupiedCell.C2.health !== 50 && occupiedCell.C2.priority === 4) {
+        else if (occupiedCell.C2.choice === true && occupiedCell.C2.health !== 0 && occupiedCell.C2.health !== 250 && occupiedCell.C2.priority === 4) {
             setOccupiedCell(prev => ({
             ...prev,
             C2: {
                 ...prev.C2,
-                health: 50,
+                health: 250,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
 
 
-        else if (occupiedCell.C3.choice === true && occupiedCell.C3.health !== 0 && occupiedCell.C3.health !== 20 && occupiedCell.C3.priority === 1) {
+        else if (occupiedCell.C3.choice === true && occupiedCell.C3.health !== 0 && occupiedCell.C3.health !== 80 && occupiedCell.C3.priority === 1) {
             setOccupiedCell(prev => ({
             ...prev,
             C3: {
                 ...prev.C3,
-                health: 20,
+                health: 80,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.C3.choice === true && occupiedCell.C3.health !== 0 && occupiedCell.C3.health !== 30 && occupiedCell.C3.priority === 3) {
+        else if (occupiedCell.C3.choice === true && occupiedCell.C3.health !== 0 && occupiedCell.C3.health !== 100 && occupiedCell.C3.priority === 3) {
             setOccupiedCell(prev => ({
             ...prev,
             C3: {
                 ...prev.C3,
-                health: 30,
+                health: 100,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.C3.choice === true && occupiedCell.C3.health !== 0 && occupiedCell.C3.health !== 40 && occupiedCell.C3.priority === 2) {
+        else if (occupiedCell.C3.choice === true && occupiedCell.C3.health !== 0 && occupiedCell.C3.health !== 180 && occupiedCell.C3.priority === 2) {
             setOccupiedCell(prev => ({
             ...prev,
             C3: {
                 ...prev.C3,
-                health: 40,
+                health: 180,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.C3.choice === true && occupiedCell.C3.health !== 0 && occupiedCell.C3.health !== 50 && occupiedCell.C3.priority === 4) {
+        else if (occupiedCell.C3.choice === true && occupiedCell.C3.health !== 0 && occupiedCell.C3.health !== 250 && occupiedCell.C3.priority === 4) {
             setOccupiedCell(prev => ({
             ...prev,
             C3: {
                 ...prev.C3,
-                health: 50,
+                health: 250,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
 
 
-        else if (occupiedCell.C4.choice === true && occupiedCell.C4.health !== 0 && occupiedCell.C4.health !== 20 && occupiedCell.C4.priority === 1) {
+        else if (occupiedCell.C4.choice === true && occupiedCell.C4.health !== 0 && occupiedCell.C4.health !== 80 && occupiedCell.C4.priority === 1) {
             setOccupiedCell(prev => ({
             ...prev,
             C4: {
                 ...prev.C4,
-                health: 20,
+                health: 80,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.C4.choice === true && occupiedCell.C4.health !== 0 && occupiedCell.C4.health !== 30 && occupiedCell.C4.priority === 3) {
+        else if (occupiedCell.C4.choice === true && occupiedCell.C4.health !== 0 && occupiedCell.C4.health !== 100 && occupiedCell.C4.priority === 3) {
             setOccupiedCell(prev => ({
             ...prev,
             C4: {
                 ...prev.C4,
-                health: 30,
+                health: 100,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.C4.choice === true && occupiedCell.C4.health !== 0 && occupiedCell.C4.health !== 40 && occupiedCell.C4.priority === 2) {
+        else if (occupiedCell.C4.choice === true && occupiedCell.C4.health !== 0 && occupiedCell.C4.health !== 180 && occupiedCell.C4.priority === 2) {
             setOccupiedCell(prev => ({
             ...prev,
             C4: {
                 ...prev.C4,
-                health: 40,
+                health: 180,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.C4.choice === true && occupiedCell.C4.health !== 0 && occupiedCell.C4.health !== 50 && occupiedCell.C4.priority === 4) {
+        else if (occupiedCell.C4.choice === true && occupiedCell.C4.health !== 0 && occupiedCell.C4.health !== 250 && occupiedCell.C4.priority === 4) {
             setOccupiedCell(prev => ({
             ...prev,
             C4: {
                 ...prev.C4,
-                health: 50,
+                health: 250,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
 
 
-        else if (occupiedCell.D1.choice === true && occupiedCell.D1.health !== 0 && occupiedCell.D1.health !== 20 && occupiedCell.D1.priority === 1) {
+        else if (occupiedCell.D1.choice === true && occupiedCell.D1.health !== 0 && occupiedCell.D1.health !== 80 && occupiedCell.D1.priority === 1) {
             setOccupiedCell(prev => ({
             ...prev,
             D1: {
                 ...prev.D1,
-                health: 20,
+                health: 80,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.D1.choice === true && occupiedCell.D1.health !== 0 && occupiedCell.D1.health !== 30 && occupiedCell.D1.priority === 3) {
+        else if (occupiedCell.D1.choice === true && occupiedCell.D1.health !== 0 && occupiedCell.D1.health !== 100 && occupiedCell.D1.priority === 3) {
             setOccupiedCell(prev => ({
             ...prev,
             D1: {
                 ...prev.D1,
-                health: 30,
+                health: 100,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.D1.choice === true && occupiedCell.D1.health !== 0 && occupiedCell.D1.health !== 40 && occupiedCell.D1.priority === 2) {
+        else if (occupiedCell.D1.choice === true && occupiedCell.D1.health !== 0 && occupiedCell.D1.health !== 180 && occupiedCell.D1.priority === 2) {
             setOccupiedCell(prev => ({
             ...prev,
             D1: {
                 ...prev.D1,
-                health: 40,
+                health: 180,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.D1.choice === true && occupiedCell.D1.health !== 0 && occupiedCell.D1.health !== 50 && occupiedCell.D1.priority === 4) {
+        else if (occupiedCell.D1.choice === true && occupiedCell.D1.health !== 0 && occupiedCell.D1.health !== 250 && occupiedCell.D1.priority === 4) {
             setOccupiedCell(prev => ({
             ...prev,
             D1: {
                 ...prev.D1,
-                health: 50,
+                health: 250,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
 
 
-        else if (occupiedCell.D2.choice === true && occupiedCell.D2.health !== 0 && occupiedCell.D2.health !== 20 && occupiedCell.D2.priority === 1) {
+        else if (occupiedCell.D2.choice === true && occupiedCell.D2.health !== 0 && occupiedCell.D2.health !== 80 && occupiedCell.D2.priority === 1) {
             setOccupiedCell(prev => ({
             ...prev,
             D2: {
                 ...prev.D2,
-                health: 20,
+                health: 80,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.D2.choice === true && occupiedCell.D2.health !== 0 && occupiedCell.D2.health !== 30 && occupiedCell.D2.priority === 3) {
+        else if (occupiedCell.D2.choice === true && occupiedCell.D2.health !== 0 && occupiedCell.D2.health !== 100 && occupiedCell.D2.priority === 3) {
             setOccupiedCell(prev => ({
             ...prev,
             D2: {
                 ...prev.D2,
-                health: 30,
+                health: 100,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.D2.choice === true && occupiedCell.D2.health !== 0 && occupiedCell.D2.health !== 40 && occupiedCell.D2.priority === 2) {
+        else if (occupiedCell.D2.choice === true && occupiedCell.D2.health !== 0 && occupiedCell.D2.health !== 180 && occupiedCell.D2.priority === 2) {
             setOccupiedCell(prev => ({
             ...prev,
             D2: {
                 ...prev.D2,
-                health: 40,
+                health: 180,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.D2.choice === true && occupiedCell.D2.health !== 0 && occupiedCell.D2.health !== 50 && occupiedCell.D2.priority === 4) {
+        else if (occupiedCell.D2.choice === true && occupiedCell.D2.health !== 0 && occupiedCell.D2.health !== 250 && occupiedCell.D2.priority === 4) {
             setOccupiedCell(prev => ({
             ...prev,
             D2: {
                 ...prev.D2,
-                health: 50,
+                health: 250,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
 
 
-        else if (occupiedCell.D3.choice === true && occupiedCell.D3.health !== 0 && occupiedCell.D3.health !== 20 && occupiedCell.D3.priority === 1) {
+        else if (occupiedCell.D3.choice === true && occupiedCell.D3.health !== 0 && occupiedCell.D3.health !== 80 && occupiedCell.D3.priority === 1) {
             setOccupiedCell(prev => ({
             ...prev,
             D3: {
                 ...prev.D3,
-                health: 20,
+                health: 80,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.D3.choice === true && occupiedCell.D3.health !== 0 && occupiedCell.D3.health !== 30 && occupiedCell.D3.priority === 3) {
+        else if (occupiedCell.D3.choice === true && occupiedCell.D3.health !== 0 && occupiedCell.D3.health !== 100 && occupiedCell.D3.priority === 3) {
             setOccupiedCell(prev => ({
             ...prev,
             D3: {
                 ...prev.D3,
-                health: 30,
+                health: 100,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.D3.choice === true && occupiedCell.D3.health !== 0 && occupiedCell.D3.health !== 40 && occupiedCell.D3.priority === 2) {
+        else if (occupiedCell.D3.choice === true && occupiedCell.D3.health !== 0 && occupiedCell.D3.health !== 180 && occupiedCell.D3.priority === 2) {
             setOccupiedCell(prev => ({
             ...prev,
             D3: {
                 ...prev.D3,
-                health: 40,
+                health: 180,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.D3.choice === true && occupiedCell.D3.health !== 0 && occupiedCell.D3.health !== 50 && occupiedCell.D3.priority === 4) {
+        else if (occupiedCell.D3.choice === true && occupiedCell.D3.health !== 0 && occupiedCell.D3.health !== 250 && occupiedCell.D3.priority === 4) {
             setOccupiedCell(prev => ({
             ...prev,
             D3: {
                 ...prev.D3,
-                health: 50,
+                health: 250,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
 
 
-        else if (occupiedCell.D4.choice === true && occupiedCell.D4.health !== 0 && occupiedCell.D4.health !== 20 && occupiedCell.D4.priority === 1) {
+        else if (occupiedCell.D4.choice === true && occupiedCell.D4.health !== 0 && occupiedCell.D4.health !== 80 && occupiedCell.D4.priority === 1) {
             setOccupiedCell(prev => ({
             ...prev,
             D4: {
                 ...prev.D4,
-                health: 20,
+                health: 80,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.D4.choice === true && occupiedCell.D4.health !== 0 && occupiedCell.D4.health !== 30 && occupiedCell.D4.priority === 3) {
+        else if (occupiedCell.D4.choice === true && occupiedCell.D4.health !== 0 && occupiedCell.D4.health !== 100 && occupiedCell.D4.priority === 3) {
             setOccupiedCell(prev => ({
             ...prev,
             D4: {
                 ...prev.D4,
-                health: 30,
+                health: 100,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.D4.choice === true && occupiedCell.D4.health !== 0 && occupiedCell.D4.health !== 40 && occupiedCell.D4.priority === 2) {
+        else if (occupiedCell.D4.choice === true && occupiedCell.D4.health !== 0 && occupiedCell.D4.health !== 180 && occupiedCell.D4.priority === 2) {
             setOccupiedCell(prev => ({
             ...prev,
             D4: {
                 ...prev.D4,
-                health: 40,
+                health: 180,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
         }
-        else if (occupiedCell.D4.choice === true && occupiedCell.D4.health !== 0 && occupiedCell.D4.health !== 50 && occupiedCell.D4.priority === 4) {
+        else if (occupiedCell.D4.choice === true && occupiedCell.D4.health !== 0 && occupiedCell.D4.health !== 250 && occupiedCell.D4.priority === 4) {
             setOccupiedCell(prev => ({
             ...prev,
             D4: {
                 ...prev.D4,
-                health: 50,
+                health: 250,
             }
             }));
             setStateSkillsHero(prev => ({...prev, poultice: prev.poultice - 1}));
@@ -4512,7 +4529,7 @@ function handleCounterattack() {
     };
 
     useEffect(() => {
-        if(occupiedCellOpponent.A1.health + occupiedCellOpponent.A2.health + occupiedCellOpponent.A3.health + occupiedCellOpponent.A4.health + occupiedCellOpponent.A5.health + occupiedCellOpponent.A6.health + occupiedCellOpponent.A7.health + occupiedCellOpponent.A8.health <= 140 && showStoryMessages.countForMessage === 0) {
+        if(occupiedCellOpponent.A1.health + occupiedCellOpponent.A2.health + occupiedCellOpponent.A3.health + occupiedCellOpponent.A4.health + occupiedCellOpponent.A5.health + occupiedCellOpponent.A6.health + occupiedCellOpponent.A7.health + occupiedCellOpponent.A8.health <= 480 && showStoryMessages.countForMessage === 0) {
             setShowStoryMessages((prev: any) => ({...prev, halfHealth: true}));
         }
         }, [occupiedCellOpponent, showStoryMessages.countForMessage]);
@@ -4632,72 +4649,81 @@ function handleCounterattack() {
     }, [stateSkillsHero.poultice]);
 
     useEffect(() => {
-                            const swordsmanCells = Object.values(occupiedCell).filter(cell => 
-                                cell.name === "Охотники"
-                            );
-                        
-                        
-                            const allSwordsmenDead = swordsmanCells.length > 0 && 
-                            swordsmanCells.every(cell => cell.health <= 0);
-                        
-                            if (allSwordsmenDead) {
-                                setStateSkillsSoldiersWasteland(prev => ({
-                                    ...prev, 
-                                    showStateSkillsHunter: false
-                            }));
-                        }
-                        }, [occupiedCell]);
+        const swordsmanCells = Object.values(occupiedCell).filter(cell => 
+            cell.name === "Охотники"
+        );
+    
+    
+        const allSwordsmenDead = swordsmanCells.length > 0 && 
+        swordsmanCells.every(cell => cell.health <= 0);
+    
+        if (allSwordsmenDead) {
+            setStateSkillsSoldiersWasteland(prev => ({
+                ...prev, 
+                showStateSkillsHunter: false
+        }));
+    }
+    }, [occupiedCell]);
                     
-                        useEffect(() => {
-                            const swordsmanCells = Object.values(occupiedCell).filter(cell => 
-                                cell.name === "Метатели"
-                            );
+    useEffect(() => {
+        const swordsmanCells = Object.values(occupiedCell).filter(cell => 
+            cell.name === "Метатели"
+        );
                         
                         
-                            const allSwordsmenDead = swordsmanCells.length > 0 && 
-                            swordsmanCells.every(cell => cell.health <= 0);
-                        
-                            if (allSwordsmenDead) {
-                                setStateSkillsSoldiersWasteland(prev => ({
-                                    ...prev, 
-                                    showStateSkillsJavelin: false
-                            }));
-                        }
-                        }, [occupiedCell]);
+        const allSwordsmenDead = swordsmanCells.length > 0 && 
+        swordsmanCells.every(cell => cell.health <= 0);
+    
+        if (allSwordsmenDead) {
+            setStateSkillsSoldiersWasteland(prev => ({
+                ...prev, 
+                   showStateSkillsJavelin: false
+        }));
+    }
+    }, [occupiedCell]);
                 
-                        useEffect(() => {
-                            const swordsmanCells = Object.values(occupiedCell).filter(cell => 
-                                cell.name === "Булавоносцы"
-                            );
+    useEffect(() => {
+        const swordsmanCells = Object.values(occupiedCell).filter(cell => 
+            cell.name === "Булавоносцы"
+           );
                         
                         
-                            const allSwordsmenDead = swordsmanCells.length > 0 && 
-                            swordsmanCells.every(cell => cell.health <= 0);
-                        
-                            if (allSwordsmenDead) {
-                                setStateSkillsSoldiersWasteland(prev => ({
-                                    ...prev, 
-                                    showStateSkillsMaces: false
-                            }));
-                        }
-                        }, [occupiedCell]);
+        const allSwordsmenDead = swordsmanCells.length > 0 && 
+        swordsmanCells.every(cell => cell.health <= 0);
+    
+        if (allSwordsmenDead) {
+            setStateSkillsSoldiersWasteland(prev => ({
+                ...prev, 
+                showStateSkillsMaces: false
+        }));
+    }
+    }, [occupiedCell]);
             
-                        useEffect(() => {
-                            const swordsmanCells = Object.values(occupiedCell).filter(cell => 
-                                cell.name === "Ангалиты"
-                            );
-                        
-                        
-                            const allSwordsmenDead = swordsmanCells.length > 0 && 
-                            swordsmanCells.every(cell => cell.health <= 0);
-                        
-                            if (allSwordsmenDead) {
-                                setStateSkillsSoldiersWasteland(prev => ({
-                                    ...prev, 
-                                    showStateSkillsAngalit: false
-                            }));
-                        }
-                        }, [occupiedCell]);
+    useEffect(() => {
+        const swordsmanCells = Object.values(occupiedCell).filter(cell => 
+            cell.name === "Ангалиты"
+        );
+    
+    
+        const allSwordsmenDead = swordsmanCells.length > 0 && 
+        swordsmanCells.every(cell => cell.health <= 0);
+    
+        if (allSwordsmenDead) {
+            setStateSkillsSoldiersWasteland(prev => ({
+                ...prev, 
+                showStateSkillsAngalit: false
+        }));
+    }
+    }, [occupiedCell]);
+
+    useEffect(() => {
+            if (reserve.wastelandHunter === 0 && reserve.wastelandJavelin === 0 && reserve.wastelandMaces === 0 && reserve.wastelandAngalit === 0) {
+                setShowButtonPoultice(false);
+            }
+            else {
+                setShowButtonPoultice(true);
+        }
+        }, [reserve]);
 
     return (
         <div className={classes.gamePageWasteland}>
@@ -4725,7 +4751,7 @@ function handleCounterattack() {
                     : occupiedCell.C1.classWastlelandSoldier === 4 
                     ? CardAngalAngalit
                     : Card} alt="Card" draggable="false"/>
-                    <progress className={classes.healthScaleWasteland} max="100" value={occupiedCell.C1.health}></progress>
+                    <progress className={classes.healthScaleWasteland} max={ occupiedCell.C1.name === "Охотники" ? 80 : occupiedCell.C1.name === "Метатели" ? 100 : occupiedCell.C1.name === "Булавоносцы" ? 180 : occupiedCell.C1.name === "Ангалиты" ? 250 : 0 } value={occupiedCell.C1.health}></progress>
                     <p>{occupiedCell.C1.name}</p>
                     <p>Attack:  {occupiedCell.C1.attack}</p>
                     <p>Defense: {occupiedCell.C1.defense}:</p>
@@ -4741,7 +4767,7 @@ function handleCounterattack() {
                     : occupiedCell.C2.classWastlelandSoldier === 4 
                     ? CardAngalAngalit
                     : Card} alt="Card" draggable="false"/>
-                    <progress className={classes.healthScaleWasteland} max="100" value={occupiedCell.C2.health}></progress>
+                    <progress className={classes.healthScaleWasteland} max={ occupiedCell.C2.name === "Охотники" ? 80 : occupiedCell.C2.name === "Метатели" ? 100 : occupiedCell.C2.name === "Булавоносцы" ? 180 : occupiedCell.C2.name === "Ангалиты" ? 250 : 0 } value={occupiedCell.C2.health}></progress>
                     <p>{occupiedCell.C2.name}</p>
                     <p>Attack:  {occupiedCell.C2.attack}</p>
                     <p>Defense: {occupiedCell.C2.defense}:</p>
@@ -4757,7 +4783,7 @@ function handleCounterattack() {
                     : occupiedCell.C3.classWastlelandSoldier === 4 
                     ? CardAngalAngalit
                     : Card} alt="Card" draggable="false"/>
-                    <progress className={classes.healthScaleWasteland} max="100" value={occupiedCell.C3.health}></progress>
+                    <progress className={classes.healthScaleWasteland} max={ occupiedCell.C3.name === "Охотники" ? 80 : occupiedCell.C3.name === "Метатели" ? 100 : occupiedCell.C3.name === "Булавоносцы" ? 180 : occupiedCell.C3.name === "Ангалиты" ? 250 : 0 } value={occupiedCell.C3.health}></progress>
                     <p>{occupiedCell.C3.name}</p>
                     <p>Attack:  {occupiedCell.C3.attack}</p>
                     <p>Defense: {occupiedCell.C3.defense}:</p>
@@ -4773,7 +4799,7 @@ function handleCounterattack() {
                     : occupiedCell.C4.classWastlelandSoldier === 4 
                     ? CardAngalAngalit
                     : Card} alt="Card" draggable="false"/>
-                    <progress className={classes.healthScaleWasteland} max="100" value={occupiedCell.C4.health}></progress>
+                    <progress className={classes.healthScaleWasteland} max={ occupiedCell.C4.name === "Охотники" ? 80 : occupiedCell.C4.name === "Метатели" ? 100 : occupiedCell.C4.name === "Булавоносцы" ? 180 : occupiedCell.C4.name === "Ангалиты" ? 250 : 0 } value={occupiedCell.C4.health}></progress>
                     <p>{occupiedCell.C4.name}</p>
                     <p>Attack:  {occupiedCell.C4.attack}</p>
                     <p>Defense: {occupiedCell.C4.defense}:</p>
@@ -4789,7 +4815,7 @@ function handleCounterattack() {
                     : occupiedCell.D1.classWastlelandSoldier === 4 
                     ? CardAngalAngalit
                     : Card} alt="Card" draggable="false"/>
-                    <progress className={classes.healthScaleWasteland} max="100" value={occupiedCell.D1.health}></progress>
+                    <progress className={classes.healthScaleWasteland} max={ occupiedCell.D1.name === "Охотники" ? 80 : occupiedCell.D1.name === "Метатели" ? 100 : occupiedCell.D1.name === "Булавоносцы" ? 180 : occupiedCell.D1.name === "Ангалиты" ? 250 : 0 } value={occupiedCell.D1.health}></progress>
                     <p>{occupiedCell.D1.name}</p>
                     <p>Attack:  {occupiedCell.D1.attack}</p>
                     <p>Defense: {occupiedCell.D1.defense}:</p>
@@ -4805,7 +4831,7 @@ function handleCounterattack() {
                     : occupiedCell.D2.classWastlelandSoldier === 4 
                     ? CardAngalAngalit
                     : Card} alt="Card" draggable="false"/>
-                    <progress className={classes.healthScaleWasteland} max="100" value={occupiedCell.D2.health}></progress>
+                    <progress className={classes.healthScaleWasteland} max={ occupiedCell.D2.name === "Охотники" ? 80 : occupiedCell.D2.name === "Метатели" ? 100 : occupiedCell.D2.name === "Булавоносцы" ? 180 : occupiedCell.D2.name === "Ангалиты" ? 250 : 0 } value={occupiedCell.D2.health}></progress>
                     <p>{occupiedCell.D2.name}</p>
                     <p>Attack:  {occupiedCell.D2.attack}</p>
                     <p>Defense: {occupiedCell.D2.defense}:</p>
@@ -4821,7 +4847,7 @@ function handleCounterattack() {
                     : occupiedCell.D3.classWastlelandSoldier === 4 
                     ? CardAngalAngalit
                     : Card} alt="Card" draggable="false"/>
-                    <progress className={classes.healthScaleWasteland} max="100" value={occupiedCell.D3.health}></progress>
+                    <progress className={classes.healthScaleWasteland} max={ occupiedCell.D3.name === "Охотники" ? 80 : occupiedCell.D3.name === "Метатели" ? 100 : occupiedCell.D3.name === "Булавоносцы" ? 180 : occupiedCell.D3.name === "Ангалиты" ? 250 : 0 } value={occupiedCell.D3.health}></progress>
                     <p>{occupiedCell.D3.name}</p>
                     <p>Attack:  {occupiedCell.D3.attack}</p>
                     <p>Defense: {occupiedCell.D3.defense}:</p>
@@ -4837,7 +4863,7 @@ function handleCounterattack() {
                     : occupiedCell.D4.classWastlelandSoldier === 4 
                     ? CardAngalAngalit
                     : Card} alt="Card" draggable="false"/>
-                    <progress className={classes.healthScaleWasteland} max="100" value={occupiedCell.D4.health}></progress>
+                    <progress className={classes.healthScaleWasteland} max={ occupiedCell.D4.name === "Охотники" ? 80 : occupiedCell.D4.name === "Метатели" ? 100 : occupiedCell.D4.name === "Булавоносцы" ? 180 : occupiedCell.D4.name === "Ангалиты" ? 250 : 0 } value={occupiedCell.D4.health}></progress>
                     <p>{occupiedCell.D4.name}</p>
                     <p>Attack:  {occupiedCell.D4.attack}</p>
                     <p>Defense: {occupiedCell.D4.defense}:</p>
@@ -4845,7 +4871,7 @@ function handleCounterattack() {
 
                 {occupiedCellOpponent.A1.showCard && <div className={classes.cardEmpireTop}>
                     <img className={classes.imageCard} src={EastArcher} alt="EastArcher" draggable="false"/>
-                    <progress className={classes.healthScaleEmpire} max="100" value={occupiedCellOpponent.A1.health}></progress>
+                    <progress className={classes.healthScaleEmpire} max="150" value={occupiedCellOpponent.A1.health}></progress>
                     <p>{occupiedCellOpponent.A1.name}</p>
                     <p>Attack:  {occupiedCellOpponent.A1.attack}</p>
                     <p>Defense: {occupiedCellOpponent.A1.defense}:</p>
@@ -4853,7 +4879,7 @@ function handleCounterattack() {
 
                 {occupiedCellOpponent.A2.showCard && <div className={classes.cardEmpireTop}>
                     <img className={classes.imageCard} src={WestArcher} alt="WestArcher" draggable="false"/>
-                    <progress className={classes.healthScaleEmpire} max="100" value={occupiedCellOpponent.A2.health}></progress>
+                    <progress className={classes.healthScaleEmpire} max="80" value={occupiedCellOpponent.A2.health}></progress>
                     <p>{occupiedCellOpponent.A2.name}</p>
                     <p>Attack:  {occupiedCellOpponent.A2.attack}</p>
                     <p>Defense: {occupiedCellOpponent.A2.defense}:</p>
@@ -4861,7 +4887,7 @@ function handleCounterattack() {
 
                 {occupiedCellOpponent.A3.showCard && <div className={classes.cardEmpireTop}>
                     <img className={classes.imageCard} src={WestArcher} alt="WestArcher" draggable="false"/>
-                    <progress className={classes.healthScaleEmpire} max="100" value={occupiedCellOpponent.A3.health}></progress>
+                    <progress className={classes.healthScaleEmpire} max="80" value={occupiedCellOpponent.A3.health}></progress>
                     <p>{occupiedCellOpponent.A3.name}</p>
                     <p>Attack:  {occupiedCellOpponent.A3.attack}</p>
                     <p>Defense: {occupiedCellOpponent.A3.defense}:</p>
@@ -4869,7 +4895,7 @@ function handleCounterattack() {
 
                 {occupiedCellOpponent.A4.showCard && <div className={classes.cardEmpireTop}>
                     <img className={classes.imageCard} src={EastArcher} alt="EastArcher" draggable="false"/>
-                    <progress className={classes.healthScaleEmpire} max="100" value={occupiedCellOpponent.A4.health}></progress>
+                    <progress className={classes.healthScaleEmpire} max="150" value={occupiedCellOpponent.A4.health}></progress>
                     <p>{occupiedCellOpponent.A4.name}</p>
                     <p>Attack:  {occupiedCellOpponent.A4.attack}</p>
                     <p>Defense: {occupiedCellOpponent.A4.defense}:</p>
@@ -4877,7 +4903,7 @@ function handleCounterattack() {
 
                 {occupiedCellOpponent.A5.showCard && <div className={classes.cardEmpireTop}>
                     <img className={classes.imageCard} src={WestSwordsman} alt="WestSwordsman" draggable="false"/>
-                    <progress className={classes.healthScaleEmpire} max="100" value={occupiedCellOpponent.A5.health}></progress>
+                    <progress className={classes.healthScaleEmpire} max="130" value={occupiedCellOpponent.A5.health}></progress>
                     <p>{occupiedCellOpponent.A5.name}</p>
                     <p>Attack:  {occupiedCellOpponent.A5.attack}</p>
                     <p>Defense: {occupiedCellOpponent.A5.defense}:</p>
@@ -4885,7 +4911,7 @@ function handleCounterattack() {
                 
                 {occupiedCellOpponent.A6.showCard && <div className={classes.cardEmpireTop}>
                     <img className={classes.imageCard} src={WestSwordsman} alt="WestSwordsman" draggable="false"/>
-                    <progress className={classes.healthScaleEmpire} max="100" value={occupiedCellOpponent.A6.health}></progress>
+                    <progress className={classes.healthScaleEmpire} max="130" value={occupiedCellOpponent.A6.health}></progress>
                     <p>{occupiedCellOpponent.A6.name}</p>
                     <p>Attack:  {occupiedCellOpponent.A6.attack}</p>
                     <p>Defense: {occupiedCellOpponent.A6.defense}:</p>
@@ -4893,7 +4919,7 @@ function handleCounterattack() {
 
                 {occupiedCellOpponent.A7.showCard && <div className={classes.cardEmpireTop}>
                     <img className={classes.imageCard} src={WestSwordsman} alt="WestSwordsman" draggable="false"/>
-                    <progress className={classes.healthScaleEmpire} max="100" value={occupiedCellOpponent.A7.health}></progress>
+                    <progress className={classes.healthScaleEmpire} max="130" value={occupiedCellOpponent.A7.health}></progress>
                     <p>{occupiedCellOpponent.A7.name}</p>
                     <p>Attack:  {occupiedCellOpponent.A7.attack}</p>
                     <p>Defense: {occupiedCellOpponent.A7.defense}:</p>
@@ -4901,7 +4927,7 @@ function handleCounterattack() {
 
                 {occupiedCellOpponent.A8.showCard && <div className={classes.cardEmpireTop}>
                     <img className={classes.imageCard} src={WestSwordsman} alt="WestSwordsman" draggable="false"/>
-                    <progress className={classes.healthScaleEmpire} max="100" value={occupiedCellOpponent.A8.health}></progress>
+                    <progress className={classes.healthScaleEmpire} max="130" value={occupiedCellOpponent.A8.health}></progress>
                     <p>{occupiedCellOpponent.A8.name}</p>
                     <p>Attack:  {occupiedCellOpponent.A8.attack}</p>
                     <p>Defense: {occupiedCellOpponent.A8.defense}:</p>
@@ -4911,20 +4937,17 @@ function handleCounterattack() {
 
                 {showShop && <div className={classes.shop}>
                     
-                    <button className={classes.hunterBuy} onClick={handleBuyHunter} disabled={resources <= 0 || stateButtonsSkills === true}><p className={classes.titleBuyUnitWasteland}>Охотники: {reserve.wastelandHunter}</p></button>
-                    {resources} resurs 
-                    
-                    <button className={classes.javelinBuy} onClick={handleBuyJavelin} disabled={resources <= 0 || stateButtonsSkills === true}><p className={classes.titleBuyUnitWasteland}>Метатели: {reserve.wastelandJavelin}</p></button>
-                    {resources} resurs 
+                    <button className={classes.hunterBuy} onClick={handleBuyHunter} disabled={resources <= 0 || stateButtonsSkills === true}><p className={classes.titleBuyUnitWasteland}>Охотники: {reserve.wastelandHunter}</p> <p className={classes.titleBuyUnitWasteland}>Цена: 40</p> </button>
 
-                    <button className={classes.macesBuy} onClick={handleBuyMaces} disabled={resources <= 0 || stateButtonsSkills === true}><p className={classes.titleBuyUnitWasteland}>Булавоносцы: {reserve.wastelandMaces}</p></button>
-                    {resources} resurs
-                    
-                    <button className={classes.angalitBuy} onClick={handleBuyAngalit} disabled={resources <= 0 || stateButtonsSkills === true}><p className={classes.titleBuyUnitWasteland}>Ангалиты: {reserve.wastelandAngalit}</p></button>
-                    {resources} resurs
+                    <button className={classes.javelinBuy} onClick={handleBuyJavelin} disabled={resources <= 0 || stateButtonsSkills === true}><p className={classes.titleBuyUnitWasteland}>Метатели: {reserve.wastelandJavelin}</p> <p className={classes.titleBuyUnitWasteland}>Цена: 70</p> </button>
 
-                    <button className={classes.poulticeBuyWasteland} onClick={handleBuyPoultice} disabled={resources <= 0 || stateButtonsSkills === true}><p className={classes.titleBuyUnitWasteland}>Припарки: {stateSkillsHero.poultice}</p></button>
-                    {resources} resurs 
+                    <button className={classes.macesBuy} onClick={handleBuyMaces} disabled={resources <= 0 || stateButtonsSkills === true}><p className={classes.titleBuyUnitWasteland}>Булавоносцы: {reserve.wastelandMaces}</p> <p className={classes.titleBuyUnitWasteland}>Цена: 100</p> </button>
+                    
+                    <button className={classes.angalitBuy} onClick={handleBuyAngalit} disabled={resources <= 0 || stateButtonsSkills === true}><p className={classes.titleBuyUnitWasteland}>Ангалиты: {reserve.wastelandAngalit}</p> <p className={classes.titleBuyUnitWasteland}>Цена: 150</p> </button>
+
+                    {showButtonPoultice && <button className={classes.poulticeBuyWasteland} onClick={handleBuyPoultice} disabled={resources <= 0 || stateButtonsSkills === true}><p className={classes.titleBuyUnitWasteland}>Припарки: {stateSkillsHero.poultice}</p> <p className={classes.titleBuyUnitWasteland}>Цена: 50</p> </button>}
+
+                    <h1>GOLD:{resources}</h1>
 
                     <button className={classes.closeButton} onClick={handleCloseShop} disabled={reserve.wastelandHunter + reserve.wastelandJavelin + reserve.wastelandMaces + reserve.wastelandAngalit === 0}>Готово</button>
                     
@@ -4969,7 +4992,7 @@ function handleCounterattack() {
                             onMouseEnter={() => setOccupiedCellOpponent(prev => ({...prev, A1: {...prev.A1, showCard: true}}))}
                             onMouseLeave={() => setOccupiedCellOpponent(prev => ({...prev, A1: {...prev.A1,showCard: false}}))} 
                             disabled={stateButtonsSkills === true || occupiedCellOpponent.A1.health <= 0 || buttonStateGame.stateAttackButton === false || buttonStateGame.stateFixStartButton === false}>
-                        <progress className={classes.healthScaleEmpireUnit} value={occupiedCellOpponent.A1.health} max="100"></progress>
+                        <progress className={classes.healthScaleEmpireUnit} value={occupiedCellOpponent.A1.health} max="150"></progress>
                         </button>
                     </div>
 
@@ -4981,7 +5004,7 @@ function handleCounterattack() {
                             onMouseEnter={() => setOccupiedCellOpponent(prev => ({...prev, A2: {...prev.A2, showCard: true}}))}
                             onMouseLeave={() => setOccupiedCellOpponent(prev => ({...prev, A2: {...prev.A2,showCard: false}}))} 
                             disabled={stateButtonsSkills === true || occupiedCellOpponent.A2.health <= 0 || buttonStateGame.stateAttackButton === false || buttonStateGame.stateFixStartButton === false}>
-                        <progress className={classes.healthScaleEmpireUnit} value={occupiedCellOpponent.A2.health} max="100"></progress>
+                        <progress className={classes.healthScaleEmpireUnit} value={occupiedCellOpponent.A2.health} max="80"></progress>
                         </button>
                     </div>
                        
@@ -4993,7 +5016,7 @@ function handleCounterattack() {
                             onMouseEnter={() => setOccupiedCellOpponent(prev => ({...prev, A3: {...prev.A3, showCard: true}}))}
                             onMouseLeave={() => setOccupiedCellOpponent(prev => ({...prev, A3: {...prev.A3,showCard: false}}))} 
                             disabled={stateButtonsSkills === true || occupiedCellOpponent.A3.health <= 0 || buttonStateGame.stateAttackButton === false || buttonStateGame.stateFixStartButton === false}>
-                        <progress className={classes.healthScaleEmpireUnit} value={occupiedCellOpponent.A3.health} max="100"></progress>
+                        <progress className={classes.healthScaleEmpireUnit} value={occupiedCellOpponent.A3.health} max="80"></progress>
                         </button>
                     </div>
 
@@ -5005,7 +5028,7 @@ function handleCounterattack() {
                             onMouseEnter={() => setOccupiedCellOpponent(prev => ({...prev, A4: {...prev.A4, showCard: true}}))}
                             onMouseLeave={() => setOccupiedCellOpponent(prev => ({...prev, A4: {...prev.A4,showCard: false}}))} 
                             disabled={stateButtonsSkills === true || occupiedCellOpponent.A4.health <= 0 || buttonStateGame.stateAttackButton === false || buttonStateGame.stateFixStartButton === false}>
-                        <progress className={classes.healthScaleEmpireUnit} value={occupiedCellOpponent.A4.health} max="100"></progress>
+                        <progress className={classes.healthScaleEmpireUnit} value={occupiedCellOpponent.A4.health} max="150"></progress>
                         </button>
                     </div>
 
@@ -5017,8 +5040,8 @@ function handleCounterattack() {
                             onMouseEnter={() => setOccupiedCellOpponent(prev => ({...prev, A5: {...prev.A5, showCard: true}}))}
                             onMouseLeave={() => setOccupiedCellOpponent(prev => ({...prev, A5: {...prev.A5,showCard: false}}))} 
                             disabled={stateButtonsSkills === true || occupiedCellOpponent.A5.health <= 0 || buttonStateGame.stateAttackButton === false || buttonStateGame.stateFixStartButton === false}>
-                        <progress className={classes.healthScaleEmpireUnit} value={occupiedCellOpponent.A5.health} max="100"></progress>
-                        </button>{occupiedCellOpponent.A5.health}
+                        <progress className={classes.healthScaleEmpireUnit} value={occupiedCellOpponent.A5.health} max="130"></progress>
+                        </button>
                     </div>
                     
                     <div className={classes.cellA6}>
@@ -5029,7 +5052,7 @@ function handleCounterattack() {
                             onMouseEnter={() => setOccupiedCellOpponent(prev => ({...prev, A6: {...prev.A6, showCard: true}}))}
                             onMouseLeave={() => setOccupiedCellOpponent(prev => ({...prev, A6: {...prev.A6,showCard: false}}))} 
                             disabled={stateButtonsSkills === true || occupiedCellOpponent.A6.health <= 0 || buttonStateGame.stateAttackButton === false || buttonStateGame.stateFixStartButton === false}>
-                        <progress className={classes.healthScaleEmpireUnit} value={occupiedCellOpponent.A6.health} max="100"></progress>
+                        <progress className={classes.healthScaleEmpireUnit} value={occupiedCellOpponent.A6.health} max="130"></progress>
                         </button>
                     </div>
 
@@ -5041,7 +5064,7 @@ function handleCounterattack() {
                             onMouseEnter={() => setOccupiedCellOpponent(prev => ({...prev, A7: {...prev.A7, showCard: true}}))}
                             onMouseLeave={() => setOccupiedCellOpponent(prev => ({...prev, A7: {...prev.A7,showCard: false}}))} 
                             disabled={stateButtonsSkills === true || occupiedCellOpponent.A7.health <= 0 || buttonStateGame.stateAttackButton === false || buttonStateGame.stateFixStartButton === false}>
-                        <progress className={classes.healthScaleEmpireUnit} value={occupiedCellOpponent.A7.health} max="100"></progress>
+                        <progress className={classes.healthScaleEmpireUnit} value={occupiedCellOpponent.A7.health} max="130"></progress>
                         </button>
                     </div>
 
@@ -5053,7 +5076,7 @@ function handleCounterattack() {
                             onMouseEnter={() => setOccupiedCellOpponent(prev => ({...prev, A8: {...prev.A8, showCard: true}}))}
                             onMouseLeave={() => setOccupiedCellOpponent(prev => ({...prev, A8: {...prev.A8,showCard: false}}))} 
                             disabled={stateButtonsSkills === true || occupiedCellOpponent.A8.health <= 0 || buttonStateGame.stateAttackButton === false || buttonStateGame.stateFixStartButton === false}>
-                        <progress className={classes.healthScaleEmpireUnit} value={occupiedCellOpponent.A8.health} max="100"></progress>
+                        <progress className={classes.healthScaleEmpireUnit} value={occupiedCellOpponent.A8.health} max="130"></progress>
                         </button>
                     </div>
 
@@ -5131,7 +5154,7 @@ function handleCounterattack() {
                             id={"C1"} 
                             onClick={() => {handleChoiceCellAttack("C1")}} 
                             disabled={occupiedCell.C1.occupied === false || stateOfButtonsDuringAttack === false || occupiedCell.C1.health <= 0}>
-                        <progress className={classes.healthScaleWastelandUnit} value={occupiedCell.C1.health} max="100"></progress>
+                        <progress className={classes.healthScaleWastelandUnit} value={occupiedCell.C1.health} max={ occupiedCell.C1.name === "Охотники" ? 80 : occupiedCell.C1.name === "Метатели" ? 100 : occupiedCell.C1.name === "Булавоносцы" ? 180 : occupiedCell.C1.name === "Ангалиты" ? 250 : 0 }></progress>
                         </button>
                     </div>
 
@@ -5149,7 +5172,7 @@ function handleCounterattack() {
                             id={"C2"} 
                             onClick={() => {handleChoiceCellAttack("C2")}} 
                             disabled={occupiedCell.C2.occupied === false || stateOfButtonsDuringAttack === false || occupiedCell.C2.health <= 0}>
-                        <progress className={classes.healthScaleWastelandUnit} value={occupiedCell.C2.health} max="100"></progress>
+                        <progress className={classes.healthScaleWastelandUnit} value={occupiedCell.C2.health} max={ occupiedCell.C2.name === "Охотники" ? 80 : occupiedCell.C2.name === "Метатели" ? 100 : occupiedCell.C2.name === "Булавоносцы" ? 180 : occupiedCell.C2.name === "Ангалиты" ? 250 : 0 }></progress>
                         </button>
                     </div>
 
@@ -5167,7 +5190,7 @@ function handleCounterattack() {
                             id={"C3"} 
                             onClick={() => {handleChoiceCellAttack("C3")}} 
                             disabled={occupiedCell.C3.occupied === false || stateOfButtonsDuringAttack === false || occupiedCell.C3.health <= 0}>
-                        <progress className={classes.healthScaleWastelandUnit} value={occupiedCell.C3.health} max="100"></progress>
+                        <progress className={classes.healthScaleWastelandUnit} value={occupiedCell.C3.health} max={ occupiedCell.C3.name === "Охотники" ? 80 : occupiedCell.C3.name === "Метатели" ? 100 : occupiedCell.C3.name === "Булавоносцы" ? 180 : occupiedCell.C3.name === "Ангалиты" ? 250 : 0 }></progress>
                         </button>
                     </div>
 
@@ -5185,7 +5208,7 @@ function handleCounterattack() {
                             id={"C4"} 
                             onClick={() => {handleChoiceCellAttack("C4")}} 
                             disabled={occupiedCell.C4.occupied === false || stateOfButtonsDuringAttack === false || occupiedCell.C4.health <= 0}>
-                        <progress className={classes.healthScaleWastelandUnit} value={occupiedCell.C4.health} max="100"></progress>
+                        <progress className={classes.healthScaleWastelandUnit} value={occupiedCell.C4.health} max={ occupiedCell.C4.name === "Охотники" ? 80 : occupiedCell.C4.name === "Метатели" ? 100 : occupiedCell.C4.name === "Булавоносцы" ? 180 : occupiedCell.C4.name === "Ангалиты" ? 250 : 0 }></progress>
                         </button>
                     </div>
                     
@@ -5263,7 +5286,7 @@ function handleCounterattack() {
                             id={"D1"} 
                             onClick={() => {handleChoiceCellAttack("D1")}} 
                             disabled={occupiedCell.D1.occupied === false || stateOfButtonsDuringAttack === false || occupiedCell.D1.health <= 0}>
-                        <progress className={classes.healthScaleWastelandUnit} value={occupiedCell.D1.health} max="100"></progress>
+                        <progress className={classes.healthScaleWastelandUnit} value={occupiedCell.D1.health} max={ occupiedCell.D1.name === "Охотники" ? 80 : occupiedCell.D1.name === "Метатели" ? 100 : occupiedCell.D1.name === "Булавоносцы" ? 180 : occupiedCell.D1.name === "Ангалиты" ? 250 : 0 }></progress>
                         </button>
                     </div>
 
@@ -5281,7 +5304,7 @@ function handleCounterattack() {
                             id={"D2"} 
                             onClick={() => {handleChoiceCellAttack("D2")}} 
                             disabled={occupiedCell.D2.occupied === false || stateOfButtonsDuringAttack === false || occupiedCell.D2.health <= 0}>
-                        <progress className={classes.healthScaleWastelandUnit} value={occupiedCell.D2.health} max="100"></progress>
+                        <progress className={classes.healthScaleWastelandUnit} value={occupiedCell.D2.health} max={ occupiedCell.D2.name === "Охотники" ? 80 : occupiedCell.D2.name === "Метатели" ? 100 : occupiedCell.D2.name === "Булавоносцы" ? 180 : occupiedCell.D2.name === "Ангалиты" ? 250 : 0 }></progress>
                         </button>
                     </div>
 
@@ -5299,7 +5322,7 @@ function handleCounterattack() {
                             id={"D3"} 
                             onClick={() => {handleChoiceCellAttack("D3")}} 
                             disabled={occupiedCell.D3.occupied === false || stateOfButtonsDuringAttack === false || occupiedCell.D3.health <= 0}>
-                        <progress className={classes.healthScaleWastelandUnit} value={occupiedCell.D3.health} max="100"></progress>
+                        <progress className={classes.healthScaleWastelandUnit} value={occupiedCell.D3.health} max={ occupiedCell.D3.name === "Охотники" ? 80 : occupiedCell.D3.name === "Метатели" ? 100 : occupiedCell.D3.name === "Булавоносцы" ? 180 : occupiedCell.D3.name === "Ангалиты" ? 250 : 0 }></progress>
                         </button>
                     </div>
 
@@ -5317,7 +5340,7 @@ function handleCounterattack() {
                             id={"D4"} 
                             onClick={() => {handleChoiceCellAttack("D4")}} 
                             disabled={occupiedCell.D4.occupied === false || stateOfButtonsDuringAttack === false || occupiedCell.D4.health <= 0}>
-                        <progress className={classes.healthScaleWastelandUnit} value={occupiedCell.D4.health} max="100"></progress>
+                        <progress className={classes.healthScaleWastelandUnit} value={occupiedCell.D4.health} max={ occupiedCell.D4.name === "Охотники" ? 80 : occupiedCell.D4.name === "Метатели" ? 100 : occupiedCell.D4.name === "Булавоносцы" ? 180 : occupiedCell.D4.name === "Ангалиты" ? 250 : 0 }></progress>
                         </button>  
                     </div>
                 

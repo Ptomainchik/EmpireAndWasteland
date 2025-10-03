@@ -169,3 +169,19 @@
     left: 5%;
     border: none;
 }
+
+.centerImageLoseEmpire{
+    width: 28vw;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.centerImageLoseWasteland{
+    width: 40vw;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+}

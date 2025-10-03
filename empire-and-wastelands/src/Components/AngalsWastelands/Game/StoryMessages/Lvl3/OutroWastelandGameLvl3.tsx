@@ -8,7 +8,7 @@ export const OutroWastelandGameLvl3 = (props:any) => {
     const navigate = useNavigate();
 
     function handleCloseMessage() {
-        props.setResources(props.resources + 300);
+        props.setResources(props.resources + 500);
         props.setShowStoryMessages((prev: any) => ({...prev, outro: false, countForMessage: 2 }));
         navigate("/gamewaslvl4");
     };
