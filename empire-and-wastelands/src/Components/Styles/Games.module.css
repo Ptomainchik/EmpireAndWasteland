@@ -280,7 +280,7 @@
 
 .cardWastelandTop{
     width: 90%;
-    height: 40%;
+    height: 47%;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -288,14 +288,22 @@
     background: darkolivegreen;
 }
 
+.cardWastelandTop p{
+    width: 85%;
+}
+
 .cardWastelandBottom{
     width: 90%;
-    height: 40%;
+    height: 47%;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     bottom: 2%;
     background: darkolivegreen;
+}
+
+.cardWastelandBottom p{
+    width: 85%;
 }
 
 .healthScaleWasteland{
@@ -993,7 +1001,7 @@
 
 .cardEmpireTop{
     width: 90%;
-    height: 40%;
+    height: 47%;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -1001,14 +1009,22 @@
     background: cadetblue;
 }
 
+.cardEmpireTop p {
+    width: 85%;
+}
+
 .cardEmpireBottom{
     width: 90%;
-    height: 40%;
+    height: 47%;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     bottom: 2%;
     background: cadetblue;
+}
+
+.cardEmpireBottom p {
+    width: 85%;
 }
 
 .healthScaleEmpire{
@@ -1502,6 +1518,12 @@
     bottom: 2%;
 }
 
+.textCard{
+    width: 85%;
+    padding-top: 15%;
+    margin: 2%;
+}
+
 .skillsBlockLeft{
     width: 10%;
     height: 89%;
@@ -1541,6 +1563,16 @@
 }
 
 /* Overall Positions Cells */
+
+.pointer{
+    width: 2vw;
+    height: 1.5vw;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -30%;
+    clip-path: polygon(50% 50%, 0% 100%, 100% 100%);
+}
 
 .cell{
     width: 8.5vw; 

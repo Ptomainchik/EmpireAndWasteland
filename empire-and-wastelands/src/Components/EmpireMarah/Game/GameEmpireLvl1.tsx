@@ -38,6 +38,19 @@ export const GameEmpireLvl1 = () => {
         showFury: false,
         showPoultice: false,
     });
+    const [showPointerSkills, setShowPointerSkills] = useState({
+            showA1:false,
+            showA2:false,
+            showA3:false,
+            showA4:false,
+            showSkillPoultice: false,
+            showSkillHero1: false,
+            showSkillHero2: false,
+            showSkillWestArcher: false,
+            showSkillWestSwordsman: false,
+            showSkillEastArcher: false,
+            showSkillEastPathfinder: false,
+    });
     const [showButtonPoultice, setShowButtonPoultice] = useState(false);
     const [stateChoiceButton, setStateChoiceButton] = useState(true);
     const [showGameField, setShowGameField] = useState(false);
@@ -78,6 +91,7 @@ export const GameEmpireLvl1 = () => {
                 first: false,
                 classEmpireSoldier: 0,
                 showCard: false,
+                buff: "Нет",
             },
             A2:{
                 name: "Охотники",
@@ -88,6 +102,7 @@ export const GameEmpireLvl1 = () => {
                 first: false,
                 classEmpireSoldier: 0,
                 showCard: false,
+                buff: "Нет",
             },
             A3:{
                 name: "Охотники",
@@ -98,6 +113,7 @@ export const GameEmpireLvl1 = () => {
                 first: false,
                 classEmpireSoldier: 0,
                 showCard: false,
+                buff: "Нет",
             },
             A4:{
                 name: "Охотники",
@@ -108,6 +124,7 @@ export const GameEmpireLvl1 = () => {
                 first: false,
                 classEmpireSoldier: 0,
                 showCard: false,
+                buff: "Нет",
             },
     });
     const [occupiedCell, setOccupiedCell] = useState({
@@ -315,7 +332,7 @@ export const GameEmpireLvl1 = () => {
         });
         setStyledButtons(prev => ({
             ...prev,
-            [id]: 1 // 1 - охотник
+            [id]: 1 // 1 - Лучники запада
         }));
         if(id === "C1"){
         setOccupiedCell(prevOccupiedCell => ({
@@ -464,7 +481,7 @@ export const GameEmpireLvl1 = () => {
         });
         setStyledButtons(prev => ({
             ...prev,
-            [id]: 2 // 2 - метатель
+            [id]: 2 // 2 - Мечники запада
         }));
         if(id === "C1"){
         setOccupiedCell(prevOccupiedCell => ({
@@ -615,6 +632,72 @@ export const GameEmpireLvl1 = () => {
         stateButtonValidationOfStart: false,
     });
 }
+
+    function handlePointerSomeTargetsSkill(id: string) {
+        if (attackQueue === 1) {
+            setShowPointerSkills(prev => ({...prev, showA1: true, showA2: true}));
+        }
+        else if (attackQueue === 2) {
+            setShowPointerSkills(prev => ({...prev, showA1: true, showA2: true, showA3: true,}));
+        }
+        else if (attackQueue === 3) {
+            setShowPointerSkills(prev => ({...prev, showA2: true, showA3: true, showA4: true,}));
+        }
+        else if (attackQueue === 4) {
+            setShowPointerSkills(prev => ({...prev, showA3: true, showA4: true}));
+        }
+
+        if (id === "S2") {
+            setShowPointerSkills(prev => ({...prev, showSkillWestSwordsman: true}));
+        }
+    }
+
+    function handlePointerOneTargetSkill(id: string) {
+        if (attackQueue === 1) {
+            setShowPointerSkills(prev => ({...prev, showA1: true}));
+        }
+        else if (attackQueue === 2) {
+            setShowPointerSkills(prev => ({...prev, showA2: true}));
+        }
+        else if (attackQueue === 3) {
+            setShowPointerSkills(prev => ({...prev, showA3: true}));
+        }
+        else if (attackQueue === 4) {
+            setShowPointerSkills(prev => ({...prev, showA4: true}));
+        }
+
+        if (id === "S1") {
+            setShowPointerSkills(prev => ({...prev, showSkillWestArcher: true}));
+        }
+        else if (id === "S3") {
+            setShowPointerSkills(prev => ({...prev, showSkillEastArcher: true}));
+        }
+        else if (id === "S4") {
+            setShowPointerSkills(prev => ({...prev, showSkillEastPathfinder: true}));
+        }
+    }
+
+    function handlePointerPoultice (id: string) {
+        if (id === "SP") {
+            setShowPointerSkills(prev => ({...prev, showSkillPoultice: true}));
+        }
+    }
+
+    function handlePointerTargetsSkillsFalse () {
+        setShowPointerSkills(prev => ({...prev,
+            showA1: false,
+            showA2: false,
+            showA3: false,
+            showA4: false,
+            showSkillPoultice: false,
+            showSkillHero1: false,
+            showSkillHero2: false,
+            showSkillWestArcher: false,
+            showSkillWestSwordsman: false,
+            showSkillEastArcher: false,
+            showSkillEastPathfinder: false,
+        }))
+    }
 
    function handleChoiceCellAttack(id: string) {
     setStateChoiceButton(false);
@@ -1144,7 +1227,7 @@ function handleCounterattack() {
             setStateSkillsSoldiersEmpire(prev => ({...prev, stateWestArcherQuantitySkills : false}));
             setStateSkillsSoldiersEmpire(prev => ({...prev, showStateSkillsWestArcher: false}));
         }
-       
+        setShowPointerSkills(prev => ({...prev, showA1: false, showA2: false, showA3: false, showA4: false, showSkillWestArcher: false}));
     }
 
     function handleSkillWestSwordsman() {
@@ -1224,7 +1307,7 @@ function handleCounterattack() {
             setStateSkillsSoldiersEmpire(prev => ({...prev, stateWestSwordsmanQuantitySkills : false}));
             setStateSkillsSoldiersEmpire(prev => ({...prev, showStateSkillsWestSwordsman: false}));
         }
-        
+        setShowPointerSkills(prev => ({...prev, showA1: false, showA2: false, showA3: false, showA4: false, showSkillWestSwordsman: false}));
     }
 
     function handleSkillPoultice() {
@@ -1566,7 +1649,7 @@ function handleCounterattack() {
         else {
             return
         }
-        
+        setShowPointerSkills(prev => ({...prev, showSkillPoultice: false}));
     }
 
     function handleStartGame() {
@@ -1664,15 +1747,15 @@ function handleCounterattack() {
     }, [stateSkillsHero.poultice]);
 
     useEffect(() => {
-        const swordsmanCells = Object.values(occupiedCell).filter(cell => 
+        const Cells = Object.values(occupiedCell).filter(cell => 
             cell.name === "Лучники запада"
         );
     
     
-        const allSwordsmenDead = swordsmanCells.length > 0 && 
-        swordsmanCells.every(cell => cell.health <= 0);
+        const allDead = Cells.length > 0 && 
+        Cells.every(cell => cell.health <= 0);
     
-        if (allSwordsmenDead) {
+        if (allDead) {
             setStateSkillsSoldiersEmpire(prev => ({
                 ...prev, 
                 showStateSkillsWestArcher: false
@@ -1681,15 +1764,15 @@ function handleCounterattack() {
     }, [occupiedCell]);
 
     useEffect(() => {
-        const swordsmanCells = Object.values(occupiedCell).filter(cell => 
+        const Cells = Object.values(occupiedCell).filter(cell => 
             cell.name === "Мечники запада"
         );
     
     
-        const allSwordsmenDead = swordsmanCells.length > 0 && 
-        swordsmanCells.every(cell => cell.health <= 0);
+        const allDead = Cells.length > 0 && 
+        Cells.every(cell => cell.health <= 0);
     
-        if (allSwordsmenDead) {
+        if (allDead) {
             setStateSkillsSoldiersEmpire(prev => ({
                 ...prev, 
                 showStateSkillsWestSwordsman: false
@@ -1722,6 +1805,24 @@ function handleCounterattack() {
 
             <div className={classes.skillsBlockLeft}>
 
+                {showPointerSkills.showSkillPoultice && <div className={classes.cardEmpireTop}>
+                    <p className={classes.textCard}>
+                        Припарка - восстанавливает всё здоровье выбранного юнита.
+                    </p>
+                </div>}
+                                                
+                {showPointerSkills.showSkillWestArcher && <div className={classes.cardEmpireTop}>
+                    <p className={classes.textCard}>
+                        Обстрел - атака западных лучников, наносящая средний урон юниту противника.
+                    </p>
+                </div>}
+                                                
+                {showPointerSkills.showSkillWestSwordsman && <div className={classes.cardEmpireTop}>
+                    <p className={classes.textCard}>
+                        Атака строем - атака западных мечников по площади, наносящая средний урон юнитам противника.
+                    </p>
+                </div>}
+                                                
                 {occupiedCell.C1.showCard && <div className={classes.cardEmpireBottom}>
                     <img className={classes.imageCard} src={occupiedCell.C1.classEmpireSoldier === 1 
                     ? CardWestArcher
@@ -1730,8 +1831,12 @@ function handleCounterattack() {
                     : Card} alt="Card" draggable="false"/>
                     <progress className={classes.healthScaleEmpire} max={ occupiedCell.C1.name === "Лучники запада" ? 80 : occupiedCell.C1.name === "Мечники запада" ? 130 : 0 } value={occupiedCell.C1.health}></progress>
                     <p>{occupiedCell.C1.name}</p>
-                    <p>Attack:  {occupiedCell.C1.attack}</p>
-                    <p>Defense: {occupiedCell.C1.defense}:</p>
+                    <p>Атака:  {occupiedCell.C1.attack}</p>
+                    <p>Защита: {occupiedCell.C1.defense}</p>
+                    <p>Бафф: {occupiedCell.C1.name === "Лучники запада" ? "Нет"
+                        : occupiedCell.C1.name === "Мечники запада" ? "Уменьшенный урон от атак Метателей"
+                        : ""}
+                    </p>
                 </div>}
 
                 {occupiedCell.C2.showCard && <div className={classes.cardEmpireBottom}>
@@ -1742,8 +1847,12 @@ function handleCounterattack() {
                     : Card} alt="Card" draggable="false"/>
                     <progress className={classes.healthScaleEmpire} max={ occupiedCell.C2.name === "Лучники запада" ? 80 : occupiedCell.C2.name === "Мечники запада" ? 130 : 0 } value={occupiedCell.C2.health}></progress>
                     <p>{occupiedCell.C2.name}</p>
-                    <p>Attack:  {occupiedCell.C2.attack}</p>
-                    <p>Defense: {occupiedCell.C2.defense}:</p>
+                    <p>Атака:  {occupiedCell.C2.attack}</p>
+                    <p>Защита: {occupiedCell.C2.defense}</p>
+                    <p>Бафф: {occupiedCell.C2.name === "Лучники запада" ? "Нет"
+                        : occupiedCell.C2.name === "Мечники запада" ? "Уменьшенный урон от атак Метателей"
+                        : ""}
+                    </p>
                 </div>}
 
                 {occupiedCell.C3.showCard && <div className={classes.cardEmpireBottom}>
@@ -1754,8 +1863,12 @@ function handleCounterattack() {
                     : Card} alt="Card" draggable="false"/>
                     <progress className={classes.healthScaleEmpire} max={ occupiedCell.C3.name === "Лучники запада" ? 80 : occupiedCell.C3.name === "Мечники запада" ? 130 : 0 } value={occupiedCell.C3.health}></progress>
                     <p>{occupiedCell.C3.name}</p>
-                    <p>Attack:  {occupiedCell.C3.attack}</p>
-                    <p>Defense: {occupiedCell.C3.defense}:</p>
+                    <p>Атака:  {occupiedCell.C3.attack}</p>
+                    <p>Защита: {occupiedCell.C3.defense}</p>
+                    <p>Бафф: {occupiedCell.C3.name === "Лучники запада" ? "Нет"
+                        : occupiedCell.C3.name === "Мечники запада" ? "Уменьшенный урон от атак Метателей"
+                        : ""}
+                    </p>
                 </div>}
 
                 {occupiedCell.C4.showCard && <div className={classes.cardEmpireBottom}>
@@ -1766,8 +1879,12 @@ function handleCounterattack() {
                     : Card} alt="Card" draggable="false"/>
                     <progress className={classes.healthScaleEmpire} max={ occupiedCell.C4.name === "Лучники запада" ? 80 : occupiedCell.C4.name === "Мечники запада" ? 130 : 0 } value={occupiedCell.C4.health}></progress>
                     <p>{occupiedCell.C4.name}</p>
-                    <p>Attack:  {occupiedCell.C4.attack}</p>
-                    <p>Defense: {occupiedCell.C4.defense}:</p>
+                    <p>Атака:  {occupiedCell.C4.attack}</p>
+                    <p>Защита: {occupiedCell.C4.defense}</p>
+                    <p>Бафф: {occupiedCell.C4.name === "Лучники запада" ? "Нет"
+                        : occupiedCell.C4.name === "Мечники запада" ? "Уменьшенный урон от атак Метателей"
+                        : ""}
+                    </p>
                 </div>}
 
                 {occupiedCell.D1.showCard && <div className={classes.cardEmpireBottom}>
@@ -1778,8 +1895,12 @@ function handleCounterattack() {
                     : Card} alt="Card" draggable="false"/>
                     <progress className={classes.healthScaleEmpire} max={ occupiedCell.D1.name === "Лучники запада" ? 80 : occupiedCell.D1.name === "Мечники запада" ? 130 : 0 } value={occupiedCell.D1.health}></progress>
                     <p>{occupiedCell.D1.name}</p>
-                    <p>Attack:  {occupiedCell.D1.attack}</p>
-                    <p>Defense: {occupiedCell.D1.defense}:</p>
+                    <p>Атака:  {occupiedCell.D1.attack}</p>
+                    <p>Защита: {occupiedCell.D1.defense}</p>
+                    <p>Бафф: {occupiedCell.D1.name === "Лучники запада" ? "Нет"
+                        : occupiedCell.D1.name === "Мечники запада" ? "Уменьшенный урон от атак Метателей"
+                        : ""}
+                    </p>
                 </div>}
 
                 {occupiedCell.D2.showCard && <div className={classes.cardEmpireBottom}>
@@ -1790,8 +1911,12 @@ function handleCounterattack() {
                     : Card} alt="Card" draggable="false"/>
                     <progress className={classes.healthScaleEmpire} max={ occupiedCell.D2.name === "Лучники запада" ? 80 : occupiedCell.D2.name === "Мечники запада" ? 130 : 0 } value={occupiedCell.D2.health}></progress>
                     <p>{occupiedCell.D2.name}</p>
-                    <p>Attack:  {occupiedCell.D2.attack}</p>
-                    <p>Defense: {occupiedCell.D2.defense}:</p>
+                    <p>Атака:  {occupiedCell.D2.attack}</p>
+                    <p>Защита: {occupiedCell.D2.defense}</p>
+                    <p>Бафф: {occupiedCell.D2.name === "Лучники запада" ? "Нет"
+                        : occupiedCell.D2.name === "Мечники запада" ? "Уменьшенный урон от атак Метателей"
+                        : ""}
+                    </p>
                 </div>}
 
                 {occupiedCell.D3.showCard && <div className={classes.cardEmpireBottom}>
@@ -1802,8 +1927,12 @@ function handleCounterattack() {
                     : Card} alt="Card" draggable="false"/>
                     <progress className={classes.healthScaleEmpire} max={ occupiedCell.D3.name === "Лучники запада" ? 80 : occupiedCell.D3.name === "Мечники запада" ? 130 : 0 } value={occupiedCell.D3.health}></progress>
                     <p>{occupiedCell.D3.name}</p>
-                    <p>Attack:  {occupiedCell.D3.attack}</p>
-                    <p>Defense: {occupiedCell.D3.defense}:</p>
+                    <p>Атака:  {occupiedCell.D3.attack}</p>
+                    <p>Защита: {occupiedCell.D3.defense}</p>
+                    <p>Бафф: {occupiedCell.D3.name === "Лучники запада" ? "Нет"
+                        : occupiedCell.D3.name === "Мечники запада" ? "Уменьшенный урон от атак Метателей"
+                        : ""}
+                    </p>
                 </div>}
 
                 {occupiedCell.D4.showCard && <div className={classes.cardEmpireBottom}>
@@ -1814,40 +1943,48 @@ function handleCounterattack() {
                     : Card} alt="Card" draggable="false"/>
                     <progress className={classes.healthScaleEmpire} max={ occupiedCell.D4.name === "Лучники запада" ? 80 : occupiedCell.D4.name === "Мечники запада" ? 130 : 0 } value={occupiedCell.D4.health}></progress>
                     <p>{occupiedCell.D4.name}</p>
-                    <p>Attack:  {occupiedCell.D4.attack}</p>
-                    <p>Defense: {occupiedCell.D4.defense}:</p>
+                    <p>Атака:  {occupiedCell.D4.attack}</p>
+                    <p>Защита: {occupiedCell.D4.defense}</p>
+                    <p>Бафф: {occupiedCell.D4.name === "Лучники запада" ? "Нет"
+                        : occupiedCell.D4.name === "Мечники запада" ? "Уменьшенный урон от атак Метателей"
+                        : ""}
+                    </p>
                 </div>}
 
                 {occupiedCellOpponent.A1.showCard && <div className={classes.cardWastelandTop}>
                     <img className={classes.imageCard} src={AngalHunter} alt="AngalHunter" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCellOpponent.A1.health}></progress>
                     <p>{occupiedCellOpponent.A1.name}</p>
-                    <p>Attack:  {occupiedCellOpponent.A1.attack}</p>
-                    <p>Defense: {occupiedCellOpponent.A1.defense}:</p>
+                    <p>Атака:  {occupiedCellOpponent.A1.attack}</p>
+                    <p>Защита: {occupiedCellOpponent.A1.defense}</p>
+                    <p>Бафф: {occupiedCellOpponent.A1.buff}</p>
                 </div>}
 
                 {occupiedCellOpponent.A2.showCard && <div className={classes.cardWastelandTop}>
                     <img className={classes.imageCard} src={AngalHunter} alt="AngalHunter" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCellOpponent.A2.health}></progress>
                     <p>{occupiedCellOpponent.A2.name}</p>
-                    <p>Attack:  {occupiedCellOpponent.A2.attack}</p>
-                    <p>Defense: {occupiedCellOpponent.A2.defense}:</p>
+                    <p>Атака:  {occupiedCellOpponent.A2.attack}</p>
+                    <p>Защита: {occupiedCellOpponent.A2.defense}</p>
+                    <p>Бафф: {occupiedCellOpponent.A2.buff}</p>
                 </div>}
 
                 {occupiedCellOpponent.A3.showCard && <div className={classes.cardWastelandTop}>
                     <img className={classes.imageCard} src={AngalHunter} alt="AngalHunter" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCellOpponent.A3.health}></progress>
                     <p>{occupiedCellOpponent.A3.name}</p>
-                    <p>Attack:  {occupiedCellOpponent.A3.attack}</p>
-                    <p>Defense: {occupiedCellOpponent.A3.defense}:</p>
+                    <p>Атака:  {occupiedCellOpponent.A3.attack}</p>
+                    <p>Защита: {occupiedCellOpponent.A3.defense}</p>
+                    <p>Бафф: {occupiedCellOpponent.A3.buff}</p>
                 </div>}
 
                 {occupiedCellOpponent.A4.showCard && <div className={classes.cardWastelandTop}>
                     <img className={classes.imageCard} src={AngalHunter} alt="AngalHunter" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCellOpponent.A4.health}></progress>
                     <p>{occupiedCellOpponent.A4.name}</p>
-                    <p>Attack:  {occupiedCellOpponent.A4.attack}</p>
-                    <p>Defense: {occupiedCellOpponent.A4.defense}:</p>
+                    <p>Атака:  {occupiedCellOpponent.A4.attack}</p>
+                    <p>Защита: {occupiedCellOpponent.A4.defense}</p>
+                    <p>Бафф: {occupiedCellOpponent.A4.buff}</p>
                 </div>}
 
             </div>
@@ -1872,16 +2009,19 @@ function handleCounterattack() {
                 {buttonStateGame.stateOverallButton && <button className={classes.elvesButtonSkillsWestArcher} onClick={handleRequestForWestArcherReserves} disabled={stateStyleSoldier === 2 || stateStyleSoldier === 3 || stateStyleSoldier === 4 ||  stateButtonSoldiers.empireButtonWestArcher === true || reserve.westArcher === 0}>Лучники запада: {reserve.westArcher}</button>} 
                 {buttonStateGame.stateOverallButton && <button className={classes.elvesButtonSkillsWestSwordsman} onClick={handleRequestForWestSwordsmanReserves} disabled={stateStyleSoldier === 1 || stateStyleSoldier === 3 || stateStyleSoldier === 4 || stateButtonSoldiers.empireButtonWestSwordsman === true || reserve.westSwordsman === 0}>Мечники запада: {reserve.westSwordsman}</button>}
                
-                {showSkillsSoldierEmpire && <div className={classes.skillSoldiersWasteland}>
+                {showSkillsSoldierEmpire && <div>
 
                     <img className={classes.avatarHeroEmpire} src={Avatar} alt="Avatar" draggable="false" />
 
-                    {stateSkillsHero.showPoultice && <button className={classes.buttonSkillPoulticeEmpire} onClick={handleSkillPoultice} title="Припарка лечит выбранного юнита">Припарка: {stateSkillsHero.poultice}</button>}
+                    {stateSkillsHero.showPoultice && <button id="SP" className={classes.buttonSkillPoulticeEmpire} onClick={handleSkillPoultice} onMouseEnter={() => handlePointerPoultice("SP")}
+                            onMouseLeave={handlePointerTargetsSkillsFalse}>Припарка: {stateSkillsHero.poultice}</button>}
 
-                    {stateSkillsSoldiersEmpire.showStateSkillsWestArcher && <button className={classes.buttonSkillWestArcher} onClick={handleSkillWestArcher} title="Залп стрел по противнику">Залп</button>}
-                                        
-                    {stateSkillsSoldiersEmpire.showStateSkillsWestSwordsman && <button className={classes.buttonSkillWestSwordsman} onClick={handleSkillWestSwordsman} title="Атака строем - мечники запада, атакуют по площади">Атака строем</button>}
-                    
+                    {stateSkillsSoldiersEmpire.showStateSkillsWestArcher && <button id="S1" className={classes.buttonSkillWestArcher} onClick={handleSkillWestArcher} onMouseEnter={() => handlePointerOneTargetSkill("S1")}
+                            onMouseLeave={handlePointerTargetsSkillsFalse}>Обстрел</button>}
+
+                    {stateSkillsSoldiersEmpire.showStateSkillsWestSwordsman && <button id="S2" className={classes.buttonSkillWestSwordsman} onClick={handleSkillWestSwordsman} onMouseEnter={() => handlePointerSomeTargetsSkill("S2")}
+                            onMouseLeave={handlePointerTargetsSkillsFalse}>Атака строем</button>}
+
                 </div>}
             </div>
 
@@ -1899,6 +2039,7 @@ function handleCounterattack() {
                             disabled={stateButtonsSkills === true || occupiedCellOpponent.A1.health <= 0 || buttonStateGame.stateAttackButton === false || buttonStateGame.stateFixStartButton === false}>
                         <progress className={classes.healthScaleWastelandUnit} value={occupiedCellOpponent.A1.health} max="100"></progress>
                         </button>
+                        {showPointerSkills.showA1 && <div className={classes.pointer} style={{background: "cadetblue"}}></div>}
                     </div>
 
                     <div className={classes.cellA2}>
@@ -1911,6 +2052,7 @@ function handleCounterattack() {
                             disabled={stateButtonsSkills === true || occupiedCellOpponent.A2.health <= 0 || buttonStateGame.stateAttackButton === false || buttonStateGame.stateFixStartButton === false}>
                         <progress className={classes.healthScaleWastelandUnit} value={occupiedCellOpponent.A2.health} max="100"></progress>
                         </button>
+                        {showPointerSkills.showA2 && <div className={classes.pointer} style={{background: "cadetblue"}}></div>}
                     </div>
                        
                     <div className={classes.cellA3}>
@@ -1923,6 +2065,7 @@ function handleCounterattack() {
                             disabled={stateButtonsSkills === true || occupiedCellOpponent.A3.health <= 0 || buttonStateGame.stateAttackButton === false || buttonStateGame.stateFixStartButton === false}>
                         <progress className={classes.healthScaleWastelandUnit} value={occupiedCellOpponent.A3.health} max="100"></progress>
                         </button>
+                        {showPointerSkills.showA3 && <div className={classes.pointer} style={{background: "cadetblue"}}></div>}
                     </div>
 
                     <div className={classes.cellA4}>
@@ -1935,6 +2078,7 @@ function handleCounterattack() {
                             disabled={stateButtonsSkills === true || occupiedCellOpponent.A4.health <= 0 || buttonStateGame.stateAttackButton === false || buttonStateGame.stateFixStartButton === false}>
                         <progress className={classes.healthScaleWastelandUnit} value={occupiedCellOpponent.A4.health} max="100"></progress>
                         </button>
+                        {showPointerSkills.showA4 && <div className={classes.pointer} style={{background: "cadetblue"}}></div>}
                     </div>
 
                 </div>
