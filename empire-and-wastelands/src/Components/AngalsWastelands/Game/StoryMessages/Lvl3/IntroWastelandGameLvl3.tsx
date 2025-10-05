@@ -8,7 +8,7 @@ export const IntroWastelandGameLvl3 = ({setShowStoryMessages}:any) => {
     };
     
     return (
-        <div className={classes.intro}>
+        <div className={classes.introWasteland}>
             <img className={classes.centerImage} style={{border: "solid 0.3vw darkolivegreen"}} src={images} alt="images" draggable="false"/>
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. 

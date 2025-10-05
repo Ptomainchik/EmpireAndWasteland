@@ -7,8 +7,8 @@ import Card from "../../../Images/AngalsWastelandsImage/CoatOfArmsOfWasteland.we
 import CardAngalHunter from "../../../Images/AngalsWastelandsImage/ImageWastelandCardAngalHunter.jpg";
 import CardAngalJavelin from "../../../Images/AngalsWastelandsImage/ImageWastelandCardAngalJavelin.jpg";
 import CardAngalMaces from "../../../Images/AngalsWastelandsImage/ImageWastelandCardAngalMaces.jpg";
-import WestArcher from "../../../Images/ImpireMarahImage/ImageImpireCardWestArcher.jpg";
-import WestSwordsman from "../../../Images/ImpireMarahImage/ImageImpireCardWestSwordsman.jpg";
+import WestArcher from "../../../Images/EmpireMarahImage/ImageEmpireCardWestArcher.jpg";
+import WestSwordsman from "../../../Images/EmpireMarahImage/ImageEmpireCardWestSwordsman.jpg";
 import { LoseMessage } from "./StoryMessages/LoseMessage";
 import { IntroWastelandGameLvl2 } from "./StoryMessages/Lvl2/IntroWastelandGameLvl2";
 import { MessageHalfHealthLvl2 } from "./StoryMessages/Lvl2/MessageHalfHealthLvl2";
@@ -2941,30 +2941,30 @@ function handleCounterattack() {
 
             {showStoryMessages.lose && <LoseMessage/>}
 
-            <div className={classes.skillsBlockLeft}>
+            <div className={classes.skillsBlockLeftWasteland}>
 
                 {showPointerSkills.showSkillPoultice && <div className={classes.cardWastelandTop}>
-                    <p className={classes.textCard}>
+                    <h5 className={classes.textCard}>
                         Припарка - восстанавливает всё здоровье выбранного юнита.
-                    </p>
+                    </h5>
                 </div>}
                                 
                 {showPointerSkills.showSkillHunter && <div className={classes.cardWastelandTop}>
-                    <p className={classes.textCard}>
+                    <h5 className={classes.textCard}>
                         Разделка - атака охотников, наносящая средний урон юниту противника.
-                    </p>
+                    </h5>
                 </div>}
                                 
                 {showPointerSkills.showSkillJavelin && <div className={classes.cardWastelandTop}>
-                    <p className={classes.textCard}>
+                    <h5 className={classes.textCard}>
                         Бросок - атака метателей, наносящая средний урон юниту противника и уменьшающая защиту цели.
-                    </p>
+                    </h5>
                 </div>}
                                 
                 {showPointerSkills.showSkillMaces && <div className={classes.cardWastelandTop}>
-                    <p className={classes.textCard}>
+                    <h5 className={classes.textCard}>
                         Ошеломление - атака булавоносцев, наносящая хороший урон юниту противника и уменьшающая защиту цели.
-                    </p>
+                    </h5>
                 </div>}
 
                 {occupiedCell.C1.showCard && <div className={classes.cardWastelandBottom}>
@@ -3175,7 +3175,7 @@ function handleCounterattack() {
 
             </div>
 
-                {showShop && <div className={classes.shop}>
+                {showShop && <div className={classes.shopWasteland}>
                     
                     <button className={classes.hunterBuy} onClick={handleBuyHunter} disabled={resources <= 0 || stateButtonsSkills === true}><p className={classes.titleBuyUnitWasteland}>Охотники: {reserve.wastelandHunter}</p> <p className={classes.titleBuyUnitWasteland}>Цена: 40</p> </button>
                     
@@ -3191,7 +3191,7 @@ function handleCounterattack() {
                     
                 </div>}
 
-            <div className={classes.skillsBlockRight}>
+            <div className={classes.skillsBlockRightWasteland}>
                 {buttonStateGame.stateShopButton && <button className={classes.shopButtonWasteland} onClick={handleOpenShop}>Магазин</button>}
                 {buttonStateGame.stateStartButton && <button className={classes.buttonStartGameWasteland} onClick={handleStartGame}>Старт</button>}
                 {buttonStateGame.stateOverallButton && <button className={classes.angalsButtonSkillsHunters} onClick={handleRequestForHunterReserves} disabled={stateStyleSoldier === 2 || stateStyleSoldier === 3 || stateStyleSoldier === 4 ||  stateButtonSoldiers.wastelandButtonHunter === true || reserve.wastelandHunter === 0}>Охотники: {reserve.wastelandHunter}</button>} 
@@ -3217,7 +3217,7 @@ function handleCounterattack() {
                 </div>}
             </div>
 
-            <div className={classes.blockUnits}>
+            <div className={classes.blockUnitsWasteland}>
 
                 <div className={classes.blockFlex1}>
 

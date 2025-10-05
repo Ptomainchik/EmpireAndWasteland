@@ -4,7 +4,7 @@ import { HomeButton } from "../Buttons/HomeButton";
 import { HistoryButtonEmpire } from "./ButtonsPage/HistoryEmpireButton";
 import { StructureButtonEmpire } from "./ButtonsPage/StructureEmpireButton";
 import { GameButtonEmpire } from "./ButtonsPage/GameEmpireButton";
-import imageCharacter from "../../Images/ImpireMarahImage/BiyaMainCharacter.jpg";
+import imageCharacter from "../../Images/EmpireMarahImage/BiyaMainCharacter.jpg";
 
 export const EmpireMarahPage = () => {
     return (

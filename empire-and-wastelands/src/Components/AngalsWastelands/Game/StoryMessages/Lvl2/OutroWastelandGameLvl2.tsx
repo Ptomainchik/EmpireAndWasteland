@@ -14,7 +14,7 @@ export const OutroWastelandGameLvl2 = (props:any) => {
     };
 
     return (
-        <div className={classes.outro}>
+        <div className={classes.outroWasteland}>
             <img className={classes.rightImage} src={images} alt="images" draggable="false"/>
             <img className={classes.leftImage} src={imagess} alt="images" draggable="false"/>
             <p>

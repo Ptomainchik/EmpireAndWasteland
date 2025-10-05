@@ -8,7 +8,7 @@ export const IntroEmpireGameLvl4 = ({setShowStoryMessages}:any) => {
     };
     
     return (
-        <div className={classes.intro}>
+        <div className={classes.introEmpire}>
             <img className={classes.centerImage} style={{border: "solid 0.3vw cadetblue"}} src={images} alt="images" draggable="false"/>
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. 

@@ -11,7 +11,7 @@ export const LoseMessage = () => {
     };
 
     return (
-        <div className={classes.loseMessage}>
+        <div className={classes.loseMessageWasteland}>
             <img className={classes.centerImageLoseWasteland} src={DeadAngal} alt="DeadAngal" draggable="false"/>
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. 

@@ -2,7 +2,6 @@ import { AngalsButtonChoice } from "../ChoiceButton/AngalsButtonChoice/AngalsBut
 import { ElvesButtonChoice } from "../ChoiceButton/ElvesButtonChoice/ElvesButtonChoice";
 import classes from "../Styles/StartPage.module.css";
 
-
 export const StartPage = () => {
     return (
         <div className={classes.startPage}>

@@ -8,7 +8,7 @@ export const MessageHalfHealthLvl1 = ({setShowStoryMessages}: any) => {
     };
 
     return (
-        <div className={classes.messageAtHalfHealth}>
+        <div className={classes.messageAtHalfHealthEmpire}>
             <img className={classes.rightImage} src={images} alt="images" draggable="false"/>
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. 

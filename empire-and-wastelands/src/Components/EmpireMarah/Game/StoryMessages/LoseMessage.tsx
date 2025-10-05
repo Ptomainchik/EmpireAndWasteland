@@ -1,5 +1,5 @@
 import classes from "../../../Styles/StoryMessages.module.css";
-import DeadElf from "../../../../Images/ImpireMarahImage/DeadElf.webp";
+import DeadElf from "../../../../Images/EmpireMarahImage/DeadElf.webp";
 import { useNavigate } from "react-router-dom";
 
 export const LoseMessage = () => {
@@ -11,7 +11,7 @@ export const LoseMessage = () => {
     };
 
     return (
-        <div className={classes.loseMessage}>
+        <div className={classes.loseMessageEmpire}>
             <img className={classes.centerImageLoseEmpire} src={DeadElf} alt="DeadElf" draggable="false"/>
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. 

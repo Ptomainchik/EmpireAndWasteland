@@ -2,10 +2,10 @@ import classes from "../../Styles/Games.module.css";
 import { BackButton } from "../../Buttons/BackButton";
 import { HomeButton } from "../../Buttons/HomeButton";
 import { useEffect, useState } from "react";
-import Avatar from "../../../Images/ImpireMarahImage/AvatarHero.jpg";
-import Card from "../../../Images/ImpireMarahImage/CoatOfArmsEmpire.webp";
-import CardWestArcher from "../../../Images/ImpireMarahImage/ImageImpireCardWestArcher.jpg";
-import CardWestSwordsman from "../../../Images/ImpireMarahImage/ImageImpireCardWestSwordsman.jpg";
+import Avatar from "../../../Images/EmpireMarahImage/AvatarHero.jpg";
+import Card from "../../../Images/EmpireMarahImage/CoatOfArmsEmpire.webp";
+import CardWestArcher from "../../../Images/EmpireMarahImage/ImageEmpireCardWestArcher.jpg";
+import CardWestSwordsman from "../../../Images/EmpireMarahImage/ImageEmpireCardWestSwordsman.jpg";
 import AngalHunter from "../../../Images/AngalsWastelandsImage/ImageWastelandCardAngalHunter.jpg";
 import { LoseMessage } from "./StoryMessages/LoseMessage";
 import { IntroEmpireGameLvl1 } from "./StoryMessages/Lvl1/IntroEmpireGameLvl1";
@@ -1803,24 +1803,24 @@ function handleCounterattack() {
 
             {showStoryMessages.lose && <LoseMessage/>}
 
-            <div className={classes.skillsBlockLeft}>
+            <div className={classes.skillsBlockLeftEmpire}>
 
                 {showPointerSkills.showSkillPoultice && <div className={classes.cardEmpireTop}>
-                    <p className={classes.textCard}>
+                    <h5 className={classes.textCard}>
                         Припарка - восстанавливает всё здоровье выбранного юнита.
-                    </p>
+                    </h5>
                 </div>}
                                                 
                 {showPointerSkills.showSkillWestArcher && <div className={classes.cardEmpireTop}>
-                    <p className={classes.textCard}>
+                    <h5 className={classes.textCard}>
                         Обстрел - атака западных лучников, наносящая средний урон юниту противника.
-                    </p>
+                    </h5>
                 </div>}
                                                 
                 {showPointerSkills.showSkillWestSwordsman && <div className={classes.cardEmpireTop}>
-                    <p className={classes.textCard}>
+                    <h5 className={classes.textCard}>
                         Атака строем - атака западных мечников по площади, наносящая средний урон юнитам противника.
-                    </p>
+                    </h5>
                 </div>}
                                                 
                 {occupiedCell.C1.showCard && <div className={classes.cardEmpireBottom}>
@@ -1989,7 +1989,7 @@ function handleCounterattack() {
 
             </div>
 
-                {showShop && <div className={classes.shop}>
+                {showShop && <div className={classes.shopEmpire}>
                     
                     <button className={classes.westArcherBuy} onClick={handleBuyWestArcher} disabled={resources <= 0 || stateButtonsSkills === true}><p className={classes.titleBuyUnitEmpire}>Лучники запада: {reserve.westArcher}</p> <p className={classes.titleBuyUnitEmpire}>Цена: 35</p></button>
                     
@@ -2003,7 +2003,7 @@ function handleCounterattack() {
                     
                 </div>}
 
-            <div className={classes.skillsBlockRight}>
+            <div className={classes.skillsBlockRightEmpire}>
                 {buttonStateGame.stateShopButton && <button className={classes.shopButtonEmpire} onClick={handleOpenShop}>Магазин</button>}
                 {buttonStateGame.stateStartButton && <button className={classes.buttonStartGameEmpire} onClick={handleStartGame}>Старт</button>}
                 {buttonStateGame.stateOverallButton && <button className={classes.elvesButtonSkillsWestArcher} onClick={handleRequestForWestArcherReserves} disabled={stateStyleSoldier === 2 || stateStyleSoldier === 3 || stateStyleSoldier === 4 ||  stateButtonSoldiers.empireButtonWestArcher === true || reserve.westArcher === 0}>Лучники запада: {reserve.westArcher}</button>} 
@@ -2025,7 +2025,7 @@ function handleCounterattack() {
                 </div>}
             </div>
 
-            <div className={classes.blockUnits}>
+            <div className={classes.blockUnitsEmpire}>
 
                 <div className={classes.blockFlex1}>
 
@@ -2039,7 +2039,7 @@ function handleCounterattack() {
                             disabled={stateButtonsSkills === true || occupiedCellOpponent.A1.health <= 0 || buttonStateGame.stateAttackButton === false || buttonStateGame.stateFixStartButton === false}>
                         <progress className={classes.healthScaleWastelandUnit} value={occupiedCellOpponent.A1.health} max="100"></progress>
                         </button>
-                        {showPointerSkills.showA1 && <div className={classes.pointer} style={{background: "cadetblue"}}></div>}
+                        {showPointerSkills.showA1 && <div className={classes.pointer} style={{background: "darkslategray"}}></div>}
                     </div>
 
                     <div className={classes.cellA2}>
@@ -2052,7 +2052,7 @@ function handleCounterattack() {
                             disabled={stateButtonsSkills === true || occupiedCellOpponent.A2.health <= 0 || buttonStateGame.stateAttackButton === false || buttonStateGame.stateFixStartButton === false}>
                         <progress className={classes.healthScaleWastelandUnit} value={occupiedCellOpponent.A2.health} max="100"></progress>
                         </button>
-                        {showPointerSkills.showA2 && <div className={classes.pointer} style={{background: "cadetblue"}}></div>}
+                        {showPointerSkills.showA2 && <div className={classes.pointer} style={{background: "darkslategray"}}></div>}
                     </div>
                        
                     <div className={classes.cellA3}>
@@ -2065,7 +2065,7 @@ function handleCounterattack() {
                             disabled={stateButtonsSkills === true || occupiedCellOpponent.A3.health <= 0 || buttonStateGame.stateAttackButton === false || buttonStateGame.stateFixStartButton === false}>
                         <progress className={classes.healthScaleWastelandUnit} value={occupiedCellOpponent.A3.health} max="100"></progress>
                         </button>
-                        {showPointerSkills.showA3 && <div className={classes.pointer} style={{background: "cadetblue"}}></div>}
+                        {showPointerSkills.showA3 && <div className={classes.pointer} style={{background: "darkslategray"}}></div>}
                     </div>
 
                     <div className={classes.cellA4}>
@@ -2078,7 +2078,7 @@ function handleCounterattack() {
                             disabled={stateButtonsSkills === true || occupiedCellOpponent.A4.health <= 0 || buttonStateGame.stateAttackButton === false || buttonStateGame.stateFixStartButton === false}>
                         <progress className={classes.healthScaleWastelandUnit} value={occupiedCellOpponent.A4.health} max="100"></progress>
                         </button>
-                        {showPointerSkills.showA4 && <div className={classes.pointer} style={{background: "cadetblue"}}></div>}
+                        {showPointerSkills.showA4 && <div className={classes.pointer} style={{background: "darkslategray"}}></div>}
                     </div>
 
                 </div>

@@ -2,12 +2,12 @@ import classes from "../../Styles/Histories.module.css";
 import { BackButton } from "../../Buttons/BackButton";
 import { HomeButton } from "../../Buttons/HomeButton";
 import { useState } from "react";
-import TracesOfHunting from "../../../Images/ImpireMarahImage/TracesOfHunting.jpg";
-import Elder from "../../../Images/ImpireMarahImage/Elder.jpg";
-import ElfFury from "../../../Images/ImpireMarahImage/ElfFury.jpg";
-import Emperor from "../../../Images/ImpireMarahImage/Emperor.jpg";
-import ElfSoldier from "../../../Images/ImpireMarahImage/ElfSoldier.jpg";
-import CoatOfArmsEmpire from "../../../Images/ImpireMarahImage/CoatOfArmsEmpire.webp";
+import TracesOfHunting from "../../../Images/EmpireMarahImage/TracesOfHunting.jpg";
+import Elder from "../../../Images/EmpireMarahImage/Elder.jpg";
+import ElfFury from "../../../Images/EmpireMarahImage/ElfFury.jpg";
+import Emperor from "../../../Images/EmpireMarahImage/Emperor.jpg";
+import ElfSoldier from "../../../Images/EmpireMarahImage/ElfSoldier.jpg";
+import CoatOfArmsEmpire from "../../../Images/EmpireMarahImage/CoatOfArmsEmpire.webp";
 
 export const HistoryEmpireMarah = () => {
     const [showHeadsModalId, setShowHeadsModalId] = useState(null);

@@ -2,8 +2,8 @@ import classes from "../../Styles/Structures.module.css";
 import { BackButton } from "../../Buttons/BackButton";
 import { HomeButton } from "../../Buttons/HomeButton";
 import { useState } from "react";
-import EastEmpireModalImage from "../../../Images/ImpireMarahImage/EastEmpireModalImage.jpg";
-import WestEmpireModalImage from "../../../Images/ImpireMarahImage/WestEmpireModalImage.jpg";
+import EastEmpireModalImage from "../../../Images/EmpireMarahImage/EastEmpireModalImage.jpg";
+import WestEmpireModalImage from "../../../Images/EmpireMarahImage/WestEmpireModalImage.jpg";
 
 export const StructureEmpireMarah = () => {
     const [showModalKingdom, setShowModalKingdom] = useState(null);
