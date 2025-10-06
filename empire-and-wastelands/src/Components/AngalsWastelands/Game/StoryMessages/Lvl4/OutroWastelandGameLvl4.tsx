@@ -1,6 +1,5 @@
 import classes from "../../../../Styles/StoryMessages.module.css";
-import images from "../../../../../Images/AngalsWastelandsImage/AngalHunter.webp";
-import imagess from "../../../../../Images/AngalsWastelandsImage/AngalJavelin.webp";
+import WastelandVictory from "../../../../../Images/AngalsWastelandsImage/WastelandVictory.jpg";
 import { useNavigate } from "react-router-dom";
 
 export const OutroWastelandGameLvl4 = (props:any) => {
@@ -13,15 +12,14 @@ export const OutroWastelandGameLvl4 = (props:any) => {
     };
     
     return (
-        <div className={classes.outroWasteland}>
-            <img className={classes.rightImage} src={images} alt="images" draggable="false"/>
-            <img className={classes.leftImage} src={imagess} alt="images" draggable="false"/>
+        <div className={classes.outroEmpire}>
+            <img className={classes.centerImage} src={WastelandVictory} alt="WastelandVictory" draggable="false"/>
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                 Consequatur magnam pariatur et ad ea labore dolor molestiae, cum quod iste molestias ab nulla minima. Libero iure nesciunt id.
                 Excepturi, repellat. Lorem ipsum dolor sit amet co iste quis non tenetur sed minus officiis doloribus deleniti reiciendis explicabo debitis ullam!
             </p>
-            <button className={classes.nextButtonWasteland} onClick={handleCloseMessage}>На главную</button>
+            <button className={classes.nextButtonEmpire} onClick={handleCloseMessage}>На главную</button>
         </div>
     )
 }

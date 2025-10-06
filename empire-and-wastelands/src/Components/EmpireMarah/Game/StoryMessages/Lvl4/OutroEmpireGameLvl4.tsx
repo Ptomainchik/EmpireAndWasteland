@@ -1,6 +1,5 @@
 import classes from "../../../../Styles/StoryMessages.module.css";
-import images from "../../../../../Images/AngalsWastelandsImage/AngalHunter.webp";
-import imagess from "../../../../../Images/AngalsWastelandsImage/AngalJavelin.webp";
+import EmpireVictory from "../../../../../Images/EmpireMarahImage/EmpireVictory.jpg";
 import { useNavigate } from "react-router-dom";
 
 export const OutroEmpireGameLvl4 = (props:any) => {
@@ -14,8 +13,7 @@ export const OutroEmpireGameLvl4 = (props:any) => {
     
     return (
         <div className={classes.outroEmpire}>
-            <img className={classes.rightImage} src={images} alt="images" draggable="false"/>
-            <img className={classes.leftImage} src={imagess} alt="images" draggable="false"/>
+            <img className={classes.centerImage} src={EmpireVictory} alt="EmpireVictory" draggable="false"/>
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                 Consequatur magnam pariatur et ad ea labore dolor molestiae, cum quod iste molestias ab nulla minima. Libero iure nesciunt id.

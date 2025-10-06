@@ -65,9 +65,9 @@
 }
 
 .outroEmpire p{
-    width: 30%;
+    width: 80%;
     position: absolute;
-    top: 10%;
+    top: 50%;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
@@ -190,9 +190,9 @@
 }
 
 .outroWasteland p{
-    width: 30%;
+    width: 80%;
     position: absolute;
-    top: 10%;
+    top: 50%;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
@@ -259,6 +259,17 @@
     left: 50%;
     transform: translateX(-50%);
     border-radius: 50%;
+}
+
+.centerImageWin{
+    width: 25vw;
+    height: 25vw;
+    position: absolute;
+    top: 1%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    filter: drop-shadow( 0.3vw 0.3vw 0.5vw black );
 }
 
 .rightImage{
