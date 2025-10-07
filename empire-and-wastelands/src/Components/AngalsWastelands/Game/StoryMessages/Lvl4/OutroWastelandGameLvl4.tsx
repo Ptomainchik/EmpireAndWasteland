@@ -13,7 +13,7 @@ export const OutroWastelandGameLvl4 = (props:any) => {
     
     return (
         <div className={classes.outroEmpire}>
-            <img className={classes.centerImage} src={WastelandVictory} alt="WastelandVictory" draggable="false"/>
+            <img className={classes.centerImage} style={{border: "solid 0.3vw darkolivegreen"}} src={WastelandVictory} alt="WastelandVictory" draggable="false"/>
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                 Consequatur magnam pariatur et ad ea labore dolor molestiae, cum quod iste molestias ab nulla minima. Libero iure nesciunt id.

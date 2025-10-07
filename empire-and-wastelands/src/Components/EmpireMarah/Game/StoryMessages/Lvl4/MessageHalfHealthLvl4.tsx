@@ -1,5 +1,5 @@
 import classes from "../../../../Styles/StoryMessages.module.css";
-import images from "../../../../../Images/AngalsWastelandsImage/AngalHunter.webp";
+import DeathOfFriend from "../../../../../Images/EmpireMarahImage/DeathOfFriend.jpg";
 
 export const MessageHalfHealthLvl4 = ({setShowStoryMessages}: any) => {
 
@@ -8,8 +8,8 @@ export const MessageHalfHealthLvl4 = ({setShowStoryMessages}: any) => {
     };
 
     return (
-        <div className={classes.messageAtHalfHealthEmpire}>
-            <img className={classes.rightImage} src={images} alt="images" draggable="false"/>
+        <div className={classes.messageAtHalfHealthEmpireFin}>
+            <img className={classes.rightImage} style={{border: "solid 0.3vw cadetblue"}} src={DeathOfFriend} alt="DeathOfFriend" draggable="false"/>
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                 Consequatur magnam pariatur et ad ea labore dolor molestiae, cum quod iste molestias ab nulla minima. Libero iure nesciunt id.

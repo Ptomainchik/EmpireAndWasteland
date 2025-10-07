@@ -1,5 +1,4 @@
 import classes from "../../../../Styles/StoryMessages.module.css";
-import images from "../../../../../Images/AngalsWastelandsImage/AngalsMother.jpg";
 
 export const IntroEmpireGameLvl3 = ({setShowStoryMessages}:any) => {
 
@@ -9,7 +8,6 @@ export const IntroEmpireGameLvl3 = ({setShowStoryMessages}:any) => {
     
     return (
         <div className={classes.introEmpire}>
-            <img className={classes.centerImage} style={{border: "solid 0.3vw cadetblue"}} src={images} alt="images" draggable="false"/>
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                 Consequatur magnam pariatur et ad ea labore dolor molestiae, cum quod iste molestias ab nulla minima. Libero iure nesciunt id.
