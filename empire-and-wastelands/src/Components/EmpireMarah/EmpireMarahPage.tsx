@@ -16,7 +16,7 @@ export const EmpireMarahPage = () => {
 
             <img className={classes.imageMainCharacter} src={imageCharacter} alt="imageCharacter" draggable={false}/>
 
-            <div className={classes.blockInfoPage} style={{background: "rgb(70, 80, 100)"}}>
+            <div className={classes.blockInfoPageEmpire}>
                 <p>
                     Империя Марах состоит из двух царств - Западного и Восточного.
                     В столице Сур правит император Кайсар, который также является царём западных земель.

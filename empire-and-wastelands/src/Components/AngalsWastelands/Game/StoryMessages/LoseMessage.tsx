@@ -14,9 +14,10 @@ export const LoseMessage = () => {
         <div className={classes.loseMessageWasteland}>
             <img className={classes.centerImageLoseWasteland} src={DeadAngal} alt="DeadAngal" draggable="false"/>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Consequatur magnam pariatur et ad ea labore dolor molestiae, cum quod iste molestias ab nulla minima. Libero iure nesciunt id.
-                Excepturi, repellat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus modi facere vel ipsam eligendi, excepturi quam maxime iste quis non tenetur sed minus officiis doloribus deleniti reiciendis explicabo debitis ullam!
+                Эльфы наступали волна за волной, от стрел невозможно было укрыться, а ангальский навал превратился в пыль, прибиваемую дождём к земле.
+                Не в силах побороть и сдержать имперские войска, Пембур приказал отступать.
+                Все, кто уцелел, боялись не поражения, а того, что ждёт их Дома.
+                Гнев Матери и её дочерей куда губительнее позора.
             </p>
             <button className={classes.nextButtonWasteland} onClick={handleCloseMessage}>На главную</button>
         </div>

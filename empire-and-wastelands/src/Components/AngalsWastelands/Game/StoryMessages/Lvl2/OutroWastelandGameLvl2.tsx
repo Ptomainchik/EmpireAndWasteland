@@ -7,7 +7,7 @@ export const OutroWastelandGameLvl2 = (props:any) => {
     const navigate = useNavigate();
 
     function handleCloseMessage() {
-        props.setResources(props.resources + 350);
+        props.setResources(props.resources + 400);
         props.setShowStoryMessages((prev: any) => ({...prev, outro: false, countForMessage: 2 }));
         navigate("/gamewaslvl3");
     };
@@ -16,11 +16,12 @@ export const OutroWastelandGameLvl2 = (props:any) => {
         <div className={classes.outroWasteland}>
             <img className={classes.centerImageWin} src={WastelandWin} alt="WastelandWin" draggable="false"/>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Consequatur magnam pariatur et ad ea labore dolor molestiae, cum quod iste molestias ab nulla minima. Libero iure nesciunt id.
-                Excepturi, repellat. Lorem ipsum dolor sit amet co iste quis non tenetur sed minus officiis doloribus deleniti reiciendis explicabo debitis ullam!
-                +200 GOLD!!!
+                Бой окончился победой ангалов. Элита подоспела как раз вовремя:
+                теперь кроме лучников из лесов на них шли эльфы, облачённые в стальные доспехи, бликующие на солнце,
+                с длинными, не менее сверкающими мечами. Но что может сталь перед напором и мощью сокрушительных ударов булав?
+                «Кто или что дальше ждёт их в бою?» — промелькнуло в голове у военачальника.
             </p>
+            <h1>+400 GOLD</h1>
             <button className={classes.nextButtonWasteland} onClick={handleCloseMessage}>Продолжить</button>
         </div>
     )

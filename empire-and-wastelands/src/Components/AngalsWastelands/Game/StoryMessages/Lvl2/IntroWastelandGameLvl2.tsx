@@ -7,11 +7,21 @@ export const IntroWastelandGameLvl2 = ({setShowStoryMessages}:any) => {
     };
     
     return (
-        <div className={classes.introWasteland}>
+        <div className={classes.introLvlWasteland}>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Consequatur magnam pariatur et ad ea labore dolor molestiae, cum quod iste molestias ab nulla minima. Libero iure nesciunt id.
-                Excepturi, repellat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus modi facere vel ipsam eligendi, excepturi quam maxime iste quis non tenetur sed minus officiis doloribus deleniti reiciendis explicabo debitis ullam!
+                Ночь прошла незаметно в обсуждениях и раздумьях над грядущими битвами и последующей тактикой сражения.
+                Многие из командиров в войске Пембура придерживались классической стратегии ангалов, а именно навала по всем флангам.
+                Этой тактике было уже не одно столетие: так воевали отцы, отцы отцов, а ещё раньше и их прадеды.
+                Но что-то подсказывало военачальнику, что такой немудрёной атакой против эльфийских искусных лучников можно погубить всех солдат.
+                Да и провинившийся сын то и дело не давал покоя и всё время вмешивался в разговоры между командирами и Пембуром,
+                заявляя, что эльфы только и ждут таких действий от ангалов, и что их можно и нужно обмануть.
+                Сам по своей природе Гесит был тот ещё проныра — хитрость и ловкость его незыблемые черты.
+                Но его необузданное стремление перещеголять всех пред лицом женщин зачастую выходило за крайности.
+                Оно и понятно: видя, как отец достигал своего чина так долго и упорно, выполняя самые опасные задания их хозяйки семьи, а затем получая задания от самой Матери,
+                он то и дело перенимал гибкость отца, но нрав не давал ему чётко и осознанно применять её в деле.
+                Этой же ночью в расположение прибыли отстающие войска из Пустошей и тут же стали располагаться по полям.
+                Это были более массивные и крепкие солдаты, пользующиеся в бою в основном булавами — элита ближнего боя Пустошей.
+                На рассвете враг снова показался среди лесов и медленно, но верно двигался к их позициям.
             </p>
             <button className={classes.nextButtonWasteland} onClick={handleCloseMessage}>Продолжить</button>
         </div>

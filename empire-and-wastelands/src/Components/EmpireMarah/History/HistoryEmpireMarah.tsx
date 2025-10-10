@@ -39,7 +39,7 @@ export const HistoryEmpireMarah = () => {
                 <img className={classes.coatOfArms} title="Герб Империи Марах" src={CoatOfArmsEmpire} alt="Coat Of Arms Empire" draggable={false}/>
             </div>
 
-            {showHeadsModalId === "1" && <div id={"1"} className={classes.head} style={{background: "rgb(70, 80, 100)"}}>
+            {showHeadsModalId === "1" && <div id={"1"} className={classes.headEmpire}>
                 <img className={classes.imageHead} src={Emperor} alt="Emperor" style={{border: "solid 0.3vw cadetblue"}} draggable={false}/>
                 <h3>Глава 1</h3>
                 <p>
@@ -61,7 +61,7 @@ export const HistoryEmpireMarah = () => {
                 <button className={classes.closeButton} onClick={handleCloseHeadModal}>Закрыть</button>
             </div> }
 
-            {showHeadsModalId === "2" && <div id={"2"} className={classes.head} style={{background: "rgb(70, 80, 100)"}}>
+            {showHeadsModalId === "2" && <div id={"2"} className={classes.headEmpire}>
                 <img className={classes.imageHead} src={Elder} alt="Elder" style={{border: "solid 0.3vw cadetblue"}} draggable={false}/>
                 <h3>Глава 2</h3>
                 <p>
@@ -87,7 +87,7 @@ export const HistoryEmpireMarah = () => {
                 <button className={classes.closeButton} onClick={handleCloseHeadModal}>Закрыть</button>
             </div> }
 
-            {showHeadsModalId === "3" && <div id={"3"} className={classes.head} style={{background: "rgb(70, 80, 100)"}}>
+            {showHeadsModalId === "3" && <div id={"3"} className={classes.headEmpire}>
                 <img className={classes.imageHead} src={ElfFury} alt="ElfFury" style={{border: "solid 0.3vw cadetblue"}} draggable={false}/>
                 <h3>Глава 3</h3>
                 <p>
@@ -107,7 +107,7 @@ export const HistoryEmpireMarah = () => {
                 <button className={classes.closeButton} onClick={handleCloseHeadModal}>Закрыть</button>
             </div> }
 
-            {showHeadsModalId === "4" && <div id={"4"} className={classes.head} style={{background: "rgb(70, 80, 100)"}}>
+            {showHeadsModalId === "4" && <div id={"4"} className={classes.headEmpire}>
                 <img className={classes.imageHead} src={ElfSoldier} alt="ElfSoldier" style={{border: "solid 0.3vw cadetblue"}} draggable={false}/>
                 <h3>Глава 4</h3>
                 <p>
@@ -131,7 +131,7 @@ export const HistoryEmpireMarah = () => {
                 <button className={classes.closeButton} onClick={handleCloseHeadModal}>Закрыть</button>
             </div> }
 
-            {showHeadsModalId === "5" && <div id={"5"} className={classes.head} style={{background: "rgb(70, 80, 100)"}}>
+            {showHeadsModalId === "5" && <div id={"5"} className={classes.headEmpire}>
                 <img className={classes.imageHead} src={TracesOfHunting} alt="TracesOfHunting" style={{border: "solid 0.3vw cadetblue"}} draggable={false}/>
                 <h3>Глава 5</h3>
                 <p>

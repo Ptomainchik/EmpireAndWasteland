@@ -40,7 +40,7 @@ export const HistoryAngalsWasteland = () => {
                 <img className={classes.coatOfArms} title="Герб Пустоши" src={CoatOfArmsOfWasteland} alt="CoatOf Arms Of Wasteland Of Arms Empire" draggable={false}/>
             </div>
 
-            {showHeadsModalId === "1" && <div id={"1"} className={classes.head} style={{background: "rgb(99, 53, 53)"}}>
+            {showHeadsModalId === "1" && <div id={"1"} className={classes.headWasteland}>
                 <img className={classes.imageHead} src={AngalsMother} alt="AngalsMother" style={{border: "solid 0.3vw darkolivegreen"}} draggable={false}/>
                 <h3>Глава 1</h3>
                 <p>
@@ -60,7 +60,7 @@ export const HistoryAngalsWasteland = () => {
                 <button className={classes.closeButton} onClick={handleCloseHeadModal}>Закрыть</button>
             </div> }
 
-            {showHeadsModalId === "2" && <div id={"2"} className={classes.head} style={{background: "rgb(99, 53, 53)"}}>
+            {showHeadsModalId === "2" && <div id={"2"} className={classes.headWasteland}>
                 <img className={classes.imageHead} src={AngalShapeshifter} alt="AngalShapeshifter" style={{border: "solid 0.3vw darkolivegreen"}} draggable={false}/>
                 <h3>Глава 2</h3>
                 <p>
@@ -82,7 +82,7 @@ export const HistoryAngalsWasteland = () => {
                 <button className={classes.closeButton} onClick={handleCloseHeadModal}>Закрыть</button>
             </div> }
 
-            {showHeadsModalId === "3" && <div id={"3"} className={classes.head} style={{background: "rgb(99, 53, 53)"}}>
+            {showHeadsModalId === "3" && <div id={"3"} className={classes.headWasteland}>
                 <img className={classes.imageHead} src={WomanAngal} alt="WomanAngal" style={{border: "solid 0.3vw darkolivegreen"}} draggable={false}/>
                 <h3>Глава 3</h3>
                 <p>
@@ -102,7 +102,7 @@ export const HistoryAngalsWasteland = () => {
                 <button className={classes.closeButton} onClick={handleCloseHeadModal}>Закрыть</button>
             </div> }
 
-            {showHeadsModalId === "4" && <div id={"4"} className={classes.head} style={{background: "rgb(99, 53, 53)"}}>
+            {showHeadsModalId === "4" && <div id={"4"} className={classes.headWasteland}>
                 <img className={classes.imageHead} src={AngalSoldier} alt="AngalSoldier" style={{border: "solid 0.3vw darkolivegreen"}} draggable={false}/>
                 <h3>Глава 4</h3>
                 <p>
@@ -111,7 +111,7 @@ export const HistoryAngalsWasteland = () => {
                     Именно здесь, хоть и ненадолго, можно укрыться от постоянных требований властолюбивых женщин.
                     Но ценой этого покоя (если его так можно назвать) может стать жизнь.
                     Основу войск составляют солдаты с древковым оружием - копьями и дротиками.
-                    Для ближнего боя используются в основном кистени и подобия охотничьих ножей,
+                    Для ближнего боя используются в основном булавы и подобия длинных охотничьих ножей,
                     с которыми мальчиков учат обращаться ещё с раннего детства и с которыми они идут на свою первую охоту.
                     Тактика сражения у ангалов представляет собой навал огромного количества пехотинцев, несущихся в лобовое столкновение с противником.
                     Словно лавина, они сносят целые армии, набрасываясь на каждого врага по отдельности сразу несколькими ангалами, разрывая и нанося удары по всему телу.
@@ -123,7 +123,7 @@ export const HistoryAngalsWasteland = () => {
                 <button className={classes.closeButton} onClick={handleCloseHeadModal}>Закрыть</button>
             </div> }
 
-            {showHeadsModalId === "5" && <div id={"5"} className={classes.head} style={{background: "rgb(99, 53, 53)"}}>
+            {showHeadsModalId === "5" && <div id={"5"} className={classes.headWasteland}>
                 <img className={classes.imageHead} src={FirstHunt} alt="FirstHunt" style={{border: "solid 0.3vw darkolivegreen"}} draggable={false}/>
                 <h3>Глава 5</h3>
                 <p>
@@ -140,6 +140,9 @@ export const HistoryAngalsWasteland = () => {
                     Доходит даже до того, что когда находится более привлекательный симбионт, женщина просто убивает своего и заключает новый договор. 
                     Ведь на ангалках никак не сказывается смерть фамильяра, а способности животного она обретёт от нового ангалима, естественно теряя старые.
                     Так, украдкой рискуя жизнью, охотники стали проникать даже в леса Империи Марах. 
+                    И вот однажды Мать приказала солдатам Пустоши захватить приграничные земли Империи Марах, дабы поток экзотических фамильяров не прекращался никогда.
+                    Честь расширить охотничьи угодья выпала уже доказавшему свою преданность не единожды военачальнику ангальской армии Пембуру.
+                    Собрав войска, ангалиты выдвинулись к северным границам Пустошей.
                 </p>
                 <button className={classes.closeButton} onClick={handleCloseHeadModal}>Закрыть</button>
             </div> }

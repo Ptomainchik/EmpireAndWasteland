@@ -16,7 +16,7 @@ export const AngalsWastelandPage = () => {
 
             <img className={classes.imageMainCharacter} src={imageCharacter} alt="imageCharacter" draggable={false}/>
             
-            <div className={classes.blockInfoPage} style={{background: "rgb(99, 53, 53)"}}>
+            <div className={classes.blockInfoPageWasteland}>
                 <p>
                     Архаичное общество ангалов построено на матриархате, где мужчины не имеют никаких прав.
                     Одной из важнейших основ жизненного уклада Пустошей является ангалим - симбиотический договор между ангалом и животным.

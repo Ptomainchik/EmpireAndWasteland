@@ -7,11 +7,19 @@ export const IntroWastelandGameLvl3 = ({setShowStoryMessages}:any) => {
     };
     
     return (
-        <div className={classes.introWasteland}>
+        <div className={classes.introLvlWasteland}>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Consequatur magnam pariatur et ad ea labore dolor molestiae, cum quod iste molestias ab nulla minima. Libero iure nesciunt id.
-                Excepturi, repellat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus modi facere vel ipsam eligendi, excepturi quam maxime iste quis non tenetur sed minus officiis doloribus deleniti reiciendis explicabo debitis ullam!
+                Туман окутал поля, не давая разглядеть даже очертания леса на горизонте.
+                Воодушевлённые последним успехом, командиры то и дело вторили: «Нужно идти дальше в лес, чтобы лавиной обрушиться на не успевших опомниться эльфов».
+                Для ангалов это была незнакомая ситуация — сражение не на открытой местности.
+                Все их бывшие битвы, которые когда-либо происходили, были в основном в полях и пустынных равнинах Дома.
+                Что их там могло ожидать и как бы себя повели солдаты, учитывая новые условия, одной Матери было известно.
+                Поэтому любые попытки раскачать лодку и призвать армию к немедленному наступлению Пембур пресекал на корню.
+                Хотя его самого изнутри подстёгивало ринуться прямо вглубь империи, но в этот момент он успевал напомнить себе: «Зачем ломать то, что и так хорошо работает? Лучше выждать свою жертву и атаковать там, где она будет слабее».
+                Такая тактика была его излюбленной, наверное, потому что фамильяром Пембура был чёрный гриф.
+                Хищная птица, терпение которой находится на высочайшем уровне; стая таких птиц может неделями выжидать, пока их жертва сильно не ослабнет или даже не погибнет, чтобы потом разорвать её на куски.
+                В неопределённых сомнениях долго ждать не пришлось: охотники вновь разглядели врага — благо туман стал постепенно рассеиваться.
+                — К бою! — скомандовал Пембур, не отводя хищный взгляд от своего сына.
             </p>
             <button className={classes.nextButtonWasteland} onClick={handleCloseMessage}>Продолжить</button>
         </div>

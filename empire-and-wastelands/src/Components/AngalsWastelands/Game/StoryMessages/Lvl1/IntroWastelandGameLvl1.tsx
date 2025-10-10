@@ -11,9 +11,13 @@ export const IntroWastelandGameLvl1 = ({setShowStoryMessages}:any) => {
         <div className={classes.introWasteland}>
             <img className={classes.centerImage} style={{border: "solid 0.3vw darkolivegreen"}} src={WastelandIntro} alt="WastelandIntro" draggable="false"/>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Consequatur magnam pariatur et ad ea labore dolor molestiae, cum quod iste molestias ab nulla minima. Libero iure nesciunt id.
-                Excepturi, repellat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus modi facere vel ipsam eligendi, excepturi quam maxime iste quis non tenetur sed minus officiis doloribus deleniti reiciendis explicabo debitis ullam!
+                Прибыв в пограничные земли, Пембур окинул взглядом бескрайние золотые поля, за которыми простирались холмы и густые леса Империи Марах.
+                Тёплый ветер обдувал его лицо, а лучи закатного солнца бросали тени и блики по заливным лугам, превращая пейзаж словно в бурлящее золотое море.
+                От одного вида накатывала какая-то безмятежность и чувство свободы, как будто бы никогда и не было никакой изнуряющей жизни в услужении Матери и её дочерей.
+                Здесь, посреди этого великолепия, в голову военачальнику пришла мысль, которая словно искра надежды пробежала по всему телу: «А ведь всё могло быть иначе...».
+                Так и не успев до конца её осмыслить, среди рядов солдат кто-то воскликнул: «Враг приближается!».
+                Вдалеке, средь полей, показались едва уловимые силуэты эльфов, идущие прямо на них.
+                Не подавая вида, Пембур громко приказал готовиться к бою.
             </p>
             <button className={classes.nextButtonWasteland} onClick={handleCloseMessage}>Продолжить</button>
         </div>

@@ -11,9 +11,17 @@ export const IntroWastelandGameLvl4 = ({setShowStoryMessages}:any) => {
         <div className={classes.messageAtHalfHealthWasteland}>
             <img className={classes.leftImage} style={{border: "solid 0.3vw darkolivegreen"}} src={AngalSon} alt="AngalSon" draggable="false"/>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Consequatur magnam pariatur et ad ea labore dolor molestiae, cum quod iste molestias ab nulla minima. Libero iure nesciunt id.
-                Excepturi, repellat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus modi facere vel ipsam eligendi, excepturi quam maxime iste quis non tenetur sed minus officiis doloribus deleniti reiciendis explicabo debitis ullam!
+                Не успели ангалы собрать тела погибших сородичей, как из чащи вновь показались стройные ряды эльфов в сверкающих доспехах.
+                И без того уставшие войска снова приготовились к битве. В воздухе застыл вязким грузом единственный вопрос — зачем мы здесь?
+                Это читалось на лицах всех, кто стоял, изнемогая от усталости и еле терпя ломоту во всём теле.
+                Вот он, матриархат во всём своём безобразном величии: молодые и сильные мужчины жертвовали собой ради сиюминутных удовольствий своих хозяек,
+                ради их высокомерия, чтобы они могли похвастаться друг перед другом новым фамильяром.
+                А сотни загубленных жизней — всего лишь цена за милость Матери.
+                Так же неожиданно, как и исчез, перед Пембуром появился запыхавшийся сын.
+                На этот раз в руках он держал свёрнутые пергаменты, торчащие из кожаного тубуса.
+                — Вот, это их карты, стянул прямо из-под носа их командира. И это женщина! — удивлённо пробормотал Гесит.
+                — Конечно, это мало чем поможет сейчас, но в будущем они нам пригодятся. А теперь уйди, прошу тебя, нас и так осталось немного, — тихо произнёс Пембур.
+                Не зная, что сказать, юноша кивнул головой и удалился прочь.  
             </p>
             <button className={classes.nextButtonWasteland} onClick={handleCloseMessage}>Продолжить</button>
         </div>
