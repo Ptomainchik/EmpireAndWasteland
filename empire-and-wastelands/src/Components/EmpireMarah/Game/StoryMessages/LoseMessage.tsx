@@ -14,9 +14,10 @@ export const LoseMessage = () => {
         <div className={classes.loseMessageEmpire}>
             <img className={classes.centerImageLoseEmpire} src={DeadElf} alt="DeadElf" draggable="false"/>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Consequatur magnam pariatur et ad ea labore dolor molestiae, cum quod iste molestias ab nulla minima. Libero iure nesciunt id.
-                Excepturi, repellat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus modi facere vel ipsam eligendi, excepturi quam maxime iste quis non tenetur sed minus officiis doloribus deleniti reiciendis explicabo debitis ullam!
+                Армия ангалов, как лавина, накатывала на войска Бии, проламывая оборону то здесь, то там, отчего рушились все построения эльфов, обнажая арьергард, где находились лучники.
+                Неспособные противостоять такому напору, стрелки утопали в этом ангальском навале.
+                Видя, что солдаты не справляются, Бия приказала отступать в надежде сохранить жизни эльфов.
+                Такой позор... Брат обязательно припомнит не только ей, но и всему Восточному царству.
             </p>
             <button className={classes.nextButtonEmpire} onClick={handleCloseMessage}>На главную</button>
         </div>

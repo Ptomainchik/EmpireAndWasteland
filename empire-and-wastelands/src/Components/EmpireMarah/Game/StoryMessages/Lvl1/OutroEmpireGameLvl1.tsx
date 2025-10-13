@@ -16,11 +16,14 @@ export const OutroEmpireGameLvl1 = (props:any) => {
         <div className={classes.outroEmpire}>
             <img className={classes.centerImageWin} src={EmpireWin} alt="EmpireWin" draggable="false"/>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Consequatur magnam pariatur et ad ea labore dolor molestiae, cum quod iste molestias ab nulla minima. Libero iure nesciunt id.
-                Excepturi, repellat. Lorem ipsum dolor sit amet co iste quis non tenetur sed minus officiis doloribus deleniti reiciendis explicabo debitis ullam!
-                +300GOLD!!!
+                Как только битва утихла, Фурия бросилась на поле боя. Громко и чётко распоряжаясь по пути, чтобы уцелевшие немедленно помогали раненым.
+                Присев и наклонившись над одним из лучников, у которого была рваная рана на предплечье, она быстро сняла один из ремешков на своей броне и затянула им руку солдата, чтобы он не истёк кровью,
+                при этом мягко приговаривая, что всё будет в порядке, как бы успокаивая раненого.
+                Потом она резко приподнялась и стала рыться в своей набедренной сумке, ища травы, которые использовались для остановки крови.
+                Затем, выхватив охапку листочков, сунула их в рот и быстро начала их жевать.
+                Далее она выплюнула эту массу себе на ладонь и резким движением наложила её на рану, затянув сверху своим платком.
             </p>
+            <h1>+300 GOLD</h1>
             <button className={classes.nextButtonEmpire} onClick={handleCloseMessage}>Продолжить</button>
         </div>
     )

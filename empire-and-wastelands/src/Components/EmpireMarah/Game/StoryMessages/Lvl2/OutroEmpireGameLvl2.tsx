@@ -16,11 +16,12 @@ export const OutroEmpireGameLvl2 = (props:any) => {
         <div className={classes.outroEmpire}>
             <img className={classes.centerImageWin} src={EmpireWin} alt="EmpireWin" draggable="false"/>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Consequatur magnam pariatur et ad ea labore dolor molestiae, cum quod iste molestias ab nulla minima. Libero iure nesciunt id.
-                Excepturi, repellat. Lorem ipsum dolor sit amet co iste quis non tenetur sed minus officiis doloribus deleniti reiciendis explicabo debitis ullam!
-                +500 GOLD!!!
+                — Столько крови... — тихо прошептала Бия, оглядывая равнину, где лежали тела убитых в сражении сородичей.
+                — Зачем ангалам наши леса? Неужели у них наступил голод? Раньше их можно было заметить только здесь, на севере Пустошей.
+                Зачем им наши земли? — задумалась Фурия, медленно следуя к своей палатке.
+                На этот раз у неё не было сил совсем, и как только она вошла внутрь, то тут же рухнула на соломенную подстилку, накрытую плащом, который с заботой оставил Тэман.  
             </p>
+            <h1>+500 GOLD</h1>
             <button className={classes.nextButtonEmpire} onClick={handleCloseMessage}>Продолжить</button>
         </div>
     )

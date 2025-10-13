@@ -11,9 +11,15 @@ export const IntroEmpireGameLvl1 = ({setShowStoryMessages}:any) => {
         <div className={classes.introEmpire}>
             <img className={classes.centerImage} style={{border: "solid 0.3vw cadetblue"}} src={EmpireIntro} alt="EmpireIntro" draggable="false"/>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Consequatur magnam pariatur et ad ea labore dolor molestiae, cum quod iste molestias ab nulla minima. Libero iure nesciunt id.
-                Excepturi, repellat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus modi facere vel ipsam eligendi, excepturi quam maxime iste quis non tenetur sed minus officiis doloribus deleniti reiciendis explicabo debitis ullam!
+                Не сумев совладать с собой и не дождавшись подкреплений с востока, Бия в своей неудержимой манере воспользовалась предложением брата и возглавила поход в северную Пустошь,
+                дабы раз и навсегда отвадить злостных нарушителей границ устраивать из земель Империи охотничьи угодья.
+                Тот ужас, что увидели она и воины запада, переданные под её контроль императором, пока они маршировали к южным границам,
+                то, как ангалы относились к природе и её обитателям, разжигал внутри у Восточной Фурии ярость и непоколебимую решительность жестоко покарать архаичных соседей.
+                И вот, перейдя реку Тамиз, пред ней и её войском предстала во всей своей красе и в то же время суровости безжизненная, как казалось на первый взгляд и будто выжженная солнцем земля Пустошей ангалов.
+                По каким-то причинам эти земли напомнили ей родные леса восточного царства.
+                Возможно, дело было не в пейзаже как таковом, а скорее в ощущении первозданной необузданности природы.
+                Вскоре дозорные заметили ангальских охотников, блуждающих вдали и даже не подозревающих об их приближении.
+                Бия, не проронив ни слова, взмахом руки жестом призвала к атаке солдат. 
             </p>
             <button className={classes.nextButtonEmpire} onClick={handleCloseMessage}>Продолжить</button>
         </div>

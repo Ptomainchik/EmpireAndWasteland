@@ -16,11 +16,16 @@ export const OutroEmpireGameLvl3 = (props:any) => {
         <div className={classes.outroEmpire}>
             <img className={classes.centerImageWin} src={EmpireWin} alt="EmpireWin" draggable="false"/>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Consequatur magnam pariatur et ad ea labore dolor molestiae, cum quod iste molestias ab nulla minima. Libero iure nesciunt id.
-                Excepturi, repellat. Lorem ipsum dolor sit amet co iste quis non tenetur sed minus officiis doloribus deleniti reiciendis explicabo debitis ullam!
-                +600GOLD!!!
+                Окончив бой, Бия и Тэман вернулись к её палатке,
+                где их уже встречал эльф в роскошном одеянии с вышитым на груди штандартом императорской династии Амистат, к которой принадлежала и сама царица Востока.
+                Учтиво поклонившись перед Фурией, он громогласно заявил:
+                — Император Кайсар требует отвести часть западных войск обратно к столице Сур.
+                И протянул ей свиток с серебряным тиснением — такой, какие вручали заграничным вассалам.
+                Раскрыв свиток, она увидела корявый почерк своего брата:
+                «В связи со сложившейся обстановкой столице требуется большее количество солдат.
+                Поэтому я, царь Западного царства и император всех лесов и земель Империи Марах, приказываю отвести часть войска, переданного мной Бии, дабы защитить народ эльфов».
             </p>
+            <h1>+600 GOLD</h1>
             <button className={classes.nextButtonEmpire} onClick={handleCloseMessage}>Продолжить</button>
         </div>
     )

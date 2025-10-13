@@ -11,9 +11,20 @@ export const MessageHalfHealthLvl2 = ({setShowStoryMessages}: any) => {
         <div className={classes.messageAtHalfHealthEmpire}>
             <img className={classes.leftImage} style={{border: "solid 0.3vw cadetblue"}} src={ElfFriend} alt="ElfFriend" draggable="false"/>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Consequatur magnam pariatur et ad ea labore dolor molestiae, cum quod iste molestias ab nulla minima. Libero iure nesciunt id.
-                Excepturi, repellat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus modi facere vel ipsam eligendi, excepturi quam maxime iste quis non tenetur sed minus officiis doloribus deleniti reiciendis explicabo debitis ullam!
+                В пылу сражения к месту, где находилась Бия, пробралась горстка разъярённых ангалов с изогнутыми клинками.
+                Заметив их, Фурия тут же выхватила свою саблю и, словно в элегантном танце, прошла сквозь их ряды, обрушивая удары один за другим.
+                Охотники падали как подкошенные, не успевая ничего предпринять.
+                С её волос, завязанных в косу сзади, слетела заколка, и локоны развевались вслед за ней.
+                Когда же все противники были повержены, стоящая в боевой позе Бия с растрёпанной причёской и блестящими глазами сквозь волосы выглядела соответствующе своему прозвищу — Восточная Фурия.
+                — Успокойся, они все мертвы, — произнёс подоспевший Тэман, глядя, как Бия возбуждённо дышит.
+                — Твоя ярость похвальна, но она же может и уничтожить тебя, — добавил он.
+                Выпрямившись и слегка поправив причёску рукой, Бия проговорила, приводя дыхание в порядок:
+                — Ничтожные ангалы, они хотели убить меня.
+                Я уничтожу их всех! — гневно прокричала она в конце.
+                — Возьми себя в руки. Даже самое крепкое дерево может упасть под напором ветра, — строго произнёс Тэман.
+                — Помни, твоя природа может как погубить, так и спасти. Умей управлять ею, — ещё строже отчеканил он.
+                — Ааай...! — со злостью выкрикнула Фурия и засунула саблю обратно в ножны.
+                — Уйдём отсюда, пока ты снова не впала в бешенство, — спокойно сказал Тэман и протянул ей слетевшую заколку. 
             </p>
             <button className={classes.nextButtonEmpire} onClick={handleCloseMessage}>Продолжить</button>
         </div>
