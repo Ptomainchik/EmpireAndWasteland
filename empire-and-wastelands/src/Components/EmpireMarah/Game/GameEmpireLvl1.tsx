@@ -12,10 +12,13 @@ import { IntroEmpireGameLvl1 } from "./StoryMessages/Lvl1/IntroEmpireGameLvl1";
 import { MessageHalfHealthLvl1 } from "./StoryMessages/Lvl1/MessageHalfHealthLvl1";
 import { OutroEmpireGameLvl1 } from "./StoryMessages/Lvl1/OutroEmpireGameLvl1";
 import { useGameResources } from "./HookForResources/HookResources";
+import { RulesOfGame } from "./RulesOfGame/RulesOfGame";
 
 export const GameEmpireLvl1 = () => {
     const [resources, setResources] = useGameResources();
     const [showShop, setShowShop] = useState(false);
+    const [showRules, setShowRules] = useState(false);
+    const [showOverallRules, setShowOverallRules] = useState(true);
     const [reserve, setReserve] = useState({
         westArcher: 0,
         westSwordsman: 0,
@@ -1789,6 +1792,14 @@ function handleCounterattack() {
                 }
             }, [reserve]);
 
+    function handleOpenRules() {
+        setShowRules(true);
+    };
+
+    function handleCloseOverallRules() {
+        setShowOverallRules(false);
+    };
+
     return (
         <div className={classes.gamePageEmpire}>
             
@@ -1802,6 +1813,27 @@ function handleCounterattack() {
             {showStoryMessages.outro && <OutroEmpireGameLvl1 setShowStoryMessages={setShowStoryMessages} resources={resources} setResources={setResources}/>}
 
             {showStoryMessages.lose && <LoseMessage/>}
+
+            {showRules && <RulesOfGame setShowRules={setShowRules}/>}
+
+            {showOverallRules && <div className={classes.rulesPageEmpire}>
+                <p className={classes.overallRulesText}>
+                    Игра представляет собой пошаговую стратегию, в которой в начале каждого уровня вы можете приобрести юнитов и припарки для их лечения в магазине, после чего расставить отряды на игровом поле.
+                    Для покупки юнитов используется игровая валюта «GOLD». На старте вам предоставляется фиксированная сумма, а за успешное прохождение уровня начисляется дополнительное вознаграждение.
+                    Неизрасходованные в предыдущем уровне средства прибавляются к награде.
+                    Если вы купили юнитов или припарки, но не использовали их в ходе уровня, то юниты, припарки и потраченные на них средства будут потеряны.
+                    После расстановки войск начинается бой. Ваша цель — уничтожить все вражеские юниты, прежде чем они уничтожат ваших.
+                    Каждый тип юнитов обладает не только стандартными атаками, но и особыми навыками, которые можно применить один раз за уровень.
+                    Навыки восстанавливаются к следующему этапу. С ростом уровня открываются два навыка героя, работающих по тому же принципу.
+                    Характеристики юнитов включают: атаку, защиту, здоровье.
+                    Для того чтобы атаковать, вы должны сначала выбрать юнита, которым хотите выполнить атаку, а затем выбрать цель для удара.
+                    Вражеские отряды атакуют по очереди после вашего хода, но обладают приоритетом выбора ваших юнитов для атаки, что добавляет тактической глубины бою.
+                    Расстановка ваших войск на поле также влияет на геймплей, хотя и не является решающим фактором.
+                    Некоторые юниты имеют преимущества против определённых типов вражеских отрядов, а также имеют собственные бафы (усиления) и дебафы (ослабления).
+                    Удачи в игре и приятного времяпрепровождения!
+                </p>
+                <button className={classes.closeButton} onClick={handleCloseOverallRules}>Закрыть</button>
+            </div>}
 
             <div className={classes.skillsBlockLeftEmpire}>
 
@@ -2028,6 +2060,8 @@ function handleCounterattack() {
             <div className={classes.blockUnitsEmpire}>
 
                 <div className={classes.blockFlex1}>
+
+                    <button className={classes.buttonRulesEmpire} onClick={handleOpenRules}>Правила</button>
 
                     <div className={classes.cellA1}>
                         <button className={occupiedCellOpponent.A1.health > 0 && attackQueue === 1 ? classes.unitWastelandHunterChoice 

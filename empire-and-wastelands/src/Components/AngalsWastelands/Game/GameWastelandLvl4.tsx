@@ -17,11 +17,13 @@ import { IntroWastelandGameLvl4 } from "./StoryMessages/Lvl4/IntroWastelandGameL
 import { MessageHalfHealthLvl4 } from "./StoryMessages/Lvl4/MessageHalfHealthLvl4";
 import { OutroWastelandGameLvl4 } from "./StoryMessages/Lvl4/OutroWastelandGameLvl4";
 import { useGameResources } from "./HookForResources/HookResources";
+import { RulesOfGame } from "./RulesOfGame/RulesOfGame";
 
 export const GameWastelandLvl4 = () => {
     const [resources, setResources] = useGameResources();
         
     const [showShop, setShowShop] = useState(false);
+    const [showRules, setShowRules] = useState(false);
     const [reserve, setReserve] = useState({
         wastelandHunter: 0,
         wastelandJavelin: 0,
@@ -4922,6 +4924,10 @@ function handleCounterattack() {
             }
             }, [reserve]);
 
+    function handleOpenRules() {
+        setShowRules(true);
+    };
+
     return (
         <div className={classes.gamePageWasteland}>
             
@@ -4935,6 +4941,8 @@ function handleCounterattack() {
             {showStoryMessages.outro && <OutroWastelandGameLvl4 showStoryMessages={showStoryMessages} setShowStoryMessages={setShowStoryMessages}/>}
 
             {showStoryMessages.lose && <LoseMessage/>}
+
+            {showRules && <RulesOfGame setShowRules={setShowRules}/>}
 
             <div className={classes.skillsBlockLeftWasteland}>
 
@@ -5287,6 +5295,9 @@ function handleCounterattack() {
             <div className={classes.blockUnitsWasteland}>
 
                 <div className={classes.blockFlex1}>
+
+                    <button className={classes.buttonRulesWasteland} onClick={handleOpenRules}>Правила</button>
+
                     <div className={classes.cellA1}>
                         <button className={occupiedCellOpponent.A1.health > 0 && attackQueue === 1 ? classes.unitEmpireEastArcherChoice 
                         : occupiedCellOpponent.A1.health <= 0 && attackQueue === 1 ? classes.unitEmpireDeath 

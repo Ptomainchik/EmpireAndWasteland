@@ -751,6 +751,29 @@
     color: rgb(220, 220, 220);
 }
 
+.buttonRulesWasteland{
+    position: absolute;
+    top: 1.5%;
+    right: 1.5%;
+    border: solid 0.1vw black;
+    border-radius: 10vw;
+    width: 8.5vw;
+    height: 1.75vw;
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 110%);
+    font-family: "El Messiri";
+    font-size: 0.9vw;
+    cursor: pointer;
+    margin: 0;
+    color: rgb(220, 220, 220);
+}
+
+.buttonRulesWasteland:hover{
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 95%);
+    filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
+}
+
 .buttonSkillPoulticeWasteland:hover{
     background-color: darkolivegreen;
     background-image: linear-gradient(176deg, darkolivegreen 3%, black 95%);
@@ -1556,6 +1579,29 @@
     filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
 }
 
+.buttonRulesEmpire{
+    position: absolute;
+    top: 1.5%;
+    right: 1.5%;
+    border: solid 0.1vw black;
+    border-radius: 10vw;
+    width: 8.5vw;
+    height: 1.75vw;
+    background-color: cadetblue;
+    background-image: linear-gradient(176deg, cadetblue 3%, black 110%);
+    font-family: "El Messiri";
+    font-size: 0.9vw;
+    cursor: pointer;
+    margin: 0;
+    color: rgb(220, 220, 220);
+}
+
+.buttonRulesEmpire:hover{
+    background-color: cadetblue;
+    background-image: linear-gradient(176deg, cadetblue 3%, black 95%);
+    filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
+}
+
 .buttonSkillKeepInLine{
     position: absolute;
     top: 37%;
@@ -1774,11 +1820,128 @@
     opacity: 0;
 }
 
+/* -----Rules----- */
 
+.rulesPageEmpire{
+    width: 100%;
+    height: 100%;
+    background: url(../../Images/EmpireMarahImage/TextureEmpireMessage.png) no-repeat;
+    background-size: cover;
+    z-index: 22;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+}
 
+.rulesPageWasteland{
+    width: 100%;
+    height: 100%;
+    background: url(../../Images/AngalsWastelandsImage/TextureWastelandMessage.png) no-repeat;
+    background-size: cover;
+    z-index: 22;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+}
 
+.blockRules{
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 2%;
+}
 
+.miniBlockRules{
+    display: flex;
+    height: 6vw;
+}
 
+.buttonSmallEmpire{
+    border-radius: 50%;
+    border: solid 0.1vw black;
+    width: 8.5vw;
+    height: 3vw;
+    background-color: cadetblue;
+    background-image: linear-gradient(176deg, cadetblue 3%, black 110%);
+    font-family: "El Messiri";
+    font-size: 0.7vw;
+    cursor: pointer;
+    margin: 0;
+    color: rgb(220, 220, 220);
+}
+
+.buttonBigEmpire{
+    border-radius: 50%;
+    border: solid 0.1vw black;
+    width: 8.5vw;
+    height: 3vw;
+    background-color: cadetblue;
+    background-image: linear-gradient(176deg, cadetblue 3%, black 110%);
+    font-family: "El Messiri";
+    font-size: 1.5vw;
+    cursor: pointer;
+    margin: 0;
+    color: rgb(220, 220, 220);
+}
+
+.buttonSmallWasteland{
+    border-radius: 50%;
+    border: solid 0.1vw black;
+    width: 8.5vw;
+    height: 3vw;
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 110%);
+    font-family: "El Messiri";
+    font-size: 0.7vw;
+    cursor: pointer;
+    margin: 0;
+    color: rgb(220, 220, 220);
+}
+
+.buttonBigWasteland{
+    border-radius: 50%;
+    border: solid 0.1vw black;
+    width: 8.5vw;
+    height: 3vw;
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 110%);
+    font-family: "El Messiri";
+    font-size: 1.5vw;
+    cursor: pointer;
+    margin: 0;
+    color: rgb(220, 220, 220);
+}
+
+.buttonCell{
+    width: 8.5vw; 
+    height: 8vw;
+    margin: 0;
+    border: solid 0.3vw black;
+    background: rgb(100, 158, 66);
+    cursor: pointer;
+    opacity: 0.5;
+    font-size: 2vw;
+}
+
+.textRules{
+    margin-left: 3%;
+    font-family: "Pangolin";
+    font-size: 1vw;
+    color: silver;
+    width: 80%;
+    margin-top: 0;
+}
+
+.overallRulesText{
+    width: 80%;
+    position: absolute;
+    top: 7%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.7vw;
+    font-family: "Pangolin";
+    color: silver;
+    text-align: center;
+}
 
 
 
