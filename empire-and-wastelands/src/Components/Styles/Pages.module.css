@@ -17,7 +17,7 @@
 .empirePage{
     width: 100%;
     height: 100%;
-    background: url(../../Images/EmpireMarahImage/Bridge.jpg) no-repeat;
+    background: url(../../Images/EmpireMarahImage/Bridge.jpg) no-repeat center;
     background-size: cover;
     position: fixed;
 }
@@ -25,7 +25,7 @@
 .wastelandPage{
     width: 100%;
     height: 100%;
-    background: url(../../Images/AngalsWastelandsImage/BackgroundWasteland.jpg) no-repeat;
+    background: url(../../Images/AngalsWastelandsImage/BackgroundWasteland.jpg) no-repeat center;
     background-size: cover;
     position: fixed;
 }
@@ -131,4 +131,344 @@
     background-color: cadetblue;
     background-image: linear-gradient(176deg, cadetblue 3%, black 95%);
     filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
+}
+
+
+@media (max-width: 480px) {
+
+.topbar{
+    width: 100%;
+    height: 12vw;
+    position: absolute;
+    top: 0;
+    font-size: 7vw;
+    font-family: "El Messiri";
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    border-top: solid 0.3vw grey;
+    border-bottom: solid 0.3vw grey;
+    z-index: 21;
+}
+
+
+.imageMainCharacter{
+    width: 40vw;
+    height: 70vw;
+    border-bottom: solid 0.5vw grey;
+    border-right: solid 0.5vw grey;
+    border-bottom-right-radius: 90%;
+    position: absolute;
+    top: 5%;
+    left: 0;
+}
+
+.blockInfoPageWasteland{
+    width: 55vw;
+    height: 120vw;
+    border-bottom: solid 0.5vw grey;
+    border-left: solid 0.5vw grey;
+    border-bottom-left-radius: 100%;
+    background: url(../../Images/AngalsWastelandsImage/TextureWastelandMessage.png) no-repeat;
+    position: absolute;
+    top: 5%;
+    right: 0;
+}
+
+.blockInfoPageWasteland p{
+    width: 70%;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    font-family: "Pangolin";
+    font-size: 2.7vw;
+    text-align: right;
+    font-weight: 700;
+    color: silver;
+}
+
+.blockInfoPageEmpire{
+    width: 55vw;
+    height: 120vw;
+    border-bottom: solid 0.5vw grey;
+    border-left: solid 0.5vw grey;
+    border-bottom-left-radius: 100%;
+    background: url(../../Images/EmpireMarahImage/TextureEmpireMessage.png) no-repeat;
+    position: absolute;
+    top: 5%;
+    right: 0;
+}
+
+.blockInfoPageEmpire p{
+    width: 70%;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    font-family: "Pangolin";
+    font-size: 2.7vw;
+    text-align: right;
+    font-weight: 700;
+    color: silver;
+}
+
+.blockButtonsPages{
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.buttonPageWasteland{
+    width: 80vw;
+    margin-bottom: 5% ;
+    display: block;
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 110%);
+    border-radius: 50%;
+    font-size: 5vw;
+    font-family: "El messiri";
+    cursor: pointer;
+    color: rgb(220, 220, 220);
+}
+
+.buttonPageEmpire{
+    width: 80vw;
+    margin-bottom: 5% ;
+    display: block;
+    background-color: cadetblue;
+    background-image: linear-gradient(176deg, cadetblue 3%, black 110%);
+    border-radius: 50%;
+    font-size: 5vw;
+    font-family: "El messiri";
+    cursor: pointer;
+    color: rgb(220, 220, 220);
+}
+
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+   
+.topbar{
+    width: 100%;
+    height: 10vw;
+    position: absolute;
+    top: 0;
+    font-size: 6.5vw;
+    font-family: "El Messiri";
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    border-top: solid 0.3vw grey;
+    border-bottom: solid 0.3vw grey;
+    z-index: 21;
+}
+
+
+.imageMainCharacter{
+    width: 40vw;
+    height: 70vw;
+    border-bottom: solid 0.5vw grey;
+    border-right: solid 0.5vw grey;
+    border-bottom-right-radius: 90%;
+    position: absolute;
+    top: 5%;
+    left: 0;
+}
+
+.blockInfoPageWasteland{
+    width: 55vw;
+    height: 80vw;
+    border-bottom: solid 0.5vw grey;
+    border-left: solid 0.5vw grey;
+    border-bottom-left-radius: 100%;
+    background: url(../../Images/AngalsWastelandsImage/TextureWastelandMessage.png) no-repeat;
+    position: absolute;
+    top: 5%;
+    right: 0;
+}
+
+.blockInfoPageWasteland p{
+    width: 70%;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    font-family: "Pangolin";
+    font-size: 2.1vw;
+    text-align: right;
+    font-weight: 700;
+    color: silver;
+}
+
+.blockInfoPageEmpire{
+    width: 55vw;
+    height: 80vw;
+    border-bottom: solid 0.5vw grey;
+    border-left: solid 0.5vw grey;
+    border-bottom-left-radius: 100%;
+    background: url(../../Images/EmpireMarahImage/TextureEmpireMessage.png) no-repeat;
+    position: absolute;
+    top: 5%;
+    right: 0;
+}
+
+.blockInfoPageEmpire p{
+    width: 70%;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    font-family: "Pangolin";
+    font-size: 2.1vw;
+    text-align: right;
+    font-weight: 700;
+    color: silver;
+}
+
+.blockButtonsPages{
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.buttonPageWasteland{
+    width: 80vw;
+    margin-bottom: 5% ;
+    display: block;
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 110%);
+    border-radius: 50%;
+    font-size: 5vw;
+    font-family: "El messiri";
+    cursor: pointer;
+    color: rgb(220, 220, 220);
+}
+
+.buttonPageEmpire{
+    width: 80vw;
+    margin-bottom: 5% ;
+    display: block;
+    background-color: cadetblue;
+    background-image: linear-gradient(176deg, cadetblue 3%, black 110%);
+    border-radius: 50%;
+    font-size: 5vw;
+    font-family: "El messiri";
+    cursor: pointer;
+    color: rgb(220, 220, 220);
+}
+
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    
+.topbar{
+    width: 100%;
+    height: 8vw;
+    position: absolute;
+    top: 0;
+    font-size: 5.5vw;
+    font-family: "El Messiri";
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    border-top: solid 0.3vw grey;
+    border-bottom: solid 0.3vw grey;
+    z-index: 21;
+}
+
+
+.imageMainCharacter{
+    width: 40vw;
+    height: 70vw;
+    border-bottom: solid 0.5vw grey;
+    border-right: solid 0.5vw grey;
+    border-bottom-right-radius: 90%;
+    position: absolute;
+    top: 5%;
+    left: 0;
+}
+
+.blockInfoPageWasteland{
+    width: 55vw;
+    height: 80vw;
+    border-bottom: solid 0.5vw grey;
+    border-left: solid 0.5vw grey;
+    border-bottom-left-radius: 100%;
+    background: url(../../Images/AngalsWastelandsImage/TextureWastelandMessage.png) no-repeat;
+    position: absolute;
+    top: 5%;
+    right: 0;
+}
+
+.blockInfoPageWasteland p{
+    width: 70%;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    font-family: "Pangolin";
+    font-size: 2.1vw;
+    text-align: right;
+    font-weight: 700;
+    color: silver;
+}
+
+.blockInfoPageEmpire{
+    width: 55vw;
+    height: 80vw;
+    border-bottom: solid 0.5vw grey;
+    border-left: solid 0.5vw grey;
+    border-bottom-left-radius: 100%;
+    background: url(../../Images/EmpireMarahImage/TextureEmpireMessage.png) no-repeat;
+    position: absolute;
+    top: 5%;
+    right: 0;
+}
+
+.blockInfoPageEmpire p{
+    width: 70%;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    font-family: "Pangolin";
+    font-size: 2.1vw;
+    text-align: right;
+    font-weight: 700;
+    color: silver;
+}
+
+.blockButtonsPages{
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.buttonPageWasteland{
+    width: 80vw;
+    margin-bottom: 5% ;
+    display: block;
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 110%);
+    border-radius: 50%;
+    font-size: 5vw;
+    font-family: "El messiri";
+    cursor: pointer;
+    color: rgb(220, 220, 220);
+}
+
+.buttonPageEmpire{
+    width: 80vw;
+    margin-bottom: 5% ;
+    display: block;
+    background-color: cadetblue;
+    background-image: linear-gradient(176deg, cadetblue 3%, black 110%);
+    border-radius: 50%;
+    font-size: 5vw;
+    font-family: "El messiri";
+    cursor: pointer;
+    color: rgb(220, 220, 220);
+}
+
 }
