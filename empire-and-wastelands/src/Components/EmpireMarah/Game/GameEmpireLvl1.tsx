@@ -1862,13 +1862,16 @@ function handleCounterattack() {
                     ? CardWestSwordsman
                     : Card} alt="Card" draggable="false"/>
                     <progress className={classes.healthScaleEmpire} max={ occupiedCell.C1.name === "Лучники запада" ? 80 : occupiedCell.C1.name === "Мечники запада" ? 130 : 0 } value={occupiedCell.C1.health}></progress>
-                    <p>{occupiedCell.C1.name}</p>
-                    <p>Атака:  {occupiedCell.C1.attack}</p>
-                    <p>Защита: {occupiedCell.C1.defense}</p>
-                    <p>Бафф: {occupiedCell.C1.name === "Лучники запада" ? "Нет"
-                        : occupiedCell.C1.name === "Мечники запада" ? "Уменьшенный урон от атак Метателей"
-                        : ""}
-                    </p>
+                    <div className={classes.cardBlock}>
+                        <p>{occupiedCell.C1.name}</p>
+                        <p>Атака:  {occupiedCell.C1.attack}</p>
+                        <p>Защита: {occupiedCell.C1.defense}</p>
+                        <p>Бафф: {occupiedCell.C1.name === "Лучники запада" ? "Нет"
+                            : occupiedCell.C1.name === "Мечники запада" ? "Уменьшенный урон от атак Метателей"
+                            : ""}
+                        </p>                                                            
+                    </div>
+                    
                 </div>}
 
                 {occupiedCell.C2.showCard && <div className={classes.cardEmpireBottom}>
@@ -1878,13 +1881,16 @@ function handleCounterattack() {
                     ? CardWestSwordsman
                     : Card} alt="Card" draggable="false"/>
                     <progress className={classes.healthScaleEmpire} max={ occupiedCell.C2.name === "Лучники запада" ? 80 : occupiedCell.C2.name === "Мечники запада" ? 130 : 0 } value={occupiedCell.C2.health}></progress>
-                    <p>{occupiedCell.C2.name}</p>
-                    <p>Атака:  {occupiedCell.C2.attack}</p>
-                    <p>Защита: {occupiedCell.C2.defense}</p>
-                    <p>Бафф: {occupiedCell.C2.name === "Лучники запада" ? "Нет"
-                        : occupiedCell.C2.name === "Мечники запада" ? "Уменьшенный урон от атак Метателей"
-                        : ""}
-                    </p>
+                    <div className={classes.cardBlock}>
+                        <p>{occupiedCell.C2.name}</p>
+                        <p>Атака:  {occupiedCell.C2.attack}</p>
+                        <p>Защита: {occupiedCell.C2.defense}</p>
+                        <p>Бафф: {occupiedCell.C2.name === "Лучники запада" ? "Нет"
+                            : occupiedCell.C2.name === "Мечники запада" ? "Уменьшенный урон от атак Метателей"
+                            : ""}
+                        </p>                                                            
+                    </div>
+                    
                 </div>}
 
                 {occupiedCell.C3.showCard && <div className={classes.cardEmpireBottom}>
@@ -1894,13 +1900,16 @@ function handleCounterattack() {
                     ? CardWestSwordsman
                     : Card} alt="Card" draggable="false"/>
                     <progress className={classes.healthScaleEmpire} max={ occupiedCell.C3.name === "Лучники запада" ? 80 : occupiedCell.C3.name === "Мечники запада" ? 130 : 0 } value={occupiedCell.C3.health}></progress>
-                    <p>{occupiedCell.C3.name}</p>
-                    <p>Атака:  {occupiedCell.C3.attack}</p>
-                    <p>Защита: {occupiedCell.C3.defense}</p>
-                    <p>Бафф: {occupiedCell.C3.name === "Лучники запада" ? "Нет"
-                        : occupiedCell.C3.name === "Мечники запада" ? "Уменьшенный урон от атак Метателей"
-                        : ""}
-                    </p>
+                    <div className={classes.cardBlock}>
+                        <p>{occupiedCell.C3.name}</p>
+                        <p>Атака:  {occupiedCell.C3.attack}</p>
+                        <p>Защита: {occupiedCell.C3.defense}</p>
+                        <p>Бафф: {occupiedCell.C3.name === "Лучники запада" ? "Нет"
+                            : occupiedCell.C3.name === "Мечники запада" ? "Уменьшенный урон от атак Метателей"
+                            : ""}
+                        </p>                                                            
+                    </div>
+                    
                 </div>}
 
                 {occupiedCell.C4.showCard && <div className={classes.cardEmpireBottom}>
@@ -1910,13 +1919,16 @@ function handleCounterattack() {
                     ? CardWestSwordsman
                     : Card} alt="Card" draggable="false"/>
                     <progress className={classes.healthScaleEmpire} max={ occupiedCell.C4.name === "Лучники запада" ? 80 : occupiedCell.C4.name === "Мечники запада" ? 130 : 0 } value={occupiedCell.C4.health}></progress>
-                    <p>{occupiedCell.C4.name}</p>
-                    <p>Атака:  {occupiedCell.C4.attack}</p>
-                    <p>Защита: {occupiedCell.C4.defense}</p>
-                    <p>Бафф: {occupiedCell.C4.name === "Лучники запада" ? "Нет"
-                        : occupiedCell.C4.name === "Мечники запада" ? "Уменьшенный урон от атак Метателей"
-                        : ""}
-                    </p>
+                    <div className={classes.cardBlock}>
+                        <p>{occupiedCell.C4.name}</p>
+                        <p>Атака:  {occupiedCell.C4.attack}</p>
+                        <p>Защита: {occupiedCell.C4.defense}</p>
+                        <p>Бафф: {occupiedCell.C4.name === "Лучники запада" ? "Нет"
+                            : occupiedCell.C4.name === "Мечники запада" ? "Уменьшенный урон от атак Метателей"
+                            : ""}
+                        </p>                                                            
+                    </div>
+                    
                 </div>}
 
                 {occupiedCell.D1.showCard && <div className={classes.cardEmpireBottom}>
@@ -1926,13 +1938,16 @@ function handleCounterattack() {
                     ? CardWestSwordsman
                     : Card} alt="Card" draggable="false"/>
                     <progress className={classes.healthScaleEmpire} max={ occupiedCell.D1.name === "Лучники запада" ? 80 : occupiedCell.D1.name === "Мечники запада" ? 130 : 0 } value={occupiedCell.D1.health}></progress>
-                    <p>{occupiedCell.D1.name}</p>
-                    <p>Атака:  {occupiedCell.D1.attack}</p>
-                    <p>Защита: {occupiedCell.D1.defense}</p>
-                    <p>Бафф: {occupiedCell.D1.name === "Лучники запада" ? "Нет"
-                        : occupiedCell.D1.name === "Мечники запада" ? "Уменьшенный урон от атак Метателей"
-                        : ""}
-                    </p>
+                    <div className={classes.cardBlock}>
+                        <p>{occupiedCell.D1.name}</p>
+                        <p>Атака:  {occupiedCell.D1.attack}</p>
+                        <p>Защита: {occupiedCell.D1.defense}</p>
+                        <p>Бафф: {occupiedCell.D1.name === "Лучники запада" ? "Нет"
+                            : occupiedCell.D1.name === "Мечники запада" ? "Уменьшенный урон от атак Метателей"
+                            : ""}
+                        </p>                                                            
+                    </div>
+                    
                 </div>}
 
                 {occupiedCell.D2.showCard && <div className={classes.cardEmpireBottom}>
@@ -1942,13 +1957,16 @@ function handleCounterattack() {
                     ? CardWestSwordsman
                     : Card} alt="Card" draggable="false"/>
                     <progress className={classes.healthScaleEmpire} max={ occupiedCell.D2.name === "Лучники запада" ? 80 : occupiedCell.D2.name === "Мечники запада" ? 130 : 0 } value={occupiedCell.D2.health}></progress>
-                    <p>{occupiedCell.D2.name}</p>
-                    <p>Атака:  {occupiedCell.D2.attack}</p>
-                    <p>Защита: {occupiedCell.D2.defense}</p>
-                    <p>Бафф: {occupiedCell.D2.name === "Лучники запада" ? "Нет"
-                        : occupiedCell.D2.name === "Мечники запада" ? "Уменьшенный урон от атак Метателей"
-                        : ""}
-                    </p>
+                    <div className={classes.cardBlock}>
+                        <p>{occupiedCell.D2.name}</p>
+                        <p>Атака:  {occupiedCell.D2.attack}</p>
+                        <p>Защита: {occupiedCell.D2.defense}</p>
+                        <p>Бафф: {occupiedCell.D2.name === "Лучники запада" ? "Нет"
+                            : occupiedCell.D2.name === "Мечники запада" ? "Уменьшенный урон от атак Метателей"
+                            : ""}
+                        </p>                                                            
+                    </div>
+                    
                 </div>}
 
                 {occupiedCell.D3.showCard && <div className={classes.cardEmpireBottom}>
@@ -1958,13 +1976,16 @@ function handleCounterattack() {
                     ? CardWestSwordsman
                     : Card} alt="Card" draggable="false"/>
                     <progress className={classes.healthScaleEmpire} max={ occupiedCell.D3.name === "Лучники запада" ? 80 : occupiedCell.D3.name === "Мечники запада" ? 130 : 0 } value={occupiedCell.D3.health}></progress>
-                    <p>{occupiedCell.D3.name}</p>
-                    <p>Атака:  {occupiedCell.D3.attack}</p>
-                    <p>Защита: {occupiedCell.D3.defense}</p>
-                    <p>Бафф: {occupiedCell.D3.name === "Лучники запада" ? "Нет"
-                        : occupiedCell.D3.name === "Мечники запада" ? "Уменьшенный урон от атак Метателей"
-                        : ""}
-                    </p>
+                    <div className={classes.cardBlock}>
+                        <p>{occupiedCell.D3.name}</p>
+                        <p>Атака:  {occupiedCell.D3.attack}</p>
+                        <p>Защита: {occupiedCell.D3.defense}</p>
+                        <p>Бафф: {occupiedCell.D3.name === "Лучники запада" ? "Нет"
+                            : occupiedCell.D3.name === "Мечники запада" ? "Уменьшенный урон от атак Метателей"
+                            : ""}
+                        </p>                                                            
+                    </div>
+                    
                 </div>}
 
                 {occupiedCell.D4.showCard && <div className={classes.cardEmpireBottom}>
@@ -1974,49 +1995,64 @@ function handleCounterattack() {
                     ? CardWestSwordsman
                     : Card} alt="Card" draggable="false"/>
                     <progress className={classes.healthScaleEmpire} max={ occupiedCell.D4.name === "Лучники запада" ? 80 : occupiedCell.D4.name === "Мечники запада" ? 130 : 0 } value={occupiedCell.D4.health}></progress>
-                    <p>{occupiedCell.D4.name}</p>
-                    <p>Атака:  {occupiedCell.D4.attack}</p>
-                    <p>Защита: {occupiedCell.D4.defense}</p>
-                    <p>Бафф: {occupiedCell.D4.name === "Лучники запада" ? "Нет"
-                        : occupiedCell.D4.name === "Мечники запада" ? "Уменьшенный урон от атак Метателей"
-                        : ""}
-                    </p>
+                    <div className={classes.cardBlock}>
+                        <p>{occupiedCell.D4.name}</p>
+                        <p>Атака:  {occupiedCell.D4.attack}</p>
+                        <p>Защита: {occupiedCell.D4.defense}</p>
+                        <p>Бафф: {occupiedCell.D4.name === "Лучники запада" ? "Нет"
+                            : occupiedCell.D4.name === "Мечники запада" ? "Уменьшенный урон от атак Метателей"
+                            : ""}
+                        </p>                                                            
+                    </div>
+                    
                 </div>}
 
                 {occupiedCellOpponent.A1.showCard && <div className={classes.cardWastelandTop}>
                     <img className={classes.imageCard} src={AngalHunter} alt="AngalHunter" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCellOpponent.A1.health}></progress>
-                    <p>{occupiedCellOpponent.A1.name}</p>
-                    <p>Атака:  {occupiedCellOpponent.A1.attack}</p>
-                    <p>Защита: {occupiedCellOpponent.A1.defense}</p>
-                    <p>Бафф: {occupiedCellOpponent.A1.buff}</p>
+                    <div className={classes.cardBlock}>
+                        <p>{occupiedCellOpponent.A1.name}</p>
+                        <p>Атака:  {occupiedCellOpponent.A1.attack}</p>
+                        <p>Защита: {occupiedCellOpponent.A1.defense}</p>
+                        <p>Бафф: {occupiedCellOpponent.A1.buff}</p>                                                            
+                    </div>
+                    
                 </div>}
 
                 {occupiedCellOpponent.A2.showCard && <div className={classes.cardWastelandTop}>
                     <img className={classes.imageCard} src={AngalHunter} alt="AngalHunter" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCellOpponent.A2.health}></progress>
-                    <p>{occupiedCellOpponent.A2.name}</p>
-                    <p>Атака:  {occupiedCellOpponent.A2.attack}</p>
-                    <p>Защита: {occupiedCellOpponent.A2.defense}</p>
-                    <p>Бафф: {occupiedCellOpponent.A2.buff}</p>
+                    <div className={classes.cardBlock}>
+                        <p>{occupiedCellOpponent.A2.name}</p>
+                        <p>Атака:  {occupiedCellOpponent.A2.attack}</p>
+                        <p>Защита: {occupiedCellOpponent.A2.defense}</p>
+                        <p>Бафф: {occupiedCellOpponent.A2.buff}</p>                                                            
+                    </div>
+                    
                 </div>}
 
                 {occupiedCellOpponent.A3.showCard && <div className={classes.cardWastelandTop}>
                     <img className={classes.imageCard} src={AngalHunter} alt="AngalHunter" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCellOpponent.A3.health}></progress>
-                    <p>{occupiedCellOpponent.A3.name}</p>
-                    <p>Атака:  {occupiedCellOpponent.A3.attack}</p>
-                    <p>Защита: {occupiedCellOpponent.A3.defense}</p>
-                    <p>Бафф: {occupiedCellOpponent.A3.buff}</p>
+                    <div className={classes.cardBlock}>
+                        <p>{occupiedCellOpponent.A3.name}</p>
+                        <p>Атака:  {occupiedCellOpponent.A3.attack}</p>
+                        <p>Защита: {occupiedCellOpponent.A3.defense}</p>
+                        <p>Бафф: {occupiedCellOpponent.A3.buff}</p>                                                            
+                    </div>
+                    
                 </div>}
 
                 {occupiedCellOpponent.A4.showCard && <div className={classes.cardWastelandTop}>
                     <img className={classes.imageCard} src={AngalHunter} alt="AngalHunter" draggable="false"/>
                     <progress className={classes.healthScaleWasteland} max="100" value={occupiedCellOpponent.A4.health}></progress>
-                    <p>{occupiedCellOpponent.A4.name}</p>
-                    <p>Атака:  {occupiedCellOpponent.A4.attack}</p>
-                    <p>Защита: {occupiedCellOpponent.A4.defense}</p>
-                    <p>Бафф: {occupiedCellOpponent.A4.buff}</p>
+                    <div className={classes.cardBlock}>
+                        <p>{occupiedCellOpponent.A4.name}</p>
+                        <p>Атака:  {occupiedCellOpponent.A4.attack}</p>
+                        <p>Защита: {occupiedCellOpponent.A4.defense}</p>
+                        <p>Бафф: {occupiedCellOpponent.A4.buff}</p>                                                            
+                    </div>
+                    
                 </div>}
 
             </div>
