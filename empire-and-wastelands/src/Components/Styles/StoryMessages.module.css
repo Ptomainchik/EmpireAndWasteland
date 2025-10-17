@@ -465,131 +465,75 @@
 
 @media (max-width: 480px) {
 
-
 /* ---EmpireMessages--- */
 
 /* Intro */
 
-.introEmpire{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: url(../../Images/EmpireMarahImage/TextureEmpireMessage.png) no-repeat;
-    background-size: cover;
-    z-index: 22;
-}
-
 .introEmpire p{
     width: 90%;
     position: absolute;
-    top: 52.5%;
+    top: 40%;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
-    font-size: 1.4vw;
+    font-size: 2.5vw;
     font-family: "Pangolin";
     color: silver;
-}
-
-.introLvlEmpire{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: url(../../Images/EmpireMarahImage/TextureEmpireMessage.png) no-repeat;
-    background-size: cover;
-    z-index: 22;
 }
 
 .introLvlEmpire p{
     width: 80%;
     position: absolute;
-    top: 10;
+    top: 5%;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
-    font-size: 1.4vw;
+    font-size: 2.5vw;
     font-family: "Pangolin";
     color: silver;
 }
 
 /* MessageHalfHealth */
 
-.messageAtHalfHealthEmpire{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: url(../../Images/EmpireMarahImage/TextureEmpireMessage.png) no-repeat;
-    background-size: cover;
-    z-index: 22;
-}
-
 .messageAtHalfHealthEmpire p{
-    width: 60%;
+    width: 50%;
     position: absolute;
-    top: 10%;
-    right: 5%;
+    top: 2%;
+    right: 8%;
     text-align: center;
-    font-size: 1.4vw;
+    font-size: 2.2vw;
     font-family: "Pangolin";
     color: silver;
 }
 
-.messageAtHalfHealthEmpireFin{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: url(../../Images/EmpireMarahImage/TextureEmpireMessage.png) no-repeat;
-    background-size: cover;
-    z-index: 22;
-}
-
 .messageAtHalfHealthEmpireFin p{
-    width: 60%;
+    width: 50%;
     position: absolute;
-    top: 5%;
-    left: 5%;
+    top: 2%;
+    left: 8%;
     text-align: center;
-    font-size: 1.4vw;
+    font-size: 2.2vw;
     font-family: "Pangolin";
     color: silver;
 }
 
 /* Outro */
 
-.outroEmpire{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: url(../../Images/EmpireMarahImage/TextureEmpireMessage.png) no-repeat;
-    background-size: cover;
-    z-index: 22;
-}
-
 .outroEmpire p{
     width: 85%;
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
-    font-size: 1.4vw;
+    font-size: 3vw;
     font-family: "Pangolin";
     color: silver;
 }
 
 .outroEmpire h1{
     font-family: "El Messiri";
-    font-size: 3.5vw;
+    font-size: 5vw;
     color: goldenrod;
     filter: drop-shadow(0.5vw 0.5vw 0.5vw black);
     position: absolute;
@@ -598,62 +542,40 @@
     transform: translateX(-50%);
 }
 
-.outroEmpireFin{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: url(../../Images/EmpireMarahImage/TextureEmpireMessage.png) no-repeat;
-    background-size: cover;
-    z-index: 22;
-}
-
 .outroEmpireFin p{
     width: 90%;
     position: absolute;
-    top: 50%;
+    top: 35%;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
-    font-size: 1.2vw;
+    font-size: 2.5vw;
     font-family: "Pangolin";
     color: silver;
 }
 
 /* LoseMessage */
 
-.loseMessageEmpire{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: url(../../Images/EmpireMarahImage/TextureEmpireMessage.png) no-repeat;
-    background-size: cover;
-    z-index: 22;
-}
-
 .loseMessageEmpire p{
     width: 80%;
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
-    font-size: 1.4vw;
+    font-size: 3vw;
     font-family: "Pangolin";
     color: silver;
 }
 
 .nextButtonEmpire{
-    width: 20vw;
-    height: 3vw;
+    width: 50vw;
+    height: 8vw;
     position: absolute;
     bottom: 2%;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 2vw;
+    font-size: 4.5vw;
     font-family: "El Messiri";
     border-radius: 50%;
     border: solid 0.1vw black;
@@ -664,48 +586,20 @@
     color: rgb(220, 220, 220);
 }
 
-.nextButtonEmpire:hover{
-    background-color: cadetblue;
-    background-image: linear-gradient(176deg, cadetblue 3%, black 95%);
-    filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
-}
-
 /* -----WastlelandMessages----- */
 
 /* Intro */
 
-.introWasteland{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: url(../../Images/AngalsWastelandsImage/TextureWastelandMessage.png) no-repeat;
-    background-size: cover;
-    z-index: 22;
-}
-
 .introWasteland p{
     width: 80%;
     position: absolute;
-    top: 52.5%;
+    top: 35%;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
-    font-size: 1.5vw;
+    font-size: 3vw;
     font-family: "Pangolin";
     color: silver;
-}
-
-.introLvlWasteland{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: url(../../Images/AngalsWastelandsImage/TextureWastelandMessage.png) no-repeat;
-    background-size: cover;
-    z-index: 22;
 }
 
 .introLvlWasteland p{
@@ -715,85 +609,52 @@
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
-    font-size: 1.5vw;
+    font-size: 3vw;
     font-family: "Pangolin";
     color: silver;
 }
 
 /* MessageHalfHealth */
 
-.messageAtHalfHealthWasteland{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: url(../../Images/AngalsWastelandsImage/TextureWastelandMessage.png) no-repeat;
-    background-size: cover;
-    z-index: 22;
-}
-
 .messageAtHalfHealthWasteland p{
     width: 50%;
     position: absolute;
-    top: 10%;
-    right: 10%;
+    top: 2%;
+    right: 8%;
     text-align: center;
-    font-size: 1.5vw;
+    font-size: 2.5vw;
     font-family: "Pangolin";
     color: silver;
 }
 
-.messageAtHalfHealthWastelandFin {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: url(../../Images/AngalsWastelandsImage/TextureWastelandMessage.png) no-repeat;
-    background-size: cover;
-    z-index: 22;
-}
-
 .messageAtHalfHealthWastelandFin p{
-    width: 55%;
+    width: 50%;
     position: absolute;
-    top: 10%;
-    left: 10%;
+    top: 2%;
+    left: 8%;
     text-align: center;
-    font-size: 1.5vw;
+    font-size: 2.5vw;
     font-family: "Pangolin";
     color: silver;
 }
 
 /* Outro */
 
-.outroWasteland{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: url(../../Images/AngalsWastelandsImage/TextureWastelandMessage.png) no-repeat;
-    background-size: cover;
-    z-index: 22;
-}
-
 .outroWasteland p{
     width: 80%;
     position: absolute;
-    top: 47.5%;
+    top: 40%;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
-    font-size: 1.5vw;
+    font-size: 3vw;
     font-family: "Pangolin";
     color: silver;
 }
 
 .outroWasteland h1{
     font-family: "El Messiri";
-    font-size: 3.5vw;
+    font-size: 5vw;
     color: goldenrod;
     filter: drop-shadow(0.5vw 0.5vw 0.5vw black);
     position: absolute;
@@ -802,62 +663,40 @@
     transform: translateX(-50%);
 }
 
-.outroWastelandFin{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: url(../../Images/AngalsWastelandsImage/TextureWastelandMessage.png) no-repeat;
-    background-size: cover;
-    z-index: 22;
-}
-
 .outroWastelandFin p{
     width: 85%;
     position: absolute;
-    top: 52.5%;
+    top: 35%;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
-    font-size: 1.5vw;
+    font-size: 3vw;
     font-family: "Pangolin";
     color: silver;
 }
 
 /* LoseMessage */
 
-.loseMessageWasteland{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: url(../../Images/AngalsWastelandsImage/TextureWastelandMessage.png) no-repeat;
-    background-size: cover;
-    z-index: 22;
-}
-
 .loseMessageWasteland p{
-    width: 50%;
+    width: 80%;
     position: absolute;
-    top: 55%;
+    top: 40%;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
-    font-size: 1.5vw;
+    font-size: 3vw;
     font-family: "Pangolin";
     color: silver;
 }
 
 .nextButtonWasteland{
-    width: 20vw;
-    height: 3vw;
+    width: 50vw;
+    height: 8vw;
     position: absolute;
     bottom: 2%;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 2vw;
+    font-size: 4.5vw;
     font-family: "El Messiri";
     border-radius: 50%;
     border: solid 0.1vw black;
@@ -868,16 +707,10 @@
     color: rgb(220, 220, 220);
 }
 
-.nextButtonWasteland:hover{
-    background-color: darkolivegreen;
-    background-image: linear-gradient(176deg, darkolivegreen 3%, black 95%);
-    filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
-}
-
 /* ImagesOverall */
 
 .centerImage{
-    width: 40%;
+    width: 70%;
     position: absolute;
     top: 5%;
     left: 50%;
@@ -886,8 +719,8 @@
 }
 
 .centerImageWin{
-    width: 25vw;
-    height: 25vw;
+    width: 50vw;
+    height: 50vw;
     position: absolute;
     top: 1%;
     left: 50%;
@@ -897,7 +730,7 @@
 }
 
 .rightImage{
-    width: 25vw;
+    width: 30vw;
     position: absolute;
     top: 5%;
     right: 5%;
@@ -905,7 +738,7 @@
 }
 
 .leftImage{
-    width: 25vw;
+    width: 30vw;
     position: absolute;
     top: 5%;
     left: 5%;
@@ -913,9 +746,9 @@
 }
 
 .centerImageLoseEmpire{
-    width: 28vw;
+    width: 40vw;
     position: absolute;
-    top: 5%;
+    top: 10%;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -923,7 +756,7 @@
 .centerImageLoseWasteland{
     width: 40vw;
     position: absolute;
-    top: 5%;
+    top: 15%;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -932,12 +765,600 @@
 
 @media (min-width: 481px) and (max-width: 768px) {
    
+/* ---EmpireMessages--- */
 
+/* Intro */
+
+.introEmpire p{
+    width: 90%;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 2.5vw;
+    font-family: "Pangolin";
+    color: silver;
+}
+
+.introLvlEmpire p{
+    width: 80%;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 2.1vw;
+    font-family: "Pangolin";
+    color: silver;
+}
+
+/* MessageHalfHealth */
+
+.messageAtHalfHealthEmpire p{
+    width: 50%;
+    position: absolute;
+    top: 2%;
+    right: 8%;
+    text-align: center;
+    font-size: 2vw;
+    font-family: "Pangolin";
+    color: silver;
+}
+
+.messageAtHalfHealthEmpireFin p{
+    width: 50%;
+    position: absolute;
+    top: 2%;
+    left: 8%;
+    text-align: center;
+    font-size: 2vw;
+    font-family: "Pangolin";
+    color: silver;
+}
+
+/* Outro */
+
+.outroEmpire p{
+    width: 85%;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 2.8vw;
+    font-family: "Pangolin";
+    color: silver;
+}
+
+.outroEmpire h1{
+    font-family: "El Messiri";
+    font-size: 5vw;
+    color: goldenrod;
+    filter: drop-shadow(0.5vw 0.5vw 0.5vw black);
+    position: absolute;
+    bottom: 7%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.outroEmpireFin p{
+    width: 90%;
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 2.1vw;
+    font-family: "Pangolin";
+    color: silver;
+}
+
+/* LoseMessage */
+
+.loseMessageEmpire p{
+    width: 80%;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 3vw;
+    font-family: "Pangolin";
+    color: silver;
+}
+
+.nextButtonEmpire{
+    width: 45vw;
+    height: 7.5vw;
+    position: absolute;
+    bottom: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 4.3vw;
+    font-family: "El Messiri";
+    border-radius: 50%;
+    border: solid 0.1vw black;
+    background-color: cadetblue;
+    background-image: linear-gradient(176deg, cadetblue 3%, black 110%);
+    cursor: pointer;
+    margin: 0;
+    color: rgb(220, 220, 220);
+}
+
+/* -----WastlelandMessages----- */
+
+/* Intro */
+
+.introWasteland p{
+    width: 80%;
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 2.8vw;
+    font-family: "Pangolin";
+    color: silver;
+}
+
+.introLvlWasteland p{
+    width: 80%;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 2.8vw;
+    font-family: "Pangolin";
+    color: silver;
+}
+
+/* MessageHalfHealth */
+
+.messageAtHalfHealthWasteland p{
+    width: 50%;
+    position: absolute;
+    top: 2%;
+    right: 8%;
+    text-align: center;
+    font-size: 2.5vw;
+    font-family: "Pangolin";
+    color: silver;
+}
+
+.messageAtHalfHealthWastelandFin p{
+    width: 50%;
+    position: absolute;
+    top: 2%;
+    left: 8%;
+    text-align: center;
+    font-size: 2.5vw;
+    font-family: "Pangolin";
+    color: silver;
+}
+
+/* Outro */
+
+.outroWasteland p{
+    width: 80%;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 2.8vw;
+    font-family: "Pangolin";
+    color: silver;
+}
+
+.outroWasteland h1{
+    font-family: "El Messiri";
+    font-size: 5vw;
+    color: goldenrod;
+    filter: drop-shadow(0.5vw 0.5vw 0.5vw black);
+    position: absolute;
+    bottom: 7%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.outroWastelandFin p{
+    width: 85%;
+    position: absolute;
+    top: 37%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 2.8vw;
+    font-family: "Pangolin";
+    color: silver;
+}
+
+/* LoseMessage */
+
+.loseMessageWasteland p{
+    width: 80%;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 3vw;
+    font-family: "Pangolin";
+    color: silver;
+}
+
+.nextButtonWasteland{
+    width: 45vw;
+    height: 7.5vw;
+    position: absolute;
+    bottom: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 4.3vw;
+    font-family: "El Messiri";
+    border-radius: 50%;
+    border: solid 0.1vw black;
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 110%);
+    cursor: pointer;
+    margin: 0;
+    color: rgb(220, 220, 220);
+}
+
+/* ImagesOverall */
+
+.centerImage{
+    width: 70%;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+}
+
+.centerImageWin{
+    width: 50vw;
+    height: 50vw;
+    position: absolute;
+    top: 1%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    filter: drop-shadow( 0.3vw 0.3vw 0.5vw black );
+}
+
+.rightImage{
+    width: 30vw;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    border-radius: 50%;
+}
+
+.leftImage{
+    width: 30vw;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    border-radius: 50%;
+}
+
+.centerImageLoseEmpire{
+    width: 40vw;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.centerImageLoseWasteland{
+    width: 40vw;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+}
 
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
     
+/* ---EmpireMessages--- */
 
+/* Intro */
+
+.introEmpire p{
+    width: 90%;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 2.5vw;
+    font-family: "Pangolin";
+    color: silver;
+}
+
+.introLvlEmpire p{
+    width: 80%;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 2.1vw;
+    font-family: "Pangolin";
+    color: silver;
+}
+
+/* MessageHalfHealth */
+
+.messageAtHalfHealthEmpire p{
+    width: 50%;
+    position: absolute;
+    top: 4%;
+    right: 8%;
+    text-align: center;
+    font-size: 2vw;
+    font-family: "Pangolin";
+    color: silver;
+}
+
+.messageAtHalfHealthEmpireFin p{
+    width: 50%;
+    position: absolute;
+    top: 3%;
+    left: 8%;
+    text-align: center;
+    font-size: 2vw;
+    font-family: "Pangolin";
+    color: silver;
+}
+
+/* Outro */
+
+.outroEmpire p{
+    width: 85%;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 2.8vw;
+    font-family: "Pangolin";
+    color: silver;
+}
+
+.outroEmpire h1{
+    font-family: "El Messiri";
+    font-size: 5vw;
+    color: goldenrod;
+    filter: drop-shadow(0.5vw 0.5vw 0.5vw black);
+    position: absolute;
+    bottom: 7%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.outroEmpireFin p{
+    width: 90%;
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 2.1vw;
+    font-family: "Pangolin";
+    color: silver;
+}
+
+/* LoseMessage */
+
+.loseMessageEmpire p{
+    width: 80%;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 3vw;
+    font-family: "Pangolin";
+    color: silver;
+}
+
+.nextButtonEmpire{
+    width: 45vw;
+    height: 7.5vw;
+    position: absolute;
+    bottom: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 4.3vw;
+    font-family: "El Messiri";
+    border-radius: 50%;
+    border: solid 0.1vw black;
+    background-color: cadetblue;
+    background-image: linear-gradient(176deg, cadetblue 3%, black 110%);
+    cursor: pointer;
+    margin: 0;
+    color: rgb(220, 220, 220);
+}
+
+/* -----WastlelandMessages----- */
+
+/* Intro */
+
+.introWasteland p{
+    width: 80%;
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 2.8vw;
+    font-family: "Pangolin";
+    color: silver;
+}
+
+.introLvlWasteland p{
+    width: 80%;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 2.8vw;
+    font-family: "Pangolin";
+    color: silver;
+}
+
+/* MessageHalfHealth */
+
+.messageAtHalfHealthWasteland p{
+    width: 50%;
+    position: absolute;
+    top: 4%;
+    right: 8%;
+    text-align: center;
+    font-size: 2.5vw;
+    font-family: "Pangolin";
+    color: silver;
+}
+
+.messageAtHalfHealthWastelandFin p{
+    width: 50%;
+    position: absolute;
+    top: 3%;
+    left: 8%;
+    text-align: center;
+    font-size: 2.5vw;
+    font-family: "Pangolin";
+    color: silver;
+}
+
+/* Outro */
+
+.outroWasteland p{
+    width: 80%;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 2.8vw;
+    font-family: "Pangolin";
+    color: silver;
+}
+
+.outroWasteland h1{
+    font-family: "El Messiri";
+    font-size: 5vw;
+    color: goldenrod;
+    filter: drop-shadow(0.5vw 0.5vw 0.5vw black);
+    position: absolute;
+    bottom: 7%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.outroWastelandFin p{
+    width: 85%;
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 2.8vw;
+    font-family: "Pangolin";
+    color: silver;
+}
+
+/* LoseMessage */
+
+.loseMessageWasteland p{
+    width: 80%;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 3vw;
+    font-family: "Pangolin";
+    color: silver;
+}
+
+.nextButtonWasteland{
+    width: 45vw;
+    height: 7.5vw;
+    position: absolute;
+    bottom: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 4.3vw;
+    font-family: "El Messiri";
+    border-radius: 50%;
+    border: solid 0.1vw black;
+    background-color: darkolivegreen;
+    background-image: linear-gradient(176deg, darkolivegreen 3%, black 110%);
+    cursor: pointer;
+    margin: 0;
+    color: rgb(220, 220, 220);
+}
+
+/* ImagesOverall */
+
+.centerImage{
+    width: 70%;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+}
+
+.centerImageWin{
+    width: 50vw;
+    height: 50vw;
+    position: absolute;
+    top: 1%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    filter: drop-shadow( 0.3vw 0.3vw 0.5vw black );
+}
+
+.rightImage{
+    width: 30vw;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    border-radius: 50%;
+}
+
+.leftImage{
+    width: 30vw;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    border-radius: 50%;
+}
+
+.centerImageLoseEmpire{
+    width: 40vw;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.centerImageLoseWasteland{
+    width: 40vw;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+}
 
 }

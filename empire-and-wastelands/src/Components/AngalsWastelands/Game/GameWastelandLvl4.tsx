@@ -5295,8 +5295,8 @@ function handleCounterattack() {
                     <button className={classes.macesBuy} onClick={handleBuyMaces} disabled={resources <= 0 || stateButtonsSkills === true}><p className={classes.titleBuyUnitWasteland}>Булавоносцы: {reserve.wastelandMaces}</p> <p className={classes.titleBuyUnitWasteland}>Цена: 100</p> </button>
                     
                     <button className={classes.angalitBuy} onClick={handleBuyAngalit} disabled={resources <= 0 || stateButtonsSkills === true}><p className={classes.titleBuyUnitWasteland}>Ангалиты: {reserve.wastelandAngalit}</p> <p className={classes.titleBuyUnitWasteland}>Цена: 150</p> </button>
-
-                    <button className={classes.poulticeBuyWasteland} onClick={handleBuyPoultice} disabled={resources <= 0 || stateButtonsSkills === true}><p className={classes.titleBuyUnitWasteland}>Припарки: {stateSkillsHero.poultice}</p> <p className={classes.titleBuyUnitWasteland}>Цена: 50</p></button>
+                    
+                    {showButtonPoultice && <button className={classes.poulticeBuyWasteland} onClick={handleBuyPoultice} disabled={resources <= 0 || stateButtonsSkills === true}><p className={classes.titleBuyUnitWasteland}>Припарки: {stateSkillsHero.poultice}</p> <p className={classes.titleBuyUnitWasteland}>Цена: 50</p></button>}
 
                     <h1>GOLD:{resources}</h1>
 
