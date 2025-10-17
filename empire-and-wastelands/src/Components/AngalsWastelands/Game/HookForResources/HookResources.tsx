@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 // Глобальная переменная для хранения состояния между компонентами
-let globalResources = 2250; // 250
+let globalResources = 250; // 250
 let listeners: ((value: number) => void)[] = [];
 
 export const useGameResources = () => {
