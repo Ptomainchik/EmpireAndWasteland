@@ -474,7 +474,7 @@
     font-size: 5vw;
     cursor: pointer;
     position: absolute;
-    bottom: 45%;
+    bottom: 40%;
     left: 50%;
     transform: translateX(-50%);
     color: rgb(220, 220, 220);

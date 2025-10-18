@@ -7,7 +7,7 @@ export const OutroWastelandGameLvl2 = (props:any) => {
     const navigate = useNavigate();
 
     function handleCloseMessage() {
-        props.setResources(props.resources + 400);
+        props.setResources(props.resources + 450);
         props.setShowStoryMessages((prev: any) => ({...prev, outro: false, countForMessage: 2 }));
         navigate("/gamewaslvl3");
     };
@@ -21,7 +21,7 @@ export const OutroWastelandGameLvl2 = (props:any) => {
                 с длинными, не менее сверкающими мечами. Но что может сталь перед напором и мощью сокрушительных ударов булав?
                 «Кто или что дальше ждёт их в бою?» — промелькнуло в голове у военачальника.
             </p>
-            <h1>+400 GOLD</h1>
+            <h1>+450 GOLD</h1>
             <button className={classes.nextButtonWasteland} onClick={handleCloseMessage}>Продолжить</button>
         </div>
     )

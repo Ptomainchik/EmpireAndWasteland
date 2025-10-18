@@ -7,7 +7,7 @@ export const OutroEmpireGameLvl2 = (props:any) => {
     const navigate = useNavigate();
 
     function handleCloseMessage() {
-        props.setResources(props.resources + 500);
+        props.setResources(props.resources + 550);
         props.setShowStoryMessages((prev: any) => ({...prev, outro: false, countForMessage: 2 }));
         navigate("/gameemplvl3");
     };
@@ -21,7 +21,7 @@ export const OutroEmpireGameLvl2 = (props:any) => {
                 Зачем им наши земли? — задумалась Фурия, медленно следуя к своей палатке.
                 На этот раз у неё не было сил совсем, и как только она вошла внутрь, то тут же рухнула на соломенную подстилку, накрытую плащом, который с заботой оставил Тэман.  
             </p>
-            <h1>+500 GOLD</h1>
+            <h1>+550 GOLD</h1>
             <button className={classes.nextButtonEmpire} onClick={handleCloseMessage}>Продолжить</button>
         </div>
     )

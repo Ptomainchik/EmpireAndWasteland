@@ -7,7 +7,7 @@ export const OutroEmpireGameLvl1 = (props:any) => {
     const navigate = useNavigate();
 
     function handleCloseMessage() {
-        props.setResources(props.resources + 300);
+        props.setResources(props.resources + 350);
         props.setShowStoryMessages((prev: any) => ({...prev, outro: false, countForMessage: 2 }));
         navigate("/gameemplvl2");
     };
@@ -23,7 +23,7 @@ export const OutroEmpireGameLvl1 = (props:any) => {
                 Затем, выхватив охапку листочков, сунула их в рот и быстро начала их жевать.
                 Далее она выплюнула эту массу себе на ладонь и резким движением наложила её на рану, затянув сверху своим платком.
             </p>
-            <h1>+300 GOLD</h1>
+            <h1>+350 GOLD</h1>
             <button className={classes.nextButtonEmpire} onClick={handleCloseMessage}>Продолжить</button>
         </div>
     )

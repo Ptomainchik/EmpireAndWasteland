@@ -7,7 +7,7 @@ export const OutroWastelandGameLvl3 = (props:any) => {
     const navigate = useNavigate();
 
     function handleCloseMessage() {
-        props.setResources(props.resources + 550);
+        props.setResources(props.resources + 600);
         props.setShowStoryMessages((prev: any) => ({...prev, outro: false, countForMessage: 2 }));
         navigate("/gamewaslvl4");
     };
@@ -23,7 +23,7 @@ export const OutroWastelandGameLvl3 = (props:any) => {
                 Не выдерживая натиска, Пембуру пришлось прибегнуть к атаке ангалитов и разорвать их ангалимы, дабы те в гуще сражения становились безумными звероподобными существами. 
                 Победа, но какой ценой.
             </p>
-            <h1>+550 GOLD</h1>
+            <h1>+600 GOLD</h1>
             <button className={classes.nextButtonWasteland} onClick={handleCloseMessage}>Продолжить</button>
         </div>
     )
