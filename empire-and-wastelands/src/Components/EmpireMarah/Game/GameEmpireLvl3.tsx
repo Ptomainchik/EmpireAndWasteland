@@ -1,5 +1,4 @@
 import classes from "../../Styles/Games.module.css";
-import { BackButton } from "../../Buttons/BackButton";
 import { HomeButton } from "../../Buttons/HomeButton";
 import { useEffect, useState } from "react";
 import Avatar from "../../../Images/EmpireMarahImage/AvatarHero.jpg";
@@ -15,11 +14,11 @@ import { LoseMessage } from "./StoryMessages/LoseMessage";
 import { IntroEmpireGameLvl3 } from "./StoryMessages/Lvl3/IntroEmpireGameLvl3";
 import { MessageHalfHealthLvl3 } from "./StoryMessages/Lvl3/MessageHalfHealthLvl3";
 import { OutroEmpireGameLvl3 } from "./StoryMessages/Lvl3/OutroEmpireGameLvl3";
-import { useGameResources } from "./HookForResources/HookResources";
+import { useGameResourcesEmpire } from "./HookForResources/HookResources";
 import { RulesOfGame } from "./RulesOfGame/RulesOfGame";
 
 export const GameEmpireLvl3 = () => {
-    const [resources, setResources] = useGameResources();
+    const [resources, setResources] = useGameResourcesEmpire();
         
     const [showShop, setShowShop] = useState(false);
     const [showRules, setShowRules] = useState(false);
@@ -29,9 +28,7 @@ export const GameEmpireLvl3 = () => {
         empireEastArcher: 0,
         empireEastPathfinder: 0,
     });
-    const [stateButtonStoryMessages, setStateButtonStoryMessages] = useState({
-        closeButtonIntro: false,
-    });
+    const [stateButtonStoryMessages, setStateButtonStoryMessages] = useState({closeButtonIntro: false,});// eslint-disable-line @typescript-eslint/no-unused-vars
     const [showStoryMessages, setShowStoryMessages]:any = useState({
         intro: true,
         halfHealth: false,
@@ -63,7 +60,7 @@ export const GameEmpireLvl3 = () => {
             showSkillEastPathfinder: false,
     });
     const [showButtonPoultice, setShowButtonPoultice] = useState(false);
-    const [stateChoiceButton, setStateChoiceButton] = useState(true);
+    const [stateChoiceButton, setStateChoiceButton] = useState(true);// eslint-disable-line @typescript-eslint/no-unused-vars
     const [showGameField, setShowGameField] = useState(false);
     const [showSkillsSoldierEmpire, setShowSkillsSoldierEmpire] = useState(false);
     const [stateSkillsSoldiersEmpire, setStateSkillsSoldiersEmpire] = useState({
@@ -88,6 +85,7 @@ export const GameEmpireLvl3 = () => {
         stateFixStartButton: false,
         stateButtonValidationOfStart: false,
     });
+     /* eslint-disable @typescript-eslint/no-unused-vars */
     const [stateShowScale, setStateShowScale] = useState({
         C1: true,
         C2: true,
@@ -98,6 +96,7 @@ export const GameEmpireLvl3 = () => {
         D3: true,
         D4: true,
     })
+     /* eslint-eneble @typescript-eslint/no-unused-vars */
     const [occupiedCellOpponent, setOccupiedCellOpponent] = useState({
             A1:{
                 name: "Метатели",
@@ -3203,6 +3202,7 @@ function handleCounterattack() {
         if(buttonStateGame.stateButtonValidationOfStart === true && occupiedCell.C1.health + occupiedCell.C2.health + occupiedCell.C3.health + occupiedCell.C4.health + occupiedCell.D1.health + occupiedCell.D2.health + occupiedCell.D3.health + occupiedCell.D4.health <= 0) {
         setShowStoryMessages((prev: any) => ({...prev, lose: true}));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [occupiedCell]);
 
     useEffect(() => {
@@ -3311,7 +3311,7 @@ function handleCounterattack() {
         <div className={classes.gamePageEmpire}>
             
             <div className={classes.topbar} style={{backgroundColor: "cadetblue", backgroundImage: "linear-gradient(180deg, black -20%, cadetblue 47%, cadetblue 53%, black 120%)"}}>
-                <HomeButton/>Игра<BackButton/>
+                <HomeButton/>Игра<HomeButton/>
             </div>
             {showStoryMessages.intro && <IntroEmpireGameLvl3 setShowStoryMessages={setShowStoryMessages}/>}
 

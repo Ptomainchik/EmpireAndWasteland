@@ -1,5 +1,4 @@
 import classes from "../../Styles/Games.module.css";
-import { BackButton } from "../../Buttons/BackButton";
 import { HomeButton } from "../../Buttons/HomeButton";
 import { useEffect, useState } from "react";
 import Avatar from "../../../Images/AngalsWastelandsImage/AngalAvatar.jpg";
@@ -11,12 +10,12 @@ import { LoseMessage } from "./StoryMessages/LoseMessage";
 import { IntroWastelandGameLvl1 } from "./StoryMessages/Lvl1/IntroWastelandGameLvl1";
 import { MessageHalfHealthLvl1 } from "./StoryMessages/Lvl1/MessageHalfHealthLvl1";
 import { OutroWastelandGameLvl1 } from "./StoryMessages/Lvl1/OutroWastelandGameLvl1";
-import { useGameResources } from "./HookForResources/HookResources";
+import { useGameResourcesWasteland } from "./HookForResources/HookResources";
 import { RulesOfGame } from "./RulesOfGame/RulesOfGame";
 
 export const GameWastelandLvl1 = () => {
-    const [resources, setResources] = useGameResources();
-
+    const [res, setRes] = useGameResourcesWasteland();// eslint-disable-line @typescript-eslint/no-unused-vars
+    const [resources, setResources] = useState(250);
     const [showShop, setShowShop] = useState(false);
     const [showRules, setShowRules] = useState(false);
     const [showOverallRules, setShowOverallRules] = useState(true);
@@ -26,9 +25,7 @@ export const GameWastelandLvl1 = () => {
         wastelandMaces: 0,
         wastelandAngalit: 0,
     });
-    const [stateButtonStoryMessages, setStateButtonStoryMessages] = useState({
-        closeButtonIntro: false,
-    });
+    const [stateButtonStoryMessages, setStateButtonStoryMessages] = useState({closeButtonIntro: false,});// eslint-disable-line @typescript-eslint/no-unused-vars
     const [showStoryMessages, setShowStoryMessages]:any = useState({
         intro: true,
         halfHealth: false,
@@ -58,7 +55,7 @@ export const GameWastelandLvl1 = () => {
                 showSkillAngalit: false,
     });
     const [showButtonPoultice, setShowButtonPoultice] = useState(false);
-    const [stateChoiceButton, setStateChoiceButton] = useState(true);
+    const [stateChoiceButton, setStateChoiceButton] = useState(true);// eslint-disable-line @typescript-eslint/no-unused-vars
     const [showGameField, setShowGameField] = useState(false);
     const [showSkillsSoldierWasteland, setShowSkillsSoldierWasteland] = useState(false);
     const [stateSkillsSoldiersWasteland, setStateSkillsSoldiersWasteland] = useState({
@@ -77,6 +74,7 @@ export const GameWastelandLvl1 = () => {
         stateFixStartButton: false,
         stateButtonValidationOfStart: false,
     });
+     /* eslint-disable @typescript-eslint/no-unused-vars */
     const [stateShowScale, setStateShowScale] = useState({
         C1: true,
         C2: true,
@@ -87,6 +85,7 @@ export const GameWastelandLvl1 = () => {
         D3: true,
         D4: true,
     })
+     /* eslint-eneble @typescript-eslint/no-unused-vars */
     const [occupiedCellOpponent, setOccupiedCellOpponent] = useState({
             A1:{
                 name: "Лучники запада",
@@ -2014,6 +2013,7 @@ function handleCounterattack() {
         if(buttonStateGame.stateButtonValidationOfStart === true && occupiedCell.C1.health + occupiedCell.C2.health + occupiedCell.C3.health + occupiedCell.C4.health + occupiedCell.D1.health + occupiedCell.D2.health + occupiedCell.D3.health + occupiedCell.D4.health <= 0) {
         setShowStoryMessages((prev: any) => ({...prev, lose: true}));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [occupiedCell]);
 
     useEffect(() => {
@@ -2075,13 +2075,13 @@ function handleCounterattack() {
         <div className={classes.gamePageWasteland}>
             
             <div className={classes.topbar} style={{backgroundColor: "darkolivegreen", backgroundImage: "linear-gradient(180deg, black -20%, darkolivegreen 47%, darkolivegreen 53%, black 120%)"}}>
-                <HomeButton/>Игра<BackButton/>
+                <HomeButton/>Игра<HomeButton/>
             </div>
             {showStoryMessages.intro && <IntroWastelandGameLvl1 setShowStoryMessages={setShowStoryMessages}/>}
 
             {showStoryMessages.halfHealth && <MessageHalfHealthLvl1 setShowStoryMessages={setShowStoryMessages}/>}
 
-            {showStoryMessages.outro && <OutroWastelandGameLvl1 setShowStoryMessages={setShowStoryMessages} resources={resources} setResources={setResources}/>}
+            {showStoryMessages.outro && <OutroWastelandGameLvl1 setShowStoryMessages={setShowStoryMessages} resources={resources} setRes={setRes}/>}
 
             {showStoryMessages.lose && <LoseMessage/>}
 

@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 
 // Глобальная переменная для хранения состояния между компонентами
-let globalResources = 250; // 250
+let globalResources = 0; // 250
 let listeners: ((value: number) => void)[] = [];
 
-export const useGameResources = () => {
+export const useGameResourcesWasteland = () => {
     const [resources, setResources] = useState(globalResources);
 
     useEffect(() => {

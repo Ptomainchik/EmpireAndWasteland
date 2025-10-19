@@ -1,5 +1,4 @@
 import classes from "../../Styles/Games.module.css";
-import { BackButton } from "../../Buttons/BackButton";
 import { HomeButton } from "../../Buttons/HomeButton";
 import { useEffect, useState } from "react";
 import Avatar from "../../../Images/AngalsWastelandsImage/AngalAvatar.jpg";
@@ -15,11 +14,11 @@ import { LoseMessage } from "./StoryMessages/LoseMessage";
 import { IntroWastelandGameLvl3 } from "./StoryMessages/Lvl3/IntroWastelandGameLvl3";
 import { MessageHalfHealthLvl3 } from "./StoryMessages/Lvl3/MessageHalfHealthLvl3";
 import { OutroWastelandGameLvl3 } from "./StoryMessages/Lvl3/OutroWastelandGameLvl3";
-import { useGameResources } from "./HookForResources/HookResources";
+import { useGameResourcesWasteland } from "./HookForResources/HookResources";
 import { RulesOfGame } from "./RulesOfGame/RulesOfGame";
 
 export const GameWastelandLvl3 = () => {
-    const [resources, setResources] = useGameResources();
+    const [resources, setResources] = useGameResourcesWasteland();
         
     const [showShop, setShowShop] = useState(false);
     const [showRules, setShowRules] = useState(false);
@@ -29,9 +28,7 @@ export const GameWastelandLvl3 = () => {
         wastelandMaces: 0,
         wastelandAngalit: 0,
     });
-    const [stateButtonStoryMessages, setStateButtonStoryMessages] = useState({
-        closeButtonIntro: false,
-    });
+    const [stateButtonStoryMessages, setStateButtonStoryMessages] = useState({closeButtonIntro: false,});// eslint-disable-line @typescript-eslint/no-unused-vars
     const [showStoryMessages, setShowStoryMessages]:any = useState({
         intro: true,
         halfHealth: false,
@@ -63,7 +60,7 @@ export const GameWastelandLvl3 = () => {
                 showSkillAngalit: false,
     });
     const [showButtonPoultice, setShowButtonPoultice] = useState(false);
-    const [stateChoiceButton, setStateChoiceButton] = useState(true);
+    const [stateChoiceButton, setStateChoiceButton] = useState(true);// eslint-disable-line @typescript-eslint/no-unused-vars
     const [showGameField, setShowGameField] = useState(false);
     const [showSkillsSoldierWasteland, setShowSkillsSoldierWasteland] = useState(false);
     const [stateSkillsSoldiersWasteland, setStateSkillsSoldiersWasteland] = useState({
@@ -88,6 +85,7 @@ export const GameWastelandLvl3 = () => {
         stateFixStartButton: false,
         stateButtonValidationOfStart: false,
     });
+     /* eslint-disable @typescript-eslint/no-unused-vars */
     const [stateShowScale, setStateShowScale] = useState({
         C1: true,
         C2: true,
@@ -98,6 +96,7 @@ export const GameWastelandLvl3 = () => {
         D3: true,
         D4: true,
     })
+     /* eslint-eneble @typescript-eslint/no-unused-vars */
     const [occupiedCellOpponent, setOccupiedCellOpponent] = useState({
             A1:{
                 name: "Лучники востока",
@@ -4774,6 +4773,7 @@ function handleCounterattack() {
         if(buttonStateGame.stateButtonValidationOfStart === true && occupiedCell.C1.health + occupiedCell.C2.health + occupiedCell.C3.health + occupiedCell.C4.health + occupiedCell.D1.health + occupiedCell.D2.health + occupiedCell.D3.health + occupiedCell.D4.health <= 0) {
         setShowStoryMessages((prev: any) => ({...prev, lose: true}));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [occupiedCell]);
 
     useEffect(() => {
@@ -4867,7 +4867,7 @@ function handleCounterattack() {
         <div className={classes.gamePageWasteland}>
             
             <div className={classes.topbar} style={{backgroundColor: "darkolivegreen", backgroundImage: "linear-gradient(180deg, black -20%, darkolivegreen 47%, darkolivegreen 53%, black 120%)"}}>
-                <HomeButton/>Игра<BackButton/>
+                <HomeButton/>Игра<HomeButton/>
             </div>
             {showStoryMessages.intro && <IntroWastelandGameLvl3 setShowStoryMessages={setShowStoryMessages}/>}
 
