@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/EmpireAndWasteland/static/css/main.0ad93fec.css",
-    "main.js": "/EmpireAndWasteland/static/js/main.843c1373.js",
+    "main.css": "/EmpireAndWasteland/static/css/main.9023595f.css",
+    "main.js": "/EmpireAndWasteland/static/js/main.c96f8133.js",
     "static/js/453.da42548e.chunk.js": "/EmpireAndWasteland/static/js/453.da42548e.chunk.js",
     "static/media/BackgroundFieldEmpireGame.png": "/EmpireAndWasteland/static/media/BackgroundFieldEmpireGame.ab4d47fbf6aa9c638ca1.png",
     "static/media/BackgroundFieldWastelandGame.png": "/EmpireAndWasteland/static/media/BackgroundFieldWastelandGame.a3889edd43e6bb60b494.png",
@@ -76,12 +76,12 @@
     "static/media/AvatarHero.jpg": "/EmpireAndWasteland/static/media/AvatarHero.c9c9518ef58eaf0de916.jpg",
     "static/media/AngalAvatar.jpg": "/EmpireAndWasteland/static/media/AngalAvatar.659c72d520337a89bec9.jpg",
     "index.html": "/EmpireAndWasteland/index.html",
-    "main.0ad93fec.css.map": "/EmpireAndWasteland/static/css/main.0ad93fec.css.map",
-    "main.843c1373.js.map": "/EmpireAndWasteland/static/js/main.843c1373.js.map",
+    "main.9023595f.css.map": "/EmpireAndWasteland/static/css/main.9023595f.css.map",
+    "main.c96f8133.js.map": "/EmpireAndWasteland/static/js/main.c96f8133.js.map",
     "453.da42548e.chunk.js.map": "/EmpireAndWasteland/static/js/453.da42548e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0ad93fec.css",
-    "static/js/main.843c1373.js"
+    "static/css/main.9023595f.css",
+    "static/js/main.c96f8133.js"
   ]
 }
