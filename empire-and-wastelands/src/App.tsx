@@ -15,6 +15,7 @@ import { GameEmpireLvl1 } from './Components/EmpireMarah/Game/GameEmpireLvl1';
 import { GameEmpireLvl2 } from './Components/EmpireMarah/Game/GameEmpireLvl2';
 import { GameEmpireLvl3 } from './Components/EmpireMarah/Game/GameEmpireLvl3';
 import { GameEmpireLvl4 } from './Components/EmpireMarah/Game/GameEmpireLvl4';
+import { TransitionPage } from './Components/TransitionPage/TransitionPage';
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
       <Route path="gamewaslvl3" element={<GameWastelandLvl3/>}/>
       <Route path="gamewaslvl4" element={<GameWastelandLvl4/>}/>
       <Route path="*" element={<NoPage/>}/>
+      <Route path="transition" element={<TransitionPage/>}/>
     </Routes>
   </BrowserRouter>
   );

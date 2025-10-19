@@ -14,6 +14,7 @@ import { MessageHalfHealthLvl2 } from "./StoryMessages/Lvl2/MessageHalfHealthLvl
 import { OutroWastelandGameLvl2 } from "./StoryMessages/Lvl2/OutroWastelandGameLvl2";
 import { useGameResourcesWasteland } from "./HookForResources/HookResources";
 import { RulesOfGame } from "./RulesOfGame/RulesOfGame";
+import { RestartButtonWasteland } from "../../Buttons/RestartButtonWasteland";
 
 export const GameWastelandLvl2 = () => {
     const [resources, setResources] = useGameResourcesWasteland();
@@ -2937,7 +2938,7 @@ function handleCounterattack() {
         <div className={classes.gamePageWasteland}>
             
             <div className={classes.topbar} style={{backgroundColor: "darkolivegreen", backgroundImage: "linear-gradient(180deg, black -20%, darkolivegreen 47%, darkolivegreen 53%, black 120%)"}}>
-                <HomeButton/>Игра<HomeButton/>
+                <HomeButton/>Игра<RestartButtonWasteland/>
             </div>
             {showStoryMessages.intro && <IntroWastelandGameLvl2 setShowStoryMessages={setShowStoryMessages}/>}
 

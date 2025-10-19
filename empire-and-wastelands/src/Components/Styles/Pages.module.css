@@ -133,6 +133,14 @@
     filter: drop-shadow(0.3vw 0.3vw 0.3vw black);
 }
 
+.transitionPage{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: gray;
+    background-size: cover;
+}
+
 
 @media (max-width: 480px) {
 

@@ -17,6 +17,7 @@ import { MessageHalfHealthLvl4 } from "./StoryMessages/Lvl4/MessageHalfHealthLvl
 import { OutroEmpireGameLvl4 } from "./StoryMessages/Lvl4/OutroEmpireGameLvl4";
 import { useGameResourcesEmpire } from "./HookForResources/HookResources";
 import { RulesOfGame } from "./RulesOfGame/RulesOfGame";
+import { RestartButtonEmpire } from "../../Buttons/RestartButtonEmpire";
 
 export const GameEmpireLvl4 = () => {
     const [resources, setResources] = useGameResourcesEmpire();
@@ -3593,7 +3594,7 @@ function handleCounterattack() {
         <div className={classes.gamePageEmpire}>
             
             <div className={classes.topbar} style={{backgroundColor: "cadetblue", backgroundImage: "linear-gradient(180deg, black -20%, cadetblue 47%, cadetblue 53%, black 120%)"}}>
-                <HomeButton/>Игра<HomeButton/>
+                <HomeButton/>Игра<RestartButtonEmpire/>
             </div>
             {showStoryMessages.intro && <IntroEmpireGameLvl4 setShowStoryMessages={setShowStoryMessages}/>}
 
